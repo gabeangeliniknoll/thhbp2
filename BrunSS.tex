@@ -1,0 +1,705 @@
+\section{Brun spectral sequences}
+\gabe{Fix some conventions. Write $THH(R)$ for $THH(HR)$ for a discrete ring? I'm fine with either as long as it is clear. I'd like to try to prove everything without implicitly $p$-completing if we can, so I started to adjust this, but right now this may be inconsistent.}
+%\subsection{Preliminaries}
+We first recall the main theorem from \cite{Hon18}. 
+\begin{thm}[Thm. 1.1 {\cite{Hon18}}]\label{Honing}
+Let $A$ be a cofibrant commutative $S$-algebra and let $B$ be a connective cofibrant commutative $A$-algebra. Let $E$ be a ring spectrum. Then, there is a strongly convergent, multiplicative spectral sequence of the form
+\[ E^2_{n,m} = \pi_n THH(B; HE_m(B\wedge_{A}B)) \Rightarrow E_{n+m}THH(A; B).\]
+If $E_{m}(B\wedge_{A}B)$ is an $\mathbb{F}_p$-vector space for all $m$ and if $\pi_0(B)/p\pi_0(B)=\mathbb{F}_p$ as rings, we have
+\[ E^2_{n,m}= E_m (B\wedge_{A}  B )\otimes_{\mathbb{F}_p}  \pi_n( THH( B ; H\mathbb{F}_p ).\]
+\end{thm}
+\begin{not*}
+We introduce notation $E^r(B,A,E)$ for the $r$-th page of the Brun spectral sequence for the triple $(B,A,E)$, where 
+\[E^2(B,A,E):= \pi_* THH(B; HE_*(B\wedge_{A}B)).\]
+\end{not*}
+The main examples we will be interested in are the triples $(\tBP{i} , \tBP{j} , V(k))$ for $i,j,k\in \{ -1,0,1,2 \}$ where $V(-1)=S$ and 
+\[V(k)=S/(p,v_1,\dots v_k),\]
+when this spectrum exists.
+\begin{comment}
+We begin with some cases where we know the answer, by computing by other methods, and therefore we can quickly determine differential patterns. It should be possible to give intrinsic arguments here, but we do not do so in the interest of brevity. 
+\begin{lem}
+In the spectral sequence
+\[ E^2_{n,m} = \pi_n THH(H\mathbb{F}_p; H\pi_m(H\mathbb{F}_p \wedge_{\tBP{2}}H\mathbb{F}_p)) \Rightarrow \pi_{n+m}THH(\BP{2}; H\mathbb{F}_p).\]
+we may identify the $E_2$-page with 
+\[ P(\sigma \btau_0)\otimes E(\sigma v_0,\sigma v_1,\sigma v_2) \]
+and all differentials are determined by the differentials
+\begin{align*}
+d_1(\sigma \btau_0)\dot{=}\sigma v_0  \\
+d_{2p-1}((\sigma \btau_0)^p)\dot{=}\sigma v_1  \\
+d_{2p^2-1}((\sigma \btau_0)^{p^2})\dot{=}\sigma v_2 
+\end{align*}
+and the Leibniz rule. Consequently, the $E_{\infty}$-page is isomorphic to 
+\[ E(\lambda_1,\lambda_2,\lambda_3)\otimes P(\mu_3)\]
+where $\lambda_1=\sigma v_0 (\sigma \tau_0)^{p-1}$, $\lambda_2=\sigma v_1 (\sigma \tau_0)^{p^2-p}$,  $\lambda_3=\sigma v_2 (\sigma \tau_0)^{p^3-p^2}$, and $\mu_3=(\sigma \tau_0)^{p^3}$. There are no hidden extensions. 
+\end{lem}
+\begin{proof}
+We first compute the K\"unneth spectral sequence
+\[ \Tor_*^{\tBP{2}_*}(\mathbb{F}_p,\mathbb{F}_p)\Rightarrow \pi_*(H\mathbb{F}_p\wedge_{\tBP{2}}H\mathbb{F}_p) \]
+whose input we compute is $E(\sigma v_0,\sigma v_1,\sigma v_2)$ by Tor-duality and which collapses by multiplicativity and the fact that the algebra generators are infinite cyclic for bidegree reasons. We know that in the abutment that there are no elements in even degrees less than $2p^2+2p-2$ and not elements in degrees divisible by $2p$ until degree $2p^3$. This forces each of the three differentials and the rest is determined by the Leibniz rule. Consequently, the $E_{\infty}$-page is isomorphic to 
+\[ E(\lambda_1,\lambda_2,\lambda_3)\otimes P(\mu_3)\]
+where $\lambda_1=\sigma v_0 (\sigma \tau_0)^{p-1}$, $\lambda_2=\sigma v_1 (\sigma \tau_0)^{p^2-p}$,  $\lambda_3=\sigma v_2 (\sigma \tau_0)^{p^3-p^2}$, and $\mu_3=(\sigma \tau_0)^{p^3}$, as desired. there can be no hidden extensions because we know the abutment. 
+\end{proof}
+The lemma above is useful for determining differentials in spectral sequences with more complex coefficients. 
+\end{comment}
+We begin by computing relative cooperations for some spectra that will be needed in our later computations. 
+\begin{lem}\label{rel coop 1}
+There is an isomorphism
+\[ \pi_*(H\mathbb{Z}_p\wedge_{\tBP{2}}H\mathbb{Z}_p)\cong E_{\mathbb{Z}_p}(\sigma v_1, \sigma v_2) \]
+of graded $\mathbb{Z}_p$-algebras
+and there is an isomorphism
+\[ V(0)_*(H\mathbb{Z}_p\wedge_{\tBP{2}}H\mathbb{Z}_p)\cong E(\sigma v_1, \sigma v_2) \]
+\end{lem}
+\begin{proof}
+The first result follows by the multiplicative K\"unneth spectral sequence
+\[ \Tor^{\tBP{2}_*}_{*,*}(\mathbb{Z}_p,\mathbb{Z}_p)\Rightarrow  \pi_*(H\mathbb{Z}_p\wedge_{\tBP{2}}H\mathbb{Z}_p).\]
+by computing the input 
+\[ \Tor^{\tBP{2}_*}_{*,*}(\mathbb{Z}_p,\mathbb{Z}_p)\cong E_{\mathbb{Z}_p}(\sigma v_1, \sigma v_2)\]
+using Tor-duality and observing that there is the algebra generators are all infinite cycles for bidegree reasons. 
+
+The second result follows by noting that 
+\[ V(0)_*(H\mathbb{Z}_p\wedge_{\tBP{2} }H\mathbb{Z}_p)\cong \pi_*(H\mathbb{F}_p\wedge_{\tBP{2}}H\mathbb{Z}_p)\cong \pi_*H\mathbb{F}_p\wedge_{\mathbb{Z}_p}(H\mathbb{Z}_p\wedge_{\tBP{2}}H\mathbb{Z}_p)\]
+so by the previous argument we know that $\pi_*(H\mathbb{Z}_p\wedge_{\tBP{2}}H\mathbb{Z}_p)\cong E_{\mathbb{Z}_p}(\sigma v_1,\sigma v_2)$, which is, in particular, a free graded $\mathbb{Z}_p$-algebra. So again we apply a multiplicative K\"unneth spectral sequence, this time with signature
+\[\Tor^{\mathbb{Z}_p}_{*,*}(\mathbb{F}_p,E_{\mathbb{Z}_p}(\sigma v_1,\sigma v_2))\Rightarrow V(0)_*(H\mathbb{Z}_p\wedge_{\tBP{2}}H\mathbb{Z}_p).\]
+The $E_2$-page is given by the isomorphism
+\[ \Tor^{\mathbb{Z}_p}_{*,*}(\mathbb{F}_p,E_{\mathbb{Z}_p}(\sigma v_1,\sigma v_2)\cong \mathbb{F}_p\otimes_{\mathbb{Z}_p} E_{\mathbb{Z}_p}(\sigma v_1,\sigma v_2) \]
+which in particular, collapses to the zero line so the K\"unneth spectral sequence again collapses and the desired answer follows by the isomorphsim
+\[ \mathbb{F}_p\otimes_{\mathbb{Z}_p} E_{\mathbb{Z}_p}(\sigma v_1,\sigma v_2)\cong E(\sigma v_1,\sigma v_2).\]
+\end{proof}
+We begin by computing the Brun spectral sequence for the triple $(\tBP{2},\tBP{0},S)$ where $\tBP{0}=H\mathbb{Z}_p$. First, we need the following result of B\"okstedt. 
+\begin{thm}[B\"okstedt]\label{bokstedt}
+There is an isomorphism of graded $\F_p$-algebras 
+\[\THH_*(\Z;\F_p)\cong E(\lambda_1)\otimes P(\mu_1),\]
+there are isomorphisms of groups
+	\[
+	\pi_t\THH(\Z)\cong \begin{cases}
+		\Z\{1\} & t=0\\
+		\Z/n\{\gamma_n\} & t=2n-1>0\\
+		0 & else
+	\end{cases}
+	\]
+	and the map 
+	\[ THH_*(\Z)\to THH_*(\Z;H\F_p)\]
+	sends $\gamma_n$  to $\lambda_1\mu_1^{k-1}$ when $n=pk$ for some integer $k\ge 1$ and to $0$ otherwise. This is also a map of graded rings where the former has a graded ring structure by letting $\gamma_i\cdot\gamma_j=0$ for all $i,j$.	
+\end{thm}
+\begin{cor}\label{Bokmap}
+There is an isomorphism 
+\[
+\pi_t\THH(\Z_{(p)})_p \cong \begin{cases}
+		\Z & t=0\\
+		\Z/p^{\nu_p(n)}\{\gamma_n\} & t=2n-1>0\\
+		0 & else
+	\end{cases}
+\]
+where $\nu_p$ denotes the $p$-adic valuation and the map $THH_*(\Z)\to THH_*(\Z_{(p)})_p$ sends $\gamma_n$ to $\gamma_n$ if $p\mid n$ and zero otherwise, so the map of graded $\Z_p$-algebras
+\[ THH_*(\Z_{(p)})_p\to THH_*(\Z_{(p)};\F_p)\]
+sends $\gamma_{pk}$ to $\lambda_1\mu_1^{k-1}$ as before with $\gamma_i\cdot\gamma_j=0$ for all $i,j$ as before. %(Note that $THH(H\Z)_p\simeq THH(H\Z_p)$ since $p$-completion is a smashing localization.) 
+\end{cor}
+\begin{proof}
+It is clear that 
+\[THH_*(\Z_{(p)};\F_p)\cong THH_*(\Z_{(p)};\F_p)\cong E(\lambda_1)\otimes P(\mu_1)\]
+so the computation of $THH_*(H\Z_{(p)})$ is clear from the Bockstein spectral sequence 
+\[THH_*(\Z_{(p)};\F_p)[v_0]\Rightarrow THH_*(\Z_{(p)})_p\]
+with differentials
+\[ d_k(\mu_1^{p^{k-1}})=v_0^k\lambda_1,\]
+all possible additive extensions, and no possible multiplicative extensions.
+\end{proof}
+
+\subsection{Brun spectral sequences with known abutment}
+We now compute the Brun spectral sequence for the triple $(\tBP{2},\tBP{0},V(0))$ using the known answer for the abutment. An argument intrinsic to this approach should also be possible, but in the interest of brevity we do not take this approach. 
+\begin{lem}
+The Brun spectral sequence with signature
+\[ E^2(\tBP{2},\tBP{0},V(0))\Rightarrow \pi_*(THH(\tBP{2},H\mathbb{F}_p))\]
+has $E^2$-page
+\[ E^2(\tBP{2},\tBP{0},V(0))\cong THH_*(H\mathbb{Z}_p;\mathbb{F}_p)\otimes E(\sigma v_1,\sigma v_2), \]
+differentials
+\begin{align*}
+	d^1(\sigma \tau_1) =\sigma v_1,\\
+	d^{p}((\sigma \tau_1)^p) = \sigma v_2 \\
+\end{align*}
+and $E_{\infty}$-page isomorphic to the abutment, which is in turn isomorphic to 
+\[ E(\lambda_1,\lambda_2,\lambda_2)\otimes P(\mu_3) \]
+by an isomorphism mapping $\lambda_1$ to $\lambda_1$, $\sigma v_1(\sigma\tau_1)^{p-1}$ to $\lambda_2$, $\sigma v_2\sigma \tau_1)^{p^2-p}$ to $\lambda_3$, and $(\sigma \tau_1)^{p^2}$ to $\mu_3$. 
+\end{lem}
+\begin{proof}
+The input is determined by Theorem \ref{Honing}, Theorem \ref{bokstedt}, and Lemma \ref{rel coop 1}. 
+We know that the abutment has no elements in degrees $k$ where $k\equiv 0 \pmod{2p}$ and $k<2p^3$. This immediately implies the two differentials and the rest is determined by the Leibniz rule and the fact that any further differentials would result in a smaller output than the known abutment. 
+\end{proof}
+\begin{lem}\label{map of Brun ss}
+The map 
+\[ E^2(\tBP{2},\tBP{0},S)\to E^2(\tBP{2},\tBP{0},V(0) )\]
+of $E^2$-pages of Brun spectral sequences is determined by the map 
+\[THH_*(\mathbb{Z}_{(p)})\otimes_{\mathbb{Z}_{(p)}}E_{\mathbb{Z}_{(p)}}(\sigma v_1,\sigma v_2) \to THH_*(\mathbb{Z}_{(p)};H\mathbb{F}_p)\otimes E(\sigma v_1,\sigma v_2) \]
+given by tensoring the map 
+\[THH_*(\mathbb{Z}_{(p)})\to THH_*(\mathbb{Z}_{(p)};H\mathbb{F}_p)\]
+of Corollary \ref{Bokmap} with the mod $p$-reduction map 
+\[ E_{\mathbb{Z}_p}(\sigma v_1,\sigma v_2)\to E(\sigma v_1,\sigma v_2) \]
+over the canonical quotient map $\mathbb{Z}_p\to \mathbb{F}_p$. 
+\end{lem}
+\begin{proof}
+This follows easily by functoriality of the identification of the $E^2$-page in Theorem \ref{Honing} and Corollary \ref{Bokmap}. 
+\end{proof}
+
+We will now use the previous result as well as the known abutment from a previous section to determine the differentials in the Brun spectral sequence for the triple $(\tBP{2},\tBP{0},S)$. This will then be used to import key differentials into the main Brun spectral sequence of interest. 
+\begin{lem}
+The Brun spectral sequence with signature
+\[ E^2(\tBP{2},\tBP{0},S)\Rightarrow \pi_*THH(\tBP{2},\tBP{0})\]
+has $E^2$-page
+\[ E^2(\tBP{2},\tBP{0},S)\cong THH_*(H\mathbb{Z}_p)\otimes_{\mathbb{Z}_p}E(\sigma v_1,\sigma v_2) \]
+and differentials
+\begin{align*}
+	d^1(\gamma_{pk}) &= (k-1)\sigma v_1\gamma_{p(k-1)},\\
+	d^{p+1}(a_k) &= (k-1)\sigma v_2a_{k-1}, \\ 
+	 d^{p+1}(b_k)&=(k-1)\sigma v_2 b_{k-1}\\
+\end{align*}
+where $a_k=p\gamma_{p^2k}$ and $b_k=p^2i\gamma_{p^2k}\sigma v_1$ and additive extensions
+\begin{align*}
+p\gamma_p=\sigma v_1 \\
+pa_1=\sigma v_2.\\
+\end{align*}
+\end{lem}
+\begin{proof}
+We consider the map of spectral sequences
+\[ E^2(\tBP{2},\tBP{0},S)\to E^2(\tBP{2},\tBP{0},V(0)).\]
+This is completely described by Lemma \ref{map of Brun ss} and therefore we can determine the $d^1$-differentials
+\[d^1(\gamma_{pk}) = (k-1)\sigma v_1\gamma_{p(k-1)}\]
+directly. This accounts for all $d_1$-differentials. Using the translation $a_k=p\gamma_{p^2k}$ and $b_k=p^2i\gamma_{p^2k}\sigma v_1$ we then observe that the $E^2$-page is isomorphic to the associated graded of a filtration of 
+\[ THH_*(\ell, H\mathbb{Z}_p)\otimes_{\mathbb{Z}_p}E_{\mathbb{Z}_p}(\sigma v_2) \]
+the differential pattern 
+\begin{align*}
+	d^{p+1}(a_k) = (k-1)\sigma v_2a_{k-1}, \\ 
+	 d^{p+1}(b_k)=(k-1)\sigma v_2 b_{k-1}\\
+\end{align*}
+is then forced in order to get the desired answer in the abutment and so are the hidden additive extensions.
+\end{proof}
+
+\subsection{Brun spectral sequence for the triple $(\tBP{2},\tBP{1},S)$}
+We now consider the main example of interest, the Brun spectral sequence for the triple $(\tBP{2},\tBP{1},S)$. Note that we are choosing $\tBP{1}$ to be a commutative $\tBP{2}$-algebra model for $\tBP{1}$ and both $\tBP{2}$ and $\tBP{1}$ are implicitly $p$-completed. We first begin with a necessary lemma. 
+\begin{lem}
+There is an isomorphism of graded $\mathbb{Z}_p$-algebras 
+\[ \pi_*(\tBP{1}\wedge_{\tBP{2}}\tBP{1})\cong \pi_*(\tBP{1})\otimes_{\mathbb{Z}_p} E_{\mathbb{Z}_p}(\sigma v_2)\] 
+\end{lem}
+\begin{proof}
+We compute the K\"unneth spectral sequence 
+\[  \Tor_*^{\tBP{2}_*}(\tBP{1}_*,\tBP{1}_*)\Rightarrow \pi_*(\tBP{1}\wedge_{\tBP{2}}\tBP{1}).\]
+The input is $\pi_*(\tBP{1})_*\otimes E(\sigma v_2)$ by Tor-duality. The spectral sequence then collapses by multiplicativity and the because all algebra generators are infinite cycles for bidegree reasons. 
+\end{proof}
+
+\begin{cor}
+The $E_2$-page of the Brun spectral sequence for the triple $(\tBP{2},\tBP{1},S)$ is 
+\[ E_2(\tBP{2},\tBP{1},S)= \pi_*(\THH(\tBP{1};H\mathbb{Z}_p))\otimes_{\mathbb{Z}_p} \pi_*(BP\langle 1\rangle )\otimes_{\mathbb{Z}_p} E_{\mathbb{Z}_p}(\sigma v_2).\]
+In addition the $E_2$-page of the Brun spectral sequence for the triple $(\tBP{1},\tBP{1},S)$ is 
+\[ E_2(\tBP{1},\tBP{1},S)=\pi_n(\THH(\tBP{1};H\mathbb{Z}_p)\otimes_{\mathbb{Z}_p}\pi_*(\tBP{1}) \] 
+and the map 
+\[ E_2(\tBP{2},\tBP{1},S) \to E_2(\tBP{1},\tBP{1},S) \]
+is the identity map tensored with the usual counit map $E_{\mathbb{Z}_p}(\sigma v_2)\to \mathbb{Z}_p$ of the Hopf algebra $E_{\mathbb{Z}_p}(\sigma v_2)$. 
+\end{cor}
+
+Since the Brun spectral sequence for the triple $(\tBP{1},\tBP{1},S)$  can be identified with the Bockstein spectral sequence 
+\[ THH_*(\tBP{1},H\mathbb{Z}_{(p)})[v_1]\Rightarrow THH_*(\tBP{1})\]
+up to a shift in filtration, we know that  all the differentials are 
+determined by the formulas
+\begin{align}\label{AHL diff Brun filt}
+d_{f(n)}(p^{n-1}a_{kp^{n-1}})\dot{=}(k-1)v_1^{p^n+\dots +p}b_{(k-1)p^{n-1}} 
+\end{align}
+where $f(n)=|v_1^{p^n+\dots +p}|$ by \cite{AHL}. 
+
+Since we determined the map of Brun spectral sequences 
+\[ E_2(\tBP{2},\tBP{1},S)\to E_2(\tBP{1},\tBP{1},S)\]
+we may then import these differentials into the spectral sequence 
+\[ E_2(\tBP{2},\tBP{1},S)\Rightarrow \pi_*THH(\tBP{2};\tBP{1}) \]
+though some care must be taken when doing this. In particular, a priori, there could be a differential hitting a $\sigma v_2$-divisible element in $E_2(\tBP{2},\tBP{1},S)$ that interrupts the other differential pattern. This cannot happen for the first differential because $|\sigma v_2|=2p^2-1$ and the length of the first family of differentials is $2p^2-2p$, which is clearly smaller. We therefore immediately determine the first differential pattern. 
+\begin{lem}
+There is a family of differentials 
+\begin{align}\label{AHL diff Brun filt} 
+d_{2p^2-2p}(a_{k})\dot{=}(k-1)v_1^{p}b_{(k-1)} 
+\end{align}
+in the Brun spectral sequence with signature
+\[ E^{2}(\tBP{2},\tBP{1},S)\Rightarrow \pi_*THH(\tBP{2},\tBP{1}).\]
+\end{lem}
+We observe that 
+\[ E^{2p^2-2p+1}(\tBP{2},\tBP{2},S)\cong E^{2p^2-2p+1}(\tBP{1},\tBP{2},S)\otimes E(\sigma v_2). \]
+In particular, note that 
+\[ \{ pa_{pi}, v_1^pb_{pk} : i\ge 1 , k\ge 1\} \]
+survive where $p^{j}pa_{pi}=0$ when $j=\nu_p(i)+1$ and $pkv_1^pb_{pk}=0$. 
+
+We also can determine the map of Brun spectral sequences
+\[ E_2(\tBP{2},\tBP{1},S)\to E_2(\tBP{2},\tBP{0},S),\]
+which is isomorphic to
+\[ \pi_*(\THH(\tBP{1};H\mathbb{Z}_p)\otimes_{\mathbb{Z}_p} \pi_*(BP\langle 1\rangle )\otimes_{\mathbb{Z}_p} E_{\mathbb{Z}_p}(\sigma v_2)\to  THH_*(H\mathbb{Z}_p)\otimes_{\mathbb{Z}_p}E(\sigma v_1,\sigma v_2), \]
+is given by tensoring the map 
+\[\pi_*(\THH(\tBP{1};H\mathbb{Z}_p)\to THH_*(H\mathbb{Z}_p)\]
+induced by the map $\tBP{1}\to H\mathbb{Z}_p$ with the canonical quotient
+\[\pi_*(BP\langle 1\rangle )\to \mathbb{Z}_p \]
+the identity 
+\[E_{\mathbb{Z}_p}(\sigma v_2)\to E_{\mathbb{Z}_p}(\sigma v_2)\]
+and the unit map 
+\[ \mathbb{Z}_p\to E_{\mathbb{Z}_p}(\sigma v_1) \]
+of the $\mathbb{Z}_p$-algebra $E_{\mathbb{Z}_p}(\sigma v_1)$.
+
+We determined a differential hitting a $\sigma v_2$-divisible element in the Brun spectral sequence with signature 
+\[ E_2(\tBP{2},\tBP{0},S)\Rightarrow THH_*(\tBP{2},\tBP{0})\]
+given by 
+\begin{align*}
+d_{2p^2-1}(b_k)\dot{=}(k-1)\sigma v_2 b_{k-1}.
+\end{align*}
+and this differential lifts to the same differential in the Brun spectral sequence with signature
+\[E_2(\tBP{2},\tBP{1},S)\Rightarrow THH_*(\tBP{2},\tBP{1}).\]
+We summarize this in the following lemma.
+\begin{lem}
+There is a family of differentials
+\begin{align}\label{first diff pattern b}
+d_{2p^2-1}(b_k)\dot{=}(k-1)\sigma v_2 b_{k-1}.
+\end{align}
+in the Brun spectral sequence for the triple $(\tBP{2},\tBP{1},S)$. 
+\end{lem}
+
+Consequently, we have the identification 
+\[ E^{2p^2}(\tBP{2},\tBP{2},S)\cong H( E^{2p^2-2p+1}(\tBP{1},\tBP{2},S)\otimes E(\sigma v_2) ; d) \]
+where the differential we simply denote by $d$ here is determined by \eqref{first diff pattern b} and the Leibniz rule, and we write $H(M,d)$ for the homology of a differential bigraded algebra with respect to a differential. We observe that, in particular the elements 
+\[ \{ pb_{pj}, \sigma v_2 b_{pj} : j\ge 1\} \]
+survive where $pb_{pj}$ is indecomposable, $p\cdot (p^{i-1}\cdot pb_{pj})=0$ for $i=\nu_p(j)+1$, and $v_1\cdot (v_1^{p-1}(pb_{pj}))=0$. Also,  $v_1\cdot (v_1^{p-1}\sigma v_2 b_{pj})=0$ and $pj(\sigma v_2 b_{pj})=0$.
+ 
+We claim that this $E_{2p^2-2p+1}$-page 
+\[E^{2p^2-2p+1}(\tBP{2},\tBP{2},S)\]
+and the $E_1$-page  
+\[THH_*(\B,H\Z_p)[v_1]\] 
+of the Bockstein spectral sequence 
+\[ THH_*(\B,H\Z_p)[v_1]\Rightarrow THH_*(\B,\tBP{1})\]
+are two different associated graded algebras of two different filtrations of the same bigraded algebra. 
+
+\begin{prop}\label{third family of d}
+There is a family of differentials 
+\[ d_{f(2)}(pa_{pk})\dot{=}(k-1)v_1^{p^2+p}b_{p(k-1)}\]
+where $f(2)=|v_1^{p^2+p}|$. 
+\end{prop}
+\begin{proof}
+This is a sketch. Since we know the differential $d_{2p^2-1}(b_k)\dot{=}(k-1)\sigma v_2 b_{k-1}$ and there are no other possibly differentials of length between this one and $f(2)$, the next possibility is the differential of length $f(2)$. We then know that this spectral sequence maps to the one for the triple $(\tBP{1},\tBP{1},S)$ and there we have the differential $f(2)$. We can therefore lift this differential. We should probably be more careful about what exactly it lifts to. Anyways, this should give us the analogue of the first nontrivial differential in the B\"okstein spectral sequence. We can then use the cap product argument to propogate this differential to some later differentials. 
+\end{proof}
+
+\begin{comment}
+We will iteratively use the inequality 
+\[ |v_1^{p^n+\dots p}| < |v_1^{p^n+\dots p^2}\sigma v_2 | <  |v_1^{p^{n+1}+\dots p}|\]
+which simply follows by the inequality
+\[ |v_1^p|<|\sigma v_2| < |v_1^{p^2+p}| \]
+which in turn follows by the inequality
+\[ p^2-p<p^2-1< p^3-p,\]
+which hold for all primes $p$. 
+\gabe{Still need to argue that there are no differentials of length $r$ for $ |v_1^{p^n+\dots p^2}\sigma v_2 |<r<|v_1^{p^{n+1}+\dots p}|$, but this seems a bit easier than what we did before. We probably still need to use the cap product. Will the cap product be compatible with the Brun spectral sequence in some way? }
+
+\begin{lem}
+There is a family of differentials
+\begin{align}\label{AHL diff Brun filt} 
+d_{f(2)}(pa_{kp})\dot{=}(k-1)v_1^{p^2+p}b_{(k-1)p} 
+\end{align}
+in the Brun spectral sequence
+\[ E^2(\tBP{2},\tBP{1},S)\Rightarrow \pi_*THH(\tBP{2},\tBP{1}).\]
+\end{lem}
+\end{comment}
+
+
+\begin{comment}
+\subsection{The topological Hochschild-May spectral sequence with $\F_p$-coefficients}
+We computed in (insert internal reference qx) 
+\[
+\THH_*(B;\F_p)\cong P(\mu_3)\otimes E(\lambda_1, \lambda_2, \lambda_3)
+\]
+where $|\lambda_i| = 2p^i-1$ and $|\mu_3|=2p^3$. This force differentials in the topological Hochschild-May spectral sequence, which we can then import into other spectral sequences. The following lemma follows easily from these considerations.
+
+\begin{lem}
+	In the May spectral sequence
+	\[
+	E^1_{*,*}(B;H\F_p)=P(\mu_1)\otimes E(\lambda_1, \sigma v_1, \sigma v_2)\implies \THH_*(B;H\F_p)
+	\]
+	the differentials are uniquely determined by multiplicativity and the differentials
+	\[
+	d^1(\mu_1) = \sigma v_1,
+	d^{p+1}(\mu_1^p) = \sigma v_2. 
+	\]
+	The classes $\lambda_2$ and $\lambda_3$ are detected by $\mu_1^{p-1}\cdot\sigma v_1$ and $\mu_1^{p(p-1)}\sigma v_2$, respectively and $\mu_3$ is detected by $\mu_1^{p^2}$. There are no hidden extensions.  
+\end{lem}
+We will use this computation to build up to more complicated coefficients. 
+
+\subsection{The topological Hochschild-May spectral sequence with $H\Z_p$-coefficients}
+Recall that $E^1_{*,*}(B;H\Z_p)$ is isomorphic to 
+\[ \THH_*(H\Z_p)\otimes_{\Z_p}E_{\Z_p}(\sigma v_1,\sigma v_2)\]
+and the map $E^1_{*,*}(B;\HZ_p)\to E^1_{*,*}(B;H\F_p)$ is determined by the map 
+\[ \THH_*(H\Z_p)\to \THH_*(H\Z_p,H\F_p)\]
+tensored with the reduction mod $p$ map $E_{\Z_p}(\sigma v_1,\sigma v_2)\to E(\sigma v_1,\sigma v_2)$. We therefore determine the following $d^1$-differentials and $d^{p+1}$-differentials
+\begin{lem}
+In the May spectral sequence
+	\[
+	E^1_{*,*}(B;H\Z_p)=THH_*(\Z_p)\otimes_{\Z_p}E(\sigma v_1,\sigma v_2)
+	\]
+	there is a $d^1$-differential 
+	\[
+	d^1(\gamma_{pk}) = (k-1)\sigma v_1\gamma_{p(k-1)},
+	\]
+	and, consequently, an isomorphism 
+	\[E^2_{*,*}(B;H\Z_p)=E^2_{*,*}(\ell;H\Z_p)\otimes_{\Z_p}E(\sigma v_2)\]
+	where the classes $\lambda_1$, $a_i$ and $b_i$ are detected by $\gamma_p$, $p\gamma_{p^2i}$ and $p^2i\gamma_{p^2i}\sigma v_1$, respectively. There are then differentials
+	\[ d^{p+1}(a_k) = (k-1)\sigma v_2a_{k-1}\]
+	and 
+	\[ d^{p+1}(b_k)=(k-1)\sigma v_2 b_{k-1}\]
+	and hidden additive extensions $p\lambda_1=\sigma v_1$ and $p\lambda_2:=pa_1=\sigma v_2$. Using the naming convention of (cite previous theorem), we see that $pa_{pn}$ detects $c_n^{(1)}$, $pb_{pn}$ detects $c_n^{(2)}$, $\sigma v_2a_{p(n-1)}$ detects $d_n^{(1)} $and $\sigma v_2b_{p(n-1)}$ detects $d_n^{(2)}$ for $n\ge 1$.
+\end{lem}
+\begin{proof}
+Since $\gamma_{pk}$ maps to $\lambda_1\mu_1^{k-1}$ the differential $d^1(\lambda_1\mu_1^{k-1})=(k-1)\lambda_1\mu_1^{k-1}$ pulls back. Then $d^1(p\gamma_{p^2k})=p(pk-1)\sigma v_1 \gamma_{p(k-1)}=0$ since the order of $\gamma_{p(pk-1)}$ is $p^{1+\nu_{p}(pk-1)}=p$. Since the order of $\gamma_{p^2k}$ is $p^{1+\nu_p(pk)}\ge p^2$, the element $p\gamma_{p^2k}$ is a $d^1$-cycle and detects $a_k$. 
+We also observe that when $p|k-1$ so that $k-1=pj$ for some integer $j$ there is a differential 
+$d^1(\gamma_{p(pj+1)})=pj\sigma v_1\gamma_{p^2j}$ 
+and therefore for $j\ge 1$ the element $\sigma v_1\gamma_{p^2j}$ is not the target of a differential and so it must survive to the next page. 
+
+Now the element $p\gamma_{p^2k}$ maps to zero, so we cannot determine a differential on $p\gamma_{p^2k}$ in this same way. However, $\sigma v_1\gamma_{p^2j}$ maps to $\sigma v_1\lambda_1\mu_1^{pj-1}$ so the differential 
+\[ d^{p+1}(\sigma v_1(\lambda_1\mu_1^{p-1})\mu_1^{p(j-1)})=(j-1)\sigma v_2\sigma v_1(\lambda_1\mu_1^{p-1})\mu_1^{p(j-2)}\]
+pulls back to the differential
+\[ d^{p+1}(b_j)=(j-1)\sigma v_2b_{j-1}\]
+
+To determine the differential on $a_i$ we cheat a bit and use our work on the Bockstein spectral sequence. In that spectral sequence, we computed $THH_*(B;\Z_p)$ is 
+\[E(\lambda_1,\lambda_2)\oplus \Z_p\{c_i^{(k)},d_i^{(k)}| k=1,2, i\ge 1\}/(p^{\nu_p(i)+1}c_i^{(k)}=p^{\nu_p(i)+1}d_i^{(k)}=0| k=1,2, i\ge 1)\]
+where $c_i^{(1)}=\lambda_3\mu_3^{i-1}$, $c_i^{(2)}=\lambda_1c_i^{(1)}$, $d_i^{(1)}=\lambda_2c_i^{(1)}$ and $d_i^{(2)}=\lambda_1d_i^{(1)}$. 
+
+This implies that there must be differentials on $a_i$ the only possibility is that is consistent with the known answer is that 
+\[ d^{p+1}(a_k)=(k-1)\sigma v_2 a_{k-1}\]
+So $a_1$ is a permanent cycle and when $k=pj$ for some positive integer $j$ we observe that $pa_k$ is a permanent cycle since $\sigma v_2a_{k-1}$ has order $p$ in this case. Therefore, $a_{pj}$ must detect $c_j^{(1)}$. We also see that when $k-1=pj$, then $\sigma v_2 a_{pj}$ is a permanent cycle because $d^{p+1}(a_{pj+1})=pj\sigma v_2 a_{k+1}$ for $j\ge 1$ and therefore $\sigma v_2 a_{pj}$ is not a boundary. The element $\sigma v_2a_{pj}$ must detect $d_j^{(1)}$ for degree reasons. Finally, the same argument can be made for $pb_{pj}$ and $\sigma v_2b_{pj}$ so they are permanent cycles and they must detect $c_{j}^{(2)}$ and $d_{j}^{(2)}$, respectively, for degree reasons. 
+\end{proof}
+
+
+
+\subsection{The topological Hochschild-May spectral sequence with $k(1)$-coefficients}
+
+We will also use the HMSS with $k(1)$-coefficients. Recall that the $E^1$-term is given by
+\[
+E_{*,*}^1(B,k(1))\cong \THH(H\Z_p;H\F_p)\otimes P (v_1)\otimes E(\sigma v_1, \sigma v_2). 
+\]
+We will now use the map of spectral sequences
+\[ E_{*,*}^1(B;k(1))\to E_{*,*}^1(B;H\F_p)\]
+to lift differentials.
+\begin{prop}
+	We can lift the $d^1$ and $d^{p+1}$-differentials from the $\F_p$-coefficient May spectral sequence. We have that 
+	\[
+	E^{p+2}_{*,*}(B,k(1))\cong P(\mu_3)\otimes P(v_1)\otimes E(\lambda_1, \lambda_2, \lambda_3)
+	\]
+	where $\lambda_2 = \mu_1\sigma v_1$, $\lambda_3 = (mu_1^p)^{p-1}\sigma v_2$, and $\mu_3 = \mu_1^{p^2}$. 
+\end{prop}
+\begin{proof}
+	We clearly can lift the $d^1$-differentials, which shows that 
+	\[
+	E_{*,*}^2(B,k(1))\cong P(\mu_2,v_1)\otimes E(\lambda_1, \lambda_2, \sigma v_2)
+	\]
+	where $\lambda_2 = \mu_1^{p-1}\sigma v_1$ and $\mu_2=\mu_1^p$. We would like to lift the $d^{p+1}$-differentials, so we must exclude the possibility of an earlier differential. 
+	
+	Observe that for bidegree reasons that $v_1, \lambda_1, \lambda_2$ and $\sigma v_2$ are all infinite cycles. For bidegree reasons, the first class that could be a target of a differential supported by $\mu_2$ is $\sigma v_2$. Thus we can lift the $d^{p+1}$-differential 
+	\[ d^{p+1}(\mu_2)=\sigma v_2\]	
+	from HMSS for the pair $(B,H\F_p)$. We then let $\mu_3=\mu_1^{p^2}$ and $\lambda_3=(\mu_1^p)^{p-1}\sigma v_2$.
+\end{proof}
+\begin{rem}
+Note that we did not need the HMSS for the pair $(B,k(1))$ to be multiplicative because so far we have pulled back all of our differentials from a spectral sequence that is multiplicative. We believe that an alteration to the construction of the HMSS should allow for this spectral sequence to be multiplicative, but we leave this to future work since it is not needed here. 
+\end{rem}
+
+\begin{cor}
+	The HMSS for the pair $(B,k(1))$ is a reindexed version of the $v_1$-Bockstein spectral sequence from the $E^{p+2}$-page onward. 
+\end{cor}
+
+We recall the differentials computed in (cite previous result), but here we write them in their reindexed form. There are differentials 
+\[ d_{r^{\prime}(n)+\epsilon}(\mu_3^{p^{n-1}})\dot{=}v_1^{r^{\prime}(n)}\lambda_{n+1}^{\prime}\]
+where 
+\[ r^{\prime}(n)=
+	\begin{cases} 
+		p^{n+1}+p^{n-1}+p^{n-3}+\cdots+p^2 & n\equiv 1\mod 2 \\ 
+		p^{n+1}+p^{n-1}+p^{n-3}+\cdots+p^3 & n\equiv 0\mod 2, 
+	\end{cases}
+\]
+the integer $\epsilon=n+1\mod 2$, and 
+\[
+\lambda_n^{\prime}:= \begin{cases}
+	\lambda_n & n=1,2,3\\
+	\lambda_{n-2}'\mu_3^{p^{n-4}(p-1)} & n\geq 4
+\end{cases}
+\]
+
+
+
+\subsection{Topological Hochschild homology of $\B$ with $L$ coefficients}
+In this section we calculate the homotopy groups of $\THH(B;L)$. We follow the argument found in McClure-Staffeldt \cite{McClure-Staffeldt}. In particular, there is a homotopy pull-back diagram
+\[
+\begin{tikzcd}
+	\THH(B;L)\arrow[r]\arrow[d] & \underset{q}{\prod} L_{H\F_q}\THH(B;L)\arrow[d]\\
+	\THH(B;L)_{\Q} \arrow[r] & \left(\underset{q}{\prod}L_{H\F_q}\THH(B;L)\right)
+\end{tikzcd}.
+\]
+Here $q$ ranges over all primes. Note that since $H\F_q\wedge L\simeq *$ for $q\neq p$, we have that the upper right hand corner is $\THH(B;L)_p$. We now identify the homotopy type of $\THH(B;L)_p$. First, note that the class $\lambda_1$ survives to $\THH(B;\ell)$ since it must be a permanent cycle in the HMSS for the pair $(B;\ell)$ for bidegree reasons. Since $\THH(B;L)$ is an $L$-module, we have a morphism of $L$-modules
+\[
+L\vee \Sigma^{2p-1}L\to \THH(B;L). 
+\]
+
+\begin{prop}
+	The map above induces an isomorphism in $K(1)$-homology. 
+\end{prop}
+\begin{proof}
+	Recall the equivalence
+	\[
+	\THH(B;L)\simeq L\wedge_B\THH(B).
+	\]
+	The EMSS thus collapses at $E_2$ and gives an isomorphism
+	\[
+	K(1)_*(\THH(B;L))\cong K(1)_*L\otimes_{K(1)_*B}K(1)_*\THH(B).
+	\]
+	We have previously seen that $K(1)_*\THH(B)\cong K(1)_*B\otimes_{K(1)_*} E(\lambda_1)$, and so we have 
+	\[
+	K(1)_*\THH(B;L)\cong K(1)_*L\otimes_{K(1)_*}E(\lambda_1). 
+	\]
+	This implies the map is a $K(1)$-isomorphism. 
+\end{proof}
+
+\begin{cor}
+	The map above induces an equivalence
+	\[
+	L_{K(1)}\left (L\vee \Sigma^{2p-1}L\right ) \to L_{K(1)}\left (\THH(B;L)\right). 
+	\]
+	after $K(1)$-localization.
+\end{cor}
+
+\begin{rem}
+	Recall that (cf. Ravenel ``localization...'') that the Bousfield class of $v_1^{-1}B$ is the same as the Bousfield class of $L$, and that the Bousfield class of $L$ is the Bousfield class of $H\Q\vee K(1)$. So we also need to check this map induces an isomorphism on $H\Q$-homology. 
+\end{rem}
+
+Since $\THH(B;L)$ is an $L$-module it is $L$-local.  We know from Prop 2.11 of Bousfield that there is an isomorphism of functors
+\[
+L_{K(1)}\cong L_{S\Z/p}L_{L}.
+\]
+Thus, we can write the above equivalence as 
+\[
+\begin{tikzcd}
+L_{S\Z/p}L_{L} \left (L\vee \Sigma^{2p-1}L\right )\arrow[r, "\simeq"] & L_{S\Z/p}L_{L}\left (\THH(B;L\right).
+\end{tikzcd}
+\]
+But both $L\vee \Sigma^{2p-1}L$ and $\THH(B;L)$ are $L$-local. Since $L_{S\Z/p}$ is a smashing localization it also commutes with topological Hochschild homology and there is an equivalence 
+\[ \THH(B;L_p)\simeq \THH(B_p;L_p)\]
+so we may conclude the following corollary. 
+
+\begin{cor}
+	There is an equivalence
+	\[
+	L_p\vee \Sigma^{2p-1}L_p\to \THH(B;L_p) .
+	\]
+\end{cor}
+
+Consequently, we know that $\lambda_1$ is $v_1$-torsion free. 
+
+We now compute $THH(B;L)$ rationally. There is a B\"okstedt spectral sequence 
+\[ E_2^{*,*}=HH_*^{\mathbb{Q}}(H\mathbb{Q}_*B;H\mathbb{Q}_*L)\Rightarrow H\mathbb{Q}_*THH(B;L)\cong L_{H\mathbb{Q}}THH(B;L)\]
+with input 
+\[HH_*^{\mathbb{Q}}(P_{\mathbb{Q}}(v_1,v_2);P_{\mathbb{Q}}(v_1^{\pm 1}))\cong P_{\mathbb{Q}}(v_1^{\pm 1})\otimes_{\mathbb{Q}} E_{\mathbb{Q}}(\sigma v_1,\sigma v_2).\]
+the spectral sequence collapses at the $E_2$-page since the generators are all in B\"okstedt filtration zero or one. Thus, 
+\[ \pi_*L_{\mathbb{Q}}THH(B;L)\cong E_{L_*}(\sigma v_1, \sigma v_2).\]
+we therefore observe that 
+\[ L_{\mathbb{Q}}THH(B;L)\simeq  L_{\mathbb{Q}}L\vee \Sigma^{2p-1} L_{\mathbb{Q}}L\vee\Sigma^{2p^2-1} L_{\mathbb{Q}}L\vee\Sigma^{2p^2+2p-2} L_{\mathbb{Q}}L\]
+and consequently we have the following. 
+\begin{cor}
+There is an equivalence 
+\[ THH(B;L)\simeq L\vee \Sigma^{2p^-1}L\vee \Sigma^{2p^2-1}L_{\mathbb{Q}}L\vee\Sigma^{2p^2+2p-2}L_{\mathbb{Q}}L\]
+\end{cor}. 
+
+Consequently, we know that $\sigma v_1$, $\sigma v_2$, and $\sigma v_1 \sigma v_2$ are $v_1$-torsion free. 
+
+
+\subsection{The topological Hochschild-May spectral sequence with $\ell$-coefficients}
+
+Recall that the $E^1$-page of the topological Hochschild-May spectral sequence for the pair $(B,\ell)$ is 
+\[  \THH_*(\Z_p)\otimes_{\Z_p}P_{\Z_p}(v_1)\otimes E_{\Z_p}(\sigma v_1, \sigma v_2).\]
+
+We will start by computing the maps 
+\[
+E_{*,*}^1(B,\ell)\to E_{*,*}^1(B,H\Z_p)
+\]
+and 
+\[
+E_{*,*}^1(B,\ell)\to E_{*,*}^1(B,k(1))
+\]
+with the aim of lifting differentials. 
+
+\begin{prop}
+	The map 
+	\[
+	E^1(B;\ell)\to E^1(B;\Z_p)
+	\]
+	is the projection map induced by sending $v_1$ to $0$. 
+\end{prop}
+\begin{proof}
+The way we computed the $E^1$-page was entirely functorial since the map 
+\[ H\pi_*\ell\wedge_{H\pi_*B}THH(H\pi_*B)\to H\Z_p \wedge_{H\pi_*B}THH(H\pi_*B)\]
+is given by $f\wedge_{H\pi_*B}THH(H\pi_*B)$ where $f$ is the projection $f\co H\pi_*\ell\to H\Z_p$, which is equivalent to the map $H\Z_p\wedge \bbS[v_1]\to H\Z_p\wedge \bbS$ , we conclude that after rearranging colimits functorially that the map is the one stated. 
+\end{proof}
+
+\begin{prop}
+	The map 
+	\[
+	E_{*,*}^1(B,\ell)\to E_{*,*}^1(B,k(1))
+	\]
+	is induced by modding out by $p$ and the map $\THH(\Z_p)\to \THH(\Z_p;\F_p)$. 
+\end{prop}
+\begin{proof}
+We prove this in the same way as above. The map is induced by the map 
+\[H\pi_*\ell\to H\pi_*k(1)\] 
+which is equivalent to the map $H\Z_p\wedge \bbS[v_1]\to H\F_p\wedge \bbS[v_1]$.  The conclusion then follows in the same way as before.
+\end{proof}
+\end{comment}
+\begin{comment}
+\textcolor{blue}{I think the map 
+\[
+\THH(H\Z_p)\to \THH(H\Z_p;H\F_p)
+\]
+is induced by projecting $\gamma_{pk}$ to $u_1^{k-1}\lambda_1$}. Indeed, this map is the edge homomorphism for the $v_0$-BSS, and the Bockstein spectral sequence takes the form 
+\[
+\THH_*(H\Z_p;H\F_p)[v_0]\implies \THH_*(H\F_p).
+\]
+Since the only classes in filtration 0 which are in the correct degree are $u_1^{k-1}\lambda_1$, it follows that $\gamma_{pk}$ projects onto $u_1^{k-1}\lambda_1$. 
+\end{comment}
+\begin{comment}
+\begin{rmk}
+	Since we have the identification 
+	\[
+	E_{*,*}^{p+2}(\ell)\cong E_{*,*}^{p+2}(\ell,H\Z_p)\otimes_{\Z_p} \Z_p[v_1]
+	\]
+	and recall that $E_{*,*}^{p+2}(\ell,H\Z_p)$ is an associated graded of $\THH_*(\ell; H\Z_p)$. In particular, we have 
+	\[
+	E^{p+2}(\ell)\cong E(\lambda_1,\sigma v_1)\otimes_{\Z_p} E_{\Z_p}(a_i, b_i\mid i\geq 1 )/(p^{\nu_p(i)+1}a_i, p^{\nu_p(i)+1}b_i, \lambda_1a_i, \lambda_1b_i),
+	\]
+	in the abutment there are hidden extensions $p\gamma_1 = \sigma v_1$ and $\gamma_1a_i = b_i$. 
+	In [AHL], they determine the differentials for the spectral sequence 
+	\[
+	\THH_*(\ell;\Z_p)[v_1]\implies \THH_*(\ell).
+	\]
+	They found that the $b_i$ are permanent cycles and that all the differentials are derived from the following
+	\[
+	d_{p^n+p^{n-1}+\cdots +p}(p^{n-1}a_{kp^{n-1}}) \dot{=} (k-1)v_1^{p^n+\cdots +p} b_{(k-1)p^{n-1}}.
+	\]
+	These uniquely correspond to the following differentials in the topological Hochschild-May spectral sequence for the pair $(\ell,\ell)$
+	\[
+	d_{p^n+p^{n-1}+\cdots +p+1}(p^{n-1}a_{kp^{n-1}}) \dot{=} (k-1)v_1^{p^n+\cdots +p} b_{(k-1)p^{n-1}}.
+	\]
+	The fact that the differential has length increased by one follows from the fact that the $b_i$ are in May filtration 1. 
+\end{rmk}
+
+
+We will now find an infinite family of $d^{p+1}$-differentials in the May spectral sequence for $\THH(B;\ell)$. We will now be careful about $p$-adic units, which will always be written using Greek letters to differentiate them. 
+
+\begin{prop}
+	We have the following differentials in the HMSS for the pair $(B,\ell)$
+	\[
+	d_{p+1}(a_i) = \omega_{i-1} (i-1)(v_1^{p} b_{i-1} +\epsilon_{i-1}\sigma v_2 \cdot a_{i-1})
+	\]
+	for some $p$-adic unit $\epsilon_i$ for each $i$. 
+	We also have the differentials
+	\[
+	d_{p+1}(b_i) = \delta_{i-1}(i-1)\sigma v_2 b_{i-1}.
+	\] 
+\end{prop}
+\begin{proof}
+	Note that $\sigma v_2 a_{i-1}$ and $v_1^p b_{i-1}$ are the only two classes in the appropriate bidegree. So the $d_{p+1}$-differential is necessarily a linear combination of these classes. The result follows by projecting on HMSS for the pair $(B;H\mathbb{Z}_p)$ and the HMSS for the pair $(\ell,\ell)$. The $p$-adic unit $\epsilon_{i-1}$ is produced by taking a lift of $v_1^pb_{i-1}$ and multiplying by the correct $p$-adic unit so that the coefficient of the first term is one. 
+	
+	
+	The other differential also is deduced from projecting to these two spectral sequences and using that $b_i$ is a permanent cycle in the May spectral sequence for $\THH(\ell)$.
+\end{proof}
+
+This allows to deduce the following differential by the Leibniz rule and the fact that $\sigma v_2$ is a $d_{p+1}$-cycle.
+
+\begin{cor}
+	We have the differentials
+	\[
+	d_{p+1}(\sigma v_2 a_{i}) = \omega_{i-1}(i-1)v_1^pb_{i-1}\sigma v_2.
+	\]
+\end{cor}
+
+The  following lemma will be useful for describing relations imposed by the previous differential.
+\begin{lem}
+	For all $i$, we have that 
+	\[
+	\nu_p(i-1) = \max\{\nu_p(i-1)-\nu_p(i), 0\}
+	\]
+\end{lem}
+\begin{proof}
+	If the max is 0, then $\nu_p(i)>\nu_{p}(i-1)\geq 0$. This implies that $\nu_p(i-1)=0$ because either $\nu_p(i)=\nu_p(i-1)=0$ or $\nu_p(i)>0$, in which case $\nu_p(i-1)=0$. If the max is not 0, then $\nu_p(i-1)>\nu_p(i)\geq 0$, which implies that $\nu_p(i)=0$ by essentially the same argument.
+\end{proof}
+
+This allows us to deduce the following. 
+
+\begin{cor}
+	In $E_{*,*}^{p+2}(B,\ell)$ we have the relations
+	\[
+	p^{\nu_p(i-1)}v_1^pb_{i-1}\,\dot{=}\,p^{\nu_p(i-1)}\sigma v_2\cdot a_{i-1}.
+	\]
+	and 
+	\[
+	p^{\nu_p(i-1)}\sigma v_2 b_{i-1}=0.
+	\]
+\end{cor}
+
+Note that $d_{p+1}(b_{i-1})=\delta_{i-2}(i-2)\sigma v_2 b_{i-2}$ so $b_{i-2}$ does not survive. However, when $i-1=p\ell$ for some integer $\ell$, then the order of the target is $p$ and therefore $pb_{p\ell}$ survives. We also have 
+\[ d_{p+1}(\sigma v_2\cdot a_{i-1})= \omega_{i-1}(i-1)v_1^pb_{i-1}\sigma v_2\]
+so $p\sigma v_2\cdot a_{p\ell}$ survives as well. This seems to cause an issue, but we will observe that there are possible longer differentials 
+\[ 
+	d_{p^2+p+1}(pb_{p\ell})=\delta_{\ell,2}(\ell-1) v_1^{p^2}\sigma v_2b_{p(\ell-1)}
+\]
+and 
+\[
+	d_{p^2+p+1}(pa_{kp}) = \omega_{k,2} (k-1)\left ( v_1^{p^2+p} b_{(k-1)p}+\alpha_{2,k}v_1^{p^2}\sigma v_2a_{(k-1)p}\right ).
+\]
+so by the Leibniz rule
+\[ 
+	d_{p^2+p+1}(v_1^p(pb_{p\ell}))=\delta_{\ell,2}(\ell-1) v_1^{p^2+p}\sigma v_2b_{p(\ell-1)}
+\]
+and 
+\[
+	d_{p^2+p+1}(\sigma v_2 pa_{kp}) = \omega_{k,2} (k-1) v_1^{p^2+p} b_{(k-1)p}\sigma v_2
+\]
+so the difference $v_1^p(pb_{pk})-\sigma v_2 (pa_{kp})$ would be a $d_{p^2+p+1}$-cycle. We argue first argue that there is no possible shorter differential on $pb_{p\ell}$ for bidegree reasons. 
+
+\begin{lem}
+In the $E_{p^{n-1}+\dots+p+2}$-page of the topological Hochschild-May spectral sequence for the pair $(BP\langle 2\rangle, \ell)$ there are no elements in bidegree
+$ (2p^{n+2}q+2p-3,m)$
+for 
+\[p^{n}+\dots +p+2<m<p^{n+1}+\dots +p+2\] 
+and $\ell,n\ge 1$. 
+\end{lem}
+\begin{proof}
+First, we rule out elements of the form $\alpha v_1^k(\sigma v_1)^{\epsilon_1}(\sigma v_2)^{\epsilon_2}$ for $\alpha\in \mathbb{Z}_p$. We may safely ignore $\alpha$ for the remainder of the proof. Note that $v_1^k(\sigma v_1)^{\epsilon_1}(\sigma v_2)^{\epsilon_2}$ is in may filtration $j+\epsilon_1+(p+1)\epsilon_2$ so the restriction on May filtration produces the inequality 
+\[p^{n}+\dots +p+2<j+\epsilon_1+(p+1)\epsilon_2<p^{n+1}+\dots +p+2.\] 
+The topological degree of $v_1^k(\sigma v_1)^{\epsilon_1}(\sigma v_2)^{\epsilon_2}$ is $(2p-2)k+(2p-2)\epsilon_1+1+(2p-2)((p+1)\epsilon_2)+1$ so we have an inequality 
+\begin{align*} 
+2p^{n+1}+2p-2=(2p-2)(p^{n+1}+\dots +p+2)+2&<\\
+(2p-2)k+(2p-2)\epsilon_1+1+(2p-2)((p+1)\epsilon_2)+1&<\\
+(2p-2)(p^{n+1}+\dots +p+2)+2=2p^{n+2}+2p-2&
+\end{align*}
+and since each factor of $v_1^k(\sigma v_1)^{\epsilon_1}(\sigma v_2)^{\epsilon_2}$ has topological degree greater than one at all primes, the condition on topological degree cannot hold. 
+
+Note that all elements in the $E_1$-page besides those of the form $\alpha v_1^k(\sigma v_1)^{\epsilon_1}(\sigma v_2)^{\epsilon_2}$ are of the form $\alpha^{\prime} \gamma_{p\ell}v_1^j(\sigma v_1)^{\epsilon_1}(\sigma v_2)^{\epsilon_2}$ for some mod $p^{\nu_p(p\ell)}$ reduction $\alpha^{\prime}$ of an element in $\mathbb{Z}_p$, where $\ell\ge 1,j\ge0,$ and $\epsilon_1,\epsilon_2\in\{0,1\}$. Again, we can safely ignore the coefficient $\alpha^{\prime}$. The element $\gamma_{p\ell}v_1^j(\sigma v_1)^{\epsilon_1}(\sigma v_2)^{\epsilon_2}$ is in bidegree
+\[ | \alpha^{\prime} \gamma_{p\ell}v_1^j(\sigma v_1)^{\epsilon_1}(\sigma v_2)^{\epsilon_2}|=(2p\ell-1+(2p-2)j+(2p-2)\epsilon_1+1+(2p-2)((p+1)\epsilon_2)+1,j+\epsilon_1+(p+1)\epsilon_2).\]
+So again, in order to satisfy the condition on the May filtration, we need the inequality 
+\[p^{n-1}+\dots +p+2<j+\epsilon_1+(p+1)\epsilon_2<p^n+\dots +p+2\]
+to hold. Thus, 
+\begin{align*}
+	2p^{n+1}+2p-2+2\ell-1<&(2p\ell-1+(2p-2)j+(2p-2)\epsilon_1+1+(2p-2)((p+1)\epsilon_2)+1\\
+	< &2p^{n+2}+2p-2+2\ell-1
+\end{align*}
+by the same calculation as before. If $\ell\ge p^{n+2}-p^{n+1}$ then clearly the topological degree of $\gamma_{p\ell}v_1^j(\sigma v_1)^{\epsilon_1}(\sigma v_2)^{\epsilon_2}$ cannot $2p^{n+2}q+2p-3$. We therefore have to rule out all cases $1\le \ell\le p^{n+2}-p^{n+1}$. 
+
+We now determine what conditions on $j$, $\ell$, $\epsilon_1$ and $\epsilon_2$ could possibly produce and equality 
+\[2p\ell-1+(2p-2)j+(2p-2)\epsilon_1+1+(2p-2)((p+1)\epsilon_2)+1=2p^{n+2}q+2p-3\]
+for some positive integer $q$. Reducing modulo $p$ shows that $j+\epsilon_1+\epsilon_2\equiv 2 \mod p$.
+Reducing modulo $2p-2$ shows that $\ell\equiv q-1 \mod (2p-2)$.
+
+Hmm... Stil can't rule out other possibilities in this range in general yet...
+\end{proof}
+
+
+\begin{lem}
+In the topological Hochschild-May spectral sequence for the pair $(BP\langle 2\rangle,\ell)$ there are families of differentials 
+\[ d_{p^n+\dots+p+1}(p^{n-1}b_{p^{n-1}\ell})=\delta_{\ell,n}(\ell-1) v_1^{p^n+\dots +p}\sigma v_2b_{p^{n-1}(\ell-1)}\]
+and 
+\[
+	d_{p^n+\dots+p+1}(p^{n-1}a_{kp^{n-1}}) = \omega_{k,n} (k-1)\left ( v_1^{p^n+\dots +p^2} b_{(k-1)p^{n-1}}+\alpha_{n,k}v_1^{p^n+\dots+p^2}\sigma v_2a_{(k-1)p^{n-1}}\right ).
+\]
+where $\alpha_{n,k}, \delta_{n,\ell}$ and $\omega_{k,n}$ are $p$-adic units such that 
+\[ \delta_{n,k}-\alpha_{n,k}\omega_{k,n}=0.\]
+\end{lem}
+\end{comment}

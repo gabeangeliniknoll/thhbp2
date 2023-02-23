@@ -1,0 +1,248 @@
+%! TeX root is THHBP2.tex
+
+%\usepackage[urw-garamond]{mathdesign}
+%%\linespread{1.05}         % Palatino needs more leading (space between lines)
+%\usepackage[T1]{fontenc}
+
+\let\circledS\undefined % here - PS
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{lscape,xcolor}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+\usepackage{verbatim}
+\usepackage{rotating}
+\usepackage{tikz-cd}
+\usepackage{amsrefs}
+\usepackage[colorlinks=true, linkcolor=blue, menucolor=blue]{hyperref}
+%\usepackage{eulervm}
+\usepackage{euscript}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{spectralsequences}
+%\usepackage{mathabx}
+
+%Gabe added this for the moment. Write same diagram in tikz and then remove
+\usepackage{xypic}
+
+
+%\usepackage[sc]{mathpazo}
+%\linespread{1.05}         % Palatino needs more leading (space between lines)
+%\usepackage[T1]{fontenc}
+%
+%\usepackage[OT2,T1]{fontenc}
+%\newcommand\textcyr[1]{{\fontencoding{OT2}\fontfamily{wncyr}\selectfont #1}}
+
+
+\newcommand{\mgabe}[1]{\marginpar{\color{blue}#1}}
+\newcommand{\gabe}[1]{\begin{quote}{\color{blue}[\bf Gabe: #1]} \end{quote}}
+\newcommand{\gb}[1]{{\color{blue}{#1}}}
+\newcommand{\gbst}[1]{{\color{blue}{\st{#1}}}}
+
+\newcommand{\mdom}[1]{\marginpar{\color{seagreen}#1}}
+\newcommand{\dom}[1]{\begin{quote}{\color{seagreen}[\bf Dom: #1]} \end{quote}}
+\newcommand{\dm}[1]{{\color{seagreen}{#1}}}
+\newcommand{\dmst}[1]{{\color{seagreen}{\st{#1}}}}
+
+%\usepackage{luasseq}
+\usepackage{xcolor}
+\definecolor{seagreen}{RGB}{46,139,87}
+\definecolor{maroon}{RGB}{128,0,0}
+\definecolor{darkviolet}{RGB}{148,0,211}
+\definecolor{twelve}{RGB}{100,100,170}
+\definecolor{thirteen}{RGB}{100,150,50}
+\definecolor{fourteen}{RGB}{200,0,0}
+\definecolor{fifteen}{RGB}{0,200,0}
+\definecolor{sixteen}{RGB}{0,0,200}
+\definecolor{seventeen}{RGB}{200,0,200}
+\definecolor{eighteen}{RGB}{0,200,200}
+
+
+
+%\parskip 0.7pc
+%\parindent 0pt
+
+\allowdisplaybreaks[1]
+
+%%%%%%%%%%%%%%% Basic commands %%%%%%%%%%%%%%%%%%
+\newcommand{\dotequiv}{\overset{\scriptstyle{\centerdot}}{\equiv}}
+\newcommand{\nd}{\not\!|}
+\newcommand{\mmod}{\! \sslash \!}
+
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\ull}[1]{\underline{#1}}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mr}[1]{\mathrm{#1}}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\mit}[1]{\mathit{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\ms}[1]{\mathscr{#1}}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\bra}[1]{\langle #1 \rangle}
+\newcommand{\br}[1]{\overline{#1}}
+\newcommand{\brr}[1]{\overline{\overline{#1}}}
+\newcommand{\td}[1]{\widetilde{#1}}
+\newcommand{\tdd}[1]{\widetilde{\widetilde{#1}}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\MS}{\mathbb{S}}
+\newcommand{\PP}{\mathbb{P}}
+
+\newcommand{\euscr}[1]{\EuScript{#1}}
+
+%%%%%%%%% THH %%%%%%%%%%%%
+
+\newcommand{\tilmu}{\tilde{\mu}}
+\newcommand{\MayE}{\mbox{}^{May}E}
+\newcommand{\MayoverE}{\mbox{}^{May}\overline{E}}
+
+
+%%%%%%%%%%%%%%%%% Spectra %%%%%%%%%%%%%%%
+
+\newcommand{\tBP}[1]{BP\bra{#1}}
+\newcommand{\B}{\tBP{2}}
+\newcommand{\TAF}{\mathrm{TAF}}
+\newcommand{\TMF}{\mathrm{TMF}}
+\newcommand{\Tmf}{\mathrm{Tmf}}
+\newcommand{\tmf}{\mathrm{tmf}}
+\newcommand{\bo}{\mathrm{bo}}
+\newcommand{\bsp}{\mathrm{bsp}}
+\newcommand{\HZ}{\mr{H}\Z}
+\def \HF2{\mr{H}\F_2}
+\newcommand{\bu}{\mr{bu}}
+\newcommand{\MU}{\mr{MU}}
+\newcommand{\KU}{\mr{KU}}
+\newcommand{\KO}{\mr{KO}}
+\newcommand{\EO}{\mr{EO}}
+\newcommand{\BP}{\mr{BP}}
+\newcommand{\K}{\mr{K}}
+\newcommand{\ku}{\mathrm{ku}}
+\newcommand{\Sph}{\mathbb{S}}
+\newcommand{\bbS}{\mathbb{S}}
+
+%%%%%%%%%%%%%%% Operators %%%%%%%%%%%%%%
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Sta}{Sta}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator*{\holim}{holim}
+\DeclareMathOperator*{\hocolim}{hocolim}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\Tot}{Tot}
+\DeclareMathOperator{\Spf}{Spf}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+
+\DeclareMathOperator{\THH}{THH}
+\DeclareMathOperator{\HH}{HH}
+
+\DeclareMathOperator{\sq}{Sq}
+\newcommand{\xib}{{\bar{\xi}}}
+\newcommand{\s}{\wedge}
+\newcommand{\Si}{\Sigma}
+\newcommand\floor[1]{\lfloor#1\rfloor}
+
+%%%%%%%%%%%%% Steenrod Algebra & Brown-Gitler Modules %%%%%%%%%%%
+
+\newcommand{\A}{\ms{A}}
+\newcommand{\sE}{\ms{E}}
+\newcommand{\HZu}{\ull{\HZ}}
+\newcommand{\bou}{\ull{\bo}}
+\newcommand{\tmfu}{\ull{\tmf}}
+\newcommand{\tBPu}[1]{\ull{\tBP{#1}}}
+\newcommand{\buu}{\ull{\bu}}
+\def \AA0{\br{A \mmod A(0)}_*}
+\def \AA2{A\mmod A(2)_*}
+\def \AAn{A\mmod A(n)_*}
+\def \AE2{A\mmod E(2)_*}
+\renewcommand{\AE}[1]{A\mmod E(#1)_*}
+\DeclareMathOperator{\wt}{\mathrm{wt}}
+%\def \E2E1{(E(2)\mmod E(1))_*}
+\newcommand{\otau}{\overline{\tau}}
+\def\co{\colon \thinspace}
+
+
+
+%%%%%%%%%%%%%%%% Categories %%%%%%%%%%%%%
+
+\newcommand{\Top}{\mathsf{Top}}
+\newcommand{\CAlg}{\rm CAlg}
+\newcommand{\Operad}{\mathsf{Operad}}
+\newcommand{\Alg}{\mathsf{Alg}}
+\newcommand{\Monad}{\mathsf{Monad}}
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\Sp}{\mathsf{Sp}}
+\newcommand{\sSet}{\mathsf{sSet}}
+\newcommand{\Man}{\mathsf{Man}}
+\newcommand{\Presheaf}{\mathsf{Presheaf}}
+\newcommand{\Fun}{\mathsf{Fun}}
+\newcommand{\Grpd}{\mathsf{Grpd}}
+\newcommand{\op}{\mathrm{op}}
+
+
+
+%%%%%%%%%%%%%%% Homological Algebra %%%%%%%
+
+\newcommand{\cone}[1]{\mathrm{cone}\left(#1\right)}
+
+
+%%%%%%%%%%%%%%% spectral sequences %%%%%%%%%%
+
+\newcommand{\E}[2]{\prescript{#1}{#2}{E}}
+\newcommand{\AF}{\mr{AF}}
+\newcommand{\MF}{\mr{MF}}
+
+%%%%%%%%%%%%%elements%%%%%%%%%%%%%%
+\newcommand{\bxi}{\bar{\xi}}
+\newcommand{\btau}{\bar{\tau}}
+\newcommand{\sig}[1]{\sigma{#1}}
+
+
+%%%%%%% for numbered theorems %%%%%%%%%
+ \newtheorem{thm}[equation]{Theorem}
+ \newtheorem{cor}[equation]{Corollary}
+ \newtheorem{lem}[equation]{Lemma}
+ \newtheorem{prop}[equation]{Proposition}
+ \newtheorem{obs}[equation]{Observation}
+  \newtheorem{rem}[equation]{Remark}
+ 
+ \newtheorem*{thm*}{Theorem}
+ \newtheorem*{cor*}{Corollary}
+ \newtheorem*{lem*}{Lemma}
+ \newtheorem*{prop*}{Proposition}
+  \newtheorem*{not*}{Notation}
+
+ 
+ \theoremstyle{definition}
+ \newtheorem{defn}[equation]{Definition}
+ \newtheorem{ex}[equation]{Example}
+ \newtheorem{exs}[equation]{Examples}
+ \newtheorem{rmk}[equation]{Remark}
+\newtheorem{claim}[equation]{Claim}
+ \newtheorem{question}[equation]{Question}
+ \newtheorem{conjecture}[equation]{Conjecture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem*{defn*}{Definition}
+\newtheorem*{ex*}{Example}
+\newtheorem*{exs*}{Examples}
+\newtheorem*{rmk*}{Remark}
+\newtheorem*{claim*}{Claim}
+\newtheorem*{conventions}{Conventions}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
