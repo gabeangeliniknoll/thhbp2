@@ -1,0 +1,76 @@
+% root file is THHBP2.tex
+
+\section{The $H\Z$-Bockstein spectral sequences}
+
+Working from our calculation of $\THH(R;\F_p)$ we will analyze three Bockstein spectral sequences to obtain the topological Hochschild homology of $R$ with coefficients in the connective Morava $K$-theories $k(0), k(1), k(2)$. Of course, $k(0)$ is $H\Z_{(p)}$. These spectral sequences take the following forms: 
+\begin{align}
+	\label{v_0BSS}\THH_*(R;\F_p)[v_0]&\implies \THH_*(R;\Z_{(p)})^{\wedge}_p\\
+	\label{v_1BSS}\THH_*(R;\F_p)[v_1]&\implies \THH_*(R;k(1))\\
+	\label{v_2BSS}\THH_*(R;\F_p)[v_2]&\implies \THH_*(R;k(2))
+\end{align}
+
+The methods for these calculations are inspired by \cite{McClureStaffeldt},\cite{AngeltveitRognes}, and \cite{AHL}.
+
+\subsection{The $H\Z$-Bockstein spectral sequence}
+
+This calculation is based on the $H\Z$-BSS found in \cite{AHL}. For this calculation, we need to know the comodule structure of the mod $p$ homology of $\THH(R)$. This was computed in \cite{AngeltveitRognes} (as Theorem 5.12). They showed that 
+\begin{equation}\label{eqn:homologyTHHR}
+H_*\THH(R) \cong H_*R\otimes E(\lambda_1, \lambda_2, \lambda_3)\otimes P(\mu_3)
+\end{equation}
+and that $\lambda_i$ are $A_*$-primitives and 
+\[
+\alpha(\mu) = 1\otimes \mu_3+\otau_0\otimes \lambda_3.
+\]
+This translates into the following differential in the spectral sequence \eqref{v_0BSS}:
+\[
+d_1(\mu) = \lambda_3
+\]
+In \cite{AHL}, they use the following fact from May's "General algebraic approach to Steenrod Operations"
+
+\begin{lem}
+	If $x$ supports a $d_j$ differential in the Bockstein spectral sequence then 
+	\[
+	d_{j+1}(x^p) = v_0x^{p-1}d_j(x)
+	\]
+	if $p>2$ or if $p=2$ and $j\geq 2$. If $p=2$ and $j=1$ then there is an error term of $Q^{|x|}(d_1(x))$.
+	\end{lem}
+
+When $p=2$, we have the differential |\sigma \xi_4|=16
+\[
+d_1(\mu)=v_0\lambda_3.
+\]
+So the error term for $d_2(\mu^2)$ is 
+\[
+Q^{16}\lambda_3 = Q^{16}(\sigma\zeta_3^2) = \sigma(Q^{16}\zeta_3^2) = \sigma(Q^8\zeta_3)^2 = \sigma(\zeta_4^2)=0.
+\]
+
+From this we derive
+
+\begin{prop}
+	When the prime is $2$ or $3$, then we have 
+	\[
+	d_{i+1}(\mu^{p^i}) = v_0^{i+1}\mu^{p^i-1}\lambda_3.
+	\]
+	Consequently, we have 
+	\[
+	d_{\nu_p(k)+1}(\mu^k) \dot{=}v_0^{\nu_p(k)+1}\mu^{k-1}\lambda_3
+	\]
+	where $\nu_p(k)$ denotes the $p$-adic valuation of $k$.
+\end{prop}
+\begin{proof}
+	Let $\alpha=\nu_p(k)$. We have that $k=p^\alpha j$ where $p$ does not divide $j$. So by Leibniz
+	\[
+	d_{\alpha+1}(\mu^{k}) = d_{\alpha+1}((\mu^{p^\alpha})^k) = k\mu^{p^{\alpha}(k-1)}d_{\alpha+1}(\mu^{\alpha}) = kv_0^{\alpha+1}\mu^{p^\alpha (k-1)}\mu^{p^{\alpha}-1}\lambda_3 = kv_0^{\alpha+1}\mu^{k-1}\lambda_3.
+	\]
+	Since $k$ is not divisible by $p$, it is a unit mod $p$.
+\end{proof}
+Thus we have the following,
+\begin{cor}
+The $E_\infty$ page of of the $H\Z$-Bockstein spectral sequence for $R$ is the algebra
+\[
+P(v_0)\otimes E(\lambda_1,\lambda_2,\lambda_3)\otimes P(\mu)/(v_0^{\nu_p(k)+1}\mu^k\lambda_3\mid i\geq 1).
+\]	
+\end{cor}
+
+\dom{I think we should put a picture here}
+\gabe{We need to include an argument for why there are no other differentials. For $d_1$ differentials, seems to follow from the fact that the generators $\lambda_i$ are in odd degrees which are smaller than $\mu$, but we have to rule later differentials on classes that become indecomposable on later pages too. Whatever argument they use in AHL should work here as well though. }

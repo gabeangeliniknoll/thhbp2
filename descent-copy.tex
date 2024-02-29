@@ -1,0 +1,49 @@
+\section{The descent spectral sequence}
+
+\begin{definition}
+Let $C^{\bullet}(A/B)$ denote the cosimplicial cobar complex with $q$-simplices $C^{q}(A/B)=A^{\otimes_{B}q+1}$.
+\end{definition}
+
+First, we need a lemma. 
+
+\begin{lemma}
+There is an isomorphism 
+\[ \THH_{*}(\BP\langle n-1\rangle^{\wedge_{\BP\langle n\rangle}q+1})\cong \]
+\end{lemma}
+\begin{proof}
+When $q=0$, then $\THH(\BP\langle n-1\rangle^{\wedge_{\BP\langle n\rangle}q+1})=\THH(\BP\langle n-1\rangle)$. 
+We first compute 
+$\pi_{*}(\BP\langle n-1\rangle\otimes_{\BP\langle n\rangle}\BP\langle n-1\rangle)$
+by a K\"unneth spectral sequence. The $E_{2}$-term is $\BP\langle n-1\rangle_{*}\otimes \Lambda (\sigma v_{n})$ and then the spectral sequences collapses because it is concentrated in K\"unneth filtration $[0,1]$ and therefore the targets of all differentials are zero groups. We then use the equivalence 
+\begin{align*}
+\BP\langle n-1\rangle\wedge_{\BP\langle n\rangle}\BP\langle n-1\rangle\wedge_{\BP\langle n\rangle}\BP\langle n-1\rangle\simeq  \\
+(\BP\langle n-1\rangle\wedge_{\BP\langle n\rangle}\BP\langle n-1\rangle)\wedge_{\BP\langle n-1\rangle}(\BP\langle n-1\rangle  \wedge_{\BP\langle n\rangle}\BP\langle n-1\rangle)
+\end{align*}
+and the fact that $\pi_{*}\BP\langle n-1\rangle\wedge_{\BP\langle n\rangle}\BP\langle n-1\rangle$ is free as a $\BP\langle n-1\rangle_{*}$-module to inductively determine from the K\"unneth spectral sequence that 
+%\[ \pi_{*}(\BP\langle n-1\rangle^{\wedge_{\BP\langle n\rangle}q+1)\cong \BP\langle n-1\rangle_{*}\otimes \Lambda (\sigma v_{n}^{(1)},\dots \sigma v_{n}^{(q)})\,.\]
+
+We then note that the K\"unneth spectral sequence sequence computing $\THH_{*}(\BP\langle n-1\rangle\wedge_{\BP\langle n\rangle}\BP\langle n-1\rangle)$ has input $\BP\langle n-1\rangle_{*}\otimes \Gamma (\sigma^{2} v_{n})$. The $E_{2}$-page has a checkerboard pattern so again the targets of all differentials are zero groups. 
+\end{proof}
+
+\begin{proposition}
+There is an equivalence 
+\[ 
+	\THH(\BP\langle n \rangle)\simeq \Tot \left ( \THH(C^{\bullet}(\BP\langle n-1\rangle/\BP\langle n\rangle)) \right ).
+\]
+Consequently, there is a spectral sequence 
+\[ 
+	\pi_{t-s}\lim \Tot H\pi_s\THH(C^{\bullet}(\BP\langle n-1\rangle/\BP\langle n\rangle))\implies \pi_{t-s}\THH(\BP\langle n\rangle)
+\]
+associated to the filtration 
+\begin{equation}\label{Tot-filtration}
+	\lim \Tot \tau_{\ge s}\THH(C^{\bullet}(\BP\langle n-1\rangle/\BP\langle n\rangle))\,.
+\end{equation}
+The $E_2$-term is
+\[ \THH_*(BP\langle n-1\rangle)\otimes \Lambda (\sigma v_n).\]
+\end{proposition}
+\begin{proof}
+Since $\mathrm{BP}\langle n\rangle\to \mathrm{BP}\langle n-1\rangle$ is an isomorphism on $\pi_i$ for $i=0,1$ the first statement follows directly from \cite[Theorem 3.7]{DR18}. 
+The second statement follows from \cite[Remark 3.7]{GIKR22} which identifies the filtration \eqref{Tot-filtration} with the d\'ecalage (cf. \cite[pp. 21]{Del71}) of the filtration whose associated graded is the $E_{1}$-term of the Bousfield--Kan spectral sequence. 
+
+It therefore suffices to compute the $E_{2}$-term.
+\end{proof}

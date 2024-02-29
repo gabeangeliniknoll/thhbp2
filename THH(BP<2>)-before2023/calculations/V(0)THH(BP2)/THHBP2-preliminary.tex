@@ -1,0 +1,113 @@
+% root file is V(0)THHBP2.tex
+
+\section{Preliminary results}
+%The homology of topological Hochschild homology of $\B$ is a straightforward application of work Steinberger \cite{BMMS86}, B\"okstedt \cite{Bok85}, and Angeltveit-Rognes \cite{AngeltveitRognes}, and it appears in  \cite[Thm. 5.12]{AngeltveitRognes}. 
+Recall that at a prime $p \ge 3$ there is an isomorphism
+\[H_*(\B)\cong %\begin{cases} 
+P(\bxi_1,\bxi_2,\ldots )\otimes E(\btau_{3},\btau_4,\ldots) \subset \A_*   %\\ P(\bxi_1^2,\bxi_2^2,\bxi_3^2,\bxi_4,\ldots) \text{ if } p=2 
+%\end{cases}
+\]
+of $\A_*$-comodules. By \cite[Thm. 5.12]{AngeltveitRognes}, there is an isomorphism
+\begin{equation}\label{HTHHB} H_*(\THH(\B))\cong %\begin{cases} 
+H_*\B \otimes E(\sig{\bxi_1},\sig{\bxi_2},\sig{\bxi_3})\otimes P(\sig{\btau_3}) %\\ H_*\B\otimes E(\sig{\bxi^2_1},\sig{\bxi^2_2},\sig{\bxi^2_3})\otimes P(\sig{\bxi_4}) \text{ if }p=2
+%\end{cases}
+\end{equation}
+of primitively generated $H_*\B$-Hopf algebras when $p = 3$. The $\A_*$-comodule coaction on $H_*\overline{\THH}(\B)$ was also computed in \cite[Thm. 5.12]{AngeltveitRognes}. It is determined by the $\A_*$-coaction on $H_*\B$ and the formulas
+\begin{align}
+\label{coactp>2} \nu ( \sig{\btau_m}) = 1\otimes \sigma \btau_m + \btau_0\otimes\sig{\bxi_m} \\
+\nu ( \sigma{\bxi_i}) = 1\otimes \sigma \bxi_i
+\end{align}
+for $i=1,2,3$. 
+These formulas follow from the general formula
+\begin{equation}\label{coactsigma} \nu \circ \sigma = (1\otimes \sigma)\circ \nu \end{equation}
+in \cite[Eq. 5.11]{AngeltveitRognes} and the $\A_*$-coaction on $H_*\B$. 
+
+\begin{comment}
+\subsection{Multiplicativity of Bockstein spectral sequences}
+As described in our outline, the first goal will be to compute the Bockstein spectral sequences
+\begin{align}
+	\label{v_0BSS}\THH_*(\B;\F_p)[v_0]&\implies \THH_*(\B;\Z_{(p)})^{\wedge}_p\\
+	\label{v_1BSS}\THH_*(\B;\F_p)[v_1]&\implies \THH_*(\B;k(1))\\
+	\label{v_2BSS}\THH_*(\B;\F_p)[v_2]&\implies \THH_*(\B;k(2)).
+\end{align}
+We will first argue that these Bockstein spectral sequences are multiplicative when $p=3$. Recall that $THH(\B;M)\simeq THH(\B)\wedge_BM$. 
+Consider the Adams spectral sequences
+\begin{equation}\label{ASS} E_2^{*,*}=\Ext_{\A}^{**}(\F_p, H_*(THH(\B)\wedge_{\B}k(i)))\Rightarrow \pi_*THH(\B;k(i))_p \end{equation}
+where $k(0)=\mathbb{Z}_{(p)}$ and $k(1)=\ell/p$ and $k(2)$ is the connective cover of $K(2)$. 
+By \eqref{HTHHB}, we know that $H_*THH(\B)$ is free over $H_*(\B)$. Since $\B$ is a commutative ring spectrum, there is a splitting 
+\[THH(\B;M)\sim \B\vee \overline{THH}(\B;M)\] 
+for any $\B$-module and consequently the input becomes 
+\[\Ext_{\A}^{**}(\F_p, H_*(\overline{THH}(\B))\otimes H_*(k(i)))\]
+which is isomorphic to 
+\[\Ext_{E(\tau_i)_*}^{**}(\F_p, H_*(\overline{THH}(\B))).\]
+By \eqref{coactp>2}, the $\tau_i$ coaction on $H_*(\overline{THH}(\B))$ is trivial and therefore the input becomes 
+\[\Ext_{E(\tau_i)_*}^{**}(\F_p,\F_p )\otimes H_*(\overline{THH}(\B)).\]
+and $\Ext_{E(\tau_i)_*}^{**}(\F_p,\F_p )\cong P(v_i)$ for $0\le i\le 3$. Since the spectra $k(i)$ are $A_{\infty}$-ring spectra  and $\B$ is an $E_{\infty}$-ring spectrum, $THH(\B;k(i))$ is ring spectrum. Thus, the Adams spectral sequence is multiplicative. Since the Adams spectral sequence \eqref{ASS} is equivalent to the corresponding Bockstein spectral sequence, each of these Bockstein spectral sequences is multiplicative. 
+
+We will also consider Bockstein spectral sequences 
+\begin{align}
+	\label{v_0v_1BSS}\THH_*(\B;\Z_{(p)})_p[v_1]&\implies \THH_*(\B;\tBP{1})\\
+	\label{v_2v_1BSS}\THH_*(\B;k(2))[v_1]&\implies \THH_*(\B;\B/p)\\
+	\label{v_1v_2BSS}\THH_*(\B;k(1))[v_2]&\implies \THH_*(\B;\B/p)\\
+	\label{v_0v_2BSS}\THH_*(\B;\Z_{(p)})[v_2]&\implies \THH_*(\B;\B/v_1)\\
+	\label{v_1v_0BSS}\THH_*(\B;k(1))[v_0]&\implies \THH_*(\B;\tBP{1})\\
+	\label{v_2v_0BSS}\THH_*(\B;k(2))[v_0]&\implies \THH_*(\B;\B/v_1)
+\end{align}
+each of which is also multiplicative except the last two by using an Adams spectral sequence in an appropriate module category and choosing a minimal resolution to get an equality of spectral sequences at the $E_1$-page. 
+\gabe{I need to verify this claim still. This is what AHL do.}
+Finally, Bockstein spectral sequences 
+\begin{align}
+	\label{v_0v_1v_2BSS}\THH_*(\B;\tBP{1})[v_2]&\implies \THH_*(\B)\\
+	\label{v_0v_2v_1BSS}\THH_*(\B;\B/v_1)[v_1]&\implies \THH_*(\B)\\
+	\label{v_1v_2v_0BSS}\THH_*(\B;\B/p)[v_0]&\implies \THH_*(\B).
+\end{align}
+are also multiplicative except the third one by the same kind of argument as above. 
+\gabe{At the moment, this is written as though we will compute $THH_*(\B)$ and it will need to be adjusted if we decide to finish the paper at $S/p_*THH(\B)$.}
+\end{comment}
+
+\subsection{THH of $\B$ modulo $(p,v_1,v_2)$}
+\gabe{Adjust this based on other paper.}
+We now compute 
+\[\THH_*(\B;H\F_p).\] 
+By \cite[Lem. 4.1]{AngeltveitRognes}, it suffices to compute the sub-algebra of comodule primitives in $H_*(\THH(\B;H\F_p))$ since $\THH(\B;H\F_p)$ is an $H\F_p$-algebra. Since $\B$ and $H\mathbb{F}_p$ are commutative there is a weak equivalence of commutative ring spectra
+\[ \THH(\B;H\F_p)\simeq \THH(\B)\wedge_{\B} H\mathbb{F}_p. \] 
+Since $H_*(\THH(\B))$ is free over $H_*\B$ by \eqref{HTHHB}, the Eilenberg-Moore spectral sequence and \cite[Cor. 5.13]{AngeltveitRognes} immediately implies
+\begin{equation}\label{eqn:HTHH(R;F_p)}
+H_*(\THH(\B;H\F_p))\cong %\begin{cases} 
+\A_* \otimes E(\sigma \bxi_1, \sigma \bxi_2, \sigma \bxi_3)\otimes P(\sigma \btau_3) %\text{ if } p=3 
+%\\  \A_* \otimes E(\sigma \bxi_1^2, \sigma \bxi_2^2, \sigma \bxi_3^2)\otimes P(\sigma \bxi_3) \text{ if } p=2. \end{cases}
+\end{equation}
+The $\A_*$ coaction on elements in $\A_*$ is given by the coproduct and the remaining coactions are determined by the formula \eqref{coactsigma} and are therefore the same as in \eqref{coactp>2}.
+We write $\lambda_i=\sigma\bxi_i$ and define $\mu_3:= \sigma \btau_3 -\btau_0\sigma \bxi_3$ %at $p=3$ and $\lambda_i=\sigma \bxi_i^2$ are $p=2$. We also define 
+%\[ \mu_3=\begin{cases} \sigma \btau_3 -\btau_0 \sigma \bxi_3 \text{ if } p=3 \\ \sigma \bxi_4-\bxi_1 \sigma \bxi^2_3 \text{ if } p=2 \end{cases}. \]
+Then it is clear that the algebra of comodule primitives in $H_*(\THH(\B ;H\F_p))$ is generated by $\mu_3$ and $\lambda_i$ for $1\le i\le 3$. We therefore produce the following isomorphism of graded $\mathbb{F}_p$-algebras
+\begin{equation}\label{eqn:THH(R;F_p)}
+\THH_*(\B;H\F_p)\cong E(\lambda_1, \lambda_2, \lambda_3)\otimes P(\mu_3).
+\end{equation}
+The degrees are $|\lambda_i|=2p^i-1$ for $1\le i\le 3$ and $|\mu_3| = 2p^3$. 
+
+\begin{comment}
+\subsection{Rational homology}
+Next, we compute the rational homology of $\THH(\B)$ to locate the torsion free component of $\THH_*(\B)$. Towards this end, we will use the $H\Q$-based B\"okstedt spectral sequence. This is a spectral sequence of the form 
+\[
+E_2^{**}=\HH_*^{\Q}(H\Q_*\B)\implies H\Q_*\THH(\B).
+\]
+Recall that the rational homology of $\B$ is  
+\[
+H\Q_*\B\cong P_\Q [v_1,v_2].
+\]
+Thus the $E_2$-term of the B\"okstedt spectral sequence is 
+\[
+P_\Q(v_1, v_2)\otimes E_\Q( \sigma v_1,\sigma v_2)
+\]
+and the bidegree of $\sigma v_i$ is $(1,2(p^i-1))$. Note that $\B$ is a commutative ring spectrum, so by \cite[Prop. 4.3]{AngeltveitRognes} the B\"okstedt spectral sequence is multiplicative. All the algebra generators are in B\"okstedt filtration $0$ and $1$ and the $d^2$ differential shifts B\"okstedt filtration by two, so there is no room for differentials. Thus, the $E_2$-term is isomorphic to the $E_\infty$-term as graded $\Q$-algebras. There are also no hidden extensions. %Why? Probably it is obvious, but we should include an argument. qx
+Thus, there is an isomorphism of graded $\Q$-algebras
+\[
+\THH_*(\B)\otimes \Q\cong P_\Q(v_1,v_2)\otimes_\Q E_\Q(\sigma v_1,\sigma v_2)
+\]
+where $|\sigma v_i|=2p^i-1$.  We will suggestively rename $\sigma v_i=\lambda_i$, which we will validate later. Consequently, 
+\begin{equation}\label{Qcoeff} THH_*(\B;H\Q)\cong E(\lambda_1,\lambda_2) \end{equation}.
+Also, we conclude that 
+\[ L_0 \THH(\B)\simeq L_0\B\wedge \Sigma^{2p-1}L_0\B\vee \Sigma^{2p^2-1}L_0\B\vee\Sigma^{2p^2+2p-2}L_0\B\]
+where $L_0=L_{H\mathbb{Q}}$, since $L_0$ is a smashing localization and $L_0S=H\mathbb{Q}$. 
+\end{comment}

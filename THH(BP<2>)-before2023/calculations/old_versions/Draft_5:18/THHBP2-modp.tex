@@ -1,0 +1,207 @@
+% root file is THHBP2.tex
+
+\section{The mod $p$ homotopy of $\THH(R)$}
+
+In this section, we begin our study of the mod $p$ homotopy of $\THH(R)$. At first, we will assume that $p=3$, since in this case the mod 3 Moore spectrum $V(0)$ is a ring spectrum. Our approach to this computation will be to make use of the \emph{THH-May spectral sequence}, which was developed by the first author and Andrew Salch in \cite{THH-May} and applied by the first author in \cite{THHK1-local}. 
+
+
+Let us briefly describe the strategy we will employ. The mod 3 homotopy of $\THH(R)$ is exactly the homotopy groups
+\[
+\pi_*(\THH(R);\Z/3):= \pi_*(V(0)\wedge \THH(R)) = V(0)_*\THH(R).
+\]
+To compute this, we will use the $V(0)$-based THH-May spectral sequence. Using the Whitehead filtration for $R$ as developed in \cite{THH-May}, the THH-May spectral sequence based on $V(0)$ takes the form 
+\begin{equation}\label{eqn:V(0)-May}
+	\pi_*(\THH(E^*_0R);\Z/3)\implies \pi_*(\THH(R);\Z/3)
+\end{equation}
+In order to obtain the first several differentials in this spectral sequence, we will consider the $H\wedge V(0)$-based THH-May spectral sequence. This takes the form 
+\begin{equation}\label{eqn: H-V(0)-May}
+	H_*(V(0)\wedge \THH(E^*_0R))\implies H_*(V(0)\wedge \THH(R)).
+\end{equation}
+The abutment of this spectral sequence is known from which we will determine the differentials in \eqref{eqn: H-V(0)-May}.
+
+The morphism $V(0)\to H\wedge V(0)$ of spectra gives us a morphism of THH-May spectral sequences
+\begin{equation}\label{eqn:morphism of THH-MaySS}
+\begin{tikzcd}
+	\pi_*(\THH(E^*_0R);\Z/3)\arrow[d, hook]\arrow[r,Rightarrow]& \pi_*(\THH(R);\Z/3)\arrow[d]\\
+	 H_*(V(0)\wedge \THH(E^*_0R))\arrow[r, Rightarrow] & H_*(V(0)\wedge \THH(R))
+\end{tikzcd}
+\end{equation}
+We will argue that the map on $E^1$-terms is injective, which will allow us to determine the first several pages of the $V(0)$-based THH-May spectral sequence. We will argue that the $E^{p+2}$-term is isomorphic to 
+\[
+\THH_*(R;\F_p)[v_1,v_2]
+\]
+Thus, the $\THH$-May spectral sequence will serve as a way to combine the $v_1$ and $v_2$-BSS. From these spectral sequences, we will import differentials into the $\THH$-May spectral sequence.
+
+\subsection{Review of the THH-May spectral sequence}
+\dom{I'm wondering if we should put a quick review of the THH-May spectral sequence here, that way we can refer to various results internally to the paper.}
+
+\subsection{the $H\wedge V(0)$-based THH-May spectral sequence}
+
+We begin our analysis of the THH-May spectral sequence based on $H\wedge V(0)$, which is the spectral sequence \eqref{eqn: H-V(0)-May}. The main point is that we know the abutment of the spectral sequence. If follows from \eqref{eqn:homologyTHHR} that
+\[
+H_*(V(0)\wedge \THH(R))\cong E(\otau_0)\otimes \AE{2}\otimes E(\lambda_1, \lambda_2, \lambda_3)\otimes P(\mu_3). 
+\]
+\gabe{We should give a citation. I think Bruner-Rognes is the correct reference.}
+\dom{I've added an reference to earlier in the paper where we also state this computation. There we cite \cite{AngeltveitRognes}.}
+To deduce differentials in this spectral sequence, we need to determine the $E^1$-page. We have that the associated $E_\infty$-ring for the Whitehead filtration on $R$ (cf. \cite{THH-May}) is 
+\[
+E^*_0R\simeq H\pi_*R
+\]
+where $H\pi_*R$ denotes the generalized Eilenberg-MacLane spectrum on $\pi_*R$. 
+\gabe{Maybe we can give the description from the proof here, since I'm not sure how standard the notation $H\pi_*R$ is. }
+To compute the $E^1$-page, we will utilize the B\"okstedt spectral sequence:
+\[
+\HH_*(H_*(\THH(H\pi_*R)))\implies H_*( \THH(H\pi_*R)).
+\]
+We need to determine the $E^1$-term of this 
+\begin{lem}
+	The mod 3 homology of $H\pi_*R$ is $\AE{0}\otimes P(v_1, v_2)$ where $v_1$ and $v_2$ are comodule primitives.
+\end{lem}
+\begin{proof}
+	Additively, we have that the underlying $H\Z_3$-module of $H\pi_*R$ is 
+	\[
+	H\pi_*R\simeq H\Z_3\vee \bigvee_{m\in \pi_*R}\Sigma^{|m|}H\Z_3
+	\]
+	where the index $m$ is varying over all of the monomials in $\pi_*R$. Then, the element $v_1$ in homology is arising from the inclusion of the summand indexed by $v_1$. Applying homology to this map takes $1$ to $v_1$. As this is a map of comodules, $v_1$ is necessarily primitive. A similar argument shows that $v_2$ is primitive.
+\end{proof}
+
+This allows us to deduce that the $E^2$-term of the B\"okstedt spectral sequence is
+\[
+E(\otau_0)\otimes \AE{0}\otimes E(\sigma\zeta_n\mid n\geq 1)\otimes \Gamma(\sigma\otau_k\mid k\geq 1)\otimes P(v_1,v_2)\otimes E(\sigma v_1, \sigma v_2)
+\]
+\gabe{We need to give more details here later.} 
+\dom{What details were you thinking?}
+The morphism 
+\[
+H\Z_p\to H\pi_*R
+\]
+allows us to deduce differentials and hidden extensions in the B\"okstedt spectral sequence, resulting in the following. 
+\begin{prop} \label{prop:homologyTHH-E0} We have an isomorphism
+\[
+H_*\THH(H\pi_*R)\cong \AE{0}\otimes E(\lambda_1)\otimes P(\mu_1)\otimes P(v_1,v_2)\otimes E(\sigma v_1,\sigma v_2).
+\]
+\end{prop}
+%\gabe{Hmm... I'm not sure how I feel about the notation $\eta_i$. I'd prefer to leave it as $\sigma v_i$. These classes don't survive the spectral sequence anyways, so they will have simpler names by the end of the computation anyways.}
+Note that the May filtration of $\sigma v_1$ and $\sigma v_2$ are $2(p-1)$ and $2(p^2-1)$ respectively. Since the May filtration is always divisible by $2(p-1)$, we reindex to give $\sigma v_1$ and $\sigma v_2$ May filtration 1 and $p+1$ respectively. 
+
+The abutment of the $H\wedge V(0)$-based THH-May spectral sequence is known to be 
+\[
+E(\otau_0)\otimes \AE{2}\otimes E(\lambda_1, \lambda_2, \lambda_3)\otimes P(\mu_3).
+\]
+Recall that the degree of $\lambda_i$ is $2p^i-1$ and the degree of $\mu_3$ is $2p^3$.
+
+\begin{prop}
+	We have the following $d_1$-differentials:
+	\begin{enumerate}
+		\item $d_1\otau_1\dot{=}\, v_1$,
+		\item $d_1\mu_1\dot{=}\, \sigma v_1$.
+	\end{enumerate}
+	Thus the $E^2$-page of the $H\wedge V(0)$-based THH-May spectral sequence is given by 
+	\[
+	E^2\cong E(\otau_0)\otimes \AE{1}\otimes E(\lambda_1, \mu_1^3\, \sigma v_1)\otimes P(\mu_1^3)\otimes P(v_2)\otimes E(\sigma v_2).
+	\].
+\end{prop}
+\begin{proof}
+	The abutment has dimension 1 in degree $2(p-1)$ with generator the class $\zeta_1$. As $v_1$ is in degree $2(p-1)$ it follows that it must be hit by a differential. It follows that 
+\[
+d_1(\otau_1) \dot{=} v_1.
+\]
+Also the class $\mu_1$ is in degree $2p$ and the abutment is one dimensional in this degree. In the abutment, the generator is $\otau_0\lambda_1$, which is detected by $\otau_0\lambda_1$ in the $E^1$-page. Thus, as $\mu_1$ is in May filtration 1, it must support a differential. The only possibility is 
+\[
+d_1(\mu_1)\dot{=}\,\sigma v_1
+\]
+The multiplicative structure of the THH-May spectral sequence accounts for all other $d_1$-differentials on the $E^1$-page.
+\end{proof}
+
+We now determine the next differentials. 
+
+\begin{prop}
+	The next differentials in the $H\wedge V(0)$-based THH-May spectral sequence for $\THH(R)$ are 
+	\begin{enumerate}
+		\item $d^{p+1}\otau_2\dot{=}\, v_2$
+		\item $d^{p+1}\mu_1^3\dot{=}\, \sigma v_2$
+	\end{enumerate}
+	and the class $\mu_1^3\, \sigma v_1$ detects $\lambda_2$. Moreover, we obtain
+	\[
+	E^{p+2}\cong E(\otau_0)\otimes \AE{2}\otimes E(\lambda_1, \mu_1^3\, \sigma v_1, \mu_1^6\, \sigma v_2)
+	\]
+\end{prop}
+\begin{proof}
+	Note that the class $\mu_1^3\, \sigma v_1$ is in degree 17. Thus, the $E^2$-term is of dimension 3 in degree 17, with generators $\otau_2, \mu_1^3\, \sigma v_1$, and $\sigma v_2$. On the other hand, the abutment has dimension 1 in degree 17, with generator $\lambda_2$. 
+
+Note that $\lambda_2$ is in the kernel of the natural map in homology induced by 
+\[
+\THH(R)\to \THH(\Z_p).
+\]
+Thus $\lambda_2$ is in positive May filtration. Thus, $\otau_2$ must support a differential. The only possibility is the the following differential
+\[
+d^{p+1}\otau_2\dot{=} v_2.
+\]
+As this is the $E^2$-page, the class $\mu_1^2\, \sigma v_1$ cannot be hit by a differential, and there are no classes for it to hit. Thus, this class will represent a non-zero permanent cycle in the $E^\infty$-term and detects $\lambda_2$. Consequently, $\sigma v_2$ must be the target of a differential. This results in the differential 
+\[
+d^{p+1}\mu_1^3\dot{=} \sigma v_2.
+\] 
+These and the multiplicative structure of the spectral sequence accounts for all $d^{p+1}$-differentials. This results in 
+\[
+E^{p+2}\cong E(\otau_0)\otimes \AE{2}\otimes E(\lambda_1, \mu_1^3\, \sigma v_1, \mu_1^6\, \sigma v_2 )\otimes P(\mu_1^9).
+\]
+\end{proof}
+
+We can infer from the description of the $E^{p+2}$ that the $H\wedge V(0)$-based THH-May spectral collapses at this page. 
+
+\begin{cor}
+	The $H\wedge V(0)$-based THH-May spectral sequence collapses at $E^{p+2}$
+\end{cor}
+\begin{proof}
+	Based on the description of $E^{p+2}$-page that it is concentrated in May filtration 0 and 1. Thus there are no differentials more differentials.
+\end{proof}
+
+We have already shown that $\mu_1^3\sigma\, v_1$ detects $\lambda_2$. We also have, 
+
+\begin{prop}
+	The class $\mu_1^6\sigma\, v_2$ detects $\lambda_3$ and the class $\mu_1^9$ detects $\mu_3$.
+\end{prop}
+\begin{proof}
+	A direct computation with B\"okstedt spectral sequence for the morphism
+	\[
+	\THH(R)\to \THH(\Z_p)
+	\]
+	shows that $\mu_3$ is mapped to $\mu_1^9$ in homology. Thus $\mu_1^9$ detects $\mu_3$ in the May spectral sequence.\todo{finish this proof}
+	\gabe{We won't be able to prove that $\mu_1^6\sigma\, v_2$ detects $\lambda_3$ using this map because $\lambda_3$ maps to zero. Can't you prove both of these detection results by using the Hurewicz map? That's how I have done it previously.}
+\end{proof}
+
+\subsection{the $V(0)$-based THH-May spectral sequence}
+
+
+We now study the $V(0)$-based THH-May spectral sequence \eqref{eqn:V(0)-May}. We begin by determining the $E^1$-term. We recall the following standard fact, 
+
+\begin{lem}[cf. \cite{THHK1-local}]
+	Let $M$ be an $H\F_p$-module. Then $M$ is equivalent to a wedge of suspensions of $H\F_p$, and the Hurewicz map 
+	\[
+	\pi_*M\to H_*M
+	\]
+	is an injection onto the $A_*$-comodule primitives.
+\end{lem}
+
+\begin{prop}
+	The $E^1$-term of \eqref{eqn:V(0)-May} is isomorphic to 
+	\[
+	E(\lambda_1)\otimes P(\mu_1)\otimes P(v_1,v_2)\otimes E(\sigma v_1, \sigma v_2),
+	\]
+	and the spectral sequence has the following differentials, 
+	\begin{itemize}
+		\item $d^1\mu_1 \dot{=} \sigma\, v_1$,
+		\item $d^{p+1}\mu_1^3\dot{=} \sigma\, v_2$.
+	\end{itemize}
+\end{prop}
+\begin{proof}
+	The description of the $E^1$-term follows directly from the lemma and Proposition \ref{prop:homologyTHH-E0}. 
+	\gabe{For the sentence above to be true we need to describe the coaction of the dual Steenrod algebra on $H_*THH(H\pi_*BP\langle 2 \rangle)$.}
+	Because the map on $E^1$-terms is injective, we can pull back differentials, which provides the stated differentials.
+\end{proof}
+
+\begin{cor}
+	The $E^{p+2}$-page of \eqref{eqn:V(0)-May} is $\THH(R;\F_p)[v_1,v_2]$.
+\end{cor}
+
+

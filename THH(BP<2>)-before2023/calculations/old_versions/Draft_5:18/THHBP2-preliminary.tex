@@ -1,0 +1,40 @@
+% root file is THHBP2.tex
+
+\section{Preliminary results}
+
+We begin by computing the topological Hochschild homology of $R$ with coefficients in $\F_p$, $\THH(R;H\F_p)$. It suffices to compute the sub-algebra of co-mododule primitives in $H_*\THH(R;H\F_p)$ by \cite[Lem. 4.1]{AR12} for example. By the K\"unneth spectral sequence and \cite[Cor. 5.13]{AngeltveitRognes}
+we obtain
+\begin{equation}\label{eqn:HTHH(R;F_p)}
+H_*\THH(R;\F_p)\cong \mathcal{A}_* \otimes E(\lambda_1, \lambda_2, \lambda_3)\otimes P(\mu_3).
+\end{equation}
+where $\lambda_i=\sigma \bar{\xi}_i$, $\mu_3=\sigma \bar{\tau}_2$, and the co-action is determined by the formula 
+\[ \nu (\sigma x) =((1\otimes \sigma )\circ \nu )(x)) \]
+and the coaction on elements in $\mathcal{A}_*$ are given by the coproduct \cite[Equation 5.11]{AngeltveitRognes}.  We see that 
+\[ \nu(\lambda_i)=\lambda_i \]
+because $\sigma \bar{\xi}_i^{p^k}=0$ for $k\ge 1$ and $i\ge 1$ and 
+\[ \nu(\mu_3)=\mu_3+\bar{\tau}_0\otimes \lambda_3.\]
+Since there are no other comodule primitives, we get an isomorphism,
+\begin{equation}\label{eqn:THH(R;F_p)}
+\THH_*(R;\F_p)\cong E(\lambda_1, \lambda_2, \lambda_3)\otimes P(\tilde{\mu}_3).
+\end{equation}
+The degrees are $|\lambda_i|=2p^i-1$ and $|\mu_3| = 2p^3$ where $\tilde{\mu}_3=\mu_3-\bar{\tau}_0 \lambda_3$
+
+\subsection{Rational homology}
+
+Next, we compute the rational homology of $\THH(R)$, as this locates the torsion free component inside $\THH_*(R)$. Towards this end, we will use the $H\Q$-based B\"okstedt spectral sequence. This is a spectral sequence of the form 
+\[
+\HH_*^{\Q}(H\Q_*R)\implies H\Q_*\THH(R).
+\]
+Recall that the rational homology of $R$ is given by 
+\[
+H\Q_*R\cong P_\Q [v_1,v_2].
+\]
+Thus the $E_2$-term of the B\"okstedt spectral sequence is 
+\[
+P_\Q(v_1, v_2)\otimes E_\Q( \sigma v_1,\sigma v_2)
+\]
+and the bidegree of $\sigma v_i$ is $(1,2(p^i-1))$. For degree reasons, there can be no differentials, showing that the $E_\infty$-term is this $\Q$-algebra. There are also no hidden extensions. Thus, we have that 
+\[
+\THH_*(R)\otimes \Q\cong P_\Q(v_1,v_2)\otimes_\Q E_\Q(\sigma v_1,\sigma v_2)
+\]
+where $|\sigma v_i|=2p^i-1$. 

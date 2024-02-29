@@ -1,0 +1,326 @@
+\documentclass[12pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{lscape,xcolor}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+%\usepackage{mathrools}
+\usepackage{stmaryrd}
+\usepackage{verbatim}
+\usepackage{rotating}
+\usepackage{tikz-cd}
+\usepackage{xypic}
+\usepackage{amsrefs}
+\usepackage{hyperref}
+\usepackage{euscript}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{spectralsequences}
+
+
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palatino needs more leading (space between lines)
+\usepackage[T1]{fontenc}
+
+\usepackage[OT2,T1]{fontenc}
+\newcommand\textcyr[1]{{\fontencoding{OT2}\fontfamily{wncyr}\selectfont #1}}
+
+
+%\usepackage{luasseq}
+\usepackage{xcolor}
+\definecolor{seagreen}{RGB}{46,139,87}
+\definecolor{maroon}{RGB}{128,0,0}
+\definecolor{darkviolet}{RGB}{148,0,211}
+\definecolor{twelve}{RGB}{100,100,170}
+\definecolor{thirteen}{RGB}{100,150,50}
+\definecolor{fourteen}{RGB}{200,0,0}
+\definecolor{fifteen}{RGB}{0,200,0}
+\definecolor{sixteen}{RGB}{0,0,200}
+\definecolor{seventeen}{RGB}{200,0,200}
+\definecolor{eighteen}{RGB}{0,200,200}
+
+
+
+\parskip 0.7pc
+\parindent 0pt
+
+\allowdisplaybreaks[1]
+
+%%%%%%%%%%%%%%% Basic commands %%%%%%%%%%%%%%%%%%
+\newcommand{\dotequiv}{\overset{\scriptstyle{\centerdot}}{\equiv}}
+\newcommand{\nd}{\not\!|}
+\newcommand{\mmod}{\! \sslash \!}
+
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\ull}[1]{\underline{#1}}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mr}[1]{\mathrm{#1}}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\mit}[1]{\mathit{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\ms}[1]{\mathscr{#1}}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\bra}[1]{\langle #1 \rangle}
+\newcommand{\br}[1]{\overline{#1}}
+\newcommand{\brr}[1]{\overline{\overline{#1}}}
+\newcommand{\td}[1]{\widetilde{#1}}
+\newcommand{\tdd}[1]{\widetilde{\widetilde{#1}}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\MS}{\mathbb{S}}
+\newcommand{\PP}{\mathbb{P}}
+
+\newcommand{\euscr}[1]{\EuScript{#1}}
+
+%%%%%%%%%%%%%%%%% Spectra %%%%%%%%%%%%%%%
+
+\newcommand{\tBP}[1]{BP\bra{#1}}
+\newcommand{\AF}{\mr{AF}}
+\newcommand{\TAF}{\mathrm{TAF}}
+\newcommand{\TMF}{\mathrm{TMF}}
+\newcommand{\Tmf}{\mathrm{Tmf}}
+\newcommand{\tmf}{\mathrm{tmf}}
+\newcommand{\bo}{\mathrm{bo}}
+\newcommand{\bsp}{\mathrm{bsp}}
+\newcommand{\HZ}{\mr{H}\Z}
+\def \HF2{\mr{H}\F_2}
+\newcommand{\bu}{\mr{bu}}
+\newcommand{\MU}{\mr{MU}}
+\newcommand{\KU}{\mr{KU}}
+\newcommand{\KO}{\mr{KO}}
+\newcommand{\EO}{\mr{EO}}
+\newcommand{\BP}{\mr{BP}}
+\newcommand{\K}{\mr{K}}
+\newcommand{\ku}{\mathrm{ku}}
+
+%%%%%%%%%%%%%%% Operators %%%%%%%%%%%%%%
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Sta}{Sta}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator*{\holim}{holim}
+\DeclareMathOperator*{\hocolim}{hocolim}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\Tot}{Tot}
+\DeclareMathOperator{\Spf}{Spf}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+
+\DeclareMathOperator{\THH}{THH}
+
+\DeclareMathOperator{\sq}{Sq}
+\newcommand{\xib}{{\bar{\xi}}}
+\newcommand{\s}{\wedge}
+\newcommand{\Si}{\Sigma}
+\newcommand\floor[1]{\lfloor#1\rfloor}
+
+%%%%%%%%%%%%% Steenrod Algebra & Brown-Gitler Modules %%%%%%%%%%%
+
+\newcommand{\A}{\ms{A}}
+\newcommand{\sE}{\ms{E}}
+\newcommand{\HZu}{\ull{\HZ}}
+\newcommand{\bou}{\ull{\bo}}
+\newcommand{\tmfu}{\ull{\tmf}}
+\newcommand{\tBPu}[1]{\ull{\tBP{#1}}}
+\newcommand{\buu}{\ull{\bu}}
+\def \AA0{\br{A \mmod A(0)}_*}
+\def \AA2{A\mmod A(2)_*}
+\def \AE2{A\mmod E(2)_*}
+\renewcommand{\AE}[1]{A\mmod E(#1)_*}
+\DeclareMathOperator{\wt}{\mathrm{wt}}
+\def \E2E1{(E(2)\mmod E(1))_*}
+
+
+
+%%%%%%%%%%%%%%%% Categories %%%%%%%%%%%%%
+
+\newcommand{\Top}{\mathsf{Top}}
+\newcommand{\Operad}{\mathsf{Operad}}
+\newcommand{\Alg}{\mathsf{Alg}}
+\newcommand{\Monad}{\mathsf{Monad}}
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\sSet}{\mathsf{sSet}}
+\newcommand{\Man}{\mathsf{Man}}
+\newcommand{\Presheaf}{\mathsf{Presheaf}}
+\newcommand{\Fun}{\mathsf{Fun}}
+\newcommand{\Grpd}{\mathsf{Grpd}}
+\newcommand{\op}{\mathrm{op}}
+
+
+%%%%%%%%%%%%%%% Homological Algebra %%%%%%%
+
+\newcommand{\cone}[1]{\mathrm{cone}\left(#1\right)}
+
+
+%%%%%%% for numbered theorems %%%%%%%%%
+ \newtheorem{thm}[equation]{Theorem}
+ \newtheorem{cor}[equation]{Corollary}
+ \newtheorem{lem}[equation]{Lemma}
+ \newtheorem{prop}[equation]{Proposition}
+ \newtheorem{obs}[equation]{Observation}
+  \newtheorem{rem}[equation]{Remark}
+ 
+ \newtheorem*{thm*}{Theorem}
+ \newtheorem*{cor*}{Corollary}
+ \newtheorem*{lem*}{Lemma}
+ \newtheorem*{prop*}{Proposition}
+  \newtheorem*{not*}{Notation}
+
+ 
+ \theoremstyle{definition}
+ \newtheorem{defn}[equation]{Definition}
+ \newtheorem{ex}[equation]{Example}
+ \newtheorem{exs}[equation]{Examples}
+ \newtheorem{rmk}[equation]{Remark}
+\newtheorem{claim}[equation]{Claim}
+ \newtheorem{question}[equation]{Question}
+ \newtheorem{conjecture}[equation]{Conjecture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem*{defn*}{Definition}
+\newtheorem*{ex*}{Example}
+\newtheorem*{exs*}{Examples}
+\newtheorem*{rmk*}{Remark}
+\newtheorem*{claim*}{Claim}
+\newtheorem*{conventions}{Conventions}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+
+
+\title{THH of $\tBP{2}$ with coefficients in $k(2)$}
+\author{ G.~ Angelini-Knoll \"und D.~ Culver}\address{University of Illinois, Urbana-Champaign}\email{dculver@nd.edu}\address{Michigan State University, East Lansing}\email{angelini@math.msu.edu}
+
+\begin{document}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%
+%%Copy and paste into current draft 
+%%%%%%%%%%%%%%%%%%%
+Let $\tBP{2}$ be the truncated Brown-Peterson spectrum with coefficients $\tBP{2}_*\cong \Z_{(p)}[v_1,v_2]$ and let $k(2)$ be connective Morava K-theory with coefficients $k(2)_*\cong \F_p[v_2^{\pm1}]$. At the moment, we will let $p$ be any prime number. Whenever we assume that there is a model for $\tBP{2}$ that is $E_{\infty}$ we will assume that $p=2$ or $3$. 
+
+The goal is to compute $THH(\tBP{2};k(2))$ via the Bockstein spectral sequence 
+\[ THH_*(\tBP{2};H\F_p)[v_2]\Rightarrow THH(\tBP{2};k(2)).\]
+
+The first goal is to show
+\begin{equation}\label{K(2) coeff} K(2)_*\cong THH_*(\tBP{2};K(2)) \end{equation}
+which will imply that all the classes except the classes in the subalgebra $P(v_2)\subset THH_*(\tBP{2};H\F_p)[v_2]$ are $v_2$-torsion and this will force differentials in the spectral sequence. Our approach is entirely analogous to the calculation of McClure-Staffeldt except for one minor difference, which we will point out. 
+
+To compute $THH_*(\tBP{2};K(2))$, we can first compute 
+\[ K(2)_*THH(\tBP{2};K(2)) \]
+and then use the fact that $THH(\tBP{2};K(2))$ is a free $K(2)$-module (since $K(2)$ is a field spectrum) and the collapse of the $K(2)$-based Adams spectral sequence to finish the computation. 
+
+We use the $K(2)$-based B\"okstedt spectral sequence to compute $K(2)_*THH(\tBP{2};K(2))$; i.e. the spectral sequence
+\[ HH_*^{K(2)_*}(K(2)_*\tBP{2};K(2))\Rightarrow K(2)_*THH(\tBP{2};K(2)).\]
+the first goal will be to compute the input. 
+\begin{lem}There is an isomorphism of graded rings
+\[K(n)_*\tBP{n}\cong K(n)_*[t_1,t_2, \dots]/(v_nt_k^{p^n}-v_n^{p^k}t_k | k\ge 1).\]
+\end{lem}
+\begin{proof}
+We adapt the proof in McClure-Staffeldt. First $K(n)_*BP\cong K(n)_*\otimes_{BP_*}BP_*BP$ because $BP$ is Landweber exact. Furthermore, $K(n)_*\otimes_{BP_*}BP_*BP\cong K(n)_*[t_1,t_2,\dots]$ and we can restrict $\eta_R:BP_*\rightarrow BP_*BP$ to $K(n)_*\otimes_{BP_*}BP_*BP$ to produce the map $\bar{\eta}_R$ and by Ravenel 
+\begin{equation}\label{Rav form} \bar{\eta}_R(v_{n+k})=v_nt_k^{p^n}-v_n^{p^k}t_k  \text{ mod } (\bar{\eta}_R(v_{n+1}),\bar{\eta}_R(v_{n+2}), \dots\bar{\eta}_R(\dots, v_{n+k-1}) )\end{equation}
+We can then construct $\tBP{n}$ using Baas-Sullivan theory and the effect is that 
+\[ K(n)_*\tBP{n}\cong K(n)_*\otimes_{BP_*}BP_*BP/(\bar{\eta}_R(v_{n+1}), \bar{\eta}_R(v_{n+2}), \dots )\]
+or in other words, by \eqref{Rav form}
+\[ K(n)_*\tBP{n} \cong K(n)_*[t_1,t_2, \dots]/(v_nt_k^{p^n}-v_n^{p^k}t_k | k\ge 1) \]
+as desired. 
+\end{proof}
+\begin{rem}
+Note that the model of $\tBP{2}$ that we used in this lemma is not the same model that gives you an $E_{\infty}$-structure, but since there is a weak equivalence $\tBP{2}\simeq tmf_1(3)$ the map $K(n)_*\tBP{2}\cong K(n)_*tmf_1(3)$ as $K(n)_*$-modules. (\textcolor{seagreen}{Is the equivalence $\tBP{2}\simeq tmf_1(3)$ known to be an equivalence of $E_2$-algebras? Does this reasoning make sense to you?})
+\end{rem}
+We now describe the structure of $K(2)_*[t_1,t_2, \dots]/(v_2t_k^{p^2}-v_2^{p^k}t_k | k\ge 1)$. Note that it can be written as 
+\begin{equation}\label{K(2) computation} K(2)_*[t_1,t_2, \dots]/(v_2t_k^{p^2}-v_2^{p^k}t_k | k\ge 1) \cong \bigotimes_{k\ge 1} K(2)_*[t_k]/(v_2t_k^{p^2}-v_2^{p^k}t_k )\end{equation}
+where the tensor is taken over $K(2)_*$. Note that $|t_k|=2p^k-2$ and $2p^2-2|2p^k-2$ when $2|k$ and $2p-2|2p^k-2$ for all $k$. Therefore, 
+\[ K(2)_*[t_k]/(v_2t_k^{p^2}-v_2^{p^k}t_k )\cong K(2)_*\otimes \mathbb{F}_p[u_k]/(u_k^{p^2}-v_2^{p^k-1}u_k]\]
+where $u_k=t_kv_2^{m(k)}$ where $m(k)=-p^{k-2}-p^{k-4} - \dots p^2-1$ when $2|k$ and 
+\[ K(2)_*[t_k]/(v_2t_k^{p^2}-v_2^{p^k}t_k )\cong K(2)_*\otimes \mathbb{F}_p[w_k]/(w_k^{p^2}-v_2^{p^k-1}w_k]\]
+where $w_k=t_kv_2^{\ell(k)}$ where $\ell(k)=-p^{k-2}-p^{k-4} -\dots -p$ and $k$ is odd so that $|w_k|=2p-2$. 
+\begin{lem}
+There is an isomorphism
+\[ K(2)_*K(2)\cong HH_*^{K(2)_*}(K(2)_*\tBP{2};K(2)_*K(2))\] 
+and hence the $K(2)_*$-based Adams spectral sequence collapses with no room for hidden extensions and the natural map 
+\[ K(2)_*K(2)\rightarrow K(2)_*THH(\tBP{2};K(2)) \]
+is an isomorphism
+\end{lem}
+\begin{proof}
+Since $K(2)_*\tBP{2}$ is flat over $K(2)_*$
+\[ HH_*^{K(2)_*}(K(2)_*\tBP{2})\cong Tor^{K(2)_*\tBP{2}\otimes_{K(2)_*}K(2)_*\tBP{2}}_*(K(2)_*\tBP{2}; K(2)_*\tBP{2}).\]
+Also, by \eqref{K(2) computation}, 
+\[ 
+\begin{array}{l}
+Tor^{(K(2)_*\tBP{2})^{e}}_*(K(2)_*\tBP{2}; K(2)_*\tBP{2})\cong  \\
+\bigotimes_{k\ge 1} Tor^{ K(2)_*[t_k]/(v_2t_k^{p^2}-v_2^{p^k}t_k ))^{e}}_*(K(2)_*[t_k]/(v_2t_k^{p^2}-v_2^{p^k}t_k ); K(2)_*[t_k]/(v_2t_k^{p^2}-v_2^{p^k}t_k ))\cong \\
+\bigotimes_{k\ge 1; k|2}K(2)_*\otimes  HH_*^{K(2)_*}(K(2)_*[u_k]/(v_2u_k^{p^2}-v_2^{p^k}u_k ))\otimes \\
+\bigotimes_{k\ge 1; (k+1)|2}K(2)_*\otimes  HH_*^{K(2)_*}(K(2)_*[w_k]/(v_2w_k^{p^2}-v_2^{p^k}w_k ))
+\end{array}
+\]
+By Cartan-Eilenberg, for $k\ge0$ an odd integer
+\[HH_*^{K(2)_*}(K(2)_*[w_k]/(v_2w_k^{p^2}-v_2^{p^k}w_k )\cong K(2)_*[w_k]/(v_2w_k^{p^2}-v_2^{p^k}w_k)\otimes_{K(2)_*} Tor^{K(2)_*K(2)_*[w_k]/(v_2w_k^{p^2}-v_2^{p^k}w_k }(K(2)_*,K(2)_*)\]
+and by an elementary calculation, 
+\[Tor^{K(2)_*K(2)_*[w_k]/(v_2w_k^{p^2}-v_2^{p^k}w_k }(K(2)_*,K(2)_*)\cong K(2)_*\]
+and therefore 
+\[HH_*^{K(2)_*}(K(2)_*[w_k]/(v_2w_k^{p^2}-v_2^{p^k}w_k )\cong K(2)_*[w_k]/(v_2w_k^{p^2}-v_2^{p^k}w_k). \]
+Also, there is an isomorphism 
+\[HH_*^{K(2)_*}(K(2)_*[u_k]/(v_2u_k^{p^2}-v_2^{p^k}u_k ))\cong K(2)_*\otimes HH_*(\mathbb{F}_p[u_k]/(u_k^{p^2}-u_k ))\]
+and since 
+\[\mathbb{F}_p[u_k]/(u_k^{p^2}-u_k  \]
+is isomorphic as a $\mathbb{F}_p$-algebra to a product of finite field extensions of $\mathbb{F}_p$ (\textcolor{seagreen}{We should be more precise here.}) and since Hochschild homology commutes with limits and $HH_*(\mathbb{F}_{p^n})\cong \mathbb{F}_{p^n})$,
+\[ HH_*(\mathbb{F}_p[u_k]/(u_k^{p^2}-u_k ))\cong \mathbb{F}_p[u_k]/(u_k^{p^2}-u_k ). \]
+Putting this all together, we produce an isomorphism
+\[ K(2)_*\tBP{2}\cong HH_*^{K(2)_*}(K(2)_*\tBP{2})\] 
+and since 
+\[ HH_*^{K(2)_*}(K(2)_*\tBP{2};K(2)_*K(2))\cong K(2)_*K(2)\otimes_{K(2)_*\tBP{2}} HH_*^{K(2)_*}(K(2)_*\tBP{2})\]
+we produce the desired isomorphism 
+\[K(2)_*K(2)\cong HH_*^{K(2)_*}(K(2)_*\tBP{2};K(2)_*K(2))\]
+The B\"okstedt spectral sequence 
+\[HH_*^{K(2)_*}(K(2)_*\tBP{2};K(2)_*K(2)) \Rightarrow  K(2)_*THH(\tBP{2};K(2)) \]
+therefore collapses with no room for hidden extensions and hence the map 
+\[ K(2)\rightarrow THH(\tBP{2};K(2)) \]
+induces a $K(2)_*$-equivalence.
+\end{proof}
+\begin{cor}
+The map $K(2)\rightarrow THH(\tBP{2};K(2))$ is a weak equivalence and therefore 
+\[ THH_*(\tBP{2};k(2))\cong P(v_2)\otimes T \] 
+where $T$ is a $v_2$-torsion $P(v_2)$-module. 
+\end{cor}
+\begin{proof}
+Since the map $K(2)\rightarrow THH(\tBP{2};K(2))$ induces an isomorphism $K(2)_*K(2)\cong K(2)_*THH(\tBP{2};K(2))$, the $K(2)$-based Adams spectral sequence for $THH(\tBP{2};K(2))$ converges and collapses to the zero line and the map of $K(2)$-based Adams spectral sequences induces an isomorphism
+\[ K(2)_*\rightarrow THH_*(\tBP{2};K(2)).\] 
+Since we have a map that induces an isomorphism on homotopy groups the Whitehead theorem for spectra implies that the map $K(2)\rightarrow THH(\tBP{2};K(2))$ is a weak equivalence. 
+
+Alternatively, we could compute $THH_*(\tBP{2};K(2))$ using the $v_2$-inverted classical Adams spectral sequence, which is equivalent to the Bockstein spectral sequence 
+\[ THH_*(\tBP{2};H\mathbb{F}_p)[v_2^{\pm 1}]\Rightarrow THH_*(\tBP{2};K(2))\]
+and by the computation we just did, we know that all the classes must die except those in $P(v_2^{\pm 1})$. There is also a map of spectral sequences 
+\[ 
+\xymatrix{
+THH_*(\tBP{2};H\mathbb{F}_p)[v_2^{\pm 1}] \ar@{=>}[r] & THH_*(\tBP{2};K(2)) \\
+THH_*(\tBP{2};H\mathbb{F}_p)[v_2]  \ar[u] \ar@{=>}[r] &THH_*(\tBP{2};k(2)) \ar[u] 
+}
+\] 
+because $v_2^{-1}(-)$ is a localization. This implies that 
+\[ THH_*(\tBP{2};k(2))\cong P(v_2)\otimes T \] 
+and forces differentials in the bottom spectral sequence above.
+\end{proof}
+\begin{cor}
+There are differentials $d_{r(n)}(\mu^{r(n)})=\lambda_{[n]}v_2^{r(n)}$
+where $r(n)$ is $\dots$, and $\lambda_{[n]}$ is $\dots$.
+\end{cor}
+\textcolor{seagreen}{Finish the corollary above.}
+
+
+\bibliographystyle{plain}
+\bibliography{THHBP2}
+
+\end{document}

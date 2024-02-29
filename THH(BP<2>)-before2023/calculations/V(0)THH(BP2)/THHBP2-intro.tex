@@ -1,0 +1,74 @@
+% root file is V(0)THHBP2.tex
+
+\section{Introduction}
+The Brown-Peterson spectrum $\BP$ is a complex oriented cohomology theory and it is associated to the universal $p$-typical formal group law. The cohomology of the associated Hopf algebroid $(BP_*,BP_*BP)$ is the input for an Adams spectral sequence computing $\pi_*S_p$. This spectral sequence led to significant new computations of the homotopy groups of spheres and a better understanding of periodic phenomena in the homotopy groups of spheres. The coefficients of $BP$ are a polynomial algebra over $\mathbb{Z}_{(p)}$ on generators $v_i$ for $i\ge 1$. By coning off the regular sequence $(v_{n+1},v_{n+2},\ldots )$, one can construct the $n$-th truncated Brown-Peterson spectrum $\tBP{n}$ where $\tBP{0}=H\mathbb{F}_p$, $\tBP{0}=H\mathbb{Z}_{(p)}$, and $\tBP{1}$ is the Adams summand $\ell$ of $p$-local complex K-theory $ku_{(p)}$. Until the last ten years, no analogous interpretation of $\tBP{2}$ was known, but then in \cite{LawsonNaumann} Lawson-Nauman showed that there is an $E_{\infty}$-model for $\B$ at the prime $2$ using topological modular forms with level structure. More recently in \cite{HillLawson}, Hill-Lawson also give an $E_{\infty}$-model for $\B$ at the prime $3$ using spectra associated to Shimura curves of small discriminant. This is especially interesting in view of recent groundbreaking work of \cite{Law18}, where Lawson proves that at the prime $2$ no such $E_{\infty}$-model for $\tBP{n}$ exists for $n\ge 4$, which was extended to odd primes in \cite{Sen17}. 
+\gabe{At the moment this introduction is here to fill space. We should discuss how we want to pitch our results.}
+We compute mod $p$ topological Hochschild homology of $\B$ at the primes $2$ and $3$ where, by work of \cites{HillLawson,LawsonNaumann}, it is known that an $E_{\infty}$-ring spectrum model for $\B$ exists. 
+
+\subsection{Outline of the strategy}
+Beginning with a calculation of
+\[\THH_*(\B;\F_3)\] 
+we compute the square of Bockstein spectral sequences
+\begin{center}
+\begin{tikzcd}\label{BockSquare}
+THH_*(\B;\F_3)[v_1,v_2]\arrow[rr,Rightarrow] \arrow[dd,Rightarrow]
+	&& THH_*(\B;k(2))[v_1] \arrow[dd,Rightarrow] \\
+&& \\
+THH_*(\B;k(1))[v_2]\arrow[rr,Rightarrow] 
+	&& THH_*(\B;\B/3).
+\end{tikzcd}
+\end{center}
+and compare to the THH-May spectral sequence 
+\[S/3_*THH_*(H\pi_*\B;H\pi_*\B)\Rightarrow THH_*(\B;\B/3\]
+which packages the the diagonal of the square above into a single spectral sequence (in a sense we make precise). We view the THH-May spectral sequence in this setting as an organizational tool that allows us to rule out certain possible differentials and detect hidden multiplicative extensions in the Bockstein spectral sequences rather than a replacement for the square of Bockstein spectral sequences itself. 
+
+
+\begin{comment}
+Working from our calculation of $\THH(\B;\F_3)$ we will analyze the cube of Bockstein spectral sequences corresponding to the diagram
+\begin{equation}\label{cube}
+\xymatrix{ 
+H\F_p  \ar@{-}[rd] \ar@{-}[dd] \ar@{-}[rr] & & H\Z_{(p)} \ar@{-}[rd] \ar@{-}[dd] & \\
+ & k(1)  \ar@{-}[dd] \ar@{-}[rr] & & \tBP{1} \ar@{-}[dd]  \\
+k(2)   \ar@{-}[dr] \ar@{-}[rr] & &\B/v_1  \ar@{-}[dr] & \\
+ & \B/p \ar@{-}[rr] & & \B  } .   
+ \end{equation}
+ \end{comment}
+ 
+We begin by computing the  Bockstein spectral sequences
+\begin{align}
+	\label{v_1BSS}\THH_*(\B;\F_3)[v_1]&\implies \THH_*(\B;k(1))\\
+	\label{v_2BSS}\THH_*(\B;\F_3)[v_2]&\implies \THH_*(\B;k(2)).
+\end{align}
+These can be identified with multiplicative Adams spectral spectral sequences 
+\begin{align}
+	\label{v_1ASS}Ext_{\A_*}^*(\F_p;H_*THH(\B;k(1))&\implies \THH_*(\B;k(1))\\
+	\label{v_2ASS}Ext_{\A_*}^*(\F_p;H_*THH(\B;k(2)))&\implies \THH_*(\B;k(2))
+\end{align}
+since $H_*THH(\B)$ is free over $H_*\B$ and therefore the input becomes
+\[Ext_{E(\tau_i)}^*(\F_p;E(\lambda_1,\lambda_2,\lambda_3)\otimes P(\mu_2))\]
+for $i=1,2$ and since $\tau_i$ coacts trivially on $E(\lambda_1,\lambda_2,\lambda_3)\otimes P(\mu_2)$ and 
+\[Ext_{E(\tau_i)}^*(\F_p,\F_p)\cong P(v_i)\] 
+these each are identified with the input of the Bockstein spectral sequences \eqref{v_1BSS} and \eqref{v_2BSS} respecively.
+Each of these two spectral sequences contains a similar level of complexity to the Bockstein spectral sequence of \cite{McClureStaffeldt} and our proofs are inspired by those of McClure-Staffeldt.
+
+We will then compute the Bockstein spectral sequences 
+\begin{align}
+	\label{v_1v_2BSS}\THH_*(\B;k(1))[v_2]&\implies \THH_*(\B;\B/3)\\
+	\label{v_2v_1BSS}\THH_*(\B;k(2))[v_2]&\implies \THH_*(\B;\B/3).
+\end{align}
+This second part of the story is the analogue of the work of Angeltveit-Hill-Lawson \cite{AHL} on $\THH(\tBP{1})$. In Angeltveit-Hill-Lawson \cite{AHL} they use certain elementary number theory lemmas about divisibility by a prime. In our case, this is replaced by divisibility by $v_1$ which shifts topological degree making the computation a bit less tractable. This is overcome by combining this approach with another approach. 
+
+In parallel, we also compute the THH-May spectral sequences
+\begin{align}
+\label{B/(p,v_2)May} V(0)_{*,*}\THH(H\pi_*\B;H\pi_*\tBP{1})\Rightarrow \THH_*(\B;k(1))\\
+\label{B/(p,v_1)May} V(1)_{*,*}\THH(H\pi_*\B)\Rightarrow \THH(\B;k(2))\\
+\label{B/pMay}  V(0)_{*,*}\THH(H\pi_*\B;H\pi_*\B)\Rightarrow \THH_*(\B;\B).
+\end{align}
+The spectral sequences \eqref{B/(p,v_2)May} and \eqref{B/pMay} are multiplicative because $\B$ is a commutative ring spectrum, $\tBP{1}$ is a commutative $\B$-algebra, and $V(0)$ is a ring spectrum. The spectral sequence \eqref{B/(p,v_1)May} is not known to be multiplicative, but the output is the same as the Bockstein spectral sequence \eqref{v_2BSS} and we simply argue that at some page the two spectral sequences can be identified. This allows us to import Bockstein spectral sequence differentials into the THH-May spectral sequence. 
+\subsubsection*{Conventions}
+Let $p=3$ throughout. We will write $H_*(-)$ for homology with $\F_p$ coefficients, or in other words, the functor $\pi_*(H\F_p\wedge -)$. We write $\dot{=}$ to mean that an equality holds up to multiplication by a unit. We will write $\tBP{n}$ for the $n$-th truncated Brown-Peterson spectrum. In particular, $\tBP{1}$ denotes the $E_{\infty}$-ring spectrum model for the connective Adams summand \cite{McClureStaffeldt}. Also, $\tBP{2}$ will denote the $E_{\infty}$-model for the second truncated Brown-Peterson spectrum constructed in \cite{HillLawson} at $p=3$. We also note once and for all that $\tBP{1}$ can be constructed as a commutative $\B$-algbra by quotienting by the regular element $v_2$ in positive degree by \cite{EKMM}. 
+We let $k(n)$ denote an $A_{\infty}$-ring spectrum model for the connective cover of the Morava K-theory spectrum $K(n)$. 
+
+When not otherwise specified, tensor products will be taken over $\mathbb{F}_p$ and $HH_*(A)$ denotes the Hochschild homology of a graded $\mathbb{F}_p$-algebra relative to $\mathbb{F}_p$. We will let $P(x)$, $E(x)$ and $\Gamma(x)$ denote a polynomial algebra, exterior algebra, and divided power algebra over $\mathbb{F}_p$ on a generator $x$. 
+
+The dual Steenrod algebra will be denoted $\A_*$ with coproduct $\Delta\co \A_*\to \A_*\otimes \A_*$. Given a (right) $\A_*$-comodule $M$, its coaction will be denoted $\nu\co \A\to \A\otimes M$ where the comodule $M$ is understood from the context. 

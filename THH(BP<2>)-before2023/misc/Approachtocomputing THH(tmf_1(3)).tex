@@ -1,0 +1,42 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+\title{Approaches to computing $THH(tmf_1(3))$ }
+\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+Here I am collecting some tools that we can use for computing $THH(tmf_1(3))$. Feel free to add to the list. 
+\begin{enumerate}
+	\item Bockstein spectral sequence approach:
+	\begin{enumerate}
+		\item Begin with $THH(tmf_1(3);H\mathbb{F}_2)$ and then use every approach possible to get to $THH(tmf_1(3))$. Angeltveit and Rognes computed $H_*(THH(tmf_1(3));\mathbb{F}_2)$ in Cor. 5.13 and we should be able to determine $THH(tmf_1(3);H\mathbb{F}_2)$ from that computation. 
+		\item We then want to use the diagram of Bockstein spectral sequences analogous to the one used by Angeltveit-Hill-Lawson. For example, 
+		\[ THH_*(tmf_1(3);H\mathbb{F}_2)[v_2] \Rightarrow THH_*(tmf_1(3);k(2)). \]
+		According to Tyler, this spectral sequence should have a similar pattern to the one in the McClure-Staffeldt computation of $THH_*(\ell;k(1))\simeq S/p_*THH(\ell)$. 
+		\item When computing the next spectral sequence 
+		\[ THH_*(tmf_1(3);k(2))[v_1]\Rightarrow THH_*(tmf_1(3)) \] 
+		Tyler said that they seemed to see a pattern where there were differenitals involving two of the three $\lambda$ generators, but not the third. They didn't have enough information to completely compute it though. 
+	\end{enumerate}
+	\item In a addition to the Bockstein spectral sequences there is also a THH-May spectral sequence of the form 
+	\[ THH_*(H\pi_*tmf_1(3))\Rightarrow THH_*(tmf_1(3)) \]
+	where $H\pi_*tmf_1(3)$ is a generalized Eilenberg-Maclane spectrum (wedge of suspensions of Eilenberg-Maclane spectra) with $\pi_*(H\pi_*tmf_1(3))\cong \pi_*tmf_1(3)$. It is the associated graded of the Whitehead filtration on $tmf_1(3)$. There are also versions of this spectral sequence with coefficients. One weird thing about this spectral sequence is that it can be equivalent to the Bockstein spectral sequence at some page, but with a different grading convention. So, it can help rule out certain differentials in a Bockstein spectral sequence even in this case because of the different grading conventions. 
+	\item There are also Adams spectral sequences that compute a lot of these objects and often they also are identified with Bockstein spectral sequences  (See Angeltveit-Hill-Lawson). The advantage though is that when the Bockstein and the Adams spectral sequence agree, we know that there is a Leibniz rule in the Bockstein spectral sequence (which we actually wouldn't know otherwise, see for example Ravenel's Green book where he makes this comment). 
+	\item In the Angeltveit-Hill-Lawson paper, they also use the pairing of topological Hochschild homology and topological Hochschild cohomology, so computing $THC_R(tmf_1(3),M)$ for various coefficients and ring spectra $R$ such that $tmf_1(3)$ is an $R$-algebra can be useful (for example they compute $THH_{MU}^*(\ell,H\mathbb{F}_p)$ in Angeltveit-Hill-Lawson). 
+	\item Tyler also mentioned Geoffroy Horel's work on higher Hochschild cohomology of the Lubin-Tate ring spectrum might be useful to us, but I wasn't sure how since I haven't read his paper yet. 
+	\item Other tools that might be useful are operations like Dyer-Lashof operations or Adams operations in THH or various things like that. 
+\end{enumerate}	
+	
+	
+	
+
+
+
+
+\end{document}  

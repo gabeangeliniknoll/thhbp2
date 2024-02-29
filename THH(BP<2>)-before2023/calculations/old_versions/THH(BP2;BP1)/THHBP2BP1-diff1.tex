@@ -1,0 +1,58 @@
+% root file is THHBP2.tex
+\subsection{Differentials}
+We now prove the first differential in the spectral sequence 
+\begin{equation}\label{ss1} THH(\B,H\Z_{(p)})_p[v_1]\Rightarrow THH(\B,\tBP{1})_p.\end{equation}
+\begin{lem}\label{firstdiff}
+The first nontrivial differential in spectral sequence \ref{ss1} is a differential 
+\[ d_{4}(a_2)\dot{=}v_1^4b_1^{(1)}.\]
+\end{lem}
+
+\begin{proof}
+We will prove that there is a differential $d_{4}(a_2)\dot{=}v_1^4b_1^{(1)}$ and along the way we will show that there are no previous differentials in spectral sequence \eqref{ss1}. 
+There are three possible elements that could be possible targets of a differential on $a_2$
+\[ \{v_1^4b_1^{(1)}, v_1^6a_1^{(2)}, v_1^{10}\lambda_1\lambda_2 \} \]
+so we need to rule out the other two possibilities. To do this, we need to rule out all possible differentials in lower degree. There is clearly no nontrivial differential on $\lambda_1\lambda_2$, by the Leibniz rule. We observe that $v_1^4z_{2,0}$ is zero in the companion spectral sequence 
+\begin{equation}\label{ss2} THH(\B,k(1))_p[v_0]\Rightarrow THH(\B,\tBP{1})_p.\end{equation}
+There are no possible differentials in spectral sequence \eqref{ss1} that could hit $v_1^4\lambda_2$ and consequently, there must be a hidden extension $v_1\cdot v_1^3z_{2,0}=v_0\cdot z_{3,0}$ in the spectral sequence \eqref{ss2}. This also forces the hidden extension $v_1\cdot v_1^3\lambda_2=2\cdot a_1$ in the other spectral sequence. Additionally, this forces a hidden extension $v_1\cdot v_1^3\lambda_1z_{2,0}=v_0\cdot\lambda_1z_{3,0}$ and $v_1\cdot v_1^3\lambda_1\lambda_2=2\cdot\lambda_1a_1$. By examination of the spectral sequence \eqref{ss1}, there is no possible differential hitting $v_1^4\lambda_1z_{2,0}$ so this is a nontrivial permanent cycle. Consequenetly, $v_1^4\lambda_1z_{2,0}$ is also a nontrivial permanent cycle. The remaining differentials in the spectral sequence \eqref{ss1} in degrees less than $31$ can be ruled out by the Leibniz rule. We also observe, by comparing $p$-torsion in the two spectral sequences that there are differentials 
+\[ d_1(z_{4,0})=2z_{2,0}^{\prime}\]
+and 
+\[ d_1(\lambda_1z_{4,0})=2\lambda_1z_{2,0}^{\prime}\]
+in spectral sequence \eqref{ss2}. There are no further differentials in either spectral sequence in the range less than $31$. We would now like to rule out the possible differential on $a_2$ hitting $v_1^{10}\lambda_1\lambda_2$. 
+If we did have this differential, then we would also have to have a differential killing $v_0\lambda_1z_{3,0}v_1^{6}$ in spectral sequence \eqref{ss2}, since $v_0\cdot \lambda_1z_{3,0}v_1^6=v_1\cdot v_1^9\lambda_1z_{2,0}$. 
+The only possibilities are 
+\[d_2(z_{4,0}v_1^4) = \alpha v_0\lambda_1z_{3,0}v_1^{6}, \]
+\[ d_3(\lambda_1z_{2,0}^{\prime})v_1^3) = \beta v_0\lambda_1z_{3,0}v_1^{6}.\]
+We observe that $2v_1^8z_{3,0}=v_1^{12}z_{2,0}$ is zero in spectral sequence \eqref{ss1} and $v_1^{12}\lambda_2$ survives spectral sequence \eqref{ss1} by the Leibniz rule and a bidegree argument. We conclude that there must by a hidden extension 
+\[ v_1\cdot v_1^7v_0z_{3,0}=v_0^2\cdot v_1^4z_{4,0}.\]
+This implies that $\alpha=0$ above. We also know $\lambda_1z_{2,0}$ corresponds to $\lambda_1\lambda_2$ in spectral sequence \eqref{ss2}, so by the Leibniz rule in that spectral sequence there is no differential on this element. This implies that there cannot be a nontrivial differential on $\lambda_1z_{2,0}$ as well, so $\beta=0$. 
+Thus, $v_1^{10}\lambda_1\lambda_2$ survives and there is not the boundary of a differential on $a_2$. 
+
+We then consider $v_1^6a_1^{(2)}$ in spectral sequence \eqref{ss2}. This element corresponds to $v_1^6\lambda_1z_{3,0}$ in spectral sequence \eqref{ss1}. In that spectral sequence, the only possible elements hitting it are $\lambda_1z_{3,0}v_1^5$ and $v_1^3z_{2,0}^{\prime}$, since we already determined the differential $d_1(v_1\lambda_1z_{4,0})=v_0\lambda_1z_{2,0}^{\prime}$. We can rule each of these out because these classes must survive the other spectral sequence. Therefore, $v_1^6\lambda_1z_{3,0}$ must survive and consequently $v_1^6a_1^{(2)}$ is not a boundary. Therefore, the only remaining possibility is that $d_{4}(a_2)=v_1^4b_1^{(1)}$. 
+\end{proof}
+\begin{rem}
+In Angeltveit-Hill-Lawson \cite{AHL}, the argument for a differential is simpler because there are vanishing columns in one spectral sequence that imply differentials in the other. The presence of $\lambda_1$-divisible classes makes this more complicated. In order to argue for a differential in degree $2p^4-2$, we needed to know about all differentials and hidden extensions in lower degrees. For each differential, we will therefore inductively compute all information in the range $2np^{3}-1\le t \le 2(n+1)p^{3}-1$ for $n\ge 1$ in order to compute the next differential. This forces us to combine arguments about hidden extensions with arguments about differentials. This is a bit delicate since hidden extensions occur after the $E_{\infty}$-page whereas differentials occur on some fixed page. 
+\end{rem}
+
+\begin{lem}
+The next nontrivial differential, besides those implied by the Leibniz rule and the differential of Lemma \ref{firstdiff} in spectral sequence \ref{ss1} is a differential 
+\[ d_{4}(a_3^{(1)})\dot{=}2v_1^4b_2^{(1)}.\]
+\end{lem}
+\begin{proof}
+To compute this differential, we also need to compute the spectral sequence in the range $4p^3-1\le t\le 6p^3-1$. The Leibniz rule implies that $d_{4}(a_2^{(2)})=v_1^4b_1^{(2)}$ and $d_4(b_2^{(k)})=0$ for $k=1,2$. We claim that $b_{2}^{(k)}$ is a permanent cycle for $k=1,2$. There are possible differentials 
+\[ d_{11}(b_{2}^{(1)})=\alpha v_1^{11}a_1, \]
+\[d_{15}(b_{2}^{(1)})=\beta v_1^{15}\lambda_2,\]
+\[d_{15}(b_{2}^{(1)})=\gamma v_1^{17}\lambda_1.\]
+Since $\lambda_1$ and $\lambda_2$ are torsion free and $b_{2}^{(1)}$ is $p$-torsion, we know that $\beta=\gamma=0$. Suffices to show $\alpha=0$. 
+\end{proof}
+
+
+
+\gabe{Here is my guess about the differential pattern:
+\[d_{r(2n+1)}(a_{kp^{n-1}}^{(j)}p^{n-1})=(k-1)v_1^{r^{\prime}(2n+1)}b_{kp^{n-1}-1}^{(j)} \]
+for $j=1,2$. 
+}
+
+\gabe{As of July 30th, we now believe this to be wrong. Perhaps instead the differential pattern is something like
+\[d_{\ell(n)}(a_{kp^{n-1}}^{(j)}p^{n-1})=(k-1)v_1^{r^{\ell(n)}(2n+1)}a_{kp^{n-1}-1}^{(j)} \]
+\[d_{\ell(n)}(b_{kp^{n-1}}^{(j)}p^{n-1})=(k-1)v_1^{\ell(n)}b_{kp^{n-1}-1}^{(j)} \]
+}

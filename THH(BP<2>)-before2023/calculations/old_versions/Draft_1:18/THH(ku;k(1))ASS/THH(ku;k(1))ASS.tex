@@ -1,0 +1,333 @@
+
+\documentclass[12pt]{amsart}
+\usepackage[landscape,paperheight=15in,margin=0.1in,top=1in]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{lscape,xcolor}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+%\usepackage{mathrools}
+\usepackage{stmaryrd}
+\usepackage{verbatim}
+\usepackage{rotating}
+\usepackage{tikz-cd}
+\usepackage{amsrefs}
+\usepackage{hyperref}
+\usepackage{euscript}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{spectralsequences}
+
+
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palatino needs more leading (space between lines)
+\usepackage[T1]{fontenc}
+
+\usepackage[OT2,T1]{fontenc}
+\newcommand\textcyr[1]{{\fontencoding{OT2}\fontfamily{wncyr}\selectfont #1}}
+
+
+\usepackage{luasseq}
+\usepackage{xcolor}
+\definecolor{seagreen}{RGB}{46,139,87}
+\definecolor{maroon}{RGB}{128,0,0}
+\definecolor{darkviolet}{RGB}{148,0,211}
+\definecolor{twelve}{RGB}{100,100,170}
+\definecolor{thirteen}{RGB}{100,150,50}
+\definecolor{fourteen}{RGB}{200,0,0}
+\definecolor{fifteen}{RGB}{0,200,0}
+\definecolor{sixteen}{RGB}{0,0,200}
+\definecolor{seventeen}{RGB}{200,0,200}
+\definecolor{eighteen}{RGB}{0,200,200}
+
+
+
+%\parskip 0.7pc
+%\parindent 0pt
+
+\allowdisplaybreaks[1]
+
+%%%%%%%%%%%%%%% Basic commands %%%%%%%%%%%%%%%%%%
+\newcommand{\dotequiv}{\overset{\scriptstyle{\centerdot}}{\equiv}}
+\newcommand{\nd}{\not\!|}
+\newcommand{\mmod}{\! \sslash \!}
+
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\ull}[1]{\underline{#1}}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mr}[1]{\mathrm{#1}}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\mit}[1]{\mathit{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\ms}[1]{\mathscr{#1}}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\bra}[1]{\langle #1 \rangle}
+\newcommand{\br}[1]{\overline{#1}}
+\newcommand{\brr}[1]{\overline{\overline{#1}}}
+\newcommand{\td}[1]{\widetilde{#1}}
+\newcommand{\tdd}[1]{\widetilde{\widetilde{#1}}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\MS}{\mathbb{S}}
+\newcommand{\PP}{\mathbb{P}}
+
+\newcommand{\euscr}[1]{\EuScript{#1}}
+
+%%%%%%%%%%%%%%%%% Spectra %%%%%%%%%%%%%%%
+
+\newcommand{\tBP}[1]{BP\bra{#1}}
+\newcommand{\AF}{\mr{AF}}
+\newcommand{\TAF}{\mathrm{TAF}}
+\newcommand{\TMF}{\mathrm{TMF}}
+\newcommand{\Tmf}{\mathrm{Tmf}}
+\newcommand{\tmf}{\mathrm{tmf}}
+\newcommand{\bo}{\mathrm{bo}}
+\newcommand{\bsp}{\mathrm{bsp}}
+\newcommand{\HZ}{\mr{H}\Z}
+\def \HF2{\mr{H}\F_2}
+\newcommand{\bu}{\mr{bu}}
+\newcommand{\MU}{\mr{MU}}
+\newcommand{\KU}{\mr{KU}}
+\newcommand{\KO}{\mr{KO}}
+\newcommand{\EO}{\mr{EO}}
+\newcommand{\BP}{\mr{BP}}
+\newcommand{\K}{\mr{K}}
+
+%%%%%%%%%%%%%%% Operators %%%%%%%%%%%%%%
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Sta}{Sta}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator*{\holim}{holim}
+\DeclareMathOperator*{\hocolim}{hocolim}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\Tot}{Tot}
+\DeclareMathOperator{\Spf}{Spf}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\THH}{THH}
+
+\DeclareMathOperator{\sq}{Sq}
+\newcommand{\xib}{{\bar{\xi}}}
+\newcommand{\s}{\wedge}
+\newcommand{\Si}{\Sigma}
+\newcommand\floor[1]{\lfloor#1\rfloor}
+
+%%%%%%%%%%%%% Steenrod Algebra & Brown-Gitler Modules %%%%%%%%%%%
+
+\newcommand{\A}{\ms{A}}
+\newcommand{\sE}{\ms{E}}
+\newcommand{\HZu}{\ull{\HZ}}
+\newcommand{\bou}{\ull{\bo}}
+\newcommand{\tmfu}{\ull{\tmf}}
+\newcommand{\tBPu}[1]{\ull{\tBP{#1}}}
+\newcommand{\buu}{\ull{\bu}}
+\def \AA0{\br{A \mmod A(0)}_*}
+\def \AA2{A\mmod A(2)_*}
+\def \AE2{(A\mmod E(2))_*}
+\renewcommand{\AE}[1]{(A\mmod E(#1))_*}
+\DeclareMathOperator{\wt}{\mathrm{wt}}
+\def \E2E1{(E(2)\mmod E(1))_*}
+
+
+
+%%%%%%%%%%%%%%%% Categories %%%%%%%%%%%%%
+
+\newcommand{\Top}{\mathsf{Top}}
+\newcommand{\Operad}{\mathsf{Operad}}
+\newcommand{\Alg}{\mathsf{Alg}}
+\newcommand{\Monad}{\mathsf{Monad}}
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\sSet}{\mathsf{sSet}}
+\newcommand{\Man}{\mathsf{Man}}
+\newcommand{\Presheaf}{\mathsf{Presheaf}}
+\newcommand{\Fun}{\mathsf{Fun}}
+\newcommand{\Grpd}{\mathsf{Grpd}}
+
+
+%%%%%%%%%%%%%%% Homological Algebra %%%%%%%
+
+\newcommand{\cone}[1]{\mathrm{cone}\left(#1\right)}
+
+
+%%%%%%% for numbered theorems %%%%%%%%%
+ \newtheorem{thm}[equation]{Theorem}
+ \newtheorem{cor}[equation]{Corollary}
+ \newtheorem{lem}[equation]{Lemma}
+ \newtheorem{prop}[equation]{Proposition}
+ \newtheorem{obs}[equation]{Observation}
+  \newtheorem{rem}[equation]{Remark}
+ 
+ \newtheorem*{thm*}{Theorem}
+ \newtheorem*{cor*}{Corollary}
+ \newtheorem*{lem*}{Lemma}
+ \newtheorem*{prop*}{Proposition}
+  \newtheorem*{not*}{Notation}
+
+ 
+ \theoremstyle{definition}
+ \newtheorem{defn}[equation]{Definition}
+ \newtheorem{ex}[equation]{Example}
+ \newtheorem{exs}[equation]{Examples}
+ \newtheorem{rmk}[equation]{Remark}
+\newtheorem{claim}[equation]{Claim}
+ \newtheorem{question}[equation]{Question}
+ \newtheorem{conjecture}[equation]{Conjecture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem*{defn*}{Definition}
+\newtheorem*{ex*}{Example}
+\newtheorem*{exs*}{Examples}
+\newtheorem*{rmk*}{Remark}
+\newtheorem*{claim*}{Claim}
+\newtheorem*{conventions}{Conventions}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+
+
+
+%\author{D.~ Culver}\address{University of Notre Dame}\email{dculver@nd.edu}
+
+\begin{document}
+
+
+\DeclareSseqGroup \vonetower{}{
+	\class(0,0)
+	\DoUntilOutOfBounds{
+		\class(\lastx+2, \lasty+1)
+		\structline
+	}
+}
+
+
+\begin{sseqdata}[name=assTHH(ku;k(1)), Adams grading, classes=fill, title={ASS for $\overline{\THH}(ku;k(1))$}, x range = {0}{35}, y range = {0}{16}]
+	\vonetower(3,0)
+	\vonetower(7,0)
+	\vonetower(8,0)
+	\vonetower(10,0)
+	\vonetower(11,0)
+	\vonetower(15,0)
+	\vonetower(16,0)
+	\vonetower(18,0)
+	\vonetower(19,0)
+	\vonetower(23,0)
+	\vonetower(24,0)
+	\vonetower(26,0)
+	\vonetower(27,0)
+	\vonetower(31,0)
+	\vonetower(32,0)
+	\vonetower(34,0)
+	
+%	\d2(8,0)
+%	\DoUntilOutOfBounds{
+%	\d2(\lastx+2,\lasty+1)
+%	}
+	
+	
+	
+	
+\end{sseqdata}
+
+\begin{sseqpage}[name=assTHH(ku;k(1)), page=1, class labels = {above=0.2em}]
+	\classoptions["\lambda_1"](3,0)
+	\classoptions["\lambda_2"](7,0)
+	\classoptions["\mu"](8,0)
+	\classoptions["\lambda_1\lambda_2"](10,0)
+	\classoptions["\lambda_1\mu"](11,0)
+	\classoptions["\lambda_2\mu"](15,0)
+	\classoptions["\mu^2"](16,0)
+	\classoptions["\lambda_1\lambda_2\mu"](18,0)
+	\classoptions["\lambda_1\mu^2"](19,0)
+	\classoptions["\lambda_2\mu^2"](23,0)
+	\classoptions["\mu^3"](24,0)
+	\classoptions["\lambda_1\lambda_2\mu^2"](26,0)
+	\classoptions["\lambda_1\mu^3"](27, 0)
+	\classoptions["\lambda_2\mu^3"](31,0)
+	\classoptions["\mu^4"](32,0)
+	\classoptions["\lambda_1\lambda_2\mu^3"](34,0)
+\end{sseqpage}
+
+\begin{sseqpage}[name=assTHH(ku;k(1)), page=2, class labels = {above=0.2em}]
+		\classoptions["\lambda_1"](3,0)
+	\classoptions["\lambda_2"](7,0)
+	\classoptions["\mu"](8,0)
+	\classoptions["\lambda_1\lambda_2"](10,0)
+	\classoptions["\lambda_1\mu"](11,0)
+	\classoptions["\lambda_2\mu"](15,0)
+	\classoptions["\mu^2"](16,0)
+	\classoptions["\lambda_1\lambda_2\mu"](18,0)
+	\classoptions["\lambda_1\mu^2"](19,0)
+	\classoptions["\lambda_2\mu^2"](23,0)
+	\classoptions["\mu^3"](24,0)
+	\classoptions["\lambda_1\lambda_2\mu^2"](26,0)
+	\classoptions["\lambda_1\mu^3"](27, 0)
+	\classoptions["\lambda_2\mu^3"](31,0)
+	\classoptions["\mu^4"](32,0)
+	\classoptions["\lambda_1\lambda_2\mu^3"](34,0)
+\end{sseqpage}
+
+%\DeclareSseqGroup \tower {} {
+%\class(0,0)
+%\DoUntilOutOfBounds {
+%\class(\lastx,\lasty+1)
+%\structline
+%}
+%}
+%\begin{sseqdata}[name=test, y range={0}{4}, class pattern = linear]
+%\tower(0,2)
+%\tower(0,3)
+%\tower(0,1)
+%\end{sseqdata}
+%\qquad
+%\begin{sseqpage}[name=test]
+%\tower[red,classes={insert=1}](0,0)
+%\end{sseqpage}
+%\qquad
+%\begin{sseqpage}[name=test]
+%\tower[red,classes={insert=2}](0,0)
+%\end{sseqpage}
+%\qquad
+%\begin{sseqpage}[name=test]
+%\tower[red,classes={insert=3}](0,0)
+%\end{sseqpage}
+%\qquad
+%\begin{sseqpage}[name=test]
+%\tower[red,classes={insert=-2}](0,0)
+%\end{sseqpage}
+%\qquad
+%\begin{sseqpage}[name=test]
+%\tower[red,classes={insert=-3}](0,0)
+%\end{sseqpage}
+%
+%\begin{sseqpage}[
+%x range = {0}{6}, y range = {0}{6},
+%tick step = 2,
+%scale = 0.6
+%]
+%\class(0,0)
+%\DoUntilOutOfBounds{
+%\class(\lastx+2,\lasty+1)
+%\structline
+%\DoUntilOutOfBounds{
+%\class(\lastx,\lasty+1)
+%\structline
+%}
+%}
+%\end{sseqpage}
+
+%\maketitle
+
+%\tableofcontents
+
+\end{document}

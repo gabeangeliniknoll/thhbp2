@@ -1,0 +1,43 @@
+% root file is THHBP2BP1.tex
+
+\section{Remaining two Bockstein spectral sequences}
+
+We now compute the remaining two Bockstein spectral sequences 
+\begin{align}
+\label{v1BocksteinZcoeff}THH_*(BP\langle 2\rangle ;H\mathbb{Z}_{(p)})[v_1]\Rightarrow THH_*(BP\langle 2\rangle ;BP\langle 1 \rangle )
+\end{align}
+and 
+\begin{align}
+\label{v0Bocksteink1coeff} THH_*(BP\langle 2\rangle ;k(1))[v_0]\Rightarrow THH_*(BP\langle 2\rangle ;BP\langle 1\rangle )_p.
+\end{align}
+First, we claim that the spectral sequence \eqref{v1BocksteinZcoeff} is multiplicative because it is equivalent to a multiplicative relative Adams spectral sequence. To see this, recall that 
+\[ \pi_*(H\mathbb{Z}_p\wedge_{\tBP{1}}H\mathbb{Z}_p)\cong E_{\mathbb{Z}_p}(\tau_1)\]
+and 
+\[\pi_*(H\mathbb{Z}_p\wedge _{\tBP{1}}\tBP{1}\wedge_{\tBP{2}}THH(\tBP{2})\cong \pi_*THH(\tBP{2};\mathbb{Z}_p)\]
+so the relative Adams spectral sequence with signature
+\[ \Ext_{ \pi_*(\mathbb{Z}_p\wedge_{\tBP{1}}\mathbb{Z}_p)}^{*,*}\left (\mathbb{Z}_p, \pi_*(THH(\tBP{2};H\mathbb{Z}_p))\right )\Rightarrow THH_*(\tBP{2},\tBP{1})\]
+is isomorphic to the spectral sequence \eqref{v1BocksteinZcoeff}.
+The spectral sequence \eqref{v0Bocksteink1coeff}, however is not known to be multiplicative so we will just use it as a comparison tool. 
+
+We recall that the input \eqref{v1BocksteinZcoeff} is 
+\[ \left ( E_{\Z_{(p)}}(\lambda_1,\lambda_2)\oplus \Z_{(p)}\{c_i^{(k)},d_i^{(k)} : i\ge 1,k=1,2 \}/\sim \right ) \otimes P_{\Z_{(p)}}(v_1)\] 
+where $p^{\nu_p(i)}c_i^{(k)}\sim p^{\nu_p(i)}d_i^{(k)}\sim 0$ for all  $i\ge 1,k=0,1$. See the appendix for a table of bidegrees of these elements.  (Add this table to an appendix.)
+We immediately conclude that the $v_1$-towers on $1$,$\lambda_1$, and $\lambda_2$ are permanent cycles. 
+
+\begin{comment}
+First, we note that the first two families of differentials that we computed in the Brun spectral sequence in \eqref{AHL diff Brun filt}  and \eqref{first diff pattern b} simply do not appear because it is taken into account in the previous Bockstein spectral sequence. 
+
+\begin{lem}
+There are differentials
+\[ d_{p^2+p}(c_{k}^{(j)})\dot{=}(k-1)v_1^{p^2+p}d_{k-1}^{(j)}\]
+for $k\ge 1$ and $j=1,2$.
+\end{lem}
+\begin{proof}
+\gabe{This is somewhat speculative at this point. I think we can get the first differentials in this spectral sequence from the Brun spectral sequence, but I just did the translation in my head and I haven't checked these differentials carefully in the Brun spectral sequence yet either.} 
+\end{proof}
+
+We then use the cap product from section (insert internal ref qx) to propogate these differentials. By the same considerations as \cite{AHL} we know that the cap product is compatible with the Bockstein differentials in \eqref{v0Bocksteink1coeff}. 
+
+\gabe{Add theorem that proves propogation of the first family of differentials that we know using the cap product. For any argument using vanishing columns replace with dimension considerations in \eqref{v0Bocksteink1coeff} and Brun SS.}
+\end{comment}
+

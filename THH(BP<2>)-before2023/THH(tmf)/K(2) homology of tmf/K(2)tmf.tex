@@ -1,0 +1,389 @@
+
+\documentclass[12pt]{amsart}
+
+\usepackage[urw-garamond]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\let\circledS\undefined % here - PS
+
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{lscape,xcolor}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{verbatim}
+\usepackage{rotating}
+\usepackage{tikz-cd}
+\usepackage{amsrefs}
+\usepackage{hyperref}
+\usepackage{euscript}
+\usepackage[colorinlistoftodos]{todonotes}
+
+
+
+
+\usepackage{luasseq}
+\usepackage{xcolor}
+\definecolor{seagreen}{RGB}{46,139,87}
+\definecolor{maroon}{RGB}{128,0,0}
+\definecolor{darkviolet}{RGB}{148,0,211}
+\definecolor{twelve}{RGB}{100,100,170}
+\definecolor{thirteen}{RGB}{100,150,50}
+\definecolor{fourteen}{RGB}{200,0,0}
+\definecolor{fifteen}{RGB}{0,200,0}
+\definecolor{sixteen}{RGB}{0,0,200}
+\definecolor{seventeen}{RGB}{200,0,200}
+\definecolor{eighteen}{RGB}{0,200,200}
+
+
+
+%\parskip 0.7pc
+%\parindent 0pt
+
+\allowdisplaybreaks[1]
+
+%%%%%%%%%%%%%%% Basic commands %%%%%%%%%%%%%%%%%%
+\newcommand{\dotequiv}{\overset{\scriptstyle{\centerdot}}{\equiv}}
+\newcommand{\nd}{\not\!|}
+\newcommand{\mmod}{\! \sslash \!}
+\newcommand{\Maps}{\mathrm{Maps}}
+
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\ull}[1]{\underline{#1}}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mr}[1]{\mathrm{#1}}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\mit}[1]{\mathit{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\ms}[1]{\mathscr{#1}}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\bra}[1]{\langle #1 \rangle}
+\newcommand{\br}[1]{\overline{#1}}
+\newcommand{\brr}[1]{\overline{\overline{#1}}}
+\newcommand{\td}[1]{\widetilde{#1}}
+\newcommand{\tdd}[1]{\widetilde{\widetilde{#1}}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\MS}{\mathbb{S}}
+\newcommand{\PP}{\mathbb{P}}
+
+\newcommand{\euscr}[1]{\EuScript{#1}}
+
+%%%%%%%%%%%%%%%%% Spectra %%%%%%%%%%%%%%%
+
+\newcommand{\tBP}[1]{BP\bra{#1}}
+\newcommand{\AF}{\mr{AF}}
+\newcommand{\TAF}{\mathrm{TAF}}
+\newcommand{\TMF}{\mathrm{TMF}}
+\newcommand{\Tmf}{\mathrm{Tmf}}
+\newcommand{\tmf}{\mathrm{tmf}}
+\newcommand{\bo}{\mathrm{bo}}
+\newcommand{\bsp}{\mathrm{bsp}}
+\newcommand{\HZ}{\mr{H}\Z}
+\def \HF2{\mr{H}\F_2}
+\newcommand{\bu}{\mr{bu}}
+\newcommand{\MU}{\mr{MU}}
+\newcommand{\KU}{\mr{KU}}
+\newcommand{\KO}{\mr{KO}}
+\newcommand{\EO}{\mr{EO}}
+\newcommand{\BP}{\mr{BP}}
+\newcommand{\K}{\mr{K}}
+
+%%%%%%%%%%%%%%% Operators %%%%%%%%%%%%%%
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Sta}{Sta}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator*{\holim}{holim}
+\DeclareMathOperator*{\hocolim}{hocolim}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\Tot}{Tot}
+\DeclareMathOperator{\Spf}{Spf}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\End}{End}
+
+\DeclareMathOperator{\sq}{Sq}
+\newcommand{\xib}{{\bar{\xi}}}
+\newcommand{\s}{\wedge}
+\newcommand{\Si}{\Sigma}
+\newcommand\floor[1]{\lfloor#1\rfloor}
+
+%%%%%%%%%%%%% Steenrod Algebra & Brown-Gitler Modules %%%%%%%%%%%
+
+\newcommand{\A}{\ms{A}}
+\newcommand{\sE}{\ms{E}}
+\newcommand{\HZu}{\ull{\HZ}}
+\newcommand{\bou}{\ull{\bo}}
+\newcommand{\tmfu}{\ull{\tmf}}
+\newcommand{\tBPu}[1]{\ull{\tBP{#1}}}
+\newcommand{\buu}{\ull{\bu}}
+\def \AA0{\br{A \mmod A(0)}_*}
+\def \AA2{A\mmod A(2)_*}
+\def \AE2{(A\mmod E(2))_*}
+\renewcommand{\AE}[1]{(A\mmod E(#1))_*}
+\DeclareMathOperator{\wt}{\mathrm{wt}}
+\def \E2E1{(E(2)\mmod E(1))_*}
+
+
+
+%%%%%%%%%%%%%%%% Categories %%%%%%%%%%%%%
+
+\newcommand{\Top}{\mathsf{Top}}
+\newcommand{\Operad}{\mathsf{Operad}}
+\newcommand{\Alg}{\mathsf{Alg}}
+\newcommand{\Monad}{\mathsf{Monad}}
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\sSet}{\mathsf{sSet}}
+\newcommand{\Man}{\mathsf{Man}}
+\newcommand{\Presheaf}{\mathsf{Presheaf}}
+\newcommand{\Fun}{\mathsf{Fun}}
+\newcommand{\Grpd}{\mathsf{Grpd}}
+
+
+%%%%%%%%%%%%%%% Homological Algebra %%%%%%%
+
+\newcommand{\cone}[1]{\mathrm{cone}\left(#1\right)}
+
+
+%%%%%%% for numbered theorems %%%%%%%%%
+ \newtheorem{thm}{Theorem}
+ \newtheorem{cor}{Corollary}
+ \newtheorem{lem}{Lemma}
+ \newtheorem{prop}{Proposition}
+ \newtheorem{obs}[equation]{Observation}
+  \newtheorem{rem}[equation]{Remark}
+ 
+ \newtheorem*{thm*}{Theorem}
+ \newtheorem*{cor*}{Corollary}
+ \newtheorem*{lem*}{Lemma}
+ \newtheorem*{prop*}{Proposition}
+  \newtheorem*{not*}{Notation}
+
+ 
+ \theoremstyle{definition}
+ \newtheorem{defn}{Definition}
+ \newtheorem{ex}{Example}
+ \newtheorem{exs}{Examples}
+ \newtheorem{rmk}{Remark}
+\newtheorem{claim}[equation]{Claim}
+ \newtheorem{question}[equation]{Question}
+ \newtheorem{conjecture}[equation]{Conjecture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem*{defn*}{Definition}
+\newtheorem*{ex*}{Example}
+\newtheorem*{exs*}{Examples}
+\newtheorem*{rmk*}{Remark}
+\newtheorem*{claim*}{Claim}
+\newtheorem*{conventions}{Conventions}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+
+
+\title{$K(2)$-homology of $\tmf$}
+\author{D.~ Culver}\address{University of Illinois, Urbana-Champaign}\email{dculver@illinois.edu}
+
+\begin{document}
+
+\maketitle
+
+The point of this note is to work through the computation of $K(2)_*(\tmf)$. Since $K(2)\wedge \tmf$ is $K(2)$-local, we can replace $\tmf$ with $L_{K(2)}\tmf$. In the case that $p=2, 3$, there is a single super-singular elliptic curve $C$ over $\F_{p^2}$, and by Serre duality, this allows us to write 
+\[
+L_{K(2)}\tmf \simeq E_2^{h\Aut(C)}.
+\]
+Note that the action of $\Aut(C)$ on $E_2$ is arising from the homomorphism
+\[
+\Aut(C)\to \Aut(\widehat{C})
+\]
+obtained by taking an automorphism and sending it to the induced automorphism on the formal completion of $C$. Thus, we are trying to compute $K(2)_*(E_2^{h\Aut(C)})$. First, recall 
+
+\begin{defn}
+	Define $K_2$ to be the spectrum obtained from $E_2$ where one cones off the maximal ideal  in $\pi_0E_2$.
+\end{defn}
+
+\begin{rmk}
+	It follows from the definition that 
+	\[
+	\pi_*K_2\cong \F_4[u^{\pm}]
+	\]
+	where $|u|=2$. This is a complex-oriented cohomology theory, and it carries the height $n$ Honda formal group law. 
+\end{rmk}
+
+Since we are really interested in $K(2)$-homology, we need 
+
+\begin{prop}
+	There is an action of $\F_4^\times\rtimes \Gal(\F_4/\F_2)$ on $K_2$ and $K_2^{h(\F_4^\times\rtimes \Gal)}$ is equivalent to $K(2)$.
+\end{prop}
+
+\begin{rmk}
+We are regarding $\F_4^\times$ as a subgroup of the $2$-typical Witt vectors $W(\F_4)$ via the Teichm\"uller character.	
+\end{rmk}
+
+\begin{proof}
+	I am not totally sure how to get the action on the level of spectra. But I think I know how to describe the action on the homotopy groups. Let $\omega$ denote a generator of $\F_4^\times$. Then $\omega$ acts on $\pi_*K_2$ by ring automorphisms and 
+	\[
+	\omega_*u  = \omega u. 
+	\]
+	Let $\sigma$ denote the generator of $\Gal(\F_4/\F_2)$. Then $\sigma_*u=u$ and $\sigma$ acts on $\F_4\subseteq \pi_0K_2$ in the obvious way. So to compute the homotopy groups of $K_2^{h\F_4^\times \rtimes \Gal}$, we use the homotopy fixed point spectral sequence
+	\[
+	H^*(\F_4^\times\rtimes \Gal; \F_4[u^{\pm 1}])\implies \pi_*K_2^{h(\F_4^\times\rtimes \Gal)}.
+	\]
+	An elementary calculation using the usual free $\Z[\Gal]$-resolution of $\Z$,
+	\[
+	\begin{tikzcd}
+		\cdots \arrow[r] & \Z[\Gal]\arrow[r, "\sigma+1"] & \Z[\Gal]\arrow[r,"\sigma-1"]\arrow[r] & \Z\arrow[r] & 0
+	\end{tikzcd}
+	\]
+	gives the cochain complex
+	\[
+	\begin{tikzcd}
+		\cdots & \F_4 \arrow[l, swap, "\sigma+1"]& \F_4 \arrow[l,swap, "\sigma+1"]  & \F_4 \arrow[l, swap,"\sigma+1"].
+	\end{tikzcd}
+	\]
+	Since we have $\omega^2+\omega+1=0$, we find that 
+	\[
+	(\sigma+1)\omega = (\sigma+1)\omega^2 = 1.
+	\]
+	This shows that 
+	\[
+	H^s(\Gal;\F_4)= 0 \hspace{10pt} s>0.
+	\]
+	Since $\F_4^\times$ has order 3 and we are working in characteristic 2, it follows that the group cohomology $H^*(\F_4^\times \rtimes \Gal;\F_4[u^{\pm}])$ is concentrated in filtration 0 and that 
+	\[
+	H^0(\F_4^\times \rtimes \Gal;\F_4[u^{\pm}])\cong \F_2[u^{3}].
+	\]
+	Thus the homotopy fixed point spectral sequence collapses, giving 
+	\[
+	\pi_*K_2^{h(\F_4^\times \rtimes \Gal)}\cong \F_2[v_2^{\pm}].
+	\]
+	Since $K_2$ carries the Honda height 2 formal group, there is a morphism of ring spectra (I think...)
+	\[
+	K(2)\to K_2
+	\]
+	which induces the obvious map on homotopy. This map factors through $K_2^{h(\F_4^\times \rtimes \Gal)}$, and this gives the desired equivalence of ring spectra.
+\end{proof}
+
+Recall the following, 
+
+\begin{thm}[Devinatz-Hopkins, Hovey, Strickland, Morava, Davis, ...]
+	The map 
+	\[
+	\pi_*(L_{K(n)}E_n\wedge E_n)\to \Maps^c(\G_n, \pi_*E_n)
+	\]
+	defined by sending an element $x: S^n\to L_{K(n)}E_n\wedge E_n$ to the morphism 
+	\[
+	\begin{tikzcd}
+		g\mapsto S^n\arrow[r,"x"] & L_{K(n)}E_n\wedge E_n\arrow[r, "1\wedge g"] & L_{K(n)}E_n\wedge E_n\arrow[r, "\mu"] & E_n. 
+	\end{tikzcd}
+	\]
+	is an isomorphism of complete $\G_n$-modules.
+\end{thm}
+
+
+From now on, we will implicitly work in the $K(2)$-local category, and we will always localize after smashing. 
+
+\begin{cor}
+	The isomorphism of the preceding theorem gives rise to an isomorphism
+	\[
+	(K_2)_*E_2\cong \Maps^c(\G_2, (K_2)_*).
+	\]
+\end{cor}
+\begin{proof}
+	This arises by applying the functor $(K_2)_*\otimes_{(E_2)_*}-$ to the isomorphism above. I guess we have to prove that 
+	\[
+	(K_2)_*\otimes_{E_*}\Maps^c(\G_2, (E_2)_*)\cong \Maps^c(\G_2, (K_2)_*)
+	\]\todo{prove this...}
+\end{proof}
+
+We will need the following,
+
+\begin{thm}[Devinatz-Hopkins, thm 2]
+	Let $H, K\subseteq \G_n$ be subgroups (closed?) of the $n$th extended Morava stabilizer gorup $\G_n$. Then there is a natural isomorphism
+	\[
+	\pi_*(L_{K(n)}E_n^{hK}\wedge E_n^{hH})\cong \pi_*(\Maps(\G_n/H, E)^{hK}).
+	\]
+	In particular, we have an isomorphism
+	\[
+	\pi_*(L_{K(n)}E_n\wedge E_n^{hK})\cong \Maps^c(\G_n/H, (E_n)_*)
+	\]
+\end{thm}
+
+From this we find that 
+
+\begin{cor}
+	There is an isomorphism
+	\[
+	E_*\TMF\cong \Maps^c(\G_2/G_{48}, E_*), 
+	\]
+	which produces 
+	\[
+	(K_2)_*\TMF\cong \Maps^c(\G_2/G_{48}, (K_2)_*).
+	\]
+	Therefore, as $K(2) = K_2^{h(\F_4^\times\rtimes \Gal)}$, we have that 
+	\[
+	K(2)_*\TMF \cong \Maps^c_{\F_4^\times \rtimes \Gal}(\G_2/G_{48}, (K_2)_*)
+	\]
+\end{cor}
+
+Ok, so here is where things get a bit hairy. We need to understand what the functions on $\G_2/G_{48}$ is. It turns out that there is a certain subgroup, $K$, of $\G_2$, so that the composite
+\[
+\begin{tikzcd}
+	K\arrow[r, hook] & \G_2\arrow[r, two heads] & \G_2/G_{48}
+\end{tikzcd}
+\]
+is a homeomorphism of profinite sets. If I recall correctly, the subgroup $K$ consists of those elements of $\G_2$ which can be described as 
+\[
+1+a_2S^2+a_3S^3+\cdots 
+\]
+where each $a_i$ satisfies $a_i^4=a_i$ and $a_2\in \{0, \omega\}$. This comes from Beaudry's description of $K$: $K$ is the closure of the subgroup $\langle \alpha, F_{3/2}\mathbb{S}_2\rangle$. Here, $\alpha$ is the element 
+\[
+\alpha = \frac{1-2\omega}{\sqrt{-7}}
+\] 
+where we use Hensel's lemma to argue there is the element $\sqrt{-7}$ of $\Z_2$ which is congruent to $1+4\mod 8$. Recall that 
+\[
+F_{3/2}\mathbb{S}_2 := \{x\in \mathbb{S}_2\mid \nu(1-x)\geq 3/2\}.
+\]
+
+\section{Coordinatization of the Morava stabilizer group with respect to a supersingular elliptic curve}
+
+I have this idea that maybe the problem with the computation Mark did was that he tried to use the wrong set of coordinates for the Morava stabilizer group. Normally, we fix the height 2 Honda formal group, $H_2$. This is the unique formal group over $\F_4$ with the property that its $2$-series is given by 
+\[
+[2]_{H_2}(x) = x^4.
+\]
+Let $S(x)=x^2$. This gives rise to an endomorphism of $H_2$, which provides us with a map
+\[
+\mathcal{O}_2 \to \End(H_2).
+\]
+Here, $\mathcal{O}_2$ is the central division algebra of Hasse invariant 1/2. In particular, this means that 
+\[
+\mathcal{O}_2 = W(\F_4)\langle S\rangle/(S^2=2, Sa = a^\sigma S\mid a\in W(\F_4)).
+\]
+Here, the variable $S$ stands for the Frobenius endomorphism $S(x) = x^2$. The unextended Morava stabilizer group is then given by $\mathbb{S}_2 = \mathcal{O}_2^\times$, and this was the coordinate that we have been using in order to understand $K(2)_*\TMF$. My question, though, is this. What if instead we considered the unique supersingular elliptic curve over $\overline{\F_2}$, given in Weierstrass coordinates as 
+\[
+C: y^2+y = x^3. 
+\]
+Then we should be able to write down the central division algebra corresponding to the height 2 formal group $\widehat{C}$. \todo{I think Agnes has a description of the associated division algebra in her paper on the $K(2)$-local homotopy of $V(0)$.} My hope is that by choosing this coordinatization of $\G_2$ instead, we might be able to get a nicer description of $\Maps^c_{\F_4^\times \rtimes \Gal}(\G_2/G_{48},(K_2)_*)$.
+
+\subsection{The endomorphisms of $\widehat{C}$}
+
+Again, we will let $C$ denote the supersingular elliptic curve $y^2+y=x^3$ over $\F_4$.
+
+
+
+
+
+\end{document}

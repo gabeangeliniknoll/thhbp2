@@ -1,0 +1,181 @@
+%\documentclass[12pt]{amsart}
+%\usepackage[margin=1in]{geometry}
+%\usepackage{comment}
+%\usepackage{spectralsequences}
+%\begin{document}
+\DeclareSseqGroup \tower {}{
+\class(0,0)
+\DoUntilOutOfBoundsThenNMore{10}{
+\class(\lastx+2,\lasty+1)
+\structline
+}
+}
+\DeclareSseqGroup \mu {}{
+\tower(0,0)
+\DoUntilOutOfBoundsThenNMore{10}{
+\class(\lastx+54,\lasty)
+\DoUntilOutOfBoundsThenNMore{10}{
+\class(\lastx+2,\lasty+1)
+}
+}
+}
+\DeclareSseqGroup \mudfour{}{
+\class(0,0)
+\DoUntilOutOfBoundsThenNMore{4}{
+    \class(\lastx+2,\lasty+1)
+    \structline
+}
+\class(9,0)
+\DoUntilOutOfBounds{
+    \class(\lastx+2,\lasty+1)
+     \d4(\lastx-2,\lasty-1)
+}
+}
+\DeclareSseqGroup \mudeight{}{
+\class(0,0)
+\DoUntilOutOfBoundsThenNMore{8}{
+    \class(\lastx+2,\lasty+1)
+    \structline
+}
+\class(17,0)
+\DoUntilOutOfBounds{
+    \class(\lastx+2,\lasty+1)
+     \d8(\lastx-2,\lasty-1)
+}
+}
+\DeclareSseqGroup \mudtwozero{}{
+\class(0,0)
+\DoUntilOutOfBoundsThenNMore{22}{
+    \class(\lastx+2,\lasty+1)
+    \structline
+}
+\class(41,0)
+\DoUntilOutOfBounds{
+    \class(\lastx+2,\lasty+1)
+     \d{20}(\lastx-2,\lasty-1)
+}
+}
+\DeclareSseqGroup \mudfourzero{}{
+\class(0,0)
+\DoUntilOutOfBoundsThenNMore{42}{
+    \class(\lastx+2,\lasty+1)
+    \structline
+}
+\class(81,0)
+\DoUntilOutOfBounds{
+    \class(\lastx+2,\lasty+1)
+     \d{40}(\lastx-2,\lasty-1)
+}
+}
+\DeclareSseqGroup \mudeighty{}{
+\class(0,0)
+\DoUntilOutOfBoundsThenNMore{82}{
+    \class(\lastx+2,\lasty+1)
+    \structline
+}
+\class(161,0)
+\DoUntilOutOfBounds{
+    \class(\lastx+2,\lasty+1)
+     \d{80}(\lastx-2,\lasty-1)
+}
+}
+\begin{sseqdata}[ name = BSSv_1,classes=fill, xscale = .15, yscale=.3, title = { $v_1$-torsion in the $E_{\infty}$-page of $v_1$-Bockstein Spectral Sequence for $0\le x\le 64$ }, Adams grading, y tick step = 2, x tick step = 8,x range = {0}{64}, y range = {0}{21} ]
+%tower on 1
+%\tower
+
+%\lambda_1
+%tower on  \lambda_1
+%\tower(3,0)
+
+%\lambda_2
+%\mu
+%differential d_4(v_1^k\mu)=\lambda_2v_1^{k+p^2}
+\mudfour(7,0)
+
+%\lambda_1\lambda_2
+%\lambda_1\mu
+%differential d_4(v_1^k\lambda_1\mu)=\lambda_1\lambda_2v_1^{k+p^2}
+\mudfour(10,0)
+
+%\lambda_3
+%\mu^2
+%differential d_8(v_1^k\mu^2)=\lambda_3v_1^{k+p^3}
+\mudeight(15,0)
+
+%\lambda_1\lambda_3
+%\lambda_1\mu^2
+%differential d_8(v_1^k\lambda_1\mu^2)=\lambda_1\lambda_3v_1^{k+p^3}
+\mudeight(18,0)
+
+%\lambda_2\lambda_3
+%\lambda_3\mu
+%differential d_4(v_1^k\lambda_3\mu)=\lambda_3\lambda_2v_1^{k+p^2}
+\mudfour(22,0)
+
+%\lambda_2\mu
+%\mu^4
+%differential d_20(v_1^k\mu^4)=\lambda_2\muv_1^{k+20}
+ \mudtwozero(23,0)
+
+%\lambda_1\lambda_2\lambda_3
+%\lambda_1\lambda_3\mu
+%differential d_4(v_1^k\lambda_1\lambda_3\mu)=\lambda_3\lambda_1\lambda_2v_1^{k+p^2}
+\mudfour(25,0)
+
+%\lambda_1\lambda_2\mu
+%\lambda_1\mu^4
+%differential d_20(v_1^k\lambda_1\mu^4)=\lambda_1\lambda_2\muv_1^{k+20}
+\mudtwozero(26,0)
+
+%\lambda_2\lambda_3\mu
+%\lambda_2\mu^3
+%differential d_8(v_1^k\lambda_2\mu^3)=\lambda_3\lambda_2\muv_1^{k+p^2}
+\mudeight(38,0)
+
+%\lambda_2\mu^2
+%\mu^3
+%differential d_4(v_1^k\mu^3)=\lambda_2\mu^2v_1^{k+p^2}
+\mudfour(39,0)
+
+%\lambda_1\lambda_2\lambda_3\mu
+%\lambda_1\lambda_2\mu^3
+%differential d_8(v_1^k\lambda_1\lambda_2\mu^3)=\lambda_1\lambda_3\lambda_2\muv_1^{k+p^2}
+\mudeight(41,0)
+
+%\lambda_1\lambda_2\mu^2
+%\lambda_1\mu^3
+%differential d_4(v_1^k\lambda_1\mu^3)=\lambda_1\lambda_2\mu^2v_1^{k+p^2}
+\mudfour(42,0)
+
+%\lambda_3\mu^2
+%\mu^4
+%differential d_40(v_1^k\mu^4)=\lambda_3\mu_2^2v_1^{k+p^3}
+\mudfourzero(47,0)
+
+%\lambda_1\lambda_3\mu^2
+%differential d_40(\lambda_1v_1^k\mu^4)=\lambda_1\lambda_3\mu_2^2v_1^{k+p^3}
+\mudfourzero(50,0)
+
+%\lambda_2\lambda_3\mu^2
+%\lambda_3mu^3
+%differential d_4(v_1^k\lambda_3\mu^3)=\lambda_2\lambda_3\mu^2v_1^{k+p^2}
+\mudfour(54,0)
+
+%\lambda_1\lambda_2\lambda_3\mu^2
+%\lambda_1\lambda_3\mu^3
+%differential d_4(v_1^k\lambda_1\lambda_3\mu^3)=\lambda_1\lambda_2\lambda_3\mu^2v_1^{k+p^2}
+\mudfour(57,0)
+ 
+\end{sseqdata}
+%\printpage[ name = BSSv_1, page = 4] 
+%\newpage
+%\printpage[ name = BSSv_1, page = 8]
+%\newpage
+%\printpage[ name = BSSv_1, page = 20] 
+%\newpage
+%\printpage[ name = BSSv_1, page = 40] 
+%\newpage
+\printpage[ name = BSSv_1, page = 41] 
+
+
+%\end{document}

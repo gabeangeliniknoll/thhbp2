@@ -1,0 +1,379 @@
+%%%% description: MSS for THH(B;Z) @ p=2
+\documentclass{article}
+\usepackage[landscape, paperheight=22cm, paperwidth = 7.5cm, margin = 0cm]{geometry}
+\usepackage{spectralsequences}
+\usepackage[urw-garamond]{mathdesign}
+\usepackage[T1]{fontenc}
+
+
+\definecolor{limegreen}{rgb}{0.2, 0.8, 0.2}
+%\definecolor{lavenderrose}{rgb}{0.98, 0.63, 0.89}
+\definecolor{darkmagenta}{rgb}{0.55, 0.0, 0.55}
+%\definecolor{lavenderrose}{rgb}{0.9, 0.56, 0.67}
+\definecolor{lavenderrose}{rgb}{0.91, 0.33, 0.5}
+\definecolor{goldenpoppy}{rgb}{0.99, 0.76, 0.0}
+\definecolor{seagreen}{rgb}{0.11, 0.35, 0.02}
+%\definecolor{seagreen}{RGB}{46,139,87}
+\definecolor{maroon}{RGB}{128,0,0}
+\definecolor{darkviolet}{RGB}{148,0,211}
+\definecolor{twelve}{RGB}{100,100,170}
+\definecolor{thirteen}{RGB}{100,150,50}
+\definecolor{fourteen}{RGB}{200,0,0}
+\definecolor{fifteen}{RGB}{0,200,0}
+\definecolor{sixteen}{RGB}{0,0,200}
+\definecolor{pinkpurple}{RGB}{200,0,200}
+\definecolor{teal}{RGB}{0,200,200}
+
+\let\circledS\undefined % here - PS
+
+\begin{document}
+
+%%%%%%%% spectral sequence groups %%%%%%
+
+\centering
+
+\DeclareSseqGroup\THHZ {}{
+	\class(0,0)
+	\class[fill,"\gamma_2" above left](3,0)
+	\class["4" inside, "\gamma_4" above left](7,0)
+	\class[fill, "\gamma_6" above left](11,0)
+	\class["8" inside, "\gamma_8" above left](15,0)
+	\class[fill, "\gamma_{10}" above left](19,0)
+	\class["4" inside, "\gamma_{12}" above left](23,0)
+	\class[fill, "\gamma_{14}" above left](27,0)
+	\class["16" inside, "\gamma_{16}" above left](31, 0)
+	\class[fill, "\gamma_{18}" above left](35, 0)
+	\class["4" inside, "\gamma_{20}" above left](39, 0)
+}
+
+%\DeclareSseqGroup\tower {} {
+%    \class(0,0)
+%    \foreach \i in {1,...,11} {
+%        \class(0,\i)
+%        \structline(0,\i-1,-1)(0,\i,-1)
+%    }
+%}
+%
+%\NewSseqGroup \basicaonepattern{}{
+%	\tower(0,0)
+%	\class(3,1)\structline(0,0,-1)(3,1,-1)
+%		\DoUntilOutOfBoundsThenNMore{3}{
+%		\class(\lastx+4, \lasty+1)
+%		\class(\lastx+3,\lasty+1)\structline
+%		\class(\lastx, \lasty-1)\structline
+%		\class(\lastx+3, \lasty+1)\structline
+%	}
+%}
+%
+%\NewSseqGroup \patternone{}{
+%	\foreach \i in {0,...,5}{
+%	\basicaonepattern(12*\i, 3*\i)
+%	}
+%}
+%
+%
+%\NewSseqGroup \basicpatterntwo{}{
+%	\tower(0,0)
+%	\class(3,1)
+%	\structline(0,0)(3,1)
+%	\DoUntilOutOfBoundsThenNMore{3}{
+%	\class(\lastx+7, \lasty+1)
+%	\class(\lastx+3, \lasty+1)\structline
+%	}
+%%	\foreach\i in {1,..., 5}{
+%%	\class(10*\i, 2*\i)
+%%	\class(10*\i+3, 2*\i+1)
+%%	\structline
+%%	}
+%}
+%
+%\NewSseqGroup \patterntwo{}{
+%	\foreach \i in {0,..., 5}{
+%		\basicpatterntwo(12*\i, 3*\i)
+%	}
+%}
+%
+%\NewSseqGroup \basicpatternthree{}{
+%	\tower(0,1)
+%	\foreach \i in {0,...,6}{
+%		\class(10*\i+7, 2*\i+2)
+%		\class(10*\i+10, 2*\i+3)
+%		\structline
+%	}
+%}
+%
+%\NewSseqGroup \patternthree{}{
+%	\foreach \i in {0,..., 6}{
+%		\basicpatternthree(12*\i, 3*\i)
+%	}
+%}
+
+\begin{sseqdata}[name=MSS(B;Z), grid=chess, Adams grading, classes = {show name=below},  class labels = { left = 0.3em }, label distance = 0.1cm, x range = {0}{40}, y range = {0}{5}, differentials = {red}]
+
+\THHZ[tag=id](0,0)
+\THHZ[color=blue, tag = sigma v1](3, 1)
+\THHZ[color=darkmagenta, tag = sigma v2](7,3)
+\THHZ[color=limegreen, tag = sigma v1 sigma v2](10,4)
+
+%\d1(2*4-1, 0, id, sigma v1)
+%\d1(2*6-1,0, id , sigma v1)
+
+\foreach \n in {2,..., 10}{
+	\d1(4*\n-1, 0, id, sigma v1)
+}
+
+\foreach \n in {2, ..., 8}{
+	\d1(4*\n-1 + 7, 3, sigma v2, sigma v1 sigma v2)
+}
+
+%
+%\patternone[tag = id](0,0)%\pattern one on 1
+%\classoptions["\alpha_1"](3,1)
+%\classoptions["\alpha_2"](7,2)
+%\classoptions["\beta"](10,2)
+%\classoptions["c_6"](12,3)
+%\classoptions["\beta^2"](20,4)
+%\classoptions["c_6\beta"](22,5)
+%\classoptions["c_6^2"](24,6)
+%\classoptions["\beta^3"](30,6)
+%\classoptions["\beta^2c_6"](32,7)
+%\classoptions["\beta c_6^2"](34,8)
+%\classoptions["c_6^3"](36,9)
+%\classoptions["\beta^4"](40,8)
+%\classoptions["\beta^3c_6"](42,9)
+%\classoptions["\beta^5"](50,10)
+%
+%\patterntwo[color  = blue, tag = b4](8,0) %pattern two on b_4
+%\classoptions["\alpha_1b_4"](3+8,1)
+%%\classoptions["\alpha_2"](7+8,2)
+%\classoptions["\beta b_4"](10+8,2)
+%\classoptions["c_6b_4"](12+8,3)
+%\classoptions["\beta^2b_4"](20+8,4)
+%\classoptions["c_6\beta b_4"](22+8,5)
+%\classoptions["c_6^2b_4"](24+8,6)
+%\classoptions["\beta^3b_4"](30+8,6)
+%\classoptions["\beta^2c_6b_4"](32+8,7)
+%\classoptions["\beta c_6^2b_4"](34+8,8)
+%\classoptions["c_6^3b_4"](36+8,9)
+%\classoptions["\beta^4b_4"](40+8,8)
+%\classoptions["\beta^3c_6b_4"](42+8,9)
+%
+%%\d2(8,0, b4,id)
+%%\d2(18,2, b4, id)
+%%
+%\foreach \n in {0,...,4}{
+%	\d2(8+10*\n,2*\n, b4, id)
+%	\d2(8+3+10*\n,1+2*\n, b4, id)
+%}
+%
+%\foreach\n in{0,...,3}{
+%	\d2(20+10*\n, 3+2*\n,b4,id)
+%	\d2(20+3+10*\n, 3+1+2*\n,b4,id)
+%}
+%
+%\foreach\n in{0,...,3}{
+%	\d2(32+10*\n, 6+2*\n,b4,id)
+%	\d2(32+3+10*\n, 6+1+2*\n,b4,id)
+%}
+%
+%
+%\patternthree[color = limegreen, tag = v2](16,1) %pattern three on v_2
+%%\classoptions["\alpha_1"](3+16,1+1)
+%\classoptions["v_0v_2"](16,2)
+%\classoptions["\alpha_2"](7+16,2+1)
+%\classoptions["v_2\alpha_2\beta"](33,5)
+%\classoptions["v_2\alpha_2\beta^2"](43,7)
+%\classoptions["v_2\alpha_2\beta^3"](53,9)
+%
+%\foreach \n in {0,...,4}{
+%	\d2(16+12*\n, 2+3*\n, v2, id)
+%}
+%
+%\foreach\n in {0,...,4}{
+%	\d2(23+10*\n, 3+2*\n, v2,id)
+%	\d2(23+3+10*\n, 3+1+2*\n, v2,id)
+%}
+%
+%\foreach \n in {0,...,3}{
+%	\d2(35+10*\n, 6+2*\n, v2,id)
+%	\d2(35+3+10*\n, 6+1+2*\n, v2,id)
+%}
+%
+%\d2(47, 9, v2, id)
+%\d2(50, 10, v2, id)
+%
+%\patterntwo[color = darkmagenta, tag = v2b4](24,1) %pattern two on v_2b_4 %supports no d2 differentials
+%\classoptions["v_2b_4"](24,1)
+%\classoptions["v_2\alpha_1b_4"](3+24,1+1)
+%%\classoptions["\alpha_2"](7+8,2)
+%\classoptions["v_2\beta b_4"](10+24,2+1)
+%\classoptions["v_2c_6b_4"](12+24,3+1)
+%\classoptions["v_2\beta^2b_4"](20+24,4+1)
+%\classoptions["v_2c_6\beta b_4"](22+24,5+1)
+%\classoptions["v_2c_6^2b_4"](24+24,6+1)
+%\classoptions["v_2\beta^3b_4"](30+24,6+1)
+%\classoptions["v_2\beta^2c_6b_4"](32+24,7+1)
+%\classoptions["v_2\beta c_6^2b_4"](34+24,8+1)
+%\classoptions["v_2c_6^3b_4"](36+24,9+1)
+%\classoptions["v_2\beta^4b_4"](40+24,8+1)
+%\classoptions["v_2\beta^3c_6b_4"](42+24,9+1)
+%
+%\patternthree[color = lavenderrose, tag = v2^2](32,2) % pattern three on v_2^2 % supports no d2 differentials
+%%\classoptions["\alpha_1"](3+16,1+1)
+%\classoptions["v_0v_2^2"](16+16,2+1)
+%\classoptions["\alpha_2"](7+16+16,2+1+1)
+%\classoptions["v_2^2\alpha_2\beta"](33+16,5+1)
+%\classoptions["v_2^2\alpha_2\beta^2"](43+16,7+1)
+%\classoptions["v_2^2\alpha_2\beta^3"](53+16,9+1)
+%
+%\patternone[color = teal, tag = v2^2b4](40,2) %pattern one on v_2^2b_4
+%\classoptions["v_2^2b_4"](40,2)
+%\classoptions["v_2^2b_4\alpha_1"](3+40,1+2)
+%\classoptions["v_2^2b_4\alpha_2"](7+40,2+2)
+%\classoptions["v_2^2b_4\beta"](10+40,2+2)
+%\classoptions["v_2^2b_4c_6"](12+40,3+2)
+%\classoptions["v_2^2b_4\beta^2"](20+40,4+2)
+%\classoptions["v_2^2b_4c_6\beta"](22+40,5+2)
+%\classoptions["v_2^2b_4c_6^2"](24+40,6+2)
+%\classoptions["v_2^2b_4\beta^3"](30+40,6+2)
+%\classoptions["v_2^2b_4\beta^2c_6"](32+40,7+2)
+%\classoptions["v_2^2b_4\beta c_6^2"](34+40,8+2)
+%\classoptions["v_2^2b_4c_6^3"](36+40,9+2)
+%\classoptions["v_2^2b_4\beta^4"](40+40,8+2)
+%\classoptions["v_2^2b_4\beta^3c_6"](42+40,9+2)
+%
+%\foreach \n in {0,...,4}{
+%	\d2(40+10*\n, 2+2*\n, v2^2b4, v2^2)
+%	\d2(40+10*\n, 2+1+2*\n, v2^2b4, v2b4)
+%	\d2(40+3+10*\n, 2+1+2*\n, v2^2b4, v2^2)
+%	\d2(47+10*\n, 4+2*\n, v2^2b4, v2b4)
+%}
+%
+%\foreach \n in {0,...,4}{
+%	\d2(40+12+10*\n, 2+3+2*\n, v2^2b4, v2^2)
+%	\d2(40+12+10*\n, 2+3+1+2*\n, v2^2b4, v2b4)
+%	\d2(40+3+12+10*\n, 2+3+1+2*\n, v2^2b4, v2^2)
+%	\d2(47+12+10*\n, 4+3+2*\n, v2^2b4, v2b4)
+%}
+%
+%\foreach \n in {0,...,2}{
+%	\d2(40+12+12+10*\n, 2+3+3+2*\n, v2^2b4, v2^2)
+%	\d2(40+12+12+10*\n, 2+3+3+1+2*\n, v2^2b4, v2b4)
+%	\d2(40+3+12+12+10*\n, 2+3+3+1+2*\n, v2^2b4, v2^2)
+%	\d2(47+12+12+10*\n, 4+3+3+2*\n, v2^2b4, v2b4)
+%}
+%
+%\patternone[color = seagreen, tag = v2^3](48,3) %pattern one on v_2^3 % supports no d2-differentials
+%\classoptions["v_2^3"](40+8,2+1)
+%\classoptions["v_2^3\alpha_1"](3+40+8,1+2+1)
+%\classoptions["v_2^3\alpha_2"](7+40+8,2+2+1)
+%\classoptions["v_2^3\beta"](10+40+8,2+2+1)
+%\classoptions["v_2^3c_6"](12+40+8,3+2+1)
+%\classoptions["v_2^3\beta^2"](20+40+8,4+2+1)
+%\classoptions["v_2^3c_6\beta"](22+40+8,5+2+1)
+%\classoptions["v_2^3c_6^2"](24+40+8,6+2+1)
+%\classoptions["v_2^3\beta^3"](30+40+8,6+2+1)
+%\classoptions["v_2^3\beta^2c_6"](32+40+8,7+2+1)
+%\classoptions["v_2^3\beta c_6^2"](34+40+8,8+2+1)
+%\classoptions["v_2^3c_6^3"](36+40+8,9+2+1)
+%\classoptions["v_2^3\beta^4"](40+40+8,8+2+1)
+%\classoptions["v_2^3\beta^3c_6"](42+40+8,9+2+1)
+%
+%\patterntwo[color = maroon, tag = v2^3b4](56,3) %pattern two on v_2^3b_4
+%\classoptions["v_2^3b_4"](24+32,1+2)
+%\classoptions["v_2^3\alpha_1b_4"](3+24+32,1+1+2)
+%%\classoptions["\alpha_2"](7+8,2)
+%\classoptions["v_2^3\beta b_4"](10+24+32,2+1+2)
+%\classoptions["v_2^3c_6b_4"](12+24+32,3+1+2)
+%\classoptions["v_2^3\beta^2b_4"](20+24+32,4+1+2)
+%\classoptions["v_2^3c_6\beta b_4"](22+24+32,5+1+2)
+%\classoptions["v_2^3c_6^2b_4"](24+24+32,6+1+2)
+%\classoptions["v_2^3\beta^3b_4"](30+24+32,6+1+2)
+%\classoptions["v_2^3\beta^2c_6b_4"](32+24+32,7+1+2)
+%\classoptions["v_2^3\beta c_6^2b_4"](34+24+32,8+1+2)
+%\classoptions["v_2^3c_6^3b_4"](36+24+32,9+1+2)
+%\classoptions["v_2^3\beta^4b_4"](40+24+32,8+1+2)
+%\classoptions["v_2^3\beta^3c_6b_4"](42+24+32,9+1+2)
+%
+%\foreach \n in {0,...,3}{
+%	\d2(8+48+10*\n,3+2*\n, v2^3b4, v2^3)
+%	\d2(8+3+48+10*\n,3+1+2*\n, v2^3b4, v2^3)
+%}
+%
+%\foreach\n in{0,...,2}{
+%	\d2(48+20+10*\n, 3+3+2*\n,v2^3b4, v2^3)
+%	\d2(48+20+3+10*\n, 3+3+1+2*\n,v2^3b4, v2^3)
+%}
+%
+%\foreach\n in{0,...,2}{
+%	\d2(48+32+10*\n, 3+6+2*\n,v2^3b4, v2^3)
+%	\d2(48+32+3+10*\n, 3+6+1+2*\n,v2^3b4, v2^3)
+%}
+%
+%\patternthree[color = darkviolet, tag = v2^4](64,4) %pattern three on v_2^4
+%\classoptions["v_0v_2^4"](16+16+16,2+1+2)
+%\classoptions["v_2^4\alpha_2"](7+16+16+16,2+1+1+2)
+%\classoptions["v_2^4\alpha_2\beta"](33+16+16,5+1+2)
+%\classoptions["v_2^4\alpha_2\beta^2"](43+16+16,7+1+2)
+%\classoptions["v_2^4\alpha_2\beta^3"](53+16+16,9+1+2)
+%
+%\foreach \n in {0,...,3}{
+%	\d2(16+48+12*\n, 2+3+3*\n, v2^4, v2^3)
+%}
+%
+%\foreach\n in {0,...,3}{
+%	\d2(23+48+10*\n, 3+3+2*\n, v2^4, v2^3)
+%	\d2(23+48+3+10*\n, 3+3+1+2*\n, v2^4, v2^3)
+%}
+%
+%\foreach \n in {0,...,2}{
+%	\d2(35+48+10*\n, 6+3+2*\n, v2^4, v2^3)
+%	\d2(35+48+3+10*\n, 6+3+1+2*\n, v2^4, v2^3)
+%}
+%
+%\d2(47+48, 9+3, v2^4, v2^3)
+%\d2(50+48, 10+3, v2^4, v2^3)
+%
+%\patterntwo[color = twelve, tag = v2^4b4](72, 4) % pattern two on v_2^4b_4
+%\classoptions["v_2^4b_4"](24+32+16,1+2+1)
+%\classoptions["v_2^4\alpha_1b_4"](3+24+32+16,1+1+2+1)
+%%\classoptions["\alpha_2"](7+8,2)
+%\classoptions["v_2^4\beta b_4"](10+24+32+16,2+1+2+1)
+%\classoptions["v_2^4c_6b_4"](12+24+32+16,3+1+2+1)
+%\classoptions["v_2^4\beta^2b_4"](20+24+32+16,4+1+2+1)
+%\classoptions["v_2^4c_6\beta b_4"](22+24+32+16,5+1+2+1)
+%\classoptions["v_2^4c_6^2b_4"](24+24+32+16,6+1+2+1)
+%\classoptions["v_2^4\beta^3b_4"](30+24+32+16,6+1+2+1)
+%\classoptions["v_2^4\beta^2c_6b_4"](32+24+32+16,7+1+2+1)
+%\classoptions["v_2^4\beta c_6^2b_4"](34+24+32+16,8+1+2+1)
+%\classoptions["v_2^4c_6^3b_4"](36+24+32+16,9+1+2+1)
+%\classoptions["v_2^4\beta^4b_4"](40+24+32+16,8+1+2+1)
+%\classoptions["v_2^4\beta^3c_6b_4"](42+24+32+16,9+1+2+1)
+%
+%
+%%%%%% d3 differentials %%%%%%%
+%
+%\foreach \n in {0, ..., 4}{
+%\d3(48+10*\n, 3+2*\n, v2^3, v2b4)
+%}
+%
+%\foreach \n in {0,...,4}{
+%\d4(24+10*\n,1+2*\n, v2b4, id )
+%}
+%
+%\foreach \n in {0,...,2}{
+%\d6(51+10*\n, 4+2*\n, v2^3, id)
+%}
+%
+%%%% extra names and hidden extensions %%%%%%
+%
+%\classoptions["b"](27,2)
+%\classoptions["\beta b"](37, 4)
+\end{sseqdata}
+%
+\printpage[name = MSS(B;Z), page = 1, axes gap = 0.5cm, xscale = 0.5, yscale = 1.0, x tick step = 2, x range = {0}{40}, y range = {0}{5}]
+
+\printpage[name = MSS(B;Z), page = 2, axes gap = 0.5cm, xscale = 0.5, yscale = 1.0, x tick step = 2, x range = {0}{40}, y range = {0}{5}]
+
+
+\end{document} 

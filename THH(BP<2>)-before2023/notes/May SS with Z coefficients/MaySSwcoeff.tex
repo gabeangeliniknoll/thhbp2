@@ -1,0 +1,859 @@
+\documentclass[12pt]{amsart}
+
+\usepackage[urw-garamond]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\let\circledS\undefined % here - PS
+
+ 
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{lscape,xcolor}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{verbatim}
+\usepackage{rotating}
+\usepackage{tikz-cd}
+\usepackage{amsrefs}
+\usepackage{hyperref}
+\usepackage{euscript}
+\usepackage[colorinlistoftodos]{todonotes}
+
+
+
+
+\usepackage{luasseq}
+\usepackage{xcolor}
+\definecolor{seagreen}{RGB}{46,139,87}
+\definecolor{maroon}{RGB}{128,0,0}
+\definecolor{darkviolet}{RGB}{148,0,211}
+\definecolor{twelve}{RGB}{100,100,170}
+\definecolor{thirteen}{RGB}{100,150,50}
+\definecolor{fourteen}{RGB}{200,0,0}
+\definecolor{fifteen}{RGB}{0,200,0}
+\definecolor{sixteen}{RGB}{0,0,200}
+\definecolor{seventeen}{RGB}{200,0,200}
+\definecolor{eighteen}{RGB}{0,200,200}
+
+
+
+%\parskip 0.7pc
+%\parindent 0pt 
+
+\allowdisplaybreaks[1]
+
+%%%%%%%%%%%%%%% Basic commands %%%%%%%%%%%%%%%%%%
+\newcommand{\dotequiv}{\overset{\scriptstyle{\centerdot}}{\equiv}}
+\newcommand{\nd}{\not\!|}
+\newcommand{\mmod}{\! \sslash \!}
+
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\ull}[1]{\underline{#1}}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mr}[1]{\mathrm{#1}}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\mit}[1]{\mathit{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\ms}[1]{\mathscr{#1}}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\bra}[1]{\langle #1 \rangle}
+\newcommand{\br}[1]{\overline{#1}}
+\newcommand{\brr}[1]{\overline{\overline{#1}}}
+\newcommand{\td}[1]{\widetilde{#1}}
+\newcommand{\tdd}[1]{\widetilde{\widetilde{#1}}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\MS}{\mathbb{S}}
+\newcommand{\PP}{\mathbb{P}}
+
+\newcommand{\euscr}[1]{\EuScript{#1}}
+
+%%%%%%%%%%%%%%%%% Spectra %%%%%%%%%%%%%%%
+
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\tBP}[1]{BP\bra{#1}}
+\newcommand{\AF}{\mr{AF}}
+\newcommand{\TAF}{\mathrm{TAF}}
+\newcommand{\TMF}{\mathrm{TMF}}
+\newcommand{\Tmf}{\mathrm{Tmf}}
+\newcommand{\tmf}{\mathrm{tmf}}
+\newcommand{\bo}{\mathrm{bo}}
+\newcommand{\bsp}{\mathrm{bsp}}
+\newcommand{\HZ}{\mr{H}\Z}
+\def \HF2{\mr{H}\F_2}
+\newcommand{\bu}{\mr{bu}}
+\newcommand{\MU}{\mr{MU}}
+\newcommand{\KU}{\mr{KU}}
+\newcommand{\KO}{\mr{KO}}
+\newcommand{\EO}{\mr{EO}}
+\newcommand{\BP}{\mr{BP}}
+\newcommand{\K}{\mr{K}}
+
+%%%%%%%%%%%%%%% Operators %%%%%%%%%%%%%%
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Sta}{Sta}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator*{\holim}{holim}
+\DeclareMathOperator*{\hocolim}{hocolim}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\Tot}{Tot}
+\DeclareMathOperator{\Spf}{Spf}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\THH}{THH}
+
+\DeclareMathOperator{\sq}{Sq}
+\newcommand{\xib}{{\bar{\xi}}}
+\newcommand{\s}{\wedge}
+\newcommand{\Si}{\Sigma}
+\newcommand\floor[1]{\lfloor#1\rfloor}
+
+%%%%%%%%%%%%% Steenrod Algebra & Brown-Gitler Modules %%%%%%%%%%%
+
+\newcommand{\A}{\ms{A}}
+\newcommand{\sE}{\ms{E}}
+\newcommand{\HZu}{\ull{\HZ}}
+\newcommand{\bou}{\ull{\bo}}
+\newcommand{\tmfu}{\ull{\tmf}}
+\newcommand{\tBPu}[1]{\ull{\tBP{#1}}}
+\newcommand{\buu}{\ull{\bu}}
+\def \AA0{\br{A \mmod A(0)}_*}
+\def \AA2{A\mmod A(2)_*}
+\def \AE2{(A\mmod E(2))_*}
+\renewcommand{\AE}[1]{(A\mmod E(#1))_*}
+\DeclareMathOperator{\wt}{\mathrm{wt}}
+\def \E2E1{(E(2)\mmod E(1))_*}
+\newcommand{\otau}{\overline{\tau}}
+
+
+
+%%%%%%%%%%%%%%%% Categories %%%%%%%%%%%%%
+
+\newcommand{\Top}{\mathsf{Top}}
+\newcommand{\Operad}{\mathsf{Operad}}
+\newcommand{\Alg}{\mathsf{Alg}}
+\newcommand{\Monad}{\mathsf{Monad}}
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\sSet}{\mathsf{sSet}}
+\newcommand{\Man}{\mathsf{Man}}
+\newcommand{\Presheaf}{\mathsf{Presheaf}}
+\newcommand{\Fun}{\mathsf{Fun}}
+\newcommand{\Grpd}{\mathsf{Grpd}}
+\newcommand{\Sp}{\mathsf{Sp}}
+\newcommand{\Aff}{\Mathsf{Aff}}
+\newcommand{\CAlg}{\mathsf{CAlg}}
+\newcommand{\Mod}{\mathsf{Mod}}
+\newcommand{\op}{\mathsf{op}}
+\newcommand{\QCoh}{\mathsf{QCoh}}
+
+
+
+%%%%%%%%%%%%%%% Homological Algebra %%%%%%%
+
+\newcommand{\cone}[1]{\mathrm{cone}\left(#1\right)}
+
+%%%%%%%%% THH %%%%%%%%%%%%
+
+\newcommand{\tilmu}{\tilde{\mu}}
+\newcommand{\MayE}{\mbox{}^{May}E}
+\newcommand{\MayoverE}{\mbox{}^{May}\overline{E}}
+
+
+%%%%%%% for numbered theorems %%%%%%%%%
+ \newtheorem{thm}[equation]{Theorem}
+ \newtheorem{cor}[equation]{Corollary}
+ \newtheorem{lem}[equation]{Lemma}
+ \newtheorem{prop}[equation]{Proposition}
+ \newtheorem{obs}[equation]{Observation}
+  \newtheorem{rem}[equation]{Remark}
+ 
+ \newtheorem*{thm*}{Theorem}
+ \newtheorem*{cor*}{Corollary}
+ \newtheorem*{lem*}{Lemma}
+ \newtheorem*{prop*}{Proposition}
+  \newtheorem*{not*}{Notation}
+
+ 
+ \theoremstyle{definition}
+ \newtheorem{defn}[equation]{Definition}
+ \newtheorem{ex}[equation]{Example}
+ \newtheorem{exs}[equation]{Examples}
+ \newtheorem{rmk}[equation]{Remark}
+\newtheorem{claim}[equation]{Claim}
+ \newtheorem{question}[equation]{Question}
+ \newtheorem{conjecture}[equation]{Conjecture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem*{defn*}{Definition}
+\newtheorem*{ex*}{Example}
+\newtheorem*{exs*}{Examples}
+\newtheorem*{rmk*}{Remark}
+\newtheorem*{claim*}{Claim}
+\newtheorem*{conventions}{Conventions}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+
+
+\title{THH-May spectral sequence for $\THH(\tBP{2}; \Z_p)$}
+\author{D.~ Culver}\address{University of Illinois, Urbana-Champaign}\email{dculver@illinois.edu}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+The goal of this note is to prove the results that Gabe and I talked about when he visited Champaing. In particular, if you put the usual Whitehead filtrations on $\tBP{2}$ and $H\Z_p$, then we get a $\THH$-May spectral sequence of the form 
+\[
+E^2_{**} = \THH(H\pi_*\tBP{2}; H\Z_{p})\implies \THH(\tBP{2}; \Z_p)
+\]
+So I don't have to keep writing shit, let $B$ denote $\tBP{2}$.
+
+
+\section{The $E^2$-page}
+
+First we need to compute the $E^2$-page. Observe that the $E^2$-term can be expressed as 
+\[
+H\Z_p\wedge_{H\pi_*B}\THH(H\pi_*B).
+\]
+Now observe that, there is an equivalence of $E_1$-algebras, 
+\[
+H\pi_*B\cong H\Z_p\wedge \bbS[v_1,v_2]
+\]
+where $\bbS[x]$ denotes the free $E_1$-algebra on a generator $x$ in some degree. \textcolor{red}{Reference??}. Since $\THH(R) = S^1\otimes R$, it follows that $\THH$ is a left adjoint, and so commutes with colimits. In particular, it commutes with smash products, and so 
+\[
+\THH(H\pi_*B) \simeq  \THH(H\Z_p\wedge \bbS[v_1,v_2])\simeq \THH(\Z_p)\wedge \THH(\bbS[v_1,v_2]).
+\]
+Thus, we can rewrite the $E^2$-term as 
+\[
+H\Z_p\wedge_{H\Z_p\wedge \bbS[v_1,v_2]}\left(\THH(\Z_p)\wedge \THH(\bbS[v_1,v_2])\right).
+\]
+Noting that $H\Z_p\simeq H\Z_p\wedge \bbS$, we have (e.g. EKMM Proposition 3.10) that this the $E^2$-term is equivalent to 
+\[
+(H\Z_p\wedge_{H\Z_p} \THH(\Z_p))\wedge (\bbS\wedge_{\bbS[v_1,v_2]}\THH(\bbS[v_1,v_2]))
+\]
+which itself is equivalent to 
+\[
+\THH(\Z_p)\wedge \THH(\bbS[v_1,v_2];\bbS)\simeq \THH(\Z_p)\wedge_{H\Z_p}(H\Z_p\wedge \THH(\bbS[v_1,v_2];\bbS))
+\]
+So we need to compute $H\Z_p \wedge \THH(\bbS[v_1,v_2];\bbS)$. Since the spectra involved have torsion free $p$-adic homology, we have B\"okstedt spectral sequence
+\[
+HH^{\Z_p}_*((H\Z_p)_*\bbS[v_1,v_2]; (H\Z_p)_*\bbS)\cong HH^{\Z_p}(\Z_p[v_1,v_2]; \Z_p) = \Z_p\otimes_{\Z_p[v_1,v_2]}(\Z_p[v_1,v_2]\otimes E(\sigma v_1, \sigma v_2)).
+\]
+Thus
+\[
+HH^{\Z_p}_*((H\Z_p)_*\bbS[v_1,v_2]; (H\Z_p)_*\bbS) = \Lambda_{\Z_p}(\sigma v_1, \sigma v_2).
+\]
+Note that the May filtration of an element is where it appears in the Whitehead filtration. So the May filtration of $v_1, \sigma v_1$ is $2(p-1)$ and of $v_2, \sigma v_2$ is $2(p^2-1)$. We reindex by dividing by $2(p-1)$. 
+
+To get to the $E^2$-term, we need to use the K\"unneth spectral sequence:
+\[
+\mathrm{Tor}^{\Z_p}(\THH_*(\Z_p), \Lambda_{\Z_p}(\sigma v_1, \sigma v_2))\implies ^{May}E^1_{**}(B;\Z_p).
+\]
+As $\Lambda_{\Z_p}(\sigma v_1, \sigma v_2)$ is torsion free, the spectral sequence collapses and yields
+\[
+E^2\cong \pi_*(\THH(\Z_p))\otimes_{\Z_p}\Lambda_{\Z_p}(\sigma v_1, \sigma v_2).
+\]
+Note that the classes of $\THH_*(\Z_p)$ are of May filtration 0. With the reindexed form, $|\sigma v_1| = (2p-1, 1)$ and $|\sigma v_2| = (2p^2-1,p+1)$. Thus, we have shown the following. 
+
+\begin{prop}
+	The $E^1$-term of the $\THH$-May spectral sequence for $\THH(B;\Z_p)$ is given by 
+	\[
+	E^2_{*,*} = \THH_*(\Z_p)\otimes_{\Z_p}\Lambda_{\Z_p}\sigma v_1, \sigma v_2, 
+	\]
+	where the classes in $\THH_*(\Z_p)$ are in May filtration 0 and where the bidegree of $\sigma v_i$ is $(2p^i-1, (i-1)p+1)$.
+\end{prop}
+
+We also need the following result of B\"okstedt. 
+
+\begin{thm}(B\"okstedt)
+	The homotopy groups of $\THH(\Z)$ are given by the following, 
+	\[
+	\pi_t\THH(\Z)\cong \begin{cases}
+		\Z & t=0\\
+		\Z/n & t=2n-1>0\\
+		0 & else
+	\end{cases}
+	\]
+\end{thm}
+
+\begin{cor}
+	Taking the $p$-completion yields 
+\[
+\pi_t\THH(\Z_p)^\wedge_p\cong \begin{cases}
+		\Z & t=0\\
+		\Z/p^{\nu_p(n)} & t=2n-1>0\\
+		0 & else
+	\end{cases}
+\]
+where $\nu_p$ denotes the $p$-adic valuation.
+\end{cor}
+
+It will be helpful to first compute the $\THH$-May spectral sequence for $\THH(\ell;\Z_p)^\wedge_p$. We will then use the reduction map
+\[
+\THH(B; \Z_p)\to \THH(\ell; \Z_p)
+\] 
+in order to lift $d_1$-May differentials. 
+
+A similar argument to the above shows that the $\THH$-May spectral sequence for $\THH(\ell; \Z_p)$ has $E^1$-page
+\[
+E^1_{**} \cong \THH(\Z_p)\otimes_{\Z_p}\Lambda_{\Z_p}(\sigma v_1).
+\]
+In particular, this spectral sequence will collapse at the $E^2$-page. Note that the bidegree of $\sigma v_1$ is $(2p-1,1)$ (again we are reindexing).
+
+Let $\gamma_n$ denote the generator in $\THH_{2n-1}(\Z_p)$. 
+
+\begin{lem}
+	For $n\not\equiv 0\mod p$, the groups $\THH_{2n-1}(\Z)^\wedge_p$ are trivial.
+\end{lem}
+
+Thus the only generators we need to worry about is $\gamma_{kp}$ for natural numbers $k$. This shows that, on the 0-line, the only nontrivial groups are in degrees $2pk-1$ for natural numbers $k$. These are spaced out every $2p$ spaces. Also, on the 1-line, there are the classes $\gamma_{pk}\sigma v_1$. Note that this class is in degree $2p(k+1)-2$, and so is the potential target of a $d_1$-differential on $\gamma_{p(k+1)}$. In fact these differentials must occur. Indeed, we have 
+
+\begin{thm}(Angeltveit-Hill-Lawson)
+	The homotopy groups of $\THH(\ell;\Z_p)$ is given additively by the following $\Z_p$-module, 
+	\[
+	\Lambda_{\Z_p}\lambda_1\oplus\left(\Z_p\{a_i, b_i\mid i\geq 1\}\right)/(p^{\nu_p(i)+1}a_i,p^{\nu_p(i)+1}b_i)
+	\]
+	where $|a_i| = 2p^2i-1$ and $|b_i| = 2p^2i+2(p-1)$. As a ring, we have $\lambda_1a_i = b_i$ and all other products are trivial.
+\end{thm}
+
+This forces a unique pattern of differentials. 
+
+\begin{prop}\todo{double check}
+	In the $\THH$-May spectral sequence for $\THH(\ell;\Z_p)^\wedge_p$, for $k>1$, we have the following differentials
+	\[
+	d_1(\gamma_{pk}) \, \dot{=}\, p^{\max\{0, \nu_p(k-1)-\nu_p(k)\}}\gamma_{(k-1)p}\sigma v_1.
+	\]
+	Moreover, the classes $a_i$ are detected, up to a unit, by the class $p\gamma_{p^2i}$, and $b_i$ is detected up to a unit by the class $\gamma_{p^2i}\sigma v_1$. Finally, there is a hidden extension $p \gamma_p = \sigma v_1$.
+\end{prop}
+\begin{proof}
+	
+	For degree reasons, we know that the only possible differentials are of the form 
+	\[
+	d_1(\gamma_{pk}) = \lambda \gamma_{(k-1)p}\sigma v_1
+	\]
+	for some integer $\lambda$. Moreover, we also know that $\lambda$ must be divisible by $p^{\max\{0, \nu_p(k-1)-\nu_p(k)\}}$. The only classes which could detect the classes $a_i$ are multiples of $\gamma_{p^2i}$. Since the order of $\gamma_{p^2i}$ is $p^{\nu_p(p^2i)} = p^{\nu_p(i)+2}$, and since the order of $\gamma_{p(pi-1)}$ is $p$, we have that 
+	\[
+	d_1(\gamma_{p^2i}) = \gamma_{p(pi-1)}\sigma v_1. 
+	\]
+	This also shows that $p\gamma_{p^2i}$ detects $a_i$. 
+	
+	The only classes which could detect the $b_i$ are $\gamma_{p^2i}\sigma v_1$. There are potential $d_1$-differentials
+	\[
+	d_1(\gamma_{p(pi+1)}) = \lambda \gamma_{p^2i}\sigma v_1
+	\]
+	for some integer $\lambda$. Since the order of. $\gamma_{p(pi+1)}$ is $p$, it follows that $\lambda = p$. For degree reasons, all of the other classes wipe themselves out, and this makes sense because the other classes are of the form $\gamma_{pk}\sigma v_1^{\varepsilon}$ where $(p,k)=1$. 
+\end{proof}
+
+Now we have the following square of spectral sequences, 
+\[
+\begin{tikzcd}
+	\THH(H\pi_*B, \Z_p)\implies \arrow[d]& \THH(B;\Z_p)\arrow[d]\\
+	\THH(H\pi_*\ell, \Z_p)\implies & \THH(\ell; \Z_p)
+\end{tikzcd}
+\]
+and the map of $E^1$-terms is
+\[
+\THH(\Z_p)\otimes_{\Z_p}\Lambda_{\Z_p}(\sigma v_1, \sigma v_2)\to \THH(\Z_p)\otimes_{\Z_p}\Lambda_{\Z_p}(\sigma v_1)
+\]
+which is given in the obvious way. From this, we obtain the following, 
+
+\begin{cor}
+	In the $\THH$-May spectral sequence for $\THH(B; \Z_p)$, we have the following differentials
+	\[
+	d_1(\gamma_{pk}) \, \dot{=}\, p^{\max\{0, \nu_p(k-1)-\nu_p(k)\}}\gamma_{(k-1)p}\sigma v_1.
+	\]
+	Thus we also have the differentials
+	\[
+	d_1(\gamma_{pk}\sigma v_2)\, \dot{=}\, p^{\max\{0, \nu_p(k-1)-\nu_p(k)\}}\gamma_{(k-1)p}\sigma v_1\sigma v_2.
+	\]
+\end{cor}
+\begin{proof}
+\end{proof}
+
+Since $\sigma v_2$ is a $d^1$-cycle, the K\"unneth theorem implies that we have the following as the $E^2$-term. 
+\[
+E^2\cong \Lambda_{\Z_p}\sigma v_2\otimes_{\Z_p}\left(\Lambda_{\Z_p}\sigma v_1\oplus\left(\Z_p\{\gamma_p, a_i, b_i\mid i\geq 1\}\right)/(p\gamma_p, p^{\nu_p(i)+1}a_i,p^{\nu_p(i)+1}b_i)\right)
+\]\todo{keep in mind that we don't necessarily have the desired product structure at the level of $E^2$, since $\gamma_pa_i=0$. We do get part of though, using multiplication by $\sigma v_1$.}
+In the $\THH$-May spectral sequence the bidegrees are $|a_i| = (2p^2i-1, 0)$ and $|b_i| = (2p^2i+2(p-1),1)$, and recall that $|\sigma v_2| = (2p^2-1,p+1)$.
+
+Now in the May spectral sequence for $\THH(B;\Z_p)$, there is still a possibility for $d^{p+1}$-differentials. Note that the source and target of any $d^{p+1}$-differential originating on the 0-line is $a_i$ and a multiple of $a_{i-1}\sigma v_2$.  Recall the following
+
+\begin{thm}(Angelini-Knoll-Culver)
+	The homotopy groups of $\THH(B;\Z_p)$ are given by 
+	\[
+	\Lambda_{\Z_p}(\lambda_1, \lambda_2)\oplus \left(\Z_p\{c_i^{(k)}, d_i^{(k)}\mid i\geq 1, k=1,2\}/p^{\nu_p(i)+1}c_i^{(k)}, p^{\nu_p(i)+1}d_i^{(k)}\right)
+	\]
+	with degrees 
+	\begin{enumerate}
+		\item $|c_i^{(1)}| = 2ip^3-1$
+		\item $|c_i^{(2)}| = 2ip^3+2p-2$
+		\item $|d_i^{(1)}| = 2ip^3+2p^2-2$
+		\item $|d_i^{(2)}| = 2ip^3+2p^2+2p-3$
+	\end{enumerate}
+\end{thm}
+
+This forces a unique pattern of differentials and hidden extensions. 
+
+\begin{prop}
+	The $E^{p+1}$-page of the $\THH$-May spectral sequence for $\THH(B;\Z_p)$ has  differentials given by 
+	\[
+	d^{p+1}(a_i)\, \dot{=}\, p^{\max(0, \nu_p(i-1)-\nu_p(i))}\sigma v_2\cdot a_{i-1},
+	\]
+	and 
+	\[
+	d^{p+1}(b_i)\, \dot{=}\, p^{\max(0, \nu_p(i-1)-\nu_p(i))}\sigma v_2\cdot b_{i-1}
+	\]
+	for $i>1$, and there are no other differentials. Moreover, there are no rooms for longer differentials for degree reasons, so $E^{p+2}\cong E^\infty$. Furthermore, $pa_{pn}$ detects $c_n^{(1)}$ and $pb_{pn}$ detects $c_n^{(2)}$, and also $\sigma v_2 a_{pn}$ detects $d_n^{(1)}$ and $\sigma v_2 b_{pn}$ detects $d_n^{(2)}$; for $n>0$. This also implies the necessary family of hidden extensions.  
+\end{prop}
+
+\section{The $\THH$-May spectral sequence with $\F_p$-coefficients}
+
+Before getting into the $k(1)$-coefficient May spectral sequence, we first say some things about the $\F_p$-coefficients May spectral sequence. The reason we do this is so that we can import differentials in to the $k(1)$-coefficient May spectral sequence. 
+
+Thus, we are considering the spectral sequence which takes the form 
+\[
+\THH_*(H\pi_*B; \F_p)\implies \THH_*(B; \F_p)
+\]
+
+\begin{prop}
+	The $E^1$-page of the May spectral sequence is given by 
+	\[
+	E^1\cong \THH(\Z_p;\F_p)\otimes E(\sigma v_1, \sigma v_2)
+	\]
+	where the bidegree of $\sigma v_i$ is $(2p^i-1, p^{i-1}+1)$. The May filtration of $\THH_*(\Z_p;\F_p)$ is entirely in degree 0. 
+\end{prop}
+\begin{proof}
+	Proved in the way we computed the $E^1$-page of the May spectral sequence in the previous section. 
+\end{proof}
+
+Recall that since $\THH(\Z_p;\F_p)$ is an $H\F_p$-algebra, its homotopy is given by the comodule primitives in the mod $p$ homology of $\THH(\Z_p;\F_p)$. Moreover, there is an equivalence (as ring spectra)
+\[
+\THH(\Z_p;\F_p)\simeq \F_p\otimes_{\Z_p}\THH(\Z_p).
+\] 
+Since $H_*(\THH(\Z_p)$ is free over $H_*H\Z_p$, we find that the K\"unneth spectral sequence immediately collapses. This yields
+\[
+(H\F_p)_*\THH(\Z_p;\F_p)\cong A_*\otimes_{A\mmod A(0)_*}H_*\THH(\Z_p).
+\]
+Thus, we need the following, 
+
+\begin{thm}[B\"okstedt]
+	The mod $p$ homology of $\THH(\Z_p)$ is given by 
+	\[
+	(H\F_p)_*(\THH(\Z_p))\cong A\mmod A(0)_*\otimes E(\lambda_1)\otimes P(\mu_1)
+	\]
+	where $\lambda_1$ is detected by 
+	\[
+	\lambda_1 = \begin{cases}
+		\sigma \zeta_1^2 & p=2\\
+		\sigma \zeta_1 & p>2
+	\end{cases}
+	\]
+	and $\mu_1$ is detected by 
+	\[
+	\mu_1 = \begin{cases}
+		\sigma \zeta_2 & p=2\\
+		\sigma \otau_1 & p>2
+	\end{cases}.
+	\]
+\end{thm}
+From this we obtain the following. 
+
+\begin{cor}
+	The mod $p$ homology of $\THH(\Z_p;\F_p)$ is given by 
+	\[
+	A_*\otimes E(\lambda_1)\otimes P(\mu_1).
+	\]
+	In fact, this isomorphism is an isomorphism of Hopf-algebras. 
+\end{cor}
+
+Since $\THH(\Z_p)$ is actually an $E_\infty$-ring spectrum, the mod $p$ homology is a Hopf algebra, and the B\"okstedt spectral sequence is a spectral sequence of Hopf algebras. One sees immediately that $\lambda_1$ is a comodule primitive. One also finds that 
+\[
+\alpha(\mu_1) = \begin{cases}
+	1\otimes \mu_1 & p=2 \\
+	\otau_0\otimes \lambda_1+1\otimes \mu_1 & p>2 
+\end{cases}.
+\]
+Define 
+\[
+\tilmu_1:= \begin{cases}
+	\mu_1 & p=2\\
+	\mu_1-\otau_0\otimes\lambda_1.
+\end{cases}
+\]
+Then $\alpha(\tilmu_1)=1\otimes \tilmu_1$. Thus we have the following. 
+\begin{thm} The homotopy of $\THH(\Z_p;\F_p)$ is given by, 
+	\[
+\pi_*\THH(\Z_p;\F_p) = E(\lambda_1)\otimes P(\tilmu_1).
+	\] 
+\end{thm}
+
+Thus, we derive 
+
+\begin{cor}
+	The $E^1$-page of the May spectral sequence for $\THH_*(B;\F_p)$ is isomorphic to 
+	\[
+	P(u_1)\otimes E(\lambda_1, \sigma v_1, \sigma v_2).
+	\]
+	The bidegrees of $u_1$ and $\lambda_1$ are $(2p,0)$ and $(2p-1,0)$ respectively. 
+\end{cor}
+
+Since we know that 
+\[
+\THH_*(B;\F_p)\cong P(u_3)\otimes E(\lambda_1, \lambda_2, \lambda_3)
+\]
+where $|\lambda_i| = 2p^i-1$ and $|u_3|=2p^3$, this allows us to compute the May spectral sequence. 
+
+\begin{prop}
+	In the May spectral sequence
+	\[
+	P(u_1)\otimes E(\lambda_1, \sigma v_1, \sigma v_2)\implies \THH_*(B;\F_p)
+	\]
+	the differentials are uniquely determined by multiplicativity and the differentials
+	\[
+	d^1(u_1) = \sigma v_1
+	\]
+	and 
+	\[
+	d^{p+1}(u_1^p) = \sigma v_2. 
+	\]
+	The classes $\lambda_2$ and $\lambda_3$ are detected by $u_1^{p-1}\cdot\sigma v_1$ and $u_1^{p(p-1)}\sigma v_2$, respectively. There are no hidden extensions.  
+\end{prop}
+
+
+\section{The $\THH$-May spectral sequence with $k(1)$-coefficients}
+
+We also need to write down the $\THH$-May spectral sequence with $k(1)$-coefficients. Let's begin by determining the $E^2$-term. The $E^2$-term is given by 
+\[
+E^2\cong \THH_*(H\pi_*B; H\pi_*k(1)). 
+\]
+There is an equivalence 
+\[
+\THH(H\pi_*B; H\pi_*k(1))\simeq H\pi_*k(1)\wedge_{H\pi_*B}\THH(H\pi_*B). 
+\]
+Let $\bbS[v_1]$ denote the free $E_1$-algebra generated by a class in degree $2p-2$. Then 
+\[
+H\pi_*k(1)\simeq H\F_p\wedge \bbS[v_1].
+\]
+Similarly, we have an equivalence
+\[
+H\pi_*B\simeq H\Z_p\wedge \bbS[v_1,v_2].
+\]
+Thus, we have an equivalence 
+\[
+\THH(H\pi_*B; H\pi_*)\simeq (H\F_p\wedge \S[v_1])\wedge_{H\Z_p\wedge \bbS[v_1,v_2]}(\THH(\Z_p)\wedge \THH(\S[v_1,v_2])),
+\]
+and this is equivalent to 
+\[
+(H\F_p\wedge_{H\Z_p}\THH(\Z_p))\wedge(\bbS[v_1]\wedge_{\bbS[v_1,v_2]}\THH(\bbS[v_1,v_2]))\simeq \THH(\Z_p;\F_p)\wedge_{H\Z_p}(H\Z_p\wedge \THH(\bbS[v_1,v_2]; \bbS[v_1])).
+\]
+Thus we need to compute the $H\Z_p$-homology of $\THH(\bbS[v_1,v_2]; \bbS[v_1])$. For this, we can use the B\"okstedt spectral sequence
+\[
+HH^{\Z_p}(\Z[v_1,v_2];\Z[v_1])\implies (H\Z_p)_*\THH(\bbS[v_1,v_2]; \bbS[v_1])
+\]
+The $E^2$-term of the B\"okstedt spectral sequence is concentrated on the 0-line and is given by 
+\[
+\Z[v_1]\otimes_{\Z_p[v_1,v_2]}(\Z_p[v_1,v_2]\otimes \Lambda_{\Z_p}(\sigma v_1, \sigma v_2))\cong \Z_p[v_1]\otimes_{\Z_p} \Lambda_{\Z_p}(\sigma v_1, \sigma v_2).
+\]
+Since $(H\Z_p)_*(\THH(\bbS[v_1,v_2];\bbS[v_1]))$ is torsion free, we find that the May $E^2$-term is given by 
+\[
+\mbox{}^{May}E^1(B;k(1))\cong \THH(\Z_p;\F_p)\otimes_{\Z_p}\Z_p[v_1]\otimes_{\Z_p}\Lambda_{\Z_p}\sigma v_1, \sigma v_2. 
+\]
+
+Thus, we have derived 
+
+\begin{cor}
+	We have an isomorphism
+	\[
+	\mbox{}^{May}E^1(B;k(1))\cong P(u_1, v_1)\otimes E(\lambda_1, \sigma v_1, \sigma v_2)
+	\]
+	where the bidegrees are given by 
+	\begin{itemize}
+		\item $|u_1| = (2p,0)$, 
+		\item $|v_1| = (2p-2,1)$, and
+		\item $|\sigma v_i| = (2p^i-1,p^{i-1}+1)$
+	\end{itemize}
+\end{cor}
+
+\begin{rmk}
+	Note that $\mbox{}^{May}E^1(B;k(1))\cong \mbox{}^{May}E^1(B;\F_p)\otimes P(v_1)$, and that the map of spectral sequences induced by the map $k(1)\to \F_p$ is the projection map sending $v_1$ to 0. This allows us to lift differentials. 
+\end{rmk}
+
+We will now argue that the May spectral sequence for $\THH(B;k(1))$ is isomorphic to a reindexed version of the $v_1$-Bockstein spectral sequence at the 
+
+\begin{prop}
+	We can lift the $d^1$ and $d^{p+1}$-differentials from the $\F_p$-coefficient May spectral sequence. We have that 
+	\[
+	\MayE^{p+2}(B;k(1))\cong P(u_3)\otimes P(v_1)\otimes E(\lambda_1, \lambda_2, \lambda_3)
+	\]
+	where $\lambda_2 = u_1\sigma v_1$, $\lambda_3 = u_1^p\sigma v_2$, and $u_3 = u_1^{p^2}$. 
+\end{prop}
+\begin{proof}
+	We clearly can lift the $d^1$-differentials, which shows that 
+	\[
+	\MayE^2(B; k(1))\cong P(u_2,v_1)\otimes E(\lambda_1, \lambda_2, \sigma v_2)
+	\]
+	where $\lambda_2 = u_1^{p-1}\sigma v_1$. We would like to lift the $d^{p+1}$-differentials, so we must exclude the possibility of an earlier differential. 
+	
+	Observe that for bidegree reasons that $v_1, \lambda_1, \lambda_2$ and $\sigma v_2$ are all infinite cycles. For bidegree reasons, the first class that could be a target of a differential supported by $u_2$ is $\sigma v_2$. Thus we can lift the $d^{p+1}$-differential from the $\F_p$-May spectral sequence. 
+\end{proof}
+
+\begin{cor}
+	The May spectral sequence for $\THH(B;k(1))$ is a reindexed version of the $v_1$-Bockstein spectral sequence from the $E^{p+2}$-page onward. 
+\end{cor}
+
+\section{$\THH(B;L)$}
+
+In this section we calculate the homotopy of $\THH(B;L)$. We mimic the argument found in McClure-Staffeldt. In particular, we are going to study the homotopy pull-back diagram
+\[
+\begin{tikzcd}
+	\THH(B;L)\arrow[r]\arrow[d] & \prod_{q} L_{H\F_q}\THH(B;L)\arrow[d]\\
+	\THH(B;L)_{\Q} \arrow[r] & \left(\prod_qL_{H\F_q}\THH(B;L)\right)
+\end{tikzcd}.
+\]
+Here $q$ ranges over all primes. Note that since $H\F_q\wedge L\simeq *$ for $q\neq p$, we have that the upper right hand corner is $\THH(B;L)^\wedge_p$. We now identify the homotopy type of $\THH(B;L)^\wedge_p$. First, note that the class $\lambda_1$ survives to $\THH(B;\ell)$. Since $\THH(B;L)$ is an $L$-module, we have a morphism of $L$-modules
+\[
+L\vee \Sigma^{2p-1}L\to \THH(B;L). 
+\]
+
+\begin{prop}
+	The map above induces an isomorphism in $K(1)$-homology. 
+\end{prop}
+\begin{proof}
+	Recall the equivalence
+	\[
+	\THH(B;L)\simeq L\wedge_B\THH(B).
+	\]
+	The EMSS thus collapses at $E_2$ and gives an isomorphism
+	\[
+	K(1)_*(\THH(B;L))\cong K(1)_*L\otimes_{K(1)_*B}K(1)_*\THH(B).
+	\]
+	We have previously seen that $K(1)_*\THH(B)\cong K(1)_*B\otimes_{K(1)_*} E(\lambda_1)$, and so we have 
+	\[
+	K(1)_*\THH(B;L)\cong K(1)_*L\otimes_{K(1)_*}E(\lambda_1). 
+	\]
+	This implies the map is a $K(1)$-isomorphism. 
+\end{proof}
+
+\begin{cor}
+	The map above induces an equivalence
+	\[
+	(L\vee \Sigma^{2p-1}L)_{K(1)}\to \THH(B;L)_{K(1)}. 
+	\]
+\end{cor}
+
+\begin{rem}
+	Recall that (cf. Ravenel ``localization...'') that the Bousfield class of $v_1^{-1}B$ is the same as the Bousfield class of $L$, and that the Bousfield class of $L$ is the Bousfield class of $H\Q\vee K(1)$. So we also need to check this map induces an isomorphism on $H\Q$-homology. 
+\end{rem}
+
+Note the following string of equivalences 
+\[
+\THH(B;L)\simeq L\wedge_B\THH(B)\simeq L\wedge_{v_1^{-1}B}\THH(v_1^{-1}B)
+\]
+and that $v_1^{-1}B$ is $L$-local. Thus (I think)\todo{prove this} it follows that $\THH(B;L)$ is $L$-local. (Alternatively, and more easily, this follows from the fact that $\THH(B;L)$ is an $L$-module, and so $L$-local.)
+
+We know from Prop 2.11 of Bousfield that
+\[
+L_{K(1)}\simeq L_{S\Z/p}L_{L}.
+\]
+Thus we can write the above equivalence as 
+\[
+\begin{tikzcd}
+((L\vee \Sigma^{2p-1}L)_{L})_{S\Z/p}\arrow[r, "\simeq"] & (\THH(B;L)_L)_{S\Z/p}.
+\end{tikzcd}
+\]
+But both $L\vee \Sigma^{2p-1}L$ and $\THH(B;L)$ are $L$-local. Thus we conclude the following. 
+
+\begin{cor}
+	There is an equivalence
+	\[
+	(L\vee \Sigma^{2p-1}L)_{S\Z/p}\to (\THH(B;L)_{K(1)})_{S\Z/p}
+	\]
+\end{cor}.
+
+\textcolor{blue}{I actually think this result is enough for our purposes.}
+
+
+\section{The May spectral sequence with $\ell$-coefficients}
+
+We now move towards finding differentials in the May spectral sequence for $\THH_*(B;\ell)$. We need to know the $E^1$-page. The same sort of argument we have been giving yields the following. 
+
+\begin{prop}
+	The $E^1$-page of the $\THH$-May spectral sequence for $\THH(B;\ell)$ is given by 
+	\[
+	\MayE^1(B;\ell)\cong \THH_*(\Z_p)\otimes_{\Z_p}\Z_p[v_1]\otimes \Lambda_{\Z_p}(\sigma v_1, \sigma v_2)
+	\]
+\end{prop}
+
+We will start by computing the maps 
+\[
+\MayE^1(B; \ell)\to \MayE^1(B; \Z_p)
+\]
+and 
+\[
+\MayE^1(B;\ell)\to \MayE^1(B;k(1))
+\]
+with the aim of lifting some differentials. 
+
+\begin{prop}
+	The map 
+	\[
+	\MayE^1(B;\ell)\to \MayE^1(B;\Z_p)
+	\]
+	is the projection map induced by sending $v_1$ to 0. 
+\end{prop}
+\begin{proof}
+	\todo{actually prove this.}
+\end{proof}
+
+\begin{prop}
+	The map 
+	\[
+	\MayE^1(B;\ell)\to \MayE^1(B;k(1))
+	\]
+	is induced by modding out by $p$ and the map $\THH(\Z_p)\to \THH(\Z_p;\F_p)$\todo{Identify this map}. 
+\end{prop}
+
+\textcolor{blue}{I think the map 
+\[
+\THH(\Z_p)\to \THH(\Z_p;\F_p)
+\]
+is induced by projecting $\gamma_{pk}$ to $u_1^{k-1}\lambda_1$}. Indeed, this map is the edge homomorphism for the $v_0$-BSS, and the Bockstein spectral sequence takes the form 
+\[
+\THH_*(\Z_p;\F_p)[v_0]\implies \THH_*(\F_p).
+\]
+Since the only classes in filtration 0 which are in the correct degree are $u_1^{k-1}\lambda_1$, it follows that $\gamma_{pk}$ projects onto $u_1^{k-1}\lambda_1$. 
+
+\begin{rmk}
+	Since we have the identification 
+	\[
+	\MayE^{p+2}(\ell)\cong \MayE^{p+2}(\ell; \Z_p)\otimes_{\Z_p} \Z_p[v_1]
+	\]
+	and recall that $\MayE^{p+2}(\ell;\Z_p)$ is an associated graded of $\THH(\ell; \Z_p)$. In particular we have 
+	\[
+	\MayE^{p+2}(\ell)\cong E(\gamma_1)\otimes \Lambda_{\Z_p}(\sigma v_1)\otimes \Lambda_{\Z_p}(a_i, b_i\mid i\geq 1 )/(p^{\nu_p(i)+1}a_i, p^{\nu_p(i)+1}b_i, \lambda_1a_i, \lambda_1b_i),
+	\]
+	in the answer there are hidden extensions $p\gamma_1 = \sigma v_1$ and $\gamma_1a_i = b_i$. 
+	In [AHL], they determine the differentials for the spectral sequence 
+	\[
+	\THH_*(\ell;\Z_p)[v_1]\implies \THH_*(\ell).
+	\]
+	They found that the $b_i$ are permanent cycles and that all the differentials are derived from the following
+	\[
+	d_{p^n+p^{n-1}+\cdots +p}(p^{n-1}a_{kp^{n-1}}) = (k-1)v_1^{p^n+\cdots +p} b_{(k-1)p^{n-1}}.
+	\]
+	These uniquely correspond to the following differentials in the May spectral sequence
+	\[
+	d_{p^n+p^{n-1}+\cdots +p+1}(p^{n-1}a_{kp^{n-1}}) = (k-1)v_1^{p^n+\cdots +p} b_{(k-1)p^{n-1}}.
+	\]
+	The $+1$ follows from the fact that the $b_i$ are in May filtration 1. 
+\end{rmk}
+
+
+We will now find an infinite family of $d^{p+1}$-differentials in the May spectral sequence for $\THH(B;\ell)$.
+
+\begin{prop}
+	We have the following differentials in the May spectral sequence for $\THH(B;\ell)$,
+	\[
+	d_{p+1}(a_i) \,\dot{=}\, p^{\nu_p(i-1)}v_1^{p} b_{i-1} + \varepsilon p^{\max(0, \nu_p(i-1)-\nu_p(i))}\sigma v_2 \cdot a_{i-1}
+	\]
+	where $\varepsilon\in \Z_p^\times$. We also have the differentials
+	\[
+	d_{p+1}(b_i) = p^{\max(0, \nu_{p}(i-1)-\nu_p(i))}\sigma v_2 b_{i-1}.
+	\] 
+\end{prop}
+\begin{proof}
+	Note that $\sigma v_2 a_{i-1}$ and $v_1^p b_{i-1}$ are the only two classes in the appropriate bidegree. So the $d_{p+1}$-differential is necessarily a linear combination of these classes. The result follows by projecting on to the May spectral sequences for $\THH(B; \Z_p)$ and $\THH(\ell)$. The other differential also is deduced from projecting to these two spectral sequences and using that $b_i$ is a permanent cycle in the May spectral sequence for $\THH(\ell)$.
+\end{proof}
+
+This allows to deduce the following differential. 
+
+\begin{cor}
+	We have the differentials
+	\[
+	d_{p+1}(\sigma v_2 a_{i+1}) = \varepsilon p^{\nu_p(i-1)}v_1^pb_{i-1}\sigma v_2
+	\]
+	for some $\varepsilon\in \Z_p^\times$. It follows from this that $\varepsilon=1$ (at least modulo some power of $p$).
+\end{cor}
+\begin{proof}
+	The first statement follows from the fact that the spectral sequence is multiplicative and that $\sigma v_2$ is a non-zero permanent cycle. The second statement follows from the fact that $d_{p+1}(a_i)$ must be a $d_{p+1}$-cycle.
+\end{proof}
+
+This allows us to deduce the following. 
+
+\begin{cor}
+	In $\MayE^{p+2}(B;\ell)$ we have the relations
+	\[
+	p^{\nu_p(i-1)}v_1^pb_{i-1}\,\dot{=}\, p^{\max\{0, \nu_p(i-1)-\nu_p(i)\}}\sigma v_2\cdot a_{i-1}.
+	\]
+	and 
+	\[
+	p^{\max\{0, \nu_p(i-1)-\nu_p(i)\}}\sigma v_2 b_{i-1}=0.
+	\]
+\end{cor}
+
+\begin{lem}
+	For all $i$, we have that 
+	\[
+	\nu_p(i-1) = \max\{\nu_p(i-1)-\nu_p(i), 0\}
+	\]
+\end{lem}
+\begin{proof}
+	If the max is 0, then $\nu_p(i)>\nu_{p}(i-1)\geq 0$. This implies that $\nu_p(i-1)=0$. If the max is not 0, then $\nu_p(i-1)>\nu_p(i)\geq 0$, which implies that $\nu_p(i)=0$. 
+\end{proof}
+
+Let us now proceed to compute the $E^{p+2}$-page of the May spectral sequence. By the previous section, we know that 
+\[
+v_1^{-1}\THH(B;\ell)\simeq \THH(B;L)\simeq L\vee \Sigma^{2p-1}L,
+\]
+where the two $L$-summands on the right hand side are coming from $1$ and $\lambda_1$. In the current spectral sequence, we know that $\gamma_p$ detects $\lambda_1$ and that $\sigma v_1$ detects $p\lambda_1$ (all up to a $p$-adic unit). Thus the $v_1$-towers on $1, \lambda_1$, and $\sigma v_1$ will not be the targets of any differentials. So we will define 
+\[
+\MayoverE^n(B,\ell):= \MayE^n(B;\ell)/\Z_p[v_1]\{1, \gamma_p, \sigma v_1\}.
+\]
+
+\begin{prop}\todo{I am not totally sure we need to assume $p$ is odd, check later.}\textcolor{red}{Actually, I don't think there is any dependence on the prime $p$.}
+	For $p$ odd, we have an isomorphism of $\Z_p[v_1]$-modules, 
+	\[
+	\MayoverE^{p+2}(B;\ell)\cong \Z_p[v_1]\{a_1, \sigma v_2, b_1, \gamma_2\sigma v_2, \sigma v_1\sigma v_2, c_n^{(1)}, c_n^(2), e_n^{(1)}, d_n^{(2)}\}/(p^{\nu_p(n)+1}c_n^{(i)}, p^{\nu_p(n)+1}e_n, p^{\nu_p(n)+1}d_n^{(2)}, p^{\nu_p(n)}(v_1^pc_n^{(2)}-e_n^{(1)}))
+	\]
+	where $e_n^{(1)} = pa_{pn}\sigma v_2$.
+\end{prop}
+\begin{proof}
+	We have the differentials
+	\[
+	d_{p+1}(a_{pn}) = v_1^pb_{pn-1}+a_{pn-1}\sigma v_2. 
+	\]
+	Of course, the classes $b_{pn-1}$ and $a_{pn-1}\sigma v_2$ both support differentials, but they are both $p$-torsion and so don't proceed onto the $E^{p+2}$-page. We also have the differentials
+	\[
+	d_{p+1}(a_{pn+1}) = p^{\nu_p(n)+1}v_1^pb_{pn}+ p^{\nu_p(n)+1}a_{pn}\sigma v_2
+	\]
+	as well as 
+	\[
+	d_{p+1}(a_{pn}\sigma v_2) = v_1^pb_{pn-1}\sigma v_2.
+	\]
+	The class $a_{pn}\sigma v_2$ detects $d_n^{(1)}$ in the May spectral sequence for $\THH(B;\Z_p)$. In the current SS, it supports a differential, but the target is $p$-torsion. So the class $pa_{pn}\sigma v_2$ proceeds to $E^{p+2}$, and we call this class $e_n^{(1)}$. Keep in mind that the order of $a_{pn}\sigma v_2$ is $p^{\nu_p(pn)+1} = p^{\nu_p(n)+2}$. In the May SS for $\THH(B;\Z_p)$, the class $p^{\nu_p{n}+1}a_{pn}\sigma v_2$ is killed by $a_{pn+1}$. But in this SS $a_{pn+1}$ kills the class 
+	\[
+	p^{\nu_p(n)+1}v_1^pb_{pn} + p^{\nu_p(n)+1}a_{pn}\sigma v_2.
+	\]
+	Using the names from previous sections, this can be rewritten as 
+	\[
+	p^{\nu_p(n)}v_1^p c_n^{(2)}+ p^{\nu_p(n)}e_n^{(1)}.
+	\]
+	This establishes the result. 
+\end{proof}
+
+
+\end{document}

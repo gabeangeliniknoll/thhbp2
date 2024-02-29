@@ -1,0 +1,75 @@
+% root THHBP2.tex
+
+\section{An $E_{\infty}$-Postnikov tower for $\B$ constructed from $\ell$-modules}
+In \cite{Basterra}, the author constructs an $E_{\infty}$-Postnikov tower out of Eilenberg-Maclane spectra after unpublished work of Kriz. Inspired by this work, we construct an explicit $E_{\infty}$-Postnikov tower for $\B$ out of $\ell$-modules. We first describe the less structured version, which is significantly easier to construct and probably well known. 
+\begin{thm}
+There exists a relative Postnkov tower $P_{\bullet}$ for $\B$ of the form 
+\[ 
+\xymatrix{
+\B \ar[dr]_(.7){f_2} \ar[ddr]_(.8){f_1} \ar[dddr]_(.8){f_0} &	\ar[d] & \\
+	&P_2 \ar[d] \ar[r]^{k_2} & \Sigma^{6p^2-6}\ell \\
+	&P_1 \ar[d] \ar[r]^{k_1} & \Sigma^{4p^2-4}\ell \\
+	&P_0=\ell \ar[r]^{k_0} &  \Sigma^{2p^2-2}\ell 
+}
+\]
+such that there are fiber sequences 
+\[ P_i\to P_{i-1}\to \Sigma^{(2p^2-2)i}\ell  \]
+and there is a weak equivalence
+$\B\simeq \lim P_k$.
+\end{thm}
+\begin{proof}
+We begin by considering the homotopy cofiber sequence 
+\[ \B \overset{f_0}{\longrightarrow} \ell \overset{j_0}{\longrightarrow} C_0 \]
+which has the property that $C_1\simeq \Sigma^{2p^2-2}\B$. We can then compose with this weak equivalence and the map $\Sigma^{2p^2-2}f_0 \co \Sigma^{2p^2-2}\B\longrightarrow \Sigma^{2p^2-2}\ell$ to get a map 
+$\ell \overset{k_0}{\longrightarrow} \Sigma^{2p^2-2}\ell$
+and since the map 
+\[ \B \overset{f_0}{\longrightarrow} \ell \overset{k_0}{\longrightarrow}\Sigma^{2p^2-2}\ell \]
+factors through $j_0\circ f_0$, it factors through $0$ up to homotopy. We therefore get a map $f_1\co \B\longrightarrow P_1$ where $P_1$ is defined to be the homotopy fiber of the map $\ell\overset{k_0}{\longrightarrow} \Sigma^{2p^2-2}\ell$. We then repeat the same process. Observe that the cofiber $C_2$ in the homotopy cofiber sequence 
+\[ \B \overset{f_1}{\longrightarrow} P_1 \overset{j_1}{\longrightarrow} C_1 \]
+is homotopy equivalent to $\Sigma^{4p^2-4}\B$. We then define $k_1$ as $\Sigma^{4p^2-4}f\circ j_2$ and again $f_1\circ k_1$ factors through $0$ up to homotopy so there exists a map $f_2\co \B \to P_2$ where $P_2$ is the homotopy fiber of the map $k_1\co P_1 \to \Sigma^{4p^2-4}\ell$. An easy induction completes the proof of the theorem. 
+\end{proof}
+For the more structured version of the theorem, we will build on work of \cite{Basterra}.
+\begin{lem}[Lemma 8.2. \cite{Basterra}]
+Let $B$ be a connective commutative $S$-algebra and let $f\co A\longrightarrow B$ be a map of commutative $S$-algebras which is an $n$-equivalence; where $n\ge 1$. Then; $TAQ_{B}(A)$ is $n$-connected and $\pi_{n+1}(TAQ_B(A))\cong \pi_n(A)$.
+\end{lem}
+We will use the notation $\CAlg_{\B/\ell}$ for the category of commutative $\B$-algebras over $\ell$. 
+\begin{thm}
+There exists a relative $E_{\infty}$-Postnkov tower $\PP_{\bullet}$ for $\B$ of the form 
+\[ 
+\xymatrix{
+\B \ar[dr]_(.7){f_2} \ar[ddr]_(.8){f_1} \ar[dddr]_(.8){f_0} &	\ar[d] & \\
+	&\PP_2 \ar[d] \ar[r]^{\tilde{k}_2} & \Sigma^{6p^2-6}\ell \\
+	&\PP_1 \ar[d] \ar[r]^{\tilde{k}_1} & \Sigma^{4p^2-4}\ell \\
+	&\PP_0=\ell \ar[r]^{\tilde{k}_0} &  \Sigma^{2p^2-2}\ell 
+}
+\]
+such that 
+\begin{enumerate}
+\item each object $\PP_k$ and each map $\PP_k\to \PP_{k-1}$ is in $\CAlg_{\B/\ell}$,
+\item after forgetting to $\B$-modules, there are fiber sequences 
+\[ \PP_i\to \PP_{i-1} \to \Sigma^{(2p^2-2)i}\ell,\]
+\item the map $\B\simeq \lim \PP_k$ is a weak equivalence in $\CAlg_{\B/\ell}$.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+We begin by composing the unit map with the map which kills higher homotopy on $TAQ_{\B}(\ell)$ to form 
+\[ \ell \to TAQ_{\B}(\ell)\to \Sigma^{2p^2-2}H\mathbb{Z}_{(p)}\]
+however, this is not exactly the map we desire. It is easy to see that this composite is nontrivial and therefore must represent an integral lift of (some unit multiple of) the element $Q_2\in H\mathbb{F}_p^{2p^2-2}(\ell)$. We  then compose with the map 
+\[ \Sigma^{2p^2-2}H\mathbb{Z}_{(p)}\longrightarrow \Sigma^{2p^2-2}TAQ_{\ell}(H\Z_{(p)})\longrightarrow \Sigma^{2p^2-2}\Sigma^{2p-2}H\Z_{(p)}\]
+which is a suspension of the first $E_{\infty}$ $k$-invariant of $\ell$. Since this is known to be $Q_1$, we see that, after post composing with the map $\Sigma^{2p^2-2}\Sigma^{2p-2}H\Z_{(p)}\to \Sigma^{2p^2-2}\Sigma^{2p-2}H\F_p$, the composite is $Q_2Q_1$. By examination of this relation, we see that 
+\[Q_2Q_1=0\in H\F_p^{2p^2-2+2p-2}(\ell)\] 
+and therefore this composite factors through the $0$ up to homotopy. We therefore get a factorization 
+\[ \ell \to TAQ_{\B}(\ell)\to \Sigma^{2p^2-2}\tau_{\le 2p-2}\ell .\]
+\gabe{Warning: This next part is hand wavey and should be made more precise}
+We repeat this same process and in each case the relevant relation in $H\F_p^{2p^2-2+(2p-2)k}\ell$ implies that we get maps 
+\[ \ell \to TAQ_{\B}(\ell)\to \Sigma^{2p^2-2}\tau_{\le (2p-2)k}\ell \]
+for all $k$ and consequently a map 
+\[ \tilde{k}_0\co \ell \to TAQ_{\B}(\ell)\to \Sigma^{2p^2-2}\ell \]
+which we define to be the first $E_{\infty}$ k-invariant of our relative $E_{\infty}$-Postnikov tower. We define $\PP_0=\ell$ and define $\PP_1$ to be the homotopy fiber of the map $\PP_0\to \PP_0\vee \Sigma^{2p^2-2}\ell$ in the category $\CAlg_{\B/\ell}$. Since the map $\B\overset{f_0}{\longrightarrow} \ell \overset{\tilde{k}_0}{\longrightarrow}\Sigma^{2p^2-2}\ell$ factors through the terminal object in the category of $\CAlg_{\B/\ell}$, there is also a map $f_1\co \B\to \PP_1$ in $\CAlg_{\B/\ell}$
+\gabe{Warning: This next part is even more hand wavey and should be made more precise}
+We then can do the same process and induct up the tower to define objects $\PP_m$ as the homotopy fiber of the map $\PP_{m-1} \longrightarrow \PP_{m-1}\vee\Sigma^{(2p^2-2)m}\ell$
+in the category $\CAlg_{\B/\PP_{m-1}}$ along with compatible maps $f_m\co \B\to \PP_m$. This completes the theorem. 
+\end{proof}
+\begin{rem}
+We should be able to give similar Postnikov filtrations for $\tmf_{0}(3)$ at the prime $2$ and $\tmf$ at large primes. 
+\end{rem}

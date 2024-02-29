@@ -1,0 +1,49 @@
+% root file is THHBP2.tex
+
+\section{Introduction}
+The Brown-Peterson spectrum $\BP$ is a complex oriented cohomology theory associated to universal $p$-typical formal group law. The cohomology of the associated Hopf algebroid $(BP_*,BP_*BP)$ is the input for an Adams spectral sequence computing $\pi_*S_p$. This spectral sequence lead to significant new computations of the homotopy groups of spheres at odd primes. The coefficients of $BP$ are a polynomial algebra over $\mathbb{Z}_{(p)}$ on generators $v_i$ for $i\ge 1$. By coning off the regular sequence $(v_{n+1},v_{n+2},\ldots )$, one can the $n$-th truncated Brown-Peterson spectrum $\tBP{n}$ where $\tBP{0}=H\mathbb{F}_p$, $\tBP{0}=H\mathbb{Z}_{(p)}$, and $\tBP{1}$ is the Adams summand $\ell$ of $p$-local complex K-theory $ku_{(p)}$. Until the last ten years, no analogous interpretation of $\tBP{2}$ was known, but then in \cite{qx} Lawson-Nauman showed that there is an $E_{\infty}$-model for $\B$ at the prime $2$ using topological modular forms with level structure. More recently in \cite{qx}, Hill-Lawson also give an $E_{\infty}$-model for $\B$ at the prime $3$ using spectra associated to Shimura curves of small discriminant. This is especially interesting in view of recent groundbreaking work of \cite{qx}, where Lawson proves that at the prime $2$ no such $E_{\infty}$-model for $\tBP{n}$ exists for $n\ge 4$, which was extended to odd primes in \cite{qx}. 
+\gabe{At the moment this introduction is here to fill space. We should discuss how we want to pitch our results.}
+We compute mod $p$ topological Hochschild homology of $\B$ at the primes $2$ and $3$ where, by work of \cites{HillLawson,LawsonNaumann}, it is known that an $E_{\infty}$-ring spectrum model for $\B$ exists. 
+
+\subsection{Outline of strategy}
+Working from our calculation of $\THH(\B;\F_p)$ we will analyze the cube of Bockstein spectral sequences corresponding to the diagram
+\begin{equation}\label{cube}
+\xymatrix{ 
+H\F_p  \ar@{-}[rd] \ar@{-}[dd] \ar@{-}[rr] & & H\Z_{(p)} \ar@{-}[rd] \ar@{-}[dd] & \\
+ & k(1)  \ar@{-}[dd] \ar@{-}[rr] & & \tBP{1} \ar@{-}[dd]  \\
+k(2)   \ar@{-}[dr] \ar@{-}[rr] & &\B/v_1  \ar@{-}[dr] & \\
+ & \B/p \ar@{-}[rr] & & \B  } .   
+ \end{equation}
+We begin with the three Bockstein spectral sequences:
+\begin{align}
+	\label{v_0BSS}\THH_*(\B;\F_p)[v_0]&\implies \THH_*(\B;\Z_{(p)})^{\wedge}_p\\
+	\label{v_1BSS}\THH_*(\B;\F_p)[v_1]&\implies \THH_*(\B;k(1))\\
+	\label{v_2BSS}\THH_*(\B;\F_p)[v_2]&\implies \THH_*(\B;k(2))
+\end{align}
+and then compare the three pairs of spectral sequences 
+\begin{align}
+	\label{v_0v_1BSS}\THH_*(\B;\Z_{(p)})_p[v_1]&\implies \THH_*(\B;\tBP{1})\\
+		\label{v_1v_0BSS}\THH_*(\B;k(1))[v_0]&\implies \THH_*(\B;\tBP{1})\\
+	\label{v_2v_1BSS}\THH_*(\B;k(2))[v_1]&\implies \THH_*(\B;\B/p)\\
+	\label{v_1v_2BSS}\THH_*(\B;k(1))[v_2]&\implies \THH_*(\B;\B/p)\\
+	\label{v_0v_2BSS}\THH_*(\B;\Z_{(p)})[v_2]&\implies \THH_*(\B;\B/v_1)\\
+	\label{v_2v_0BSS}\THH_*(\B;k(2))[v_0]&\implies \THH_*(\B;\B/v_1)
+\end{align}
+and finally we will compute the spectral sequences 
+\begin{align}
+	\label{v_0v_1v_2BSS}\THH_*(\B;\tBP{1})[v_2]&\implies \THH_*(\B)\\
+	\label{v_0v_2v_1BSS}\THH_*(\B;\B/v_1)[v_1]&\implies \THH_*(\B)\\
+	\label{v_1v_2v_0BSS}\THH_*(\B;\B/p)[v_0]&\implies \THH_*(\B)_p.
+\end{align}
+In addition, we use the topological Hochschild May spectral sequence 
+\[ S/p_*THH(H\pi_*\B)\Rightarrow S/p_*THH(\B) \]
+to go directly across the diagonal of the left-hand side of the cube \eqref{cube}. 
+
+Our methods for these calculations are inspired by \cites{McClureStaffeldt,AngeltveitRognes,AHL} along with the first author's paper \cite{THHK1-local}.
+
+\subsubsection*{Conventions}
+Throughout, we will write $H_*(-)$ for the functor $\pi_*(H\F_p\wedge -)$. We write $\dot{=}$ to mean that an equality holds up to multiplication by a unit. We will write $\tBP{n}$ for the $n$-th truncated Brown-Peterson spectrum. In particular, $\tBP{1}$ denotes the $E_{\infty}$-ring spectrum model for the connective Adams summand \cite{qx}. Also, $\tBP{2}$ will denote the $E_{\infty}$-model for the second truncated Brown-Peterson spectrum constructed by \cite{qx} at $p=2$ and \cite{qx} at $p=3$. When $p>3$, $\tBP{2}$ will denote the $A_{\infty}$-model for $\tBP{2}$ constructed in \cite{qx}. We will let $\tBP{2}^{\prime}$ be the model for second truncated Brown-Peterson spectrum constructed by coning off a regular sequence of generators $(v_3,v_4, \ldots)$. We let $k(n)$ denote an $A_{\infty}$-ring spectrum model for the connective cover of the Morava K-theory spectrum $K(n)$, which exists by \cite{qx} for $p\ge 3$. 
+
+When not otherwise specified, tensor products will be taken over $\mathbb{F}_p$ and $HH_*(A)$ denotes the Hochschild homology of a graded $\mathbb{F}_p$-algebra relative to $\mathbb{F}_p$. We will let $P(x)$, $E(x)$ and $\Gamma(x)$ denote a polynomial algebra, exterior algebra, and divided power algebra over $\mathbb{F}_p$ on a generator $x$. 
+
+The dual Steenrod algebra will be denoted $\A_*$ with coproduct $\Delta\co \A_*\to \A_*\otimes \A_*$. Given a right $\A_*$-comodule $M$, its right coaction will be denoted $\nu\co \A\to \A\otimes M$ where the comodule $M$ is understood from the context. 

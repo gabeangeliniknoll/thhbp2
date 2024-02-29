@@ -1,0 +1,70 @@
+% root file is THHBP2.tex
+
+\section{The $H\mathbb{Z}$-Bockstein spectral sequence}
+Recall that there is an isomorphism of $\mathcal{A}_*$-comodules
+\[
+H_*(S/p\wedge THH(\B)) \cong 
+	\begin{cases} 
+		E(\btau_0)\otimes H_*(\B)\otimes E(\sigma \bxi_1,\sigma \bxi_2,\sigma \bxi_3)\otimes P(\sigma \btau_3) \text{ if } p=3 \\
+		E(\bxi_1)\otimes H_*(\B)\otimes E(\sigma \bxi_1^2,\sigma \bxi_2^2,\sigma \bxi_3^2)\otimes P(\sigma \bxi_4) \text{ if }p=2 
+	\end{cases} 
+\]
+where the coaction on $x\in \mathcal{A}_*$ is $\nu(x)=\Delta(x)$ and the remaining coactions follow from \eqref{coactsigma}.
+In this section, we compute the Bockstein spectral sequence
+\begin{equation}\label{v_0Bock} 
+E^1_{*,*}=THH_*(\B;\F_p)[v_0]\Rightarrow THH(\B;\mathbb{Z}_{(p)})_p.
+\end{equation}
+As a direct consequence the coaction on  $\sigma \btau_3$, there is a differential
+\begin{equation}
+d_1(\mu_3) = v_0\lambda_3. 
+\end{equation}
+in the $H\mathbb{Z}$-Bockstein spectral sequence \eqref{v_0Bock}.
+
+The following lemma follows from \cite[Prop. 6.8]{May70} by translating to the $E_{\infty}$-context, see the proof of \cite[Lem. 3.2]{AHL}. 
+\begin{lem}
+	If $d_j(x)\ne 0$ in the $H\mathbb{Z}$-Bockstein spectral sequence \eqref{v_0Bock} then 
+	\[
+	d_{j+1}(x^p) = v_0x^{p-1}d_j(x)
+	\]
+	if $p>2$ or if $p=2$ and $j\geq 2$. If $p=2$ and $j=1$ then 
+	\[
+	d_{j+1}(x^p) = v_0x^{p-1}d_j(x)+Q^{|x|}(d_1(x))
+	\]
+\end{lem}
+
+When $p=2$, we have the differential 
+\[
+d_1(\mu)=v_0\lambda_3.
+\]
+Therefore, the error term for $d_2(\mu^2)$ is 
+\[
+Q^{16}\lambda_3 = Q^{16}(\sigma\bxi_3^2) = \sigma(Q^{16}(\bxi_3^2)) = \sigma((Q^8\bxi_3)^2) = \sigma(\bxi_4^2)=0.
+\]
+The first equality holds by definition of $\lambda_3$, the second equality holds because $\sigma$ commutes with Dyer-Lashoff operations by \cite{Bok85}, the third equality holds by \cite{BMMS86}, and the last equality holds because $\sigma$ is a derivation \cite{AngeltveitRognes}.
+\begin{cor}
+	When the $p=2,3$, there are differentials
+	\[
+	d_{i+1}(\mu^{p^i}) = v_0^{i+1}\mu^{p^i-1}\lambda_3.
+	\]
+	Consequently, there are differentials
+	\[
+	d_{\nu_p(k)+1}(\mu^k) \dot{=}v_0^{\nu_p(k)+1}\mu^{k-1}\lambda_3
+	\]
+	where $\nu_p(k)$ denotes the $p$-adic valuation of $k$.
+\end{cor}
+\begin{proof}
+	Let $\alpha=\nu_p(k)$. We have that $k=p^\alpha j$ where $p$ does not divide $j$. So by the Leibniz rule
+	\[
+	d_{\alpha+1}(\mu^{k}) = d_{\alpha+1}((\mu^{p^\alpha})^k) = k\mu^{p^{\alpha}(k-1)}d_{\alpha+1}(\mu^{\alpha}) = kv_0^{\alpha+1}\mu^{p^\alpha (k-1)}\mu^{p^{\alpha}-1}\lambda_3 = kv_0^{\alpha+1}\mu^{k-1}\lambda_3.
+	\]
+	Since $k$ is not divisible by $p$, it is a unit mod $p$.
+\end{proof}
+Thus we have the following,
+\begin{cor}
+The $E_\infty$ page of of the $H\Z$-Bockstein spectral sequence for $R$ is the algebra
+\[
+P(v_0)\otimes E(\lambda_1,\lambda_2,\lambda_3)\otimes P(\mu)/(v_0^{\nu_p(k)+1}\mu^k\lambda_3\mid i\geq 1).
+\]	
+\end{cor}
+
+\dom{Insert picture.}

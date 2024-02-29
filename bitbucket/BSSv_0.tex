@@ -1,0 +1,150 @@
+\DeclareSseqGroup \tower {}{
+\class(0,0)
+\DoUntilOutOfBoundsThenNMore{10}{
+\class(\lastx,\lasty+1)
+\structline
+}
+}
+\DeclareSseqGroup \mu {}{
+\tower(0,0)
+\DoUntilOutOfBoundsThenNMore{10}{
+\class(\lastx+54,\lasty)
+\DoUntilOutOfBoundsThenNMore{10}{
+\class(\lastx,\lasty+1)
+}
+}
+}
+\DeclareSseqGroup \mudone{}{
+\class(0,0)
+\DoUntilOutOfBoundsThenNMore{2}{
+    \class(\lastx,\lasty+1)
+     \structline
+}
+\class(1,0)
+\DoUntilOutOfBounds{
+    \class(\lastx,\lasty+1)
+     \structline
+    \d[blue]1(\lastx,\lasty-1)
+}
+}
+\DeclareSseqGroup \mudtwo{}{
+\class(0,0)
+\DoUntilOutOfBoundsThenNMore{2}{
+    \class(\lastx,\lasty+1)
+    \structline
+}
+\class(1,0)
+\DoUntilOutOfBounds{
+    \class(\lastx,\lasty+1)
+     \structline
+    \d[blue]2(\lastx,\lasty-1)
+}
+}
+\tiny
+\begin{sseqdata}[ name = BSSv_0,classes=fill, xscale = .2, yscale=.5, title = { $E_{\page}$-page of $v_0$-Bockstein Spectral Sequence at $p=2$}, Adams grading, x tick step = 2,x range = {0}{58}, y range = {0}{5} ]
+\tower
+%tower on  \lambda_1
+\tower(3,0)
+
+%tower on  \lambda_2
+\tower(7,0)
+
+%towers on  \lambda_1\lambda_2\mu^k
+\tower(10,0)
+
+%differential d_1(p^k\mu)=p^{k+1}\lambda_3
+\mudone(15,0)
+
+%differential d_1(p^k\lambda_1mu)=p^{k+1}\lambda_1\lambda_3
+\mudone(18,0)
+
+%differential d_1(p^k\lambda_2mu)=p^{k+1}\lambda_2\lambda_3
+\mudone(22,0)
+
+%differential d_1(p^k\lambda_1\lambda_2mu)=p^{k+1}\lambda_1\lambda_2\lambda_3
+\mudone(25,0)
+
+%differential d_2(p^k\mu^2)=p^{k+2}\lambda_3\mu_2
+\mudtwo(31,0)
+
+%differential d_2(p^k\lambda_1\mu^2)=p^{k+2}\lambda_1\lambda_3\mu_2
+\mudtwo(34,0)
+
+%differential d_2(p^k\lambda_2\mu^2)=p^{k+2}\lambda_2\lambda_3\mu_2
+\mudtwo(38,0)
+
+%differential d_2(p^k\lambda_1\lambda_2\mu^2)=p^{k+2}\lambda_1\lambda_2\lambda_3\mu_2
+\mudtwo(41,0)
+
+%differential d_1(p^k\mu^3)=p^{k+1}\lambda_3\mu_2^2
+\mudone(47,0)
+
+%differential d_1(p^k\lambda_1\mu^3)=p^{k+1}\lambda_1\lambda_3\mu_2^2
+\mudone(50,0)
+
+%differential d_1(p^k\lambda_2\mu^3)=p^{k+1}\lambda_2\lambda_3\mu_2^2
+\mudone(54,0)
+
+%differential d_1(p^k\lambda_1\lambda_2\mu^3)=p^{k+1}\lambda_1\lambda_2\lambda_3\mu_2^2
+\mudone(57,0)
+
+\begin{comment}
+%differential d_1(p^kmu^2)=p^{k+1}\lambda_3\mu
+\mudone(107,0)
+
+%differential d_1(p?k\lambda_1\lambda_3mu)=p?{k+1}\lambda_1\mu?2
+\mudone(112,0)
+
+%differential d_1(p?k\lambda_2mu?2)=p?{k+1}\lambda_2\lambda_3\mu
+\mudone(124,0)
+
+%differential d_1(p?k\lambda_1\lambda_2\mu?2)=p?{k+1}\lambda_1\lambda_2\lambda_3\mu
+\mudone(129,0)
+
+
+
+%differential d_2(p?k\lamda_1\mu?3)=p?{k+2}\lambda_1\lambda_3\mu_2
+\mudtwo(166,0)
+
+%differential d_2(p?k\lamda_2\mu?3)=p?{k+2}\lambda_2\lambda_3\mu_2
+\mudtwo(178,0)
+
+%differential d_2(p?k\lambda_1\lamda_2\mu?3)=p?{k+2}\lambda_1\lambda_2\lambda_3\mu_2
+\mudtwo(183,0)
+
+%differential d_1(p?kmu?4)=p?{k+1}\lambda_3\mu?3
+\mudone(215,0)
+
+%differential d_1(p?k\lambda_1mu?4)=p?{k+1}\lambda_1\lambda_3\mu?3
+\mudone(220,0)
+
+%differential d_1(p?k\lambda_2mu?4)=p?{k+1}\lambda_2\lambda_3\mu?3
+\mudone(232,0)
+
+%differential d_1(p?k\lambda_1\lambda_2mu?4)=p?{k+1}\lambda_1\lambda_2\\lambda_3mu?3
+\mudone(237,0)
+
+%differential d_1(p?kmu?5)=p?{k+1}\lambda_3mu?4
+\mudone(269,0)
+
+%differential d_1(p?k\lambda_1mu?5)=p?{k+1}\lambda_1\lambda_3mu?4
+\mudone(274,0)
+
+%differential d_1(p?k\lambda_2mu?5)=p?{k+1}\lambda_2\lambda_3mu?4
+\mudone(286,0)
+
+%differential d_1(p?k\lambda_1\lambda_2mu?5)=p?{k+1}\lambda_1\lambda_2\lambda_3mu?4
+\mudone(291,0)
+
+%differential d_2(p?k\mu?6)=p?{k+2}\lambda_3\mu?5
+\mudtwo(323,0)
+\end{comment}
+\end{sseqdata}
+\printpage[ name = BSSv_0, page = 1] 
+
+
+\printpage[ name = BSSv_0, page = 2]
+
+\printpage[ name = BSSv_0, page = 3] 
+
+\normalsize 

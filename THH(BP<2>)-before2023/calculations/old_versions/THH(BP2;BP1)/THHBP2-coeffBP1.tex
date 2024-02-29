@@ -1,0 +1,88 @@
+% root file is THHBP2BP1.tex
+
+\section{Computation of $THH(\B;\tBP{1})$}
+We now begin the final computation. We will compare the two spectral sequences
+\begin{equation}\label{BSS1} THH_*(\B;H\Z_{(p)})[v_1] \Rightarrow THH_*(\B;\tBP{1}) \end{equation}
+\begin{equation}\label{BSS2} THH_*(\B; k(1))[v_0]\Rightarrow THH_*(\B;\tBP{1})_p.\end{equation}
+We begin with results about spectral sequence  \eqref{BSS2} and then use them to compute \eqref{BSS1}.
+
+\subsection{The $v_0$-Bockstein spectral sequence computing $THH_*(\B;\tBP{1})_p$}
+In the $v_0$-Bockstein spectral sequence, the $v_0$-towers are vertical which allows us to draw conclusions about vanishing of certain topological degrees. of $THH_*(\B;\tBP{1})_p$. We include a figure to highlight the degrees where these gaps occur. 
+
+\gabe{Here is would help to work with $\overline{THH}_*(\B;k(1))/(\lambda_1)$, is there a way to define this as the homotopy groups of a spectrum? Do we need to define it as the homotopy groups of a spectrum for the computations?}
+
+Recall from Theorem \ref{mod p v_2} that 
+\[ THH_*(\B;k(1))\cong \left ( P(v_1)\otimes E(\lambda_1)\otimes \mathbb{F}_p\{1, z_{n,m} ,z_{n,m}^{\prime} \} \right )/(v_1^{r^{\prime}(n)}\lambda_1^{\epsilon}z_{n,m}=v_1^{r^{\prime}(n)}\lambda_1z_{n,m}^{\prime}=0).\]
+We can form the quotient 
+$THH_*(\B;k(1))/(\lambda_1)$ algebraically and we will consider the $v_1$-torsion summand and denote it $\overline{THH}_*(\B;k(1))/(\lambda_1)$. After these reductions, the input of the Bockstein spectral sequence 
+\[ THH_*(\B;k(1))[v_0]\Rightarrow THH_*(\B;\tBP{1}) \]
+is described in Figure \ref{fig BSSv1v0}. The element $v_1$ is really in filtration $0$, but here we draw it in filtration $1$ to present a simpler picture, following the convention in \cite{AHL}.
+\input{BSSv_1v_0}
+\begin{lem}
+The following hold:
+\begin{enumerate}
+\item The groups $\overline{THH}_{2p^{n+3}-2p^2}(\B;\tBP{1})/(\lambda_1)$ are cyclic for $n\ge 1$.
+\item The groups $\overline{THH}_{2p^{n+3}-2p^2+(2p-2)\ell}(\B;\tBP{1})/(\lambda_1)$, are trivial for $n\ge 0$ and $p+1 \le \ell \le 2p+2$
+\item The groups  $\overline{THH}_{2p^{n+3}+2p^2-2}(\B;\tBP{1})/(\lambda_1)$ are cyclic for $n\ge 1$.
+\end{enumerate}
+\end{lem}
+\begin{proof}
+\gabe{Fix this proof}
+We will determine that there is exactly one $v_0$-tower in degrees $2p^{n+3}-2p^2$ and $2p^{n+2}+2p^2-2p$ for $n\ge 1$ and therefore after resolving additive extensions the groups are cyclic in these degrees. We will also determine there are elements in the columns $2p^{n+3}-2$, and $2p^{n+3}$ for $n\ge 0$ by a degree argument. 
+
+By Theorem \ref{mod p v_2}, the even generators (of $\overline{THH}_*(\B;k(1))/(\lambda_1)$ as a $P(v_1)$-module) are the elements of the form $z_{n,m}^{\prime}$. 
+The degrees of these generators are
+\[ 
+\begin{array}{ccc}
+|z_{n,m}^{\prime}|&=&|\lambda_n^{\prime}|+|\lambda_{n+1}^{\prime}|+|\mu_3^{mp^{n-2}}|\\
+\end{array}
+\]
+where by a simple induction 
+\[ |\lambda_n^{\prime}|+|\lambda_{n+1}^{\prime}|=2p^{n+1}+2p^2-2\]
+and $|\mu_3^{mp^{n-2}}|=2mp^{n+1}$. Also, recall that the $v_1$-tower on $z_{n,m}^{\prime}$ is truncated at $r(n-1)^{\prime}$
+
+We now consider elements of the form $z_{n,m}^{\prime}v_1^k$, which is in degree 
+\[|z_{n,m}^{\prime}v_1^k|=2p^{n+1}(1+m)+(2p-2)(p+1+k).\]
+We want to find triples of integers $(j,k,m)$ such that 
+\[ 2p^{n+3}-2p^2=2p^{j+1}(1+m)+(2p-2)(p+1+k)\]
+$j\ge 2$ and $0\ge k<r^{\prime}(n-1)$. Since $2p-2 \mid 2p^{n+3}-2p^2$, we observe that $2p-2 \mid 2p^{j+1}(1+m)+(2p-2)(p+1+k)$ and consequently, there exists an integer $m^{\prime}$ such that $m+1=m^{\prime}(p-1)$ and 
+\[p^{n+1}+p^n+\ldots p^2= p^{j+1}m^{\prime}+p+1+k.\]
+This implies that 
+\[ k \ge p^{j+1}+p^j+\ldots +p^2-p-1 \]
+so by a simple induction $k>r(j-1)$ when $j\ge 3$. When $j=2$, there is a unique solution with $j=p^{n-1}+p^{n-2}+\ldots +1$ and $k=p^2-p-1$. Thus, the element $z_{2,p^n-2}^{\prime}v_1^{p^2-p-1}$ is the only generator in degree $2p^{n+3}-2p^2$ and it generates a $v_0$-tower, proving the first assertion. 
+
+We then observe that $|v_1^{p+1}|=2p^2-2$ and $z_{2,p^n-2}^{\prime}v_1^{p^2-p-1}\cdot v_1^{p+1}=z_{2,p^n-2}v_1^{r^{\prime}(1)}=0$. Also, the next smallest even class is $|z_{2,p^n-1}|$ which are is in degree
+$2p^3(1+p^n-1)+2p^2-2=2p^{n+3}+2p^2-2$, which is strictly greater that $2p^{n+3}-2$. This proves the first part of the second claim. The second part of the second claim follows for the same reason. 
+
+The last claim follows by a similar argument to the first claim. As already observed, the element $z_{2,p^n-1}$ is in degree $2p^{n+3}+2p^2-2$ and this is the only generator in this degree. Thus there is a single $v_0$-tower in the column corresponding to this degree. 
+\end{proof}
+
+
+\begin{comment}
+\subsection{The $v_1$-Bockstein spectral sequence computing $THH_*(\B;\tBP{1})$}
+We first note a rather trivial, but helpful, observation. 
+\begin{lem}
+If  $x\in\THH_*(\B;H\Z)[v_1]$ is $\lambda_1$-divisible, then $d_r(x)$ is $\lambda_1$-divisible.
+\end{lem}
+\begin{proof}
+This follows by the Leibniz rule. 
+\end{proof}
+\end{comment}
+
+\begin{comment}
+\begin{lem}
+In the spectral sequence 
+\[ \THH_*(\B,\Z_{(2)})[v_1]\Rightarrow \THH_*(\B;\tBP{1}) \]
+the only differential in the range $\le 32$ is 
+\[ d(\lambda_3\mu)=\lambda_2\lambda_3v_1^{4} \]
+\end{lem}
+\begin{proof}
+The first possible differential in this range is $d_1(\lambda_1\lambda_2)=v_1\lambda_2$, but $d_1(\lambda_1\lambda_2)=0$ by the Leibniz rule. The next possible differential in this range is $d_2(\lambda_3)=v_1^2\lambda_1\lambda_2$
+\end{proof}
+
+First, we note that $v_1$ is in degree $(2p-2,1)$. We immediately conclude for bidegree reasons that $\lambda_2$ is $v_1$-torsion free and record this result. 
+\gabe{The following lemma has not been proven yet.}
+\begin{lem}
+The elements $v_1^k\lambda_2$ survive to $E_{\infty}$ in the spectral sequence \eqref{BSS1} for $k\ge 0$.
+\end{lem}
+\end{comment}

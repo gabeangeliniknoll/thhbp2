@@ -1,0 +1,99 @@
+\section{Topological Hochschild homology of $\B$ with $L$ coefficients}
+In this section we calculate the homotopy groups of $\THH(B;L)$. For notational simplicity, we will write $(-)_{E}$ for the Bousfield localization functor $L_E$ when $E$ is a homology theory. We will calculate $\THH(B;L)$ using the arithmetic fracture square
+\[
+\begin{tikzcd}
+	\THH(B;L)\arrow[r]\arrow[d] & \underset{q}{\prod}  \THH(B;L)_{S/q}\arrow[d]\\
+	\THH(B;L)_{\Q} \arrow[r] & \left(\underset{q}{\prod} \THH(B;L)_{S/q}\right)_{\Q}
+\end{tikzcd}.
+\]
+where the product ranges over all primes $q$. 
+We now identify the homotopy type of $\THH(B;L)_{S/q}$ and $\THH(B;L)_\mathbb{Q}$. First, note that the class $\lambda_1$ survives to $\THH(B;\ell)$ since it must be a permanent cycle in the HMSS for the pair $(B;\ell)$ for bidegree reasons. Since $\THH(B;L)$ is an $L$-module, we have a morphism of $L$-modules
+\[
+L\vee \Sigma^{2p-1}L\to \THH(B;L). 
+\]
+
+\begin{prop}
+	The map above induces an isomorphism in $K(1)$-homology. 
+\end{prop}
+\begin{proof}
+	Recall the equivalence
+	\[
+	\THH(B;L)\simeq L\wedge_B\THH(B).
+	\]
+	The EMSS thus collapses at $E_2$ and gives an isomorphism
+	\[
+	K(1)_*(\THH(B;L))\cong K(1)_*L\otimes_{K(1)_*B}K(1)_*\THH(B).
+	\]
+	We have previously seen that 
+	\gabe{Insert internal citation}
+	$K(1)_*\THH(B)\cong K(1)_*B\otimes_{K(1)_*} E(\lambda_1)$, and so we have 
+	\[
+	K(1)_*\THH(B;L)\cong K(1)_*L\otimes_{K(1)_*}E(\lambda_1). 
+	\]
+	This implies the map is a $K(1)$-isomorphism. 
+\end{proof}
+
+\begin{cor}
+	The map above induces an equivalence
+	\[
+	\left (L\vee \Sigma^{2p-1}L\right )_{K(1)} \to \left (\THH(B;L)\right)_{K(1)}. 
+	\]
+\end{cor}
+
+\begin{rem}
+	Recall that (cf. Ravenel ``localization...'') that the Bousfield class of $v_1^{-1}B$ is the same as the Bousfield class of $L$, and that the Bousfield class of $L$ is the Bousfield class of $H\Q\vee K(1)$. So we also need to check this map induces an isomorphism on $H\Q$-homology. 
+\end{rem}
+
+Since $\THH(B;L)$ is an $L$-module it is $L$-local.  We know from Prop 2.11 of Bousfield that there is an isomorphism of functors
+\[
+(- )_{K(1)} \cong \left ( \left ( - \right )_{L} \right )_{S/p}.
+\]
+Thus, we can write the above equivalence as 
+\[
+\begin{tikzcd}
+\left ( \left (L\vee \Sigma^{2p-1}L\right )_L \right )_{S/p} \arrow[r, "\simeq"] & \left ( \left (\THH(B;L\right)_L \right )_{S/p}.
+\end{tikzcd}
+\]
+But both $L\vee \Sigma^{2p-1}L$ and $\THH(B;L)$ are $L$-local. Since $\THH(B;L_p)$ is a $L_p$-module, it is in particular $p$-complete 
+ there is an equivalence 
+\[ \THH(B;L_p)\simeq \THH(B;L)_p\]
+so we may conclude the following corollary. 
+
+
+\begin{cor}
+	There is an equivalence
+	\[
+	L_p\vee \Sigma^{2p-1}L_p\to \THH(B;L)_p .
+	\]
+	and consequently an equivalence 
+	\[
+	(L_p)_{\mathbb{Q}}\vee (\Sigma^{2p-1}L_p)_{\mathbb{Q}} \to (\THH(B;L)_p)_{\mathbb{Q}}\simeq \THH(B; (L_p)_{\mathbb{Q}}) 
+	\]
+	where the last equivalence holds because $(-)_{\mathbb{Q}}$ is a smashing localization. 
+\end{cor}
+
+Consequently, we know that $\lambda_1$ is $v_1$-torsion free. 
+
+We now compute $THH(B;L)$ rationally. There is a B\"okstedt spectral sequence 
+\[ E_2^{*,*}=HH_*^{\mathbb{Q}}(H\mathbb{Q}_*B;H\mathbb{Q}_*L)\Rightarrow H\mathbb{Q}_*(THH(B;L))\cong \pi_*( THH(B;L)_{H\mathbb{Q}})\]
+with input 
+\[HH_*^{\mathbb{Q}}(P_{\mathbb{Q}}(v_1,v_2);P_{\mathbb{Q}}(v_1^{\pm 1}))\cong P_{\mathbb{Q}}(v_1^{\pm 1})\otimes_{\mathbb{Q}} E_{\mathbb{Q}}(\sigma v_1,\sigma v_2).\]
+the spectral sequence collapses at the $E_2$-page since the generators are all in B\"okstedt filtration zero or one. Thus, 
+\[ \pi_*THH(B;L)_{\mathbb{Q}}\cong E_{L_*\otimes \mathbb{Q}}(\sigma v_1, \sigma v_2).\]
+we therefore observe that 
+\[ THH(B;L)_{\mathbb{Q}} \simeq  L_{\mathbb{Q}} \vee \Sigma^{2p-1}L_{\mathbb{Q}}\vee\Sigma^{2p^2-1}L_{\mathbb{Q}}\vee\Sigma^{2p^2+2p-2} L_{\mathbb{Q}}.\]
+Since there is a pullback 
+\[
+\begin{tikzcd}
+	L \arrow[r]\arrow[d] & L_p \arrow[d]\\
+	L_{\mathbb{Q}} \arrow[r] & (L_p)_{\mathbb{Q}}
+\end{tikzcd}
+\]
+when we apply these results to the arithmetic fracture square we get the following corollary. 
+
+\begin{cor}
+There is an equivalence 
+\[ THH(B;L)\simeq L\vee \Sigma^{2p-1}L\vee \Sigma^{2p^2-1}L_{\mathbb{Q}}\vee\Sigma^{2p^2+2p-2}L_{\mathbb{Q}}.\]
+\end{cor}
+
+Consequently, we know that $\sigma v_1$, $\sigma v_2$, and $\sigma v_1 \sigma v_2$ are $v_1$-torsion free.

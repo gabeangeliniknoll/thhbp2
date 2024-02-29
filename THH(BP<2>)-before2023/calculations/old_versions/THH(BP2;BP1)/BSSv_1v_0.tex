@@ -1,0 +1,72 @@
+%\documentclass[12pt]{amsart}
+%\usepackage[margin=0in,landscape]{geometry}
+%\usepackage{comment}
+%\usepackage{spectralsequences}
+%\begin{document}
+
+\DeclareSseqGroup \tower {}{
+\class(0,0)
+\DoUntilOutOfBoundsThenNMore{10}{
+\class(\lastx,\lasty+1)
+\structline
+}
+}
+
+\DeclareSseqGroup \towerfour {}{
+\tower
+\Do{3}{
+    \class(\lastx+2,\lasty+1)
+    \structline
+    \DoUntilOutOfBounds{
+            \class(\lastx,\lasty+1)
+\structline
+    } 
+}
+}
+
+\DeclareSseqGroup \towereight {}{
+\tower
+\Do{7}{
+    \class(\lastx+2,\lasty+1)
+    \structline
+    \DoUntilOutOfBounds{
+            \class(\lastx,\lasty+1)
+\structline
+    } 
+}
+}
+
+\DeclareSseqGroup \towersixteen {}{
+\tower
+\Do{15}{
+    \class(\lastx+2,\lasty+1)
+    \structline
+    \DoUntilOutOfBounds{
+            \class(\lastx,\lasty+1)
+	\structline
+    } 
+}
+}
+
+\begin{sseqdata}[ name = BSSv_1v_0,classes=fill, xscale = .21, yscale=.5, title = { $v_1$-torsion in the $E_1$-page of the of $v_0$-Bockstein Spectral Sequence for $0\le x\le 40$ modulo $\lambda_1$}, Adams grading, y tick step = 1, x tick step = 2,x range = {0}{40}, y range = {0}{10} ] \label{fig BSSv1v0}
+\towerfour(7,0)
+\towereight(15,0)
+\towerfour(22,0)
+\towersixteen(23,0)
+\towereight(38,0)
+\towerfour(39,0)
+
+%\begin{comment}
+\towerfour(10,0)
+\towereight(18,0)
+\towerfour(25,0)
+\towersixteen(26,0)
+\towereight(41,0)
+\towerfour(42,0)
+%\end{comment}
+
+\end{sseqdata}
+\printpage[ name = BSSv_1v_0, page = 1] 
+
+
+%\end{document}

@@ -1,0 +1,94 @@
+% root file is THHBP2.tex
+
+\section{Introduction}
+Topological Hochschild homology has two main applications: it encodes information about deformations of structured ring spectra and it is the linear approximation to algebraic K-theory in the sense of Goodwillie's calculus of functors. 
+
+Algebraic K-theory of ring spectra that arise in chromatic stable homotopy theory are of particular interest because of the program of Ausoni-Rognes \cite{AR02} which, in a broad sense, suggests that the arithmetic of structured ring spectra  is intimately connected to chromatic complexity. One of the most fundamental objects in chromatic stable homotopy theory is the Brown-Peterson spectrum $BP$, which is a complex oriented cohomology theory associated to the universal $p$-typical formal group. The coefficients of $BP$ are a polynomial algebra over $\mathbb{Z}_{(p)}$ on generators $v_i$ for $i\ge 1$, and we may form truncated versions of $BP$, denoted $\tBP{n}$ by coning off a regular sequence $(v_{n+1},v_{n+2}, \ldots )$. 
+
+By convention $\tBP{-1}=H\mathbb{F}_p$ and when $n=0,1$, there are known identifications $\tBP{0}=H\mathbb{Z}_{(p)}$, and $\tBP{1}=\ell$ where $\ell$ is the Adams summand of complex topological K-theory $ku$. Until recently, the previous list exhausted the known examples of $\tBP{n}$ that were known to be $E_{\infty}$-ring spectra. However, in the last decade, models for $\B$ as an $E_{\infty}$-ring spectrum were constructed at the prime $p=2$ by Lawson-Naumann \cite{LawsonNaumann} and at the prime $p=3$ by Hill-Lawson \cite{HillLawson}. Lawson-Naumann \cite{LawsonNaumann} use the theory of topological Modular forms with a $\Gamma_1(3)$-structure to construct an $E_{\infty}$ model for $\B$ at the prime $2$ and Hill-Lawson \cite{HillLawson} use the theory of topological automorphic forms associated to a Shimura curve of discriminant $14$ to construct an $E_{\infty}$ model for $\B$ at the prime $p=3$. This is especially interesting in view of recent groundbreaking work of Lawson \cite{Law18}, where he proves that at the prime $2$ no model for $\tBP{n}$ as an $E_{\infty}$-ring spectrum exists for $n\ge 4$. This result was also recently extended to all odd primes by Senger \cite{Sen17}. 
+
+In the present paper, we compute topological Hochschild homology of $\B$ with coefficients in $\tBP{1}$ at the primes $2$ and $3$. %In parallel work to appear, we compute $THH_*(\B;\B/3)$ by a somewhat different approach. 
+In future work, we plan to extend these computations to an integral calculation of $THH_*(\B)$. 
+
+For small values of $n$, the calculations of $THH_*(\tBP{n})$ are known. The first known computations of topological Hochschild homology are B\"okstedt's calculations of  $THH(\tBP{-1})$ and $THH(\tBP{0})$ \cite{Bok85}. 
+The main result of a paper of McClure-Staffledt \cite{McClureStaffeldt} is a computation of the Bockstein spectral sequence 
+\[ THH_*(\tBP{1}; H\mathbb{F}_p)[v_1]\Rightarrow THH_*(\tBP{1} ; k(1) ).\]
+This result is extended by Angeltveit-Hill-Lawson \cite{AHL} where they compute the square of spectral sequences 
+\[ 
+\xymatrix{
+THH(\tBP{1}; H\mathbb{F}_p)[v_0,v_1] \ar@{=>}[r] \ar@{=>}[d] & THH(\tBP{1}; H\mathbb{Z}_{(p)})_p[v_1] \ar@{=>}[d] \\
+THH(\tBP{1}; k(1))[v_0] \ar@{=>}[r] & THH(\tBP{1};\tBP{1})_p.
+}
+\]
+This gives a complete answer for the integral calculation $THH_*(\tBP{1})$. 
+
+
+When $n=2$, the calculation $THH_*(\B;H\F_p)$ follows naturally from \cite{AngeltveitRognes} as we discuss in Section \ref{sec prelim}, but no further results towards $THH_*(\B)$ are known.
+
+In the present paper, we compute the square of spectral sequences
+\[ 
+\xymatrix{
+THH(\tBP{2}; H\mathbb{F}_p)[v_0,v_1] \ar@{=>}[r] \ar@{=>}[d] & THH(\tBP{2}; H\mathbb{Z}_{(p)})_p[v_1] \ar@{=>}[d] \\
+THH(\tBP{2}; k(1))[v_0] \ar@{=>}[r] & THH(\tBP{2};\tBP{1})_p,
+}
+\]
+which is a similar level of complexity to the result of Angeltveit-Hill-Lawson \cite{AHL} and many of the techniques developed in their paper carry over. 
+
+\subsection{Outline of the strategy}
+Beginning with a calculation of
+\[\THH_*(\B;\F_p)\] 
+we then compute the Bockstein spectral sequences 
+\begin{align}
+	\label{v_0BSS}\THH_*(\B;\F_p)[v_0]&\implies \THH_*(\B;\Z_{(p)})^{\wedge}_p\\
+	\label{v_1BSS}\THH_*(\B;\F_p)[v_1]&\implies \THH_*(\B;k(1)) \\
+	\label{v_0v_1BSS}\THH_*(\B;H\Z_{(p)})[v_1]&\implies \THH_*(\B;\tBP{1})\\
+	\label{v_1v_0BSS}\THH_*(\B;k(1))[v_0]&\implies \THH_*(\B;\tBP{1})_p.
+\end{align}
+The first two Bockstein spectral sequences can be identified with multiplicative Adams spectral spectral sequences 
+\begin{align}
+	\label{v_0ASS}Ext_{\A_*}^*(\F_p; H_*(THH(\B;\Z_{(p)}))&\implies \THH_*(\B;\Z_{(p)})\\
+	\label{v_1ASS}Ext_{\A_*}^*(\F_p;H_*THH(\B;k(1)))&\implies \THH_*(\B;k(1)). 
+\end{align}
+To see this, note that $H_*THH(\B)$ is free over $H_*\B$ and therefore the input becomes
+\[Ext_{E(\otau_i)}^*(\F_p;E(\lambda_1,\lambda_2,\lambda_3)\otimes P(\mu_2))\]
+for $i=0,1$. Since $E(\otau_1)$ coacts trivially on $E(\lambda_1,\lambda_2,\lambda_3)\otimes P(\mu_2)$ and 
+\[Ext_{E(\otau_1)}^*(\F_p,\F_p)\cong P(v_1)\] 
+the spectral sequence \eqref{v_1ASS} can be identified with the Adams spectral sequence at $E_1\cong E_2$-pages. For spectral sequence \eqref{v_0ASS} we must choose a minimal resolution so that their is an identification of  \eqref{v_0BSS} with \eqref{v_0ASS} at $E_1$-pages. Therefore these spectral sequences are each multiplicative. 
+
+The spectral sequence \eqref{v_0v_1BSS} can be identified with the relative Adams spectral sequence 
+\begin{align}
+	\label{v_0v_1ASS}Ext_{\pi_*(H\Z_{(p}\wedge_{\tBP{1}} H\Z_{(p)})}^*(\Z_{(p)}; THH_*(\B;H\Z_{(p)})) \Rightarrow THH_*(\B;\tBP{1}) 
+\end{align}
+and the spectral sequence \eqref{v_1v_0BSS} can be identified with the relative Adams spectral sequence 
+\begin{align}
+	\label{v_1v_0ASS}Ext_{\pi_*(k(1)\wedge_{\tBP{1}} k(1))}^*(k(1)_*; THH_*(\B;k(1))) \Rightarrow THH_*(\B;\tBP{1})_p
+\end{align}
+and therefore, since $\tBP{1}$ and $H\Z_{(p)}$ are commutative ring spectra and $k(1)$ is an $A_{\infty}$ ring spectrum, these spectral sequences are also multiplicative. To identify the $E_2$-terms of \eqref{v_0v_1ASS} and \eqref{v_0v_1BSS} note that by the K\"unneth spectral sequence there is an isomorphism
+\[\pi_*H\Z_{(p}\wedge_{\tBP{1}} H\Z_{(p)}\cong E_{\Z_{(p)}}(\overline{\tau}_1).\] 
+Then observe that $E_{\Z}(\otau_1)$ coacts trivially on $THH_*(\B;H\Z_{(p)})$ and 
+\[ \Ext_{E_{\Z_{(p)}}(\otau_1)}^*(\Z_{(p)};\Z_{(p)})\cong P_{\Z_{(p)}}(v_1). \]
+We see that \eqref{v_0v_1ASS} and \eqref{v_0v_1BSS} are therefore isomorphic on $E_1\cong E_2$-terms. To identify the $E_1$-terms of \eqref{v_1v_0ASS} and \eqref{v_1v_0BSS}, note that 
+\[ \pi_*(k(1)\wedge_{\tBP{1}} k(1))\cong P(v_1)\otimes E(\overline{\tau}_0)\]
+then apply flat base change 
+\[ \Ext_{E(\overline{\tau}_0)\otimes k(1)_*}^*(k(1)_*; THH_*(\B;k(1)))\cong \Ext_{E(\overline{\tau}_0)}^*(\F_p; THH_*(\B;k(1))). \]
+to produce an isomorphism of the $E_2$-page with \eqref{v_1v_0ASS}
+\[ Ext_{E(\overline{\tau}_0)}^*(\F_p; THH_*(\B;k(1))). \]
+Then note that we can take a minimal resolution to produce an isomorphism between the $E_1$-term of \eqref{v_1v_0ASS} and the $E_1$-term of \eqref{v_0v_1BSS}. Thus, the spectral sequences \eqref{v_0v_1BSS} and \eqref{v_1v_0BSS} are also multiplicative. 
+
+As in \cite{AHL}, the topological Hochschild cohomology of $\B$ will play a role in our calculations. Recall from \cite{EKMM}, there there is a universal coefficient spectral sequence (UCSS) of the form
+\begin{equation}\label{ucss} 
+\Ext_{R_*}^*(M_* , N_*) \Rightarrow \pi_*F_{R}(M,N) 
+\end{equation}
+when $R$ is a ring spectrum, and $M$ and $N$ are (left) $R$-modules. When $R$ is an $E_{\infty}$-algebra the spectral sequence is a differential graded $R_*$-algebra spectral sequence. 
+
+We will use the Eilenberg-Moore spectral sequence
+\[ \Tor^*_{E_*(R)}(E_*(M),E_*(N))\Rightarrow E_*(M\wedge_R N) \]
+which exists as long as $E_*R$ is flat as a right $R_*$-module and $E$ and $R$ are $E_{\infty}$-ring spectra and $M$ and and $N$ are $R$-modules. 
+
+\subsubsection*{Conventions}
+Let $p\in\{2,3\}$ throughout. We will write $H_*(-)$ for homology with $\F_p$ coefficients, or in other words, the functor $\pi_*(H\F_p\wedge -)$. We write $\dot{=}$ to mean that an equality holds up to multiplication by a unit. We will write $\tBP{n}$ for the $n$-th truncated Brown-Peterson spectrum. In particular, $\tBP{1}$ denotes the $E_{\infty}$-ring spectrum model for the connective Adams summand \cite{McClureStaffeldt}. Also, $\tBP{2}$ will denote the $E_{\infty}$-model for the second truncated Brown-Peterson spectrum constructed by \cite{LawsonNaumann} at $p=2$ and \cite{HillLawson} at $p=3$. 
+We also note that by coning off $v_2$ on $\B$ we may construct $\tBP{1}$ as an $E_{\infty}$ $\tBP{2}$-algebra and since the $E_{\infty}$-ring spectrum structure on $\tBP{1}$ is unique, this is equivalent to the $E_{\infty}$ ring spectrum model constructed in \cite{McClureStaffeldt}. Let $k(n)$ denote an $A_{\infty}$-ring spectrum model for the connective cover of the Morava K-theory spectrum $K(n)$. 
+
+When not otherwise specified, tensor products will be taken over $\mathbb{F}_p$ and $HH_*(A)$ denotes the Hochschild homology of a graded $\mathbb{F}_p$-algebra relative to $\mathbb{F}_p$. We will let $P(x)$, $E(x)$ and $\Gamma(x)$ denote a polynomial algebra, exterior algebra, and divided power algebra over $\mathbb{F}_p$ on a generator $x$. 
+
+The dual Steenrod algebra will be denoted $\A_*$ with coproduct $\Delta\co \A_*\to \A_*\otimes \A_*$. Given a right $\A_*$-comodule $M$, its right coaction will be denoted $\nu\co \A\to \A\otimes M$ where the comodule $M$ is understood from the context. 

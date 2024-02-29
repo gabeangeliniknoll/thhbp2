@@ -1,0 +1,362 @@
+\documentclass[12pt]{amsart}
+%\usepackage[urw-garamond]{mathdesign}
+\input{THHpreamble}
+\begin{comment}
+\usepackage[T1]{fontenc}
+
+\let\circledS\undefined % here - PS
+
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{lscape,xcolor}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{verbatim}
+\usepackage{rotating}
+\usepackage{tikz-cd}
+\usepackage{amsrefs}
+\usepackage{hyperref}
+\usepackage{euscript}
+\usepackage[colorinlistoftodos]{todonotes}
+
+\usepackage{luasseq}
+\usepackage{xcolor}
+\definecolor{seagreen}{RGB}{46,139,87}
+\definecolor{maroon}{RGB}{128,0,0}
+\definecolor{darkviolet}{RGB}{148,0,211}
+\definecolor{twelve}{RGB}{100,100,170}
+\definecolor{thirteen}{RGB}{100,150,50}
+\definecolor{fourteen}{RGB}{200,0,0}
+\definecolor{fifteen}{RGB}{0,200,0}
+\definecolor{sixteen}{RGB}{0,0,200}
+\definecolor{seventeen}{RGB}{200,0,200}
+\definecolor{eighteen}{RGB}{0,200,200}
+
+
+
+%\parskip 0.7pc
+%\parindent 0pt
+
+\allowdisplaybreaks[1]
+
+%%%%%%%%%%%%%%% Basic commands %%%%%%%%%%%%%%%%%%
+\newcommand{\dotequiv}{\overset{\scriptstyle{\centerdot}}{\equiv}}
+\newcommand{\nd}{\not\!|}
+\newcommand{\mmod}{\! \sslash \!}
+
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\ull}[1]{\underline{#1}}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mr}[1]{\mathrm{#1}}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\mit}[1]{\mathit{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\ms}[1]{\mathscr{#1}}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\bra}[1]{\langle #1 \rangle}
+\newcommand{\br}[1]{\overline{#1}}
+\newcommand{\brr}[1]{\overline{\overline{#1}}}
+\newcommand{\td}[1]{\widetilde{#1}}
+\newcommand{\tdd}[1]{\widetilde{\widetilde{#1}}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\MS}{\mathbb{S}}
+\newcommand{\PP}{\mathbb{P}}
+
+\newcommand{\euscr}[1]{\EuScript{#1}}
+
+%%%%%%%%%%%%%%%%% Spectra %%%%%%%%%%%%%%%
+
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\tBP}[1]{BP\bra{#1}}
+\newcommand{\AF}{\mr{AF}}
+\newcommand{\TAF}{\mathrm{TAF}}
+\newcommand{\TMF}{\mathrm{TMF}}
+\newcommand{\Tmf}{\mathrm{Tmf}}
+\newcommand{\tmf}{\mathrm{tmf}}
+\newcommand{\bo}{\mathrm{bo}}
+\newcommand{\bsp}{\mathrm{bsp}}
+\newcommand{\HZ}{\mr{H}\Z}
+\def \HF2{\mr{H}\F_2}
+\newcommand{\bu}{\mr{bu}}
+\newcommand{\MU}{\mr{MU}}
+\newcommand{\KU}{\mr{KU}}
+\newcommand{\KO}{\mr{KO}}
+\newcommand{\EO}{\mr{EO}}
+\newcommand{\BP}{\mr{BP}}
+\newcommand{\K}{\mr{K}}
+
+%%%%%%%%%%%%%%% Operators %%%%%%%%%%%%%%
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Sta}{Sta}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator*{\holim}{holim}
+\DeclareMathOperator*{\hocolim}{hocolim}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\Tot}{Tot}
+\DeclareMathOperator{\Spf}{Spf}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\THH}{THH}
+
+\DeclareMathOperator{\sq}{Sq}
+\newcommand{\xib}{{\bar{\xi}}}
+\newcommand{\s}{\wedge}
+\newcommand{\Si}{\Sigma}
+\newcommand\Floor[1]{\lfloor#1\rfloor}
+
+%%%%%%%%%%%%% Steenrod Algebra & Brown-Gitler Modules %%%%%%%%%%%
+
+\newcommand{\A}{\ms{A}}
+\newcommand{\sE}{\ms{E}}
+\newcommand{\HZu}{\ull{\HZ}}
+\newcommand{\bou}{\ull{\bo}}
+\newcommand{\tmfu}{\ull{\tmf}}
+\newcommand{\tBPu}[1]{\ull{\tBP{#1}}}
+\newcommand{\buu}{\ull{\bu}}
+\def \AA0{\br{A \mmod A(0)}_*}
+\def \AA2{A\mmod A(2)_*}
+\def \AE2{(A\mmod E(2))_*}
+\renewcommand{\AE}[1]{(A\mmod E(#1))_*}
+\DeclareMathOperator{\wt}{\mathrm{wt}}
+\def \E2E1{(E(2)\mmod E(1))_*}
+\newcommand{\otau}{\overline{\tau}}
+
+
+
+%%%%%%%%%%%%%%%% Categories %%%%%%%%%%%%%
+
+\newcommand{\Top}{\mathsf{Top}}
+\newcommand{\Operad}{\mathsf{Operad}}
+\newcommand{\Alg}{\mathsf{Alg}}
+\newcommand{\Monad}{\mathsf{Monad}}
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\sSet}{\mathsf{sSet}}
+\newcommand{\Man}{\mathsf{Man}}
+\newcommand{\Presheaf}{\mathsf{Presheaf}}
+\newcommand{\Fun}{\mathsf{Fun}}
+\newcommand{\Grpd}{\mathsf{Grpd}}
+\newcommand{\Sp}{\mathsf{Sp}}
+\newcommand{\Aff}{\Mathsf{Aff}}
+\newcommand{\CAlg}{\mathsf{CAlg}}
+\newcommand{\Mod}{\mathsf{Mod}}
+\newcommand{\op}{\mathsf{op}}
+\newcommand{\QCoh}{\mathsf{QCoh}}
+
+
+
+%%%%%%%%%%%%%%% Homological Algebra %%%%%%%
+
+\newcommand{\cone}[1]{\mathrm{cone}\left(#1\right)}
+
+%%%%%%%%% THH %%%%%%%%%%%%
+
+\newcommand{\tilmu}{\tilde{\mu}}
+\newcommand{\MayE}{\mbox{}^{May}E}
+
+
+%%%%%%% for numbered theorems %%%%%%%%%
+ \newtheorem{thm}[equation]{Theorem}
+ \newtheorem{cor}[equation]{Corollary}
+ \newtheorem{lem}[equation]{Lemma}
+ \newtheorem{prop}[equation]{Proposition}
+ \newtheorem{obs}[equation]{Observation}
+  \newtheorem{rem}[equation]{Remark}
+ 
+ \newtheorem*{thm*}{Theorem}
+ \newtheorem*{cor*}{Corollary}
+ \newtheorem*{lem*}{Lemma}
+ \newtheorem*{prop*}{Proposition}
+  \newtheorem*{not*}{Notation}
+
+ 
+ \theoremstyle{definition}
+ \newtheorem{defn}[equation]{Definition}
+ \newtheorem{ex}[equation]{Example}
+ \newtheorem{exs}[equation]{Examples}
+ \newtheorem{rmk}[equation]{Remark}
+\newtheorem{claim}[equation]{Claim}
+ \newtheorem{question}[equation]{Question}
+ \newtheorem{conjecture}[equation]{Conjecture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem*{defn*}{Definition}
+\newtheorem*{ex*}{Example}
+\newtheorem*{exs*}{Examples}
+\newtheorem*{rmk*}{Remark}
+\newtheorem*{claim*}{Claim}
+\newtheorem*{conventions}{Conventions}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\end{comment}
+
+
+\title[The Hochschild-May spectral sequence for $THH(\ell)$]{The Hochschild-May spectral sequence for topological Hochschild homology of the Adams summand}
+\author{G. Angelini-Knoll}\address{Michigan State University, East Lansing}{\email{angelini@math.msu.edu}
+\author{D.~ Culver}\address{University of Illinois, Urbana-Champaign}\email{dculver@illinois.edu}
+
+\begin{document}
+
+\maketitle
+
+
+
+\begin{abstract}
+In this note, we compute topological Hochschild homology the Adams summand using the Hochschild-May spectral sequence developed by the first author and Andrew Salch. This computation relies on the original computation of topological Hochschild homology of the Adams summand due to Angeltveit-Hill-Lawson. The purpose of this note is to build on their computations in future work rather than to present a simpler proof of their result. 
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+Topological Hochschild homology grew to prominence as a more computable approximation to algebraic K-theory of $A_{\infty}$-ring spectra. It also plays a fundamental role in study of $A_{\infty}$-deformation theory. Recently, there is renewed interest in topological Hochschild homology because of its role in the study of p-adic Hodge theory due to work of \cite{BMS19}. For all of these reasons, building tools that elegantly compute topological Hochschild homology are of utmost importance. 
+
+The computation in this paper is not new, but we present it to illustrate a new computational tool and to build the foundations for future computations of topological Hochschild homology. In particular, we give a complete calculation of integral topological Hochschild homology of the Adams summand using the Hochschild-May spectral sequence developed by the first author and Andrew Salch in \cite{THH-May}. This will lead to a simplification of topological Hochschild homology of the second truncated Brown-Peterson spectrum in future work. 
+\section{Topological Hochschild homology of $\ell$ with coefficients in $H\F_p$, $H\Z_p$, and $k(1)$}
+We first compute the Hochschild-May spectral sequences for $THH_*(\ell;H\F_p)$, $THH_*(\ell;H\Z_p)$ and $THH_*(\ell;k(1))$ using the Whitehead filtration. Throughout we write $\ell$ for the $p$-completion of the Adams summand. We will write 
+\begin{equation}\label{HMSSell} E_1^{*,*}(\ell,M)=THH_*(H\pi_*\ell;H\pi_*M)\Rightarrow THH(\ell). \end{equation}
+for the Hochschild-May spectral sequence with coefficients where $M$ is an $\ell$-module. We note once and for all that if $M$ is a commutative $\ell$-algebra then, this spectral sequence is multiplicative. 
+
+We first recall that B\"okstedt computed 
+\[ THH_n(\Z_p)\cong 
+	\begin{cases} 
+		\Z & n=0 \\ 
+		\Z/p^{\nu_p(m)}\{\gamma_{m}\} & n=2m-1\\
+		0 & \text{oterwise}
+	\end{cases}
+\]
+where $\nu_p(k)$ is the $p$-adic valuation of $k$.
+
+\begin{rem}
+The May filtration of all elements in the following spectral sequences are divisible by $2p-2$. We therefore divide the the May filtration by $2p-2$ throughout for simplicity. 
+\end{rem}
+\begin{lem}
+The Hochschild-May spectral sequence 
+\[ E_1^{*,*}(\ell,H\F_p)=THH_*(H\pi_*\ell;H\F_p)\Rightarrow THH_*(\ell;H\F_p)\]
+has $E_2$-page 
+\[E_1^{*,*}(\ell,H\F_p)\cong THH_*(H\Z_p;H\F_p)\otimes E(\sigma v_1)\]
+where 
+\[ THH_*(H\Z_p;H\F_p)\cong E(\lambda_1)\otimes P(\mu_1)\]
+and 
+the differentials are generated by the differential 
+\[ d_{1}(\mu_1)=\sigma v_1 \]
+\end{lem}
+\begin{proof}
+We first observe that there is an equivalence $H\pi_*\ell\simeq H\Z\wedge S[v_1]$ as $A_{\infty}$-ring spectra where $S[v_1]$ is the free $A_{\infty}$-algebra $\bigvee_{i\ge 0} S^{(2p-2)i}$. The first statement then follows by rearranging colimits 
+\[
+	\begin{array}{rcl}
+	H\F_p\wedge_{H\Z_p\wedge S[v_1]} THH(H\Z_p\wedge S[v_1])&\simeq &\\
+	H\F_p\wedge_{H\Z_p\wedge S[v_1]} \left (THH(H\Z_p)\wedge THH(S[v_1]) \right )&\simeq  \\
+	THH(H\Z_p;\F_p)\wedge_{H\F_p} H\F_p\wedge THH(S[v_1],S), & &
+ 	\end{array}
+\]
+applying the K\"unneth isomorphism, and then computing 
+\[ H_*THH(S[v_1],S)\cong E(\sigma v_1)\]
+using the B\"okstedt spectral sequence, which clearly collapses. 
+We know that $THH_{2p}(\ell,H\F_p)\cong 0$, which forces the differential $d_{1}(\mu_1)=\sigma v_1$ and this is the only possible differential whose source is a generator in this two line spectral sequence. 
+\end{proof}
+
+\begin{lem}
+The Hochschild-May spectral sequence
+\[ E_1^{*,*}(\ell,H\Z_p)=THH_*(H\pi_*\ell;H\Z_p)\Rightarrow THH_*(\ell;H\Z_p)\]
+has $E_1$-page
+\[E_1^{*,*}(\ell,H\F_p)= THH_*(\Z_p)\otimes_{\Z_p} E_{\Z_p}(\sigma v_1)\]
+and differentials 
+\[ d_1(\gamma_{pk})=p^{\alpha(k)} \sigma v_1 \gamma_{p(k-1)}\]
+where $\alpha(k)=\min\{0,\nu_p(k-1)-\nu_p(k)\}$.
+
+The classes $a_i$ are detected by $p\gamma_{ip^2}$ and the classes $b_i$ are detected by $\gamma_{ip^2}\sigma v_1$, up to multiplication by a unit. There is also a hidden extension 
+\[ p\gamma_p=\sigma v_1.\]
+\end{lem}
+\begin{proof}
+The identification of the $E_2$-page is exactly the same argument where the existence of the B\"okstedt spectral sequence computing $H\Z_*THH(S[v_1],S)$, in this case, follows because $H\Z_*S[v_1]$ is free over $H\Z_*$. The only possible differentials are the ones stated and these must occur in order to produce the known answer in \cite{AHL}. The detection results follow by comparison with the results of \cite{AHL}. We point out that the hidden extension could be derived explicitly using the formula 
+\[ p\lambda_1=\sigma v_1\]
+due to \cite{Rog19} since $\gamma_p=\lambda_1$. 
+\end{proof}
+The spectral sequence $E_1^{*,*}(\ell,k(1))$ has not been proven to by multiplicative yet and therefore one must be careful about using the Leibniz rule. Since the differentials we compute are imported from spectral sequences that do have a Leibniz rule, however, this is not an issue and we act as if the spectral sequence has a Leibniz rule for this reason. In fact we believe that the spectral sequence is in fact multiplicative, but we leave this to later work since it is not needed here. 
+\begin{lem}
+The Hochschild-May spectral sequence
+\[ E_1^{*,*}(\ell,k(1))=THH_*(H\pi_*\ell;H\pi_*k(1))\Rightarrow THH_*(\ell;k(1))\]
+has $E_1$-page
+\[ E_1^{*,*}(\ell,k(1))=THH_*(H\Z_p;H\F_p)\otimes P(v_1)\otimes E(\sigma v_1).\]
+The first nontrivial differential is 
+\[ d_{1}(\mu_1)=\sigma v_1 \]
+and the remaining differentials are determined by the differentials in the Bockstein spectral sequence 
+\[ THH_*(\ell;H\F_p)[v_1]\Rightarrow THH_*(\ell;k(1))\]
+since the $E_3$-page of the spectral sequence is isomorphic to the associated graded of a filtration on $THH_*(\ell;H\F_p)$. In particular, the differentials are 
+\[ d_{r'(n)}(\mu_1^{r'(n)})=v_1^{r'(n)-\epsilon(n)}\lambda_n\]
+where $\epsilon(n)=1$ if $n$ is even and zero otherwise and $r'(n)$ is defined recursively by $r'(0)=1,$ $r'(1)=p$ and 
+\[ r'(n)=p^n+r'(n-2)\]
+for $n\ge 0$.
+The elements $\lambda_n$ are also defined recursively by $\lambda_n=\lambda_{n-2}\mu_1^{p^{n-2}(p-1)}$ where $\lambda_0=\sigma v_1$.
+\end{lem}
+\begin{proof}
+Again, the argument for computing the $E_2$-page is essentially the same. The first differential can be surmised from the map of Hochschild-May spectral spectral sequences
+\[ THH_*(H\pi_*\ell;H\pi_*k(1))\to THH_*(H\pi_*\ell;H\F_p)\]
+which sends $v_1$ to zero and is a bijection on all elements that are not $v_1$-divisible. We observe that there is an isomorphism 
+\[ E_3^{*,*}\cong E_{\infty}^{*,*}(\ell;H\F_p)\otimes P(v_1).\]
+we now recall that, by \cite{McClureStaffeldt}, the differentials in the Bockstein spectral sequence are generated by 
+\[ d_{r(n)}(\mu_2^{r(n)})=v_1^{r(n)}\lambda_n.\]
+so by identifying $\mu_2=\mu_1^p$ and $\lambda_2=\lambda_1\mu_1^{p-1}$ we get the desired result.
+\end{proof}
+\section{Topological Hochschild homology of $\ell$}
+Unlike the computation of topological Hochschild homology of $\ell$ in \cite{AHL}, the previous section does nor serve to compute the input needed in this section. Instead, the previous section is used to import differentials into a spectral sequence that computes topological Hochschild homology of $\ell$ directly. 
+\begin{lem}
+There is an isomorphism
+\[ E_1^{*,*}(\ell,\ell)\cong THH_*(H\Z_p)\otimes_{\Z_p}P_{\Z_p}(v_1)\otimes E_{\Z_p}(\sigma v_1)\]
+of graded $THH_*(H\Z_p)$-algebras. 
+\end{lem}
+\begin{proof}
+Recall that $H\pi_*\ell\simeq H\Z_p\wedge S[v_1]$ as $A_{\infty}$-ring spectra and therefore since $THH$ commutes with colimits
+\[ THH(H\pi_*\ell)\simeq THH(H\Z)\wedge THH(S[v_1])\]
+It therefore suffices to compute ${H\Z_p}_*(THH(S[v_1]))$. Since ${H\Z_p}_*(S[v_1])$ is free over $H\Z_p$ there is a B\"okstedt spectral sequence 
+\[ HH_*^{\Z_p}(\Z_p[v_1])\Rightarrow {H\Z_p}_*THH(S[v_1])\]
+with input $P_{\Z_p}(v_1)\otimes E_{\Z_p}(\sigma v_1)$. It must collapse and there are no possible extensions. Finally, we can compute
+\[ \pi_*(THH(\Z_p)\wedge_{H\Z_p}H\Z_p\wedge THH(S[v_1])) \]
+using a K\"unneth spectral sequence, which also collapses because $H\Z_p\wedge THH(S[v_1])$ is a free $H\Z_p$-module. 
+\end{proof}
+We now determine differentials in the Hochschild-May spectral sequence computing $THH_*(\ell)$. These differentials can be determined in families by mapping to Hochschild-May spectral sequences with various coefficients. 
+\begin{lem}
+There is a family of $d_1$-differentials determined by 
+\[ d_1(\gamma_{nk})=p^{\alpha(n)}\sigma v_1 \gamma_{n(k-1)}\]
+where 
+\[\alpha(n)=\max\{0,\nu_p(k-1)-\nu_p(k)\}\]
+and $\nu_p(k)$ is the $p$-adic valuation of the natural number $k$.
+\end{lem}
+\begin{proof}
+The map of spectral sequences 
+\[ THH_*(H\pi_*\ell)\to THH_*(H\pi_*\ell,H\Z_p)\]
+maps all elements in $THH_*(\Z_p)\otimes_{\Z_p}E_{\Z_p}(\sigma v_1)$ to the element of the same name and all elements divisible by $v_1$ to zero. consequently all $d_1$-differentials from the latter spectral sequence can be imported into the former. 
+\end{proof}
+\begin{cor}
+There is an isomorphism, 
+\[ E_2^{*,*}(\ell,\ell)\cong E_\infty^{*,*}(\ell,H\Z_p)\otimes_{\Z_p} P_{\Z_p}(v_1)\]
+up to a shift in the May filtration. 
+\end{cor}
+Therefore, up to resolving extensions, this input is 
+\[ THH_*(\ell;H\Z_p)\otimes_{\Z_p}P_{\Z_p}(v_1)\]
+which is exactly the input of the Bockstein spectral sequence. The final differentials are therefore determined in the same way as the B\"okstedt spectral sequence and we have nothing to add to the approach of \cite{AHL} in this regard. Instead we will use this approach to compute $THH_*(\text{BP}\langle 2 \rangle; \ell)$ using the Hochschild-May spectral sequence. 
+
+\begin{lem}
+There a differentials 
+\[ d_{p^n+\ldots +p+1}(p^n\gamma_{p^2i})\dot{=}(k-1)v_1^{p^n+\ldots+p}\sigma v_1 \gamma_{p^2i}\]
+for all $n\ge 1$and $k\ge 1$.
+\end{lem}
+
+The output is therefore isomorphic to the computation in \cite{AHL} after resolving extensions. Note that the extensions in the Hochschild-May spectral sequence are not the same as that of the Bockstein spectral sequence computed in \cite{AHL}, but there is possible resolution of extensions that gives the desired answer and we know this pattern of extensions must occur in virtue of the fact that the Hochschild-May spectral sequence has the desired abutment.
+\bibliographystyle{alpha}
+\bibliography{THH}
+
+\end{document}

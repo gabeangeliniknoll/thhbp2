@@ -1,0 +1,326 @@
+
+\documentclass[12pt]{amsart}
+
+\usepackage[urw-garamond]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\let\circledS\undefined % here - PS
+
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{lscape,xcolor}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{verbatim}
+\usepackage{rotating}
+\usepackage{tikz-cd}
+\usepackage{amsrefs}
+\usepackage{hyperref}
+\usepackage{euscript}
+\usepackage[colorinlistoftodos]{todonotes}
+
+
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palatino needs more leading (space between lines)
+\usepackage[T1]{fontenc}
+
+\usepackage[OT2,T1]{fontenc}
+\newcommand\textcyr[1]{{\fontencoding{OT2}\fontfamily{wncyr}\selectfont #1}}
+
+
+\usepackage{luasseq}
+\usepackage{xcolor}
+\definecolor{seagreen}{RGB}{46,139,87}
+\definecolor{maroon}{RGB}{128,0,0}
+\definecolor{darkviolet}{RGB}{148,0,211}
+\definecolor{twelve}{RGB}{100,100,170}
+\definecolor{thirteen}{RGB}{100,150,50}
+\definecolor{fourteen}{RGB}{200,0,0}
+\definecolor{fifteen}{RGB}{0,200,0}
+\definecolor{sixteen}{RGB}{0,0,200}
+\definecolor{seventeen}{RGB}{200,0,200}
+\definecolor{eighteen}{RGB}{0,200,200}
+
+
+
+%\parskip 0.7pc
+%\parindent 0pt
+
+\allowdisplaybreaks[1]
+
+%%%%%%%%%%%%%%% Basic commands %%%%%%%%%%%%%%%%%%
+\newcommand{\dotequiv}{\overset{\scriptstyle{\centerdot}}{\equiv}}
+\newcommand{\nd}{\not\!|}
+\newcommand{\mmod}{\! \sslash \!}
+
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\ull}[1]{\underline{#1}}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mr}[1]{\mathrm{#1}}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\mit}[1]{\mathit{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\ms}[1]{\mathscr{#1}}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\bra}[1]{\langle #1 \rangle}
+\newcommand{\br}[1]{\overline{#1}}
+\newcommand{\brr}[1]{\overline{\overline{#1}}}
+\newcommand{\td}[1]{\widetilde{#1}}
+\newcommand{\tdd}[1]{\widetilde{\widetilde{#1}}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\MS}{\mathbb{S}}
+\newcommand{\PP}{\mathbb{P}}
+
+\newcommand{\euscr}[1]{\EuScript{#1}}
+
+%%%%%%%%%%%%%%%%% Spectra %%%%%%%%%%%%%%%
+
+\newcommand{\tBP}[1]{BP\bra{#1}}
+\newcommand{\AF}{\mr{AF}}
+\newcommand{\TAF}{\mathrm{TAF}}
+\newcommand{\TMF}{\mathrm{TMF}}
+\newcommand{\Tmf}{\mathrm{Tmf}}
+\newcommand{\tmf}{\mathrm{tmf}}
+\newcommand{\bo}{\mathrm{bo}}
+\newcommand{\bsp}{\mathrm{bsp}}
+\newcommand{\HZ}{\mr{H}\Z}
+\def \HF2{\mr{H}\F_2}
+\newcommand{\bu}{\mr{bu}}
+\newcommand{\MU}{\mr{MU}}
+\newcommand{\KU}{\mr{KU}}
+\newcommand{\KO}{\mr{KO}}
+\newcommand{\EO}{\mr{EO}}
+\newcommand{\BP}{\mr{BP}}
+\newcommand{\K}{\mr{K}}
+\newcommand{\THH}{\mathrm{THH}}
+
+%%%%%%%%%%%%%%% Operators %%%%%%%%%%%%%%
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Sta}{Sta}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator*{\holim}{holim}
+\DeclareMathOperator*{\hocolim}{hocolim}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\Tot}{Tot}
+\DeclareMathOperator{\Spf}{Spf}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+
+\DeclareMathOperator{\sq}{Sq}
+\newcommand{\xib}{{\bar{\xi}}}
+\newcommand{\s}{\wedge}
+\newcommand{\Si}{\Sigma}
+\newcommand\floor[1]{\lfloor#1\rfloor}
+
+%%%%%%%%%%%%% Steenrod Algebra & Brown-Gitler Modules %%%%%%%%%%%
+
+\newcommand{\A}{\ms{A}}
+\newcommand{\sE}{\ms{E}}
+\newcommand{\HZu}{\ull{\HZ}}
+\newcommand{\bou}{\ull{\bo}}
+\newcommand{\tmfu}{\ull{\tmf}}
+\newcommand{\tBPu}[1]{\ull{\tBP{#1}}}
+\newcommand{\buu}{\ull{\bu}}
+\def \AA0{\br{A \mmod A(0)}_*}
+\def \AA2{A\mmod A(2)_*}
+\def \AE2{(A\mmod E(2))_*}
+\renewcommand{\AE}[1]{(A\mmod E(#1))_*}
+\DeclareMathOperator{\wt}{\mathrm{wt}}
+\def \E2E1{(E(2)\mmod E(1))_*}
+
+
+
+%%%%%%%%%%%%%%%% Categories %%%%%%%%%%%%%
+
+\newcommand{\Top}{\mathsf{Top}}
+\newcommand{\Operad}{\mathsf{Operad}}
+\newcommand{\Alg}{\mathsf{Alg}}
+\newcommand{\Monad}{\mathsf{Monad}}
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\sSet}{\mathsf{sSet}}
+\newcommand{\Man}{\mathsf{Man}}
+\newcommand{\Presheaf}{\mathsf{Presheaf}}
+\newcommand{\Fun}{\mathsf{Fun}}
+\newcommand{\Grpd}{\mathsf{Grpd}}
+\newcommand{\Mell}{\mathscr{M}_{\text{ell}}}
+\newcommand{\M}{\mathscr{M}}
+
+
+%%%%%%%%%%%%%%% Homological Algebra %%%%%%%
+
+\newcommand{\cone}[1]{\mathrm{cone}\left(#1\right)}
+
+
+%%%%%%% for numbered theorems %%%%%%%%%
+ \newtheorem{thm}[equation]{Theorem}
+ \newtheorem{cor}[equation]{Corollary}
+ \newtheorem{lem}[equation]{Lemma}
+ \newtheorem{prop}[equation]{Proposition}
+ \newtheorem{obs}[equation]{Observation}
+  \newtheorem{rem}[equation]{Remark}
+ 
+ \newtheorem*{thm*}{Theorem}
+ \newtheorem*{cor*}{Corollary}
+ \newtheorem*{lem*}{Lemma}
+ \newtheorem*{prop*}{Proposition}
+  \newtheorem*{not*}{Notation}
+
+ 
+ \theoremstyle{definition}
+ \newtheorem{defn}[equation]{Definition}
+ \newtheorem{ex}[equation]{Example}
+ \newtheorem{exs}[equation]{Examples}
+ \newtheorem{rmk}[equation]{Remark}
+\newtheorem{claim}[equation]{Claim}
+ \newtheorem{question}[equation]{Question}
+ \newtheorem{conjecture}[equation]{Conjecture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem*{defn*}{Definition}
+\newtheorem*{ex*}{Example}
+\newtheorem*{exs*}{Examples}
+\newtheorem*{rmk*}{Remark}
+\newtheorem*{claim*}{Claim}
+\newtheorem*{conventions}{Conventions}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+
+
+
+
+\author{Gabe Angelini-Knoll}\address{Michigan State University, Lansing}
+	\email{gabe@gabe@gmail.com}
+	\author{D.~ Culver}\address{University of Illinois, Urbana-champaign}\email{dculver@illinois.edu}
+	
+	\title{Topological Hochschild homology of $\tmf$ with coefficients in $k(2)$}
+
+\begin{document}
+
+\maketitle
+
+%\tableofcontents
+
+\section{Introduction} 
+
+The purpose of this short document is to carry out a computation of $\THH(\tmf; k(2))$ at the prime $p=2$. We take advantage of the fact that Bhattacharya-Egger have recently constructed a finite spectrum $Z$ with the property that it has a $v_2^1$-self map and gives an equivalence
+\[
+\tmf\wedge Z\simeq k(2),
+\]
+where $k(2)$ denotes the connective second Morava K-theory.
+
+\section{Calculations}
+
+Let's start the calculation. We begin by computing the $K(2)$-homology of $\tmf$. After that we run the $v_2$-Bockstein spectral sequence. 
+
+\subsection{$K(2)_*\tmf$}
+
+There are two steps to this calculation. We start by computing the Adams spectral sequence for $k(2)_*\tmf$, and then invert $v_2$. This gives an associated graded calculation of $K(2)_*\tmf$. Then, to resolve hidden extensions, we determine the map
+\[
+K(2)_*\tmf\to K(2)_*\tBP{2},
+\]
+and use the known calculation of $K(2)_*\tBP{2}$.
+
+The Adams spectral sequence for $k(2)\wedge \tmf$ takes the form 
+\[
+\Ext_{A_*}(k(2)\wedge \tmf)\implies k(2)_*\tmf.
+\]
+
+A change-of-rings isomorphism allows us to express the $E_2$-page as 
+\[
+E_2\cong \Ext_{E(Q_2)}(H_*\tmf)\cong (P(v_2)\otimes M_*(\tmf;Q_2))\oplus (v_2\text{-torsion}).
+\]
+Recall that the mod 2 homology of $\tmf$ is 
+\[
+H_*(\tmf)\cong \AA2\cong P(\zeta_1^8, \zeta_2^4, \zeta_3^2, \zeta_4, \ldots).
+\]
+The $Q_2$-action on $H_*\tmf$ is 
+\[
+Q_2(\zeta_k) = \zeta_{k-3}^8.
+\]
+
+Thus the Margolis homology is 
+\[
+M_*(\tmf;Q_2)\cong P(\zeta_2^4, \zeta_3^2, \zeta_4^2, \zeta_5^2, \ldots)/(\zeta_2^8, \zeta_3^8, \zeta_4^8, \ldots).
+\]
+It follows from this that the Adams spectral sequence collapses immediately. 
+
+Inverting $v_2$ kills the $v_2$-torsion, and so we get that 
+\[
+v_2^{-1}\Ext_{A_*}(k(2)\wedge \tmf)\cong K(2)_*\otimes P(\zeta_2^4, \zeta_3^2, \zeta_4^2, \zeta_5^2, \ldots)/(\zeta_2^8, \zeta_3^8, \zeta_4^8, \ldots).
+\]
+
+Now onto the hidden extensions. First, note that there is a map of $E_\infty$-rings\footnote{This map is induced by taking global sections associated to the map of moduli stacks $\M_1(3)\to \Mell$ from the moduli of elliptic curves with level $\Gamma_1(3)$ to the moduli of all elliptic curves.}
+\[
+\tmf\to \tmf_1(3).
+\]
+A similar analysis with the ASS shows that the $E_\infty$-page for $K(2)\wedge \tmf$ is
+\[
+K(2)_*\otimes P(\zeta_1^2, \zeta_2^2, \zeta_3^2, \ldots)/(\zeta_1^8, \zeta_2^8, \zeta_3^8, \ldots).
+\]
+The morphism from $\tmf$ to $\tmf_1(3)$ induces the obvious map on $v_2$-inverted Ext groups. Thus we know the morphism
+\[
+K(2)_*\tmf\to K(2)_*\tmf_1(3)
+\]
+up to associated graded.
+
+We also need to use the fact that $\tmf_1(3)$ is a \emph{form} of $\tBP{2}$: that is there is (canonical?) equivalence 
+\[
+\tBP{2}\simeq \tmf_1(3)
+\]
+after completing at $2$. Since localizing with respect to $K(2)$ also $p$-completes, we have that 
+\[
+L_{K(2)}\tBP{2}\simeq L_{K(2)}\tmf_1(3),
+\]
+and hence 
+\[
+K(2)_*(\tBP{2})\cong K(2)_*(\tmf_1(3)).
+\]
+We need to recall the following computation. 
+
+\begin{thm}
+		There is an isomorphism of graded rings
+	\[
+	K(2)_*\tBP{2}\cong K(2)_*[t_1, t_2, \ldots ]/(v_2t_k^{4}-v_2^{2^k}t_k\mid k\geq 1)
+	\]
+\end{thm}
+
+We relate this calculation to the one we obtained through the Adams spectral sequence. First, note there is a canonical map of commutative ring spectra
+\[
+BP\to \tBP{2},
+\]
+which leads to a homomorphism
+\[
+BP_*BP\to H_*\tmf_1(3)
+\]
+sending $t_i$ to $\zeta_i^2$. Since $\zeta_i^2$ is sent to $\zeta_i^2$ under 
+\[
+v_2^{-1}\Ext_A(k(2)\wedge \tmf)\to v_2^{-1}\Ext_A(k(2)\wedge \tmf_1(3)),
+\]
+we obtain the following. 
+
+\begin{prop}
+	The $K(2)$-homology of $\tmf$ is given by 
+	\[
+	K(2)_*\tmf\cong K(2)_*[t_2^2, t_3, t_4, \ldots]/()
+	\]\todo{I am not sure what the relation on $t_2^2$ is supposed to be...}
+\end{prop}
+
+\bibliographystyle{plain}
+\bibliography{THH}
+
+\end{document}

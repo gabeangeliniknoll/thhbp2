@@ -1,0 +1,250 @@
+% root file is THHBP2BP1.tex
+
+\subsection{The $v_1$-Bockstein spectral sequence}
+We now analyze the $v_1$-BSS. Recall that this spectral sequence is of the form 
+\[
+\THH(\B;\F_p)[v_1]\implies \THH(\B;k(1)).
+\]
+Thus the $E_1$-page is 
+\begin{equation}\label{v_1bockinput}
+E(\lambda_1, \lambda_2, \lambda_3)\otimes P(\mu_3)\otimes P(v_1). 
+\end{equation}
+Since the $\lambda_i$ are all in odd total degree and since $v_1^k$ are known to be survive to the $E_{\infty}$-term, the $\lambda_i$ are all permanent cycles. If $\mu_3$ were a permanent cycle, then by multiplicativity, the spectral sequence would collapse. This would contradict Theorem \ref{thm:K(1)coeff}. Therefore, the element $\mu_3$ must support a differential. The only possibility for bidegree reasons is
+\[
+d_{p^2}(\mu_3)\dot{=}v_1^{p^2}\lambda_2.
+\]
+Thus, we obtain 
+\[
+v_1^{-1}E_{p^2+1}\cong K(1)_*\otimes E(\lambda_1, \lambda_3,\lambda_4^{\prime})\otimes P(\mu_3^p)
+\]
+where 
+\[
+\lambda_4^{\prime}:= \lambda_2\mu_3^{p-1}.
+\]
+So the bidegree of $\lambda_4^{\prime}$ is given by 
+\[
+|\lambda_4^{\prime}|= (2p^4-2p^3+2p^2-1,0).
+\]
+For analogous reasons, the class $\lambda_4'$ is a permanent cycle, and $\mu_3^p$ cannot be a permanent cycle. Based on degree considerations, there are two possible differentials, 
+\[
+\begin{array}{ccc}
+d_{p^2}(\mu_3^p)\dot{=} v_1^{p^2}\lambda_4' &\text{ or } &d_{p^3}(\mu_3^p)\dot{=}v_1^{p^3}\lambda_3.
+\end{array}
+\]
+The first would contradict the Leibniz rule for $d_{p^2}$ and the fact that $d_{p^2}(\mu_3)\dot{=}v_1^{p^2}\lambda_2$. Thus, 
+\[
+v_1^{-1}E_{p^3+1}\cong K(1)_*\otimes E(\lambda_1, \lambda_4^{\prime}, \lambda_5^{\prime})\otimes P(\mu_3^{p^2})
+\]
+where
+\[
+\lambda_5^{\prime}:= \lambda_3\mu_3^{p(p-1)} .
+\]
+The bidegree of $\lambda_5'$ is 
+\[
+|\lambda_5'|=(2p^5-2p^4+2p^3-1,0).
+\]
+For degree reasons, the class $\lambda_5'$ is a permanent cycle. As before, the class $\mu_3^{p^2}$ must support a differential. Degree considerations, again, give two possibilities
+\[
+d_{p^3}(\mu_3^{p^2})\dot{=}v_1^{p^3}\lambda_5'
+\]
+or 
+\[
+d_{p^4+p^2}(\mu_3^{p^2}) \dot{=} v_1^{p^4+p^2}\lambda_4'.
+\]
+The former would contradict the Leibniz rule, leaving the latter as the only possibility. This gives us
+\[
+v_1^{-1}E_{p^4+p^2+1}\cong K(1)_*\otimes E(\lambda_1, \lambda_5', \lambda_6')\otimes P(\mu_3^{p^3})
+\]
+where $\lambda_6':= \lambda_4'\mu_3^{p^2(p-1)}$. We will continue via induction. First we need some notation. We will recursively define classes $\lambda_n^{\prime}$ by 
+\[
+\lambda_n^{\prime}:= \begin{cases}
+	\lambda_n & n=1,2,3\\
+	\lambda_{n-2}'\mu_3^{p^{n-4}(p-1)} & n\geq 4
+\end{cases}
+\]
+We let $d'(n)$ denote the topological degree of $\lambda_n'$. Then this function is given recursively by 
+\[
+d'(n) = \begin{cases}
+	2p^n-1 & n=1,2,3\\
+	2p^n-2p^{n-1}+d'(n-2) & n>3
+\end{cases}
+\]
+Thus, by a simple induction, one has 
+\[
+d'(n) = \begin{cases}
+	2p^n-1 & n=1,2,3\\
+	2p^n-2p^{n-1}+2p^{n-2}-2p^{n-3}+\cdots + 2p^2-1 & n\equiv 0\mod 2,\, n>3\\
+	2p^n-2p^{n-1}+ 2p^{n-2}-2p^{n-3}+\cdots + 2p^3-1& n\equiv 1\mod 2, \, n>3
+\end{cases}.
+\]
+Observe that the integers $2p^{n+2}-d(n+1)-1$ and $2p^{n+2}-d(n+2)-1$ are divisible by $|v_1|$. Let $r'(n)$ denote the integer 
+\[
+r'(n):=|v_1|^{-1}(|\mu_3^{p^{n-1}}|-|\lambda_{n+1}'|-1)=|v_1|^{-1}(2p^{n+2}-d'(n+1)-1).
+\] 
+Then a simple induction shows that 
+\[
+r'(n) = \begin{cases}
+	p^{n+1}+p^{n-1}+p^{n-3} +\cdots + p^2 & n\equiv 1 \mod 2\\
+	p^{n+1}+p^{n-1}+p^{n-3}+\cdots + p^3 & n\equiv 0 \mod 2
+\end{cases}.
+\]
+
+
+
+We can now describe the differentials in the $v_1$-BSS. 
+
+
+\begin{thm}\label{key to proof 2}
+	In the $v_1$-BSS, the following hold: 
+	\begin{enumerate}
+		\item The only nonzero differentials are in $v_1^{-1}E_{r'(n)}$. 
+		\item The $r'(n)$-th page is given by 
+		\[
+		v_1^{-1}E_{r'(n)} \cong K(1)_*\otimes E(\lambda_1, \lambda_{n+1}', \lambda_{n+2}')\otimes P(\mu_3^{p^{n-1}})
+		\]
+		and the classes $\lambda_{n+1}', \lambda_{n+2}'$ are permanent cycles. 
+		\item The differential $d_{r'(n)}$ is uniquely determined by multiplicativity of the BSS and the differential
+		\[
+		d_{r'(n)}(\mu_3^{p^{n-1}})\dot{=}v_1^{r'(n)}\lambda_{n+1}'.
+		\]
+		for $n\ge 1$.
+	\end{enumerate}
+\end{thm}
+\begin{proof}
+	We proceed by induction. We have already shown the theorem for $n\leq 4$. Assume that 
+	\[
+	v_1^{-1}E_{r'(n-1)}\cong K(1)_*\otimes E(\lambda_1, \lambda_n', \lambda_{n+1}')\otimes P(\mu_3^{p^{n-2}}).
+	\]
+	and $\lambda_n'$ is an infinite cycle.  
+	
+	Since $\lambda_n', \lambda_{n+1}'$ are both in odd topological degree, $\lambda_{n+1}'$ cannot support a differential hitting the $v_1$-towers on $\lambda_i^{\prime}$ for $i<n+1$ . Thus, the only possibility is that $\lambda_{n+1}'$ supports a differential into the $v_1$-tower on 1 or $\lambda_1$. But this would contradict Theorem \ref{thm:K(1)coeff}. Therefore, the class $\lambda_{n+1}'$ is a permanent cycle. 
+	
+	The class $\mu_3^{p^{n-1}}$ must support a differential, for if it did not, then the spectral sequence would collapse. This would lead to a contradiction of Theorem \ref{thm:K(1)coeff}. Degree considerations show that the following differentials are possible
+	\[
+	d_{\ell(n)}(\mu_3^{p^{n-1}})\dot{=}v_1^{\ell(n)}\lambda_{n+2}'
+	\]
+	and 
+	\[
+	d_{r(n)}(\mu_3^{p^{n-1}})\dot{=}v_1^{r'(n)}\lambda_{n+1}'
+	\]
+	where
+	\[
+	\ell(n) = |v_1^{-1}|(2p^{n+2}-|\lambda_{n+2}'|).
+	\]
+	An elementary inductive computation shows that 
+	\[
+	\ell(n) = r'(n-1).
+	\]
+	We claim that the former differential cannot occur. This follows because, by the inductive hypothesis, 
+	\[
+	d_{r'(n-1)} (\mu_3^{p^{n-2}})\dot{=}\lambda_{n}', 
+	\]
+	and the former differential would contradict the Leibniz rule. So we must conclude the latter differential occurs.
+\end{proof}
+
+We now state the main result of this section.
+\begin{thm}\label{mod p v_2}
+For each $n \ge 2$ and each nonnegative integer $m$ with $m \not\equiv p - 1 \mod{p}$ there are elements $z_{n,m}$ and $z^{\prime}_{n,m}$ in $THH_*(\B;k(1))$ such that
+\begin{enumerate} 
+\item $z_{n,m}$ projects to $\lambda^{\prime}_n\mu_3^{mp^{n-2}}$ in $E_{\infty}^{*,0}$
+\item $z_{n,m}^{\prime}$ projects to $\lambda^{\prime}_n\lambda^{\prime}_{n+1}\mu_3^{mp^{n-2}}$ in $E_{\infty}^{*,0}$
+\end{enumerate}
+ As a $P(v_1)$-module, $THH_*(\B;k(1))$ is generated by the unit element
+$1$, $\lambda_1$, and the elements $\lambda_1^{\epsilon}z_{n,m},\lambda_1^{\epsilon}z_{n,m}^{\prime}$ where $\epsilon\in\{0,1\}$. The only relations are
+\[v_1^{r^{\prime}(n-1)}\lambda_1^{\epsilon}z_{n,m}=v_1^{r^{\prime}(n-1)}\lambda_1^{\epsilon}z_{n,m}^{\prime}=0.\]
+\end{thm}
+To prove this, we first need to prove a couple lemmas. We first introduce notation. Let $P(m)$ denote a free rank one $P(v_m)$-module and let $P(m)_i$ denote the $P(v_m)$-module $P(m)/v_m^i$. 
+Let $X$ be a $\tBP{2}$-module such that 
+\[H_*(X)\cong H_*(\tBP{2})\otimes H_*(\overline{X})\] 
+as a $H_*(\tBP{2})$-module and consider the Adams spectral sequence
+\begin{equation}\label{ASSX} E_2^{*,*}(X)=Ext_{E(Q_m)_*}^{*,*}(\F_p,H_*(\overline{X}))\Rightarrow \pi_*(X\wedge_{\tBP{2}}k(m))_p\end{equation}
+and the $v_m$-inverted Adams spectral sequence 
+\begin{equation}\label{v2invertASSX} v_m^{-1}E_2^{*,*}(X)=v_m^{-1}Ext_{E(Q_m)_*}^{*,*}(\F_p,H_*(\overline{X})) \Rightarrow \pi_*(X\wedge_{\tBP{2}}K(m))_p.\end{equation}
+Consider the map of spectral sequences 
+\[ E_2^{*,*}(X) \longrightarrow v_m^{-1}E_2^{*,*}(X)\]
+induced by the localization map $k(m)\to v_m^{-1}k(m)=K(m).$ 
+\begin{comment}
+\begin{lem}\label{mod p v_n}
+Let $r\ge 2$. Suppose the $E_r(X)$-page of the Adams spectral sequence \eqref{ASSX} is generated by elements in filtration $0$ as a $P(k)$-module and $E_r^{*,*}(X)$ is a direct sum of copies of $P(k)$ and $P(k)_i$ with $i\le r$ as a $P(k)$-module. Then
+\begin{enumerate}
+\item{} the map of $E_r$-pages
+\[ E_r^{s,t}(X) \to v_k^{-1}E_r^{s,t}(X) \]
+is a monomorphism when $t\ge r-1\ge 1$. 
+\item{} Also, the differentials in $E_{r+1}^{*,*}$ are the same as their image in $v_k^{-1}E_{r+1}^{*,*}$. 
+\end{enumerate}
+\end{lem}
+\begin{proof}
+Statement (1) is a consequence of our assumptions since elements in filtration $r-1$ are $v_k$-torsion free. 
+To prove statement (2) it suffices to prove the following: if $x\in E_r(X)$ maps to a cycle $\bar{x}\in v_k^{-1}E_r(X)$ ,then $x$ is a cycle. By our assumption, there is an $a\in E_r^{*,0}$ such that $x=v_k^ma$. Statement (1) then implies $d_{r+1}(a)=0$ so since the differentials are $v_k$-linear the result follows. 
+\end{proof}
+The Lemma above is a generalization of part (a) and (b) of Theorem 7.1 \cite{McClureStaffeldt}, which must have also been known to the authors. %Note that $H_*(THH(\B))$ is a free $H_*(\B)$-module.
+\end{comment}
+\begin{lem} \label{lem mod p v_1}
+For $r\ge 2$, the $E_r$-page of the Adams spectral sequence \eqref{ASSX} for $X=THH(\B;k(1))$ and $m=1$ is generated by elements in filtration $0$ as a $P(1)$-module and $E_{r}^{*,*}$ is a direct sum of copies of $P(1)$ and $P(1)_i$ for $i\le r$. 
+\end{lem}
+\begin{proof}
+We will begin by proving the first statement by induction. Note that \eqref{v_1bockinput} implies the base case in the induction when $r=2$, since the $E_2$-page of the Adams spectral sequence with signature
+\[ E_2(THH(\B;k(1)))\Rightarrow THH_*(\B;k(1))\]
+is isomorphic to the $E_1$-page of the Bockstein spectral sequence 
+\[ P(v_1) \otimes E(\lambda_1 ,\lambda_2, \lambda_3) \otimes P(\mu_1) \]
+which is finitely generated in each degree and therefore can be written as direct sum of (suspsensions) of copies of $P(v_1)=P(1)$ . 
+Suppose the statement holds for some $r$. Choose a basis $y_i$ for the $\mathbb{F}_p$-vector space $V_r$ such that 
+\[V_r=\{ x \in E_r^{*,0}\mid v_1^{r-1}x=0\}.\] 
+Then $d_r(y_i)$ is in filtration $r$ and since the differentials are $v_1$-linear, $v_1^{r-1}d_r(y_i)=0$. However, this contradicts the induction hypothesis because the induction hypothesis implies that all elements in filtration $r$ are $v_1$-torsion-free. Thus, each basis element $y_i$ is a $d_r$-cycle. Next choose a set of elements $\{y^{\prime}_j\}\subset E_r^{*,0}$ such that $\{d_r(y_j^{\prime})\}$ is a basis for $\im(d_r\co E_r^{*,0}\to E_r^{*,r})$. Choose $y^{\prime\prime}_j\in E_r^{*,0}$ such that $v_1^{r}y^{\prime\prime}_j=d_r(y_j^{\prime})$. Then $y^{\prime\prime}_j$ are $d_r$-cycles and $y^{\prime \prime}_j$ and $y_j$ are linearly independent. We can therefore choose $d_r$-cycles $y^{\prime \prime\prime}_j$ such that $\{y_j\}\cup\{y_j^{\prime\prime}\}\cup\{y_j^{\prime\prime\prime}\}$ are a basis for the $d_r$-cycles in $E_{r}^{*,0}$. Then 
+$\{y_j\}\cup\{y_j^{\prime}\}\cup \{y_j^{\prime\prime}\}\cup\{y_j^{\prime\prime\prime}\}$
+are a basis for $E_r^{*,0}$ and the differential is completely determined by the formulas
+\[ \begin{array}{cccc} d_r(y_i)=0 , &d_r(y_j^{\prime})=v_1^{r}y_j^{\prime \prime}, & d_r(y_j^{\prime \prime})=0, \text{ and } & d_r(y_j^{\prime \prime \prime})=0. \end{array}\]
+Thus, $E_r^{*,*}$ is generated as a $P(1)$-module by $y_i,$ $y_i^{\prime \prime}$, and $y_i^{\prime \prime\prime}$ where $v_1^{r-1}y_i=0$ and $v_1^ry_i^{\prime \prime}=0$ and $y_i^{\prime \prime \prime}$ is $v_1$-torsion free. 
+\end{proof}
+\begin{cor}\label{mod p v_n}
+For each $r\ge 2$ the localization map 
+\[ E_r(THH(\B;k(1)) \to v_1^{-1}E_r^{s,t}(THH(\B;k(1))\]
+is a monomorphism in filtration $t$ for $t\ge r-1$. Consequently, for each $r\ge 2$, the differentials in the source spectral sequence are determined by those in the target. 
+\end{cor}
+\begin{proof}
+This follows by applying Lemma \ref{lem mod p v_1} and \cite[Thm. 7.1]{McClureStaffeldt} as in the remark after the proof of loc. cit.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{mod p v_2}]
+For brevity, we will let $\delta_{n,m}$ denote $\lambda_n^{\prime}\mu_3^{mp^{n-2}}$ and we will let $\delta_{n,m}^{\prime}$ denote $\lambda_n^{\prime}\lambda_{n+1}^{\prime}\mu_3^{mp^{n-2}}$.
+By  Corollary \ref{mod p v_n}, to prove that the elements $\delta_{n,m}$, $\delta_{n,m}^{\prime}$, $\lambda_1\delta_{n,m}$, and $\lambda_1delta_{n,m}^{\prime}$ are infinite cycles, it suffices to show that
+\begin{enumerate}
+\item the elements $\lambda_1^\epsilon \delta_{n,m}$, and  $\lambda_1^{\epsilon} \delta_{n,m}^{\prime}$ for $\epsilon=0,1$ together with $1$, form a basis for $E_{\infty}^{*,0}$ as an $\mathbb{F}_p$-vector space, and 
+\item that each of $\delta_{n,m}$, $\delta_{n,m}^{\prime}$, $\lambda_1\delta_{n,m}$, and $\lambda_1\delta_{n,m}^{\prime}$ are killed by $v_1^{r^{\prime}(n-1)}$. 
+\end{enumerate}
+By induction on $n$, we will prove
+\[ E_{r(n-1)}(THH(\B;k(1)))\cong M_n\oplus E(\lambda_1,\lambda_{n}^{\prime},\lambda_{n+1}^{\prime})\otimes P(\mu_3^{p^{n-2}})\]
+where $M_n$ is generated by $\{\lambda_1^{\epsilon} \delta_{k,m}, \lambda_1^{\epsilon} \delta_{k,m}^{\prime}\mid k<n, \epsilon=0,1\}$ modulo the relations 
+\[v_1^{r^{\prime}(k-1)}\lambda_1^{\epsilon} \delta_{k,m}=v_1^{r^{\prime}(k-1)}\lambda_1^{\epsilon}\delta_{k,m}^{\prime}= 0.\]
+This statement holds for $n=2$ by \eqref{v_1bockinput}. Assume the statement holds for all integers less than or equal to some $N\ge 2$. Lemma \ref{mod p v_n}, Lemma \ref{lem mod p v_1}, and Theorem \ref{key to proof 2} imply that the only nontrivial differentials with source in $E_{r(N)}^{*,0}$ are the differentials
+\[ d_{r(N)}(\lambda_1^{\epsilon} \mu_3^{(m+1)p^{N-1}})=(m+1)v_1^{r^{\prime}(N)}\lambda_1^{\epsilon} \lambda_{N}^{\prime}\mu_3^{mp^{N-2}}\dot{=} v_1^{r^{\prime}(N)}\lambda_1^{\epsilon}\delta_{N,m},\]
+and the differentials 
+\[ d_{r^{\prime}(N)}(\lambda_{N+1}^{\prime}\lambda_1^{\epsilon} \mu_3^{(m+1)p^{N-1}})=(m+1)v_1^{r^{\prime}(N)}\lambda_1^{\epsilon} \lambda_N^{\prime}\lambda_{N+1}^{\prime}\mu_3^{mp^{N-2}}\dot{=} v_1^{r^{\prime}(N)}\lambda_1^{\epsilon} \delta_{N,m}^{\prime}\]
+where $m\not \equiv p-1 \mod{p}$. 
+\gabe{Need to give an argument for why $\lambda_1$ is a permanent cycle using previous results.}
+
+Combining this with Lemma \ref{lem mod p v_1} and Lemma \ref{mod p v_n}, this implies that
+\[ E_{r^{\prime}(N)+1}(\THH(\B))\cong M_n\oplus V_{N+1}\oplus \left ( P(1)\otimes E(\lambda_1, \lambda_{N}^{\prime},\lambda_{N}^{\prime}\mu_3^{(p-1)p^{N-2}} )\otimes P(\mu_3^{p^N})\right )\]
+where $V_{N+1}$ has generators $\delta_{N,m}$ and $\delta_{N,m}^{\prime}$ and relations 
+\[ v_2^{r^{\prime}(N)}\delta_{N,m}=v_2^{r^{\prime}(N)}\delta_{N,m}^{\prime}=0.\]
+By Lemma \ref{mod p v_n}, Lemma \ref{lem mod p v_1}, and Theorem \ref{key to proof 2} there is an isomorphism
+\[ E_{r(N)+1}(\THH(\B))\cong E_{r(N+1)}(\THH(\B)).\] 
+Also, note that $M_N\oplus V_{N+1}=M_{N+1}$ and $\lambda_{N}^{\prime}\mu_3^{(p-1)p^{N-2}}=\lambda_{N+2}^{\prime}$ by definition. This completes the inductive step and consequently the proof.
+\end{proof}
+\input{BSSv_1}
+\begin{rmk}
+One may attempt to run the same arguments as in \cite{AHL}, but then one runs into the issue that the $E_2$-pages of the remaining Bockstein spectral sequences are more dense and therefore the ``vanishing column'' arguments that are essential to completing the results by their methods do not apply here. We therefore use the topological Hochschild-May spectral sequence in the next section instead to determine the first family of differentials. 
+\end{rmk}
+
+
+
+
+
+
+
+
+
+
+
+
+ 

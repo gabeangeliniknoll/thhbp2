@@ -1,0 +1,35 @@
+\section{Recollections}
+In this section, we recall the necessery results from \cite{AKCH23}. 
+
+\begin{proposition}\label{prop:rational}
+There is an isomorphism of $\pi_{*}L_{H\mathbb{Q}}\BP\langle n\rangle=\mathbb{Q}[v_{1},\dots ,v_{n}]$-algebras
+\[ \pi_{*}L_{H\mathbb{Q}}\THH(\BP\langle n\rangle )\cong\mathbb{Q}[v_{1},\dots ,v_{n}]\otimes_{\mathbb{Q}} \Lambda_{\mathbb{Q}} (\sigma v_{1},\dots ,\sigma v_{n}) \,.\]
+\end{proposition}
+\begin{proof}
+The authors computed 
+\[ \pi_{*}\THH(\BP\langle n\rangle;H\mathbb{Q} )=\Lambda_{\mathbb{Q}} (\sigma v_{1},\dots ,\sigma v_{n})\,.\]
+We then observe that 
+\[L_{H\mathbb{Q}}\THH(\BP\langle n\rangle )\simeq \THH(\BP\langle n\rangle;L_{H\mathbb{Q}}\BP\langle n\rangle )\]
+because $L_{H\mathbb{Q}}$ is a smashing localization. We then consider the spectral sequence 
+\[
+\THH_{*}(\BP\langle n\rangle;\mathbb{Q})\otimes_{\mathbb{Q}} \pi_{*}L_{H\mathbb{Q}}\BP\langle n\rangle\implies \THH_{*}(\BP\langle n\rangle;L_{H\mathbb{Q}}\BP\langle n\rangle)
+\]
+associated to the multiplicative complete filtration $\tau_{\ge \bullet}\THH(\BP\langle n\rangle;\mathbb{Q})$ in $H\mathbb{Q}$-modules. This spectral sequence has input 
+\[ \pi_{*}L_{H\mathbb{Q}}\BP\langle n\rangle\otimes_{\mathbb{Q}} \Lambda_{\mathbb{Q}} (\sigma v_{1},\dots ,\sigma v_{n})\]
+by \cite[Proposition~3.7]{AKCH22}. It collapses because the targets of all differentials are zero groups. The abutment and the $\mr{E}_{\infty}$-term are a free $\pi_{*}L_{H\mathbb{Q}}\BP\langle n\rangle$-modules and consequently there are no $\pi_{*}L_{H\mathbb{Q}}\BP\langle n\rangle)$-module extensions. There isn't room for algebra extensions. 
+\end{proof}
+
+\begin{proposition}
+The groups 
+\[ 
+\THH_{s}(\BP\langle n\rangle )
+\]
+are finitely generated for all integers $s$. 
+Consequently, we have 
+\[
+|\THH_{s}(\BP\langle n\rangle )|<\infty\]
+for $s\ne 2p^{i}-1 \mod 2p^{j}-2$ for $1\le i,j\le n$. 
+\end{proposition}
+\begin{proof}
+Since $\pi_{a}\mathbb{S}$ and $\pi_{b}\BP\langle n\rangle$ are finitely generated abelian groups for all integers $a,b$, the strongly convergent K\"unneth spectral sequence computing $\pi_{*}(\BP\langle n\rangle\wedge \BP\langle n\rangle)$ is finitely generated in each bidegree and has a vanishing line of postive slope so $\pi_{c}(\BP\langle n\rangle\wedge \BP\langle n\rangle)$ is finitely generated for each integer $c$. The same argument implies that $\THH_{s}(\BP\langle n\rangle)$ is finitely generated for each integer $s$. The second statement then follows from Proposition~\ref{prop:rational} and the classification of finitely generated $\mathbb{Z}_{(p)}$-modules. 
+\end{proof}

@@ -1,0 +1,23 @@
+% root file is THHBP2BP1.tex
+
+\section{Additive and multiplicative extensions}
+We now resolve additive and multiplicative extensions in the Bockstein spectral sequence computing $THH_*(\tBP{2},\tBP{1})$. We will do this by actually resolving additive and multiplicative extensions in the Brun spectral sequence for the triple $(\tBP{2},\tBP{1},S)$. First, we note that there is a map of Brun spectral sequences
+\[ 
+	\xymatrix{ 
+		THH_*(\tBP{1} ; H\mathbb{Z}_p)\otimes_{\mathbb{Z}_p}\tBP{1}\otimes_{\mathbb{Z}_p}E_{\mathbb{Z}_p}(\sigma v_k | k\ge 2) \ar[d] \ar@{=>}[r] & THH_*(BP;\tBP{1}) \ar[d] \\
+		 THH_*(\tBP{1} ; H\mathbb{Z}_p)\otimes_{\mathbb{Z}_p}P(\mathbb{Z}_p)\otimes E(\sigma v_2) \ar@{=>}[r] & THH_*(\tBP{2},\tBP{1}) .
+		 }
+\]
+We know the complete answer for the top spectral sequence. Note that 
+\[ THH_*(\tBP{1};\mathbb{Z}_p)\cong E_{\mathbb{Z}_p}(\lambda_1)\oplus \mathbb{Z}_p\{a_i,b_i | i\ge 1\}/(p^{\nu_p(i)+1}a_i\sim p^{\nu_p(i)+1}b_i\sim 0)\]
+and we know the entire answer because 
+\[ THH_*(BP)\cong BP_*\otimes E_{\mathbb{Z}_p}(\sigma v_i |i\ge 1) \]
+by (cite Baker? see Rognes for reference) and the collapsing of the Tor spectral sequence 
+\[ \Tor_*^{BP_*}(THH_*(BP),\tBP{1}_*)\Rightarrow THH_*(BP;\tBP{1}) \]
+to the $0$-line, which is 
+\[ \tBP{1}_*\otimes_{\mathbb{Z}_p} E_{\mathbb{Z}_p}(\sigma v_i | i \ge 1).\]
+We then note that Rognes calculates that (include calculation of $\sigma v_i$ modulo $v_i$ for $i\ge 2$). In order to get the desired answer we must have differentials 
+\[ d_{f(n)}(p^{n-1}a_{p^{n-1}k})\dot{=}(k-1)v_1^{p^n+\dots p}b_{p^{n-1}(k-1)}\]
+where $f(n)=|v_1^{p^n+\dots +p}|$ and we must have differentials
+\[ d_{f(n)}(p^{n-1}b_{p^{n-1}k})\dot{=}(k-1)v_1^{p^n+\dots +p^2}b_{p^{n-1}(k-1)}\sigma v_2 \]
+\gabe{Double check this. There should actually be a lot more differentials.}

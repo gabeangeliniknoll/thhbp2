@@ -1,0 +1,463 @@
+% root file is THHBP2.tex
+
+\section{Computation of $THH(\tBP{2};k(2))$}
+%Let $\tBP{2}$ be the truncated Brown-Peterson spectrum with coefficients $\tBP{2}_*\cong \Z_{(p)}[v_1,v_2]$ and let $k(2)$ be connective Morava K-theory with coefficients $k(2)_*\cong \F_p[v_2^{\pm1}]$. At the moment, we will let $p$ be any prime number. Whenever we assume that there is a model for $\tBP{2}$ that is $E_{\infty}$ we will assume that $p=2$ or $3$. 
+
+The goal is to compute $THH(R;k(2))$ via the $v_2$-Bockstein spectral sequence \eqref{v_2BSS},
+\[ THH_*(R;H\F_p)[v_2]\Rightarrow THH(R;k(2)).\]
+
+The first goal is to show
+\begin{equation}\label{K(2) coeff} K(2)_*\cong THH_*(\tBP{2};K(2)) \end{equation}
+which will imply that all the classes except the classes in the subalgebra $P(v_2)\subset THH_*(\tBP{2};H\F_p)[v_2]$ are $v_2$-torsion and this will force differentials in the spectral sequence. Our approach is entirely analogous to the calculation of McClure-Staffeldt except for one minor difference, which we will point out. 
+
+To compute $THH_*(\tBP{2};K(2))$, we can first compute 
+\[ K(2)_*THH(\tBP{2};K(2)) \]
+and then use the fact that $THH(\tBP{2};K(2))$ is a free $K(2)$-module (since $K(2)$ is a field spectrum) and the collapse of the $K(2)$-based Adams spectral sequence to finish the computation. 
+
+We use the $K(2)$-based B\"okstedt spectral sequence to compute $K(2)_*THH(\tBP{2};K(2))$; i.e. the spectral sequence
+\[ HH_*^{K(2)_*}(K(2)_*\tBP{2};K(2))\Rightarrow K(2)_*THH(\tBP{2};K(2)).\]
+the first goal will be to compute the input. 
+\begin{lem}There is an isomorphism of graded rings
+\[K(n)_*\tBP{n}\cong K(n)_*[t_1,t_2, \dots]/(v_nt_k^{p^n}-v_n^{p^k}t_k | k\ge 1).\]
+\end{lem}
+\begin{proof}
+We adapt the proof in McClure-Staffeldt. First $K(n)_*BP\cong K(n)_*\otimes_{BP_*}BP_*BP$ because $BP$ is Landweber exact. Furthermore, $K(n)_*\otimes_{BP_*}BP_*BP\cong K(n)_*[t_1,t_2,\dots]$ and we can restrict $\eta_R:BP_*\rightarrow BP_*BP$ to $K(n)_*\otimes_{BP_*}BP_*BP$ to produce the map $\bar{\eta}_R$ and by Ravenel 
+\begin{equation}\label{Rav form} \bar{\eta}_R(v_{n+k})=v_nt_k^{p^n}-v_n^{p^k}t_k  \text{ mod } (\bar{\eta}_R(v_{n+1}),\bar{\eta}_R(v_{n+2}), \dots\bar{\eta}_R( v_{n+k-1}) )\end{equation}
+We can then construct $\tBP{n}$ using Baas-Sullivan theory and the effect is that 
+\[ K(n)_*\tBP{n}\cong K(n)_*\otimes_{BP_*}BP_*BP/(\bar{\eta}_R(v_{n+1}), \bar{\eta}_R(v_{n+2}), \dots )\]
+or in other words, by \eqref{Rav form}
+\[ K(n)_*\tBP{n} \cong K(n)_*[t_1,t_2, \dots]/(v_nt_k^{p^n}-v_n^{p^k}t_k | k\ge 1) \]
+as desired. 
+\end{proof}
+\begin{rem}
+Note that the model of $\tBP{2}$ that we used in this lemma is not the same model that gives you an $E_{\infty}$-structure, but since there is a weak equivalence $\tBP{2}\simeq tmf_1(3)$ the map $K(n)_*\tBP{2}\cong K(n)_*tmf_1(3)$ as $K(n)_*$-modules. 
+
+\gabe{Is the equivalence $\tBP{2}\simeq tmf_1(3)$ known to be an equivalence of $E_2$-algebras? Does this reasoning make sense to you?}
+
+\dom{I think that the calculation of $K(2)_*\tmf_1(3)$ does not rely on the $E_\infty$-structure, but rather only on the $\tmf_1(3)$ as a ring object in the stable homotopy category. In this case, $\tBP{2}$ and $\tmf_1(3)$ are isomorphic \emph{after} completion at 2 (this is work of Angeltveit-Lind). We may have to be careful about the generators though; the generators of $\pi_*\tmf_1(3)$ are not the same as the Araki generators. We should discuss this more.}
+
+\end{rem}
+We now describe the structure of $K(2)_*[t_1,t_2, \dots]/(v_2t_k^{p^2}-v_2^{p^k}t_k | k\ge 1)$. Note that it can be written as 
+\begin{equation}\label{K(2) computation} K(2)_*[t_1,t_2, \dots]/(v_2t_k^{p^2}-v_2^{p^k}t_k | k\ge 1) \cong \bigotimes_{k\ge 1} K(2)_*[t_k]/(v_2t_k^{p^2}-v_2^{p^k}t_k )\end{equation}
+where the tensor is taken over $K(2)_*$. Note that $|t_k|=2p^k-2$ and $2(p^2-1)| 2(p^k-1)$ when $k$ is even and $2(p-1)| 2(p^k-1)$ for all $k$. Therefore, 
+\[ K(2)_*[t_k]/(v_2t_k^{p^2}-v_2^{p^k}t_k )\cong K(2)_*\otimes \mathbb{F}_p[u_k]/(u_k^{p^2}-v_2^{p^k-1}u_k]\]
+where $u_k=t_kv_2^{m(k)}$ where $m(k)=-p^{k-2}-p^{k-4} - \dots p^2-1$ when $2|k$ and 
+\[ K(2)_*[t_k]/(v_2t_k^{p^2}-v_2^{p^k}t_k )\cong K(2)_*\otimes \mathbb{F}_p[w_k]/(w_k^{p^2}-v_2^{p^k-1}w_k]\]
+where $w_k=t_kv_2^{\ell(k)}$ where $\ell(k)=-p^{k-2}-p^{k-4} -\dots -p$ and $k$ is odd so that $|w_k|=2p-2$. 
+\begin{lem}
+There is an isomorphism
+\[ K(2)_*K(2)\cong HH_*^{K(2)_*}(K(2)_*\tBP{2};K(2)_*K(2))\] 
+and hence the $K(2)_*$-based Adams spectral sequence collapses with no room for hidden extensions and the natural map 
+\[ K(2)_*K(2)\rightarrow K(2)_*THH(\tBP{2};K(2)) \]
+is an isomorphism
+\end{lem}
+\begin{proof}
+Since $K(2)_*\tBP{2}$ is flat over $K(2)_*$
+\[ HH_*^{K(2)_*}(K(2)_*\tBP{2})\cong Tor^{K(2)_*\tBP{2}\otimes_{K(2)_*}K(2)_*\tBP{2}}_*(K(2)_*\tBP{2}; K(2)_*\tBP{2}).\]
+Also, by \eqref{K(2) computation}, 
+\[ 
+\begin{array}{l}
+Tor^{(K(2)_*\tBP{2})^{e}}_*(K(2)_*\tBP{2}; K(2)_*\tBP{2})\cong  \\
+\bigotimes_{k\ge 1} Tor^{ K(2)_*[t_k]/(v_2t_k^{p^2}-v_2^{p^k}t_k ))^{e}}_*(K(2)_*[t_k]/(v_2t_k^{p^2}-v_2^{p^k}t_k ); K(2)_*[t_k]/(v_2t_k^{p^2}-v_2^{p^k}t_k ))\cong \\
+\bigotimes_{k\ge 1; k|2}K(2)_*\otimes  HH_*^{K(2)_*}(K(2)_*[u_k]/(v_2u_k^{p^2}-v_2^{p^k}u_k ))\otimes \\
+\bigotimes_{k\ge 1; (k+1)|2}K(2)_*\otimes  HH_*^{K(2)_*}(K(2)_*[w_k]/(v_2w_k^{p^2}-v_2^{p^k}w_k ))
+\end{array}
+\]
+By Cartan-Eilenberg, for $k\ge0$ an odd integer
+\[HH_*^{K(2)_*}(K(2)_*[w_k]/(v_2w_k^{p^2}-v_2^{p^k}w_k )\cong K(2)_*[w_k]/(v_2w_k^{p^2}-v_2^{p^k}w_k)\otimes_{K(2)_*} Tor^{K(2)_*K(2)_*[w_k]/(v_2w_k^{p^2}-v_2^{p^k}w_k }(K(2)_*,K(2)_*)\]
+and by an elementary calculation, 
+\[Tor^{K(2)_*K(2)_*[w_k]/(v_2w_k^{p^2}-v_2^{p^k}w_k }(K(2)_*,K(2)_*)\cong K(2)_*\]
+and therefore 
+\[HH_*^{K(2)_*}(K(2)_*[w_k]/(v_2w_k^{p^2}-v_2^{p^k}w_k )\cong K(2)_*[w_k]/(v_2w_k^{p^2}-v_2^{p^k}w_k). \]
+Also, there is an isomorphism 
+\[HH_*^{K(2)_*}(K(2)_*[u_k]/(v_2u_k^{p^2}-v_2^{p^k}u_k ))\cong K(2)_*\otimes HH_*(\mathbb{F}_p[u_k]/(u_k^{p^2}-u_k ))\]
+and since 
+\[\mathbb{F}_p[u_k]/(u_k^{p^2}-u_k  \]
+is isomorphic as a $\mathbb{F}_p$-algebra to a product of finite field extensions of $\mathbb{F}_p$ \gabe{We should be more precise here.} and since Hochschild homology commutes with limits and $HH_*(\mathbb{F}_{p^n})\cong \mathbb{F}_{p^n})$,
+\[ HH_*(\mathbb{F}_p[u_k]/(u_k^{p^2}-u_k ))\cong \mathbb{F}_p[u_k]/(u_k^{p^2}-u_k ). \]
+Putting this all together, we produce an isomorphism
+\[ K(2)_*\tBP{2}\cong HH_*^{K(2)_*}(K(2)_*\tBP{2})\] 
+and since 
+\[ HH_*^{K(2)_*}(K(2)_*\tBP{2};K(2)_*K(2))\cong K(2)_*K(2)\otimes_{K(2)_*\tBP{2}} HH_*^{K(2)_*}(K(2)_*\tBP{2})\]
+we produce the desired isomorphism 
+\[K(2)_*K(2)\cong HH_*^{K(2)_*}(K(2)_*\tBP{2};K(2)_*K(2))\]
+The B\"okstedt spectral sequence 
+\[HH_*^{K(2)_*}(K(2)_*\tBP{2};K(2)_*K(2)) \Rightarrow  K(2)_*THH(\tBP{2};K(2)) \]
+therefore collapses with no room for hidden extensions and hence the map 
+\[ K(2)\rightarrow THH(\tBP{2};K(2)) \]
+induces a $K(2)_*$-equivalence.
+\end{proof}
+\begin{cor}
+The map $K(2)\rightarrow THH(\tBP{2};K(2))$ is a weak equivalence and therefore 
+\[ THH_*(\tBP{2};k(2))\cong P(v_2)\otimes T \] 
+where $T$ is a $v_2$-torsion $P(v_2)$-module. 
+\end{cor}
+\begin{proof}
+Since the map $K(2)\rightarrow THH(\tBP{2};K(2))$ induces an isomorphism $K(2)_*K(2)\cong K(2)_*THH(\tBP{2};K(2))$, the $K(2)$-based Adams spectral sequence for $THH(\tBP{2};K(2))$ converges and collapses to the zero line and the map of $K(2)$-based Adams spectral sequences induces an isomorphism
+\[ K(2)_*\rightarrow THH_*(\tBP{2};K(2)).\] 
+Since we have a map that induces an isomorphism on homotopy groups the Whitehead theorem for spectra implies that the map $K(2)\rightarrow THH(\tBP{2};K(2))$ is a weak equivalence. 
+
+Alternatively, we could compute $THH_*(\tBP{2};K(2))$ using the $v_2$-inverted classical Adams spectral sequence, which is equivalent to the Bockstein spectral sequence 
+\[ THH_*(\tBP{2};H\mathbb{F}_p)[v_2^{\pm 1}]\Rightarrow THH_*(\tBP{2};K(2))\]
+and by the computation we just did, we know that all the classes must die except those in $P(v_2^{\pm 1})$. There is also a map of spectral sequences 
+\[ 
+\xymatrix{
+THH_*(\tBP{2};H\mathbb{F}_p)[v_2^{\pm 1}] \ar@{=>}[r] & THH_*(\tBP{2};K(2)) \\
+THH_*(\tBP{2};H\mathbb{F}_p)[v_2]  \ar[u] \ar@{=>}[r] &THH_*(\tBP{2};k(2)) \ar[u] 
+}
+\] 
+because $v_2^{-1}(-)$ is a localization. This implies that 
+\[ THH_*(\tBP{2};k(2))\cong P(v_2)\otimes T \] 
+and forces differentials in the bottom spectral sequence above.
+\end{proof}
+\begin{cor}
+There are differentials $d_{r(n)}(\mu^{r(n)})=\lambda_{[n]}v_2^{r(n)}$
+where $r(n)$ is $\dots$, and $\lambda_{[n]}$ is $\dots$.
+\end{cor}
+\gabe{Finish the corollary above.}
+
+
+------------------------------
+
+\dom{I am writing a slightly different way of approaching this computation, mostly for my benefit. We can decide how to merge these two together later...}
+
+The goal of this section is to compute the homotopy groups of $\THH(R; k(2))$. We achieve this through an analysis of of the $v_2$-Bockstein spectral sequence \eqref{v_2BSS}. We first outline our strategy. 
+
+In \cite{AngeltveitRognes} and \cite{McClureStaffeldt}, to compute $\THH_*(\ell, k(1))$, the authors first argue that upon inverting $v_1$, there is an isomorphism
+\begin{equation}\label{eqn:THH(ell;K(1))}
+	v_1^{-1}\THH_*(\ell;k(1))\cong K(1)_*.
+\end{equation}
+This implies that in the $v_1$-Bockstein spectral sequence
+\[
+\THH_*(\ell;\F_p)[v_1]\implies \THH_*(\ell;k(1))
+\]
+all classes except 1 are $v_1$-torsion. It turns out that there is only one of pattern of differentials that makes this possible, which gives a complete description of this spectral sequence. 
+
+Here, we proceed in much the same way. However, some adaptions need to be made. More specifically, in establishing \eqref{eqn:THH(ell;K(1))}, \cite{AngeltveitRognes} and \cite{McClureStaffeldt} smash $\THH(\ell)$ with the mod $p$ Moore spectrum and then take the $v_1$-telescope. It is difficult to adjust this proof to the case at hand, because it would require smashing the spectrum $\THH(R)$ with the Smith-Toda complex $V(1)$, which does not exist at $p=2$ and is not a ring spectrum at $p=3$. 
+
+Instead, we opt for a different approach. It is based upon the following observations. Inverting $v_2$ in spectra 
+\gabe{Here and elsewhere we should be a bit more precise about what we mean by inverting $v_2$ in spectra.}
+provides an equivalence
+\[
+v_2^{-1}\THH(R;k(2))\simeq \THH(R;K(2)). 
+\]
+There is a canonical unit morphism 
+\[
+K(2)\to \THH(R;K(2))
+\]
+which we will argue induces an isomorphism in $K(2)$-homology. Since the source and target are both $K(2)$-modules, and hence $K(2)$-local, this will show that the map is in fact an equivalence of spectra.
+
+To establish this, we just need to argue that 
+\[
+K(2)_*\THH(R;K(2))\cong K(2)_*K(2). 
+\]
+To do this, we proceed as follows. First, recall that the Morava $K$-theories possess a K\"unneth isomorphism, which gives us a B\"okstedt spectral sequence 
+\begin{equation}\label{eqn:K(2)Bokstedt}
+\HH_*^{K(2)_*}(K(2)_*R)\implies K(2)_*\THH(R).
+\end{equation}
+We will analyze this spectral sequence below to show that $K(2)_*\THH(R)$ is isomorphic to $K(2)_*R$. This part of our analysis is a modification of the calculation of $K(1)_*\THH(\ell)$ found in \cite{McClureStaffeldt}. There is also an equivalence
+\[
+\THH(R;K(2))\simeq_{S^0} K(2)\wedge_R\THH(R).
+\]
+To compute the $K(2)$-homology of this spectrum, we apply a Eilenberg-Moore type spectral sequence (cf. \cite[IV, 6.4]{EKMM}), which takes the form 
+\[
+\Tor^{K(2)_*R}_{s,t}(K(2)_*K(2), K(2)_*\THH(R))\implies K(2)_{s+t}(\THH(R;K(2))).
+\]
+Since $K(2)_*\THH(R)$ is just $K(2)_*R$, the $E_2$-term is concentrated in $s=0$, resulting in the collapsing of this spectral sequence. This will show that 
+\[
+K(2)_*\THH(R;K(2))\cong K(2)_*K(2)
+\]
+from which we can conclude that every class but 1 in $\THH(R;k(2))$ is $v_2$-torsion. From this we will deduce the differentials in the $v_2$-Bockstein spectral sequence. 
+
+\dom{Here is a technical point: In either of the approaches we are taking, we will make use of the Eilenberg-Moore spectral sequence. All that is stated in EKMM is the abutment of this spectral sequence. We should take a look at convergence issues, just to be sure.}
+ 
+\subsection{The $K(2)$-homology of $\THH(R;K(2))$}
+
+To begin, we need to compute $K(2)_*R$. Since the Johnson-Wilson theory $E(2)$ is Landweber exact, one has 
+\[
+E(2)_*R\cong E(2)_*\otimes_{BP_*}BP_*BP\otimes_{BP_*}R_*.
+\]
+It is known that 
+\[
+BP_*BP\otimes_{BP_*}R_*\cong BP_*[t_1, t_2, \ldots]/(\eta_R(v_i)\mid i\geq 3)
+\]
+where $\eta_R:BP_*\to BP_*BP$ denotes the right unit. Thus, 
+\[
+E(2)_*\tBP{2}\cong E(2)_*[t_1, t_2, \ldots]/(\eta_R(v_i)\mid i\geq 3).
+\]
+Since $K(2)$ is obtained from $E(2)$ by coning off $p$ and $v_1$, we find that 
+\[
+K(2)_*R\cong K(2)_*[t_1, t_2, \ldots]/(\eta_R(v_i)\mid i\geq 3).
+\]
+We have the following congruences
+\[
+\eta_R(v_{2+k})\equiv v_2t_k^{p^2}-v_2^{p^{k}}t_k \mod (\eta_R(v_{3}), \ldots , \eta_R(v_{k+1})).
+\]
+in $K(2)_*BP$ for all $k\geq 1$ (cf. formula 6.1.13 of \cite{greenbook}). Thus 
+
+\begin{lem}
+	There is an isomorphism of graded rings
+	\[
+	K(2)_*R\cong K(2)_*[t_1, t_2, \ldots ]/(v_2t_k^{p^2}-v_2^{p^k}t_k\mid k\geq 1)
+	\]
+\end{lem}
+\gabe{Nice! I like this proof of this lemma a lot better than the sketch I gave.}
+
+We proceed to analyze the $K(2)$-B\"okstedt spectral sequence for $\THH(R)$, \eqref{eqn:K(2)Bokstedt}. We begin by determining the $E^2$-page
+\[
+E^2_{*,*}\cong \HH^{K(2)_*}(K(2)_*R).
+\]
+Recall that the topological degree of $t_k$ is $2(p^k-1)$, and that the degree of $v_2$ is $2(p^2-1)$. Thus $|v_2|$ divides $|t_k|$ if and only if $k$ is even. Observe that 
+\[
+K(2)_*R\cong_{K(2)_*}\bigotimes_k K(2)_*[t_k]/(v_2t_k^{p^2}-v_2^{p^k}t_k)
+\] 
+Let $u_k=v_2^{m(k)}t_k$ where 
+\[
+m(k)=-p^{k-2}-p^{k-4} - \dots p^2-1
+\] 
+when $2|k$ and and let $u_k=v_2^{\ell(k)}t_k$ where 
+\[
+\ell(k)=-p^{k-2}-p^{k-4} -\dots -p
+\] 
+when $k$ is odd. Thus 
+\[
+|u_k|= 
+\begin{cases}
+	0 & k\equiv 0 \mod 2\\
+	2(p-1) & k\equiv 1 \mod 2
+\end{cases}.
+\]
+Define $A_n$ to be the subalgebra of $K(2)_*R$ generated by $t_1, \ldots , t_n$, and let $A(t_k)$ denote the subalgebra generated by $t_k$. Then elementary properties of Hochschild homology give
+\[
+\HH^{K(2)_*}(A_n)\cong_{K(2)_*}\bigotimes_{k=1}^n\HH^{K(2)_*}(A(t_k)).
+\]
+Since Hochschild homology commutes with colimits, it follows that 
+\[
+\HH^{K(2)_*}(K(2)_*R)\cong_{K(2)_*}\bigotimes_{k=1}^\infty \HH^{K(2)_*}(A(t_k)),
+\]
+so we are reduced to computing the Hochschild homology of the subalgebras generated by a single $t_k$. When $k$ is even, we have 
+\[
+A(t_k)= K(2)_*\otimes \F_p[u_k]/(u_k^{p^2}-u_k),
+\]
+in which case one has 
+\[
+\HH^{K(2)_*}(A(t_k))\cong_{K(2)_*}K(2)_*\otimes \HH^{\F_p}(\F_p[u_k]/(u_k^{p^2}-u_k)).
+\]
+Since the $\F_p$-algebra
+\[
+\F_p[u_k]/(u_k^{p^2}-u_k)
+\]
+is \'etale over $\F_p$, it follows that \todo{put reference here...} 
+\[
+\HH^{\F_p}(\F_p[u_k]/(u_k^{p^2}-u_k))\cong \F_p[u_k]/(u_k^{p^2}-u_k).
+\]
+Moving on to the case when $k$ is odd, it follows from Cartan-Eilenberg \todo{what's the exact proposition in Cartan-Eilenberg??} that 
+\[
+\HH^{K(2)_*}(A(t_k))\cong A(t_k)\otimes_{K(2)_*} \Tor^{A(t_k)}(K(2)_*, K(2)_*)
+\]
+
+\begin{lem}
+	For odd $k$, we have 
+	\[
+	\Tor^{A(t_k)}(K(2)_*, K(2)_*)\cong K(2)_*
+	\]
+\end{lem}
+\begin{proof}
+	..........
+\end{proof}
+
+Thus, we find that when $k$ is odd, 
+\[
+\HH^{K(2)_*}(A(t_k))\cong_{K(2)_*}A(t_k).
+\]
+Combining all these observations together, we have proven,
+\begin{thm}\label{thm: HH of K(2)R}
+	The Hochschild homology of $K(2)_*R$ is isomorphic to $K(2)_*R$:
+	\[
+	\HH^{K(2)_*}(K(2)_*R)\cong K(2)_*R.
+	\]
+\end{thm}
+We now proceed as how we sketched above. Consider the Eilenberg-Moore spectral sequence 
+\[
+\Tor^{K(2)_*R}_{s,t}(K(2)_*K(2), K(2)_*\THH(R))\implies K(2)_{s+t}(\THH(R;K(2))).
+\]
+By the theorem, the $E^2$-term is 
+\[
+\Tor^{K(2)_*R}(K(2)_*K(2), K(2)_*R).
+\]
+Thus, the the $E^2$-term is concentrated in the $s=0$-line, where it is exactly $K(2)_*K(2)$. Consequently the spectral sequence collapses, showing the following.
+\begin{cor}\label{cor:THH with K(2) coeff}
+	The $K(2)$-homology of $\THH(R;K(2))$ is isomorphic to $K(2)_*K(2)$. Since $\THH(R;K(2))$ is a $K(2)$-module, it follows that the unit morphism
+	\[
+	K(2)\to \THH(R;K(2))
+	\]
+	is a weak equivalence.
+\end{cor}
+
+\begin{cor}\label{cor:v2-torsion}
+	In $\THH_*(R;k(2))$ all classes other than 1 are $v_2$-torsion.
+\end{cor}
+
+\subsection{Differentials in the $v_2$-BSS}
+We now turn to analyzing the $v_2$-BSS \eqref{v_2BSS}. In particular, we will argue that Corollary \ref{cor:v2-torsion} allows for a single pattern of differentials in the spectral sequence. Our argument is an adaptation of the one found in \cite{McClureStaffeldt}.
+
+Recall that the $E_2$-term of the $v_2$-BSS is 
+\[
+\THH(R;\F_p)[v_2]\cong P(v_2) \otimes E(\lambda_1,\lambda_2,\lambda_3)\otimes P(\mu_3),
+\]
+where
+\[
+|\lambda_i| = (2p^i-1, 0)
+\]
+and 
+\[
+|\mu_3|=(2p^3,0).
+\]
+It will be more convenient to work in the $v_2$-localized Bockstein spectral sequence. Since the $\lambda_i$ are in odd total degree and $1$ is $v_2$-torsion free, they cannot support a differential. If $\mu_3$ is a permanent cycle as well, then by multiplicativity of the Bockstein spectral sequence, it follows that it will collapse at $E_1$. But this would contradict Corollary \ref{cor:v2-torsion}. Thus $\mu_3$ supports a differential, the only possibility is 
+\[
+d_p(\mu_3)\dot{=}v_2^p\lambda_1.
+\]
+Thus 
+\[
+v_2^{-1}E_{p+1}^{*,*}\cong K(2)_*\otimes E(\lambda_2, \lambda_3, \lambda_4)\otimes P(\mu_3^{p}),
+\]
+where $\lambda_4:=\lambda_1\mu_3^{p-1}$. Note that the bidegree of $\lambda_4$ is
+\[
+|\lambda_4| = (2p^4-2p^3+2p-1,0).
+\]
+In particular, its total degree is odd. So this class cannot support a differential which truncates the the $v_2$-tower on $\lambda_2$ or $\lambda_3$. So this class is a permanent cycle. By multiplicativity again, if $\mu_3^p$ were an infinite cycle, then the spectral sequence would collapse at $E_{p+1}$, which would contradict Corollary \ref{cor:v2-torsion}. So $\mu_3^p$ supports a differential. The only possibility is 
+\[
+d_{p^2}(\mu_3^p) \dot{=} v_2^{p^2}\lambda_2.
+\]  
+Thus one has 
+\[
+v_2^{-1}E_{p^2+1}^{*,*}\cong K(2)_*\otimes E(\lambda_3, \lambda_4, \lambda_5)\otimes P(\mu_3^{p^2})
+\]
+where 
+\[
+\lambda_5:= \lambda_2\mu_3^{p^2-p}.
+\]
+The bidegree of this class is 
+\[
+|\lambda_5| = (2p^5-2p^4+2p^2-1,0).
+\]
+Since $\lambda_3, \lambda_4, \lambda_5$ all have odd total degree, they are necessarily permanent cycles. As before, the class $\mu_3^{p^2}$ must support a differential. The only possibility is 
+\[
+d_{p^3}(\mu_3^{p^2})\dot{=}v_2^{p^3}\lambda_3.
+\]
+This shows that 
+\[
+v_2^{-1}E_{p^3+1}^{*,*}\cong K(2)_*\otimes E(\lambda_4,\lambda_5, \lambda_6)\otimes P(\mu_3^{p^4})
+\]
+where
+\[
+\lambda_6:= \lambda_3\mu_3^{p^2(p-1)} = \lambda_3\mu_3^{p^3-p^2},
+\]
+so that the bidegree of $\lambda_6$ is 
+\[
+|\lambda_6|=(2p^6-2p^5+2p^3-1,0).
+\]
+Consequently, as we saw before, the class $\lambda_6$ cannot support a differential, and hence is a permanent cycle. As before, we must have that $\mu_3^{p^3}$ must support a differential. An elementary calculation shows the only possibility is 
+\[
+d_{p^4+p}\mu^{p^3}\dot{=} v_2^{p^4+p}\lambda_4
+\]
+
+Recursively define a function $d(n)$ by 
+\[
+d(n):= 
+\begin{dcases*}
+	2p^n-1 & if $1\leq n \leq 3$\\
+	2p^3(p^{n-3}-p^{n-4}) + d(n-3)
+\end{dcases*}
+\]
+and recursively define classes $\lambda_n$ by 
+\[
+\lambda_n:= \begin{cases}
+	\lambda_n & 1\leq n \leq 3\\
+	\lambda_{n-3}\mu^{p^{n-4}(p-1)} & n>3
+\end{cases}.
+\]
+Then a simple inductive argument shows that the bidegree of $\lambda_n$ is given by
+\begin{equation}
+	|\lambda_n| = (d(n),0). 
+\end{equation}
+Notice that $d(n)$ is always odd, and so $\lambda_n$ is always in odd total degree. A simple induction shows that 
+\[
+d(n)=
+\begin{cases}
+	2p^n-2p^{n-1}+2p^{n-2}-2p^{n-3}+\cdots + 2p-1 & n\equiv 1 \mod 3\\
+	2p^n-2p^{n-1}+2p^{n-2}-2p^{n-3}+\cdots + 2p^2-1 & n\equiv 2 \mod 3\\
+	2p^n-2p^{n-1}+2p^{n-2}-2p^{n-3}+\cdots + 2p^3-1 & n\equiv 0 \mod 3
+\end{cases}.
+\]
+\gabe{Since, for example, $d(4)=2p^3(p-1)+2p-1$, $d(7)=2p^3(p^4-p^3)+2p^3(p-1)+2p-1=2p^7-2p^6+2p^4-2p^3+2p-1$ so the formulas above aren't exactly right. }
+
+\begin{lem}\label{lem:v2divisibility}
+	The integer $2p^{n+2}-d(n)-1$ is divisible by $|v_2|$.
+\end{lem}
+\begin{proof}
+	Via induction. One has 
+	\[
+	(2p^{n+3}-1)-d(n+1) = (2p^{n+3}-2p^{n+1}) + (2p^{n}-d(n-2)-1)
+	\]
+	and the induction hypothesis shows the second term is divisible by $|v_2|$. 
+\end{proof}
+\gabe{You didn't prove the base step in the induction above. Also, why does that equality hold? What is the convention for $d(n)$ when $n<0$, that makes this hold for $n<3$ or is this only true when $n\ge 3$?}
+
+Now let $r(n)$ be the function given by 
+\[
+r(n):= |v_2|^{-1}(2p^{n+2}-d(n)-1).
+\]
+Then we obtain as a corollary to the lemma, 
+\begin{cor}
+The function $r(n)$ is given by 
+\[
+r(n) = \begin{cases}
+	p^n+p^{n-3}+ \cdots +p^4+p & n\equiv 1 \mod 3\\
+	p^n+p^{n-3}+ \cdots + p^5+p^2 & n\equiv 2 \mod 3\\
+	p^n+p^{n-3}+ \cdots +p^6+ p^3 & n\equiv 0 \mod 3
+\end{cases}.
+\]	
+\end{cor}
+
+We are now in a position to determine the differentials in the spectral sequence. 
+
+\begin{thm}
+In the $v_2$-BSS, one has 
+\begin{enumerate}
+	\item The only nonzero differentials are in $v_2^{-1}E_{r(n)}$.
+	\item The page $v_2^{-1}E_{r(n)}$ is given by 
+	\[
+	v_2^{-1}E_{r(n)}\cong K(2)_*\otimes E(\lambda_n, \lambda_{n+1}, \lambda_{n+2})\otimes P(\mu_3^{p^{n-1}}). 
+	\]
+	Moreover, $\lambda_n, \lambda_{n+1},\lambda_{n+2}$ are permanent cycles. 
+	\gabe{Wait, but $\lambda_n$ cannot be a permanent cycle in the $v_2^{-1}$ Bockstein spectral sequence because it is $v_2$-torsion. I believe you mean it will be a permanent cycle before inverting $v_2$?}
+	\item The differential $d_{r(n)}$ is determined by the multiplicativity of the BSS and 
+	\[
+	d_{r(n)}\mu_3^{p^{n-1}}=v_2^{r(n)}\lambda_n. 
+	\]
+	\gabe{We need to discuss why this BSS is multiplicative at some point earlier}
+\end{enumerate}	
+\end{thm}
+\begin{proof}
+	We proceed by induction, having already shown the theorem for $n\leq 4$. Assume inductively that 
+	\[
+	v_2^{-1}E_{r(n)}^{*,*}\cong K(2)_*\otimes E(\lambda_n, \lambda_{n+1}, \lambda_{n+2})\otimes P(\mu_3^{p^{n-1}}).
+	\] 
+	By the inductive hypothesis, $\lambda_n, \lambda_{n+1}$ are permanent cycles. Since $\lambda_n, \lambda_{n+1}, \lambda_{n+2}$ all have odd total degree, it follows that $\lambda_{n+2}$ cannot truncate the $v_2$-towers on $\lambda_n$ or $\lambda_{n+1}$. Therefore, the only possibility is that $\lambda_n$ supports a differential hitting $v_2^j$ for some $j\in \mathbb{Z }$. %into the $v_2$-tower on 1. 
+	But that would contradict Corollary \ref{cor:THH with K(2) coeff}. So $\lambda_{n+2}$ must also be a cycle.
+	
+	If the class $\mu_3^{p^{n-1}}$ does not support a differential, then by multiplicativity the spectral sequence would collapse at $E_{r(n)}$, and this would contradict Corollary \ref{cor:THH with K(2) coeff}. Thus $\mu_3^{p^{n-1}}$ supports a differential. Lemma \ref{lem:v2divisibility} and a simple modular arithmetic argument shows that the only possibility is 
+	\[
+	d_{r(n)}\dot{=}v_2^{r(n)}\lambda_n.
+	\]
+	Since the differential satisfies the Leibniz rule, this gives
+	\[
+	v_2^{-1}E_{r(n)+1}\cong K(2)_*\otimes E(\lambda_{n+1},\lambda_{n+2}, \lambda_{n+3})\otimes P(\mu_{3}^{p^n}).
+	\]
+	This completes the inductive step, proving the theorem.
+\end{proof}
+
+
+
+\todo{prove the analogue of Theorem 7.1 of \cite{McClureStaffeldt}}

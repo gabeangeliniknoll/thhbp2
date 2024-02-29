@@ -1,0 +1,344 @@
+
+\documentclass[12pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{lscape,xcolor}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+%\usepackage{mathrools}
+\usepackage{stmaryrd}
+\usepackage{verbatim}
+\usepackage{rotating}
+\usepackage{tikz-cd}
+\usepackage{amsrefs}
+\usepackage{hyperref}
+\usepackage{euscript}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{spectralsequences}
+
+
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palatino needs more leading (space between lines)
+\usepackage[T1]{fontenc}
+
+\usepackage[OT2,T1]{fontenc}
+\newcommand\textcyr[1]{{\fontencoding{OT2}\fontfamily{wncyr}\selectfont #1}}
+
+
+%\usepackage{luasseq}
+\usepackage{xcolor}
+\definecolor{seagreen}{RGB}{46,139,87}
+\definecolor{maroon}{RGB}{128,0,0}
+\definecolor{darkviolet}{RGB}{148,0,211}
+\definecolor{twelve}{RGB}{100,100,170}
+\definecolor{thirteen}{RGB}{100,150,50}
+\definecolor{fourteen}{RGB}{200,0,0}
+\definecolor{fifteen}{RGB}{0,200,0}
+\definecolor{sixteen}{RGB}{0,0,200}
+\definecolor{seventeen}{RGB}{200,0,200}
+\definecolor{eighteen}{RGB}{0,200,200}
+
+
+
+\parskip 0.7pc
+\parindent 0pt
+
+\allowdisplaybreaks[1]
+
+%%%%%%%%%%%%%%% Basic commands %%%%%%%%%%%%%%%%%%
+\newcommand{\dotequiv}{\overset{\scriptstyle{\centerdot}}{\equiv}}
+\newcommand{\nd}{\not\!|}
+\newcommand{\mmod}{\! \sslash \!}
+
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\ull}[1]{\underline{#1}}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mr}[1]{\mathrm{#1}}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\mit}[1]{\mathit{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\ms}[1]{\mathscr{#1}}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\bra}[1]{\langle #1 \rangle}
+\newcommand{\br}[1]{\overline{#1}}
+\newcommand{\brr}[1]{\overline{\overline{#1}}}
+\newcommand{\td}[1]{\widetilde{#1}}
+\newcommand{\tdd}[1]{\widetilde{\widetilde{#1}}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\MS}{\mathbb{S}}
+\newcommand{\PP}{\mathbb{P}}
+
+\newcommand{\euscr}[1]{\EuScript{#1}}
+
+%%%%%%%%%%%%%%%%% Spectra %%%%%%%%%%%%%%%
+
+\newcommand{\tBP}[1]{BP\bra{#1}}
+\newcommand{\AF}{\mr{AF}}
+\newcommand{\TAF}{\mathrm{TAF}}
+\newcommand{\TMF}{\mathrm{TMF}}
+\newcommand{\Tmf}{\mathrm{Tmf}}
+\newcommand{\tmf}{\mathrm{tmf}}
+\newcommand{\bo}{\mathrm{bo}}
+\newcommand{\bsp}{\mathrm{bsp}}
+\newcommand{\HZ}{\mr{H}\Z}
+\def \HF2{\mr{H}\F_2}
+\newcommand{\bu}{\mr{bu}}
+\newcommand{\MU}{\mr{MU}}
+\newcommand{\KU}{\mr{KU}}
+\newcommand{\KO}{\mr{KO}}
+\newcommand{\EO}{\mr{EO}}
+\newcommand{\BP}{\mr{BP}}
+\newcommand{\K}{\mr{K}}
+\newcommand{\ku}{\mathrm{ku}}
+
+%%%%%%%%%%%%%%% Operators %%%%%%%%%%%%%%
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Sta}{Sta}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator*{\holim}{holim}
+\DeclareMathOperator*{\hocolim}{hocolim}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\Tot}{Tot}
+\DeclareMathOperator{\Spf}{Spf}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+
+\DeclareMathOperator{\THH}{THH}
+
+\DeclareMathOperator{\sq}{Sq}
+\newcommand{\xib}{{\bar{\xi}}}
+\newcommand{\s}{\wedge}
+\newcommand{\Si}{\Sigma}
+\newcommand\floor[1]{\lfloor#1\rfloor}
+
+%%%%%%%%%%%%% Steenrod Algebra & Brown-Gitler Modules %%%%%%%%%%%
+
+\newcommand{\A}{\ms{A}}
+\newcommand{\sE}{\ms{E}}
+\newcommand{\HZu}{\ull{\HZ}}
+\newcommand{\bou}{\ull{\bo}}
+\newcommand{\tmfu}{\ull{\tmf}}
+\newcommand{\tBPu}[1]{\ull{\tBP{#1}}}
+\newcommand{\buu}{\ull{\bu}}
+\def \AA0{\br{A \mmod A(0)}_*}
+\def \AA2{A\mmod A(2)_*}
+\def \AE2{A\mmod E(2)_*}
+\renewcommand{\AE}[1]{A\mmod E(#1)_*}
+\DeclareMathOperator{\wt}{\mathrm{wt}}
+\def \E2E1{(E(2)\mmod E(1))_*}
+
+
+
+%%%%%%%%%%%%%%%% Categories %%%%%%%%%%%%%
+
+\newcommand{\Top}{\mathsf{Top}}
+\newcommand{\Operad}{\mathsf{Operad}}
+\newcommand{\Alg}{\mathsf{Alg}}
+\newcommand{\Monad}{\mathsf{Monad}}
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\sSet}{\mathsf{sSet}}
+\newcommand{\Man}{\mathsf{Man}}
+\newcommand{\Presheaf}{\mathsf{Presheaf}}
+\newcommand{\Fun}{\mathsf{Fun}}
+\newcommand{\Grpd}{\mathsf{Grpd}}
+\newcommand{\op}{\mathrm{op}}
+
+
+%%%%%%%%%%%%%%% Homological Algebra %%%%%%%
+
+\newcommand{\cone}[1]{\mathrm{cone}\left(#1\right)}
+
+
+%%%%%%% for numbered theorems %%%%%%%%%
+ \newtheorem{thm}[equation]{Theorem}
+ \newtheorem{cor}[equation]{Corollary}
+ \newtheorem{lem}[equation]{Lemma}
+ \newtheorem{prop}[equation]{Proposition}
+ \newtheorem{obs}[equation]{Observation}
+  \newtheorem{rem}[equation]{Remark}
+ 
+ \newtheorem*{thm*}{Theorem}
+ \newtheorem*{cor*}{Corollary}
+ \newtheorem*{lem*}{Lemma}
+ \newtheorem*{prop*}{Proposition}
+  \newtheorem*{not*}{Notation}
+
+ 
+ \theoremstyle{definition}
+ \newtheorem{defn}[equation]{Definition}
+ \newtheorem{ex}[equation]{Example}
+ \newtheorem{exs}[equation]{Examples}
+ \newtheorem{rmk}[equation]{Remark}
+\newtheorem{claim}[equation]{Claim}
+ \newtheorem{question}[equation]{Question}
+ \newtheorem{conjecture}[equation]{Conjecture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem*{defn*}{Definition}
+\newtheorem*{ex*}{Example}
+\newtheorem*{exs*}{Examples}
+\newtheorem*{rmk*}{Remark}
+\newtheorem*{claim*}{Claim}
+\newtheorem*{conventions}{Conventions}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+
+
+\title{THH of $\tBP{2}$}
+\author{ G.~ Angelini-Knoll \"und D.~ Culver}\address{University of Illinois, Urbana-Champaign}\email{dculver@nd.edu}\address{Michigan State University, East Lansing}\email{angelini@math.msu.edu}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Various spectral sequences for getting the calculation of $THH_*\tBP{2}$ started.
+\end{abstract}
+
+\tableofcontents
+
+Throughout, we will probably let $p=2$. Also, I don't feel like writing $\tBP{2}$ all the time, so we will set $R$ to be $\tBP{2}$ or $\tmf_1(3)$ or whatever...
+
+\section{B\"okstedt spectral sequence for $H_*\THH(R)$}
+
+The B\"okstedt spectral sequence for $R$ takes the form 
+\[
+HH_s(H_tR)\implies H_{s+t}\THH(R).
+\]
+Since
+\[
+H_*(R) = \AE{2} = P(\zeta_1^2, \zeta_2^2, \zeta_3^2, \zeta_4, \zeta_5, \ldots).
+\]
+So by standard theorems about Hochschild homology, 
+\[
+HH_*R\cong \AE{2}\otimes E(\sigma\zeta_1^2, \sigma\zeta_2^2, \sigma\zeta_3^2, \sigma\zeta_4, \ldots )
+\]
+For degree reasons, this spectral sequence collapses immediately (or by comparison with the B\"okstedt spectral sequence for $\THH(\F_2)$, which is known to collapse immediately). However, there are hidden multiplicative extensions arising from power operations. We get
+\[
+H_*\THH(R) = \AE{2}\otimes E(\lambda_1, \lambda_2,\lambda_3)\otimes P(\mu)
+\]
+where $|\lambda_1| = 3$, $|\lambda_2| = 7$, and $|\lambda_3| = 15$ and $|\mu|=16$.
+
+\section{$THH(\tBP{2};\F_2)$}
+
+Recall that 
+\[
+\THH(\tBP{2};\F_2) := H\F_2\wedge_{R\wedge R^{\op}} R 
+\]
+It turns out that there is an equivalence
+\[
+\THH(R; \F_2)\simeq H\F_2\wedge_R\THH(R).
+\]
+
+
+The first way we will compute $\THH_*(R;\F_2)$ is by The B\"okstedt spectral sequence for this then becomes \todo{Check that this is the form of the B\"oSS with Gabe} %Yup! this is right. 
+\[
+HH_*(H_*R;A_*)\implies H_*(\THH(R;\F_2))
+\]
+\textcolor{purple}{I am pretty sure the B\"okstedt spectral sequence with coefficients take this form...}
+\textcolor{pink}{I think it does, I think this is because we can think of $THH(R;M)$ as the realization of the diagram simplicial module
+\[
+[n]\mapsto M\wedge R^{\wedge n}
+\]
+and then we just take the skeleton spectral sequence.} 
+\textcolor{seagreen}{Think about applying homology to this simplicial object, then the $E_1$-page is the alternating sign chain complex of this simplicial graded abelian group and it happens to be the same as the chain complex computing $HH_*(H_*(R);H_*(M)).$}
+
+As in the topological case\footnote{Lemma 2.1 of \cite{THHkuko} which states that when $R$ is a commutative $S$-algebra and $M$ an $R$-module, then 
+\[
+\THH(R;M)\simeq M\wedge_R\THH(R).
+\]}, we should have 
+\[
+HH_*(H_*R; A_*)\cong \Tor^{\AE{2}}(A_*, H_*\THH(R)).
+\]
+\textcolor{seagreen}{ I don't understand this statement. It is true that $HH_*(H_*(R);H_*HF_2)\cong Tor^{H_*(R)\otimes H_*(R)^{op}}(A_*,H_*(R))$ and it is also true that the RHS is the input for a K\"unneth spectral sequence computing $H_*THH(R;HF_2),$ but the RHS and LHS will only agree when the B\"okstedt spectral sequence collapses and there are no hidden multiplicative extensions.}
+Since $A_*$ is free over $\AE{2}$\footnote{Indeed, as an $\AE{2}$-module it is $\AE{2}\{\zeta_1, \zeta_2, \zeta_1\zeta_2\}$}, we have that this Tor-group is concentrated in $\Tor_0$, and so the $E^2$-page is 
+\[
+\Tor_0^{\AE{2}}(A_*, \AE{2}\otimes E(\lambda_1, \lambda_2, \lambda_3)\otimes P(\mu)) = A_*\otimes E(\lambda_1, \lambda_2, \lambda_3)\otimes P(\mu).
+\]
+
+Feeding this into the Adams spectral sequence yields 
+\[
+\THH_*(R;\F_2)\cong E(\lambda_1, \lambda_2, \lambda_3)\otimes P(\mu)
+\]
+
+As a check that this is correct, we will also calculate via the K\"unneth spectral sequence. This is a spectral sequence of the form 
+\[
+\Tor_{s,t}^{H_*R}(\F_2, \F_2)\implies \THH_{s+t}(R;\F_2).
+\]
+\textcolor{seagreen}{
+ I don't understand this either. I think of the K\"unneth spectral sequence as a spectral sequence for computing $E_*$ of a relative smash product $A\wedge_R B$ and then the input is $Tor^{E_*(R)}(E_*(A);E_*(B))$ so the LHS above looks like the input for a K\"unneth spectral sequence computing $\pi_*(HF_2\wedge_{HF_2\wedge R} HF_2)$, whereas the the RHS is $\pi_*(HF_2\wedge_{R\wedge R^{op}} R)$.} 
+The $E^2$-term is
+\[
+\Tor^{\AE{2}}(\F_2, \F_2)\cong E(\sigma\zeta_1^2, \sigma\zeta_2^2, \sigma\zeta_3^2, \sigma\zeta_4, \ldots )
+\]
+with the degree of $\sigma\zeta_n$ being $(1, 2^n-1)$. This spectral sequence collapses at $E_2$ and also plays well with power operations. Thus giving the desired answer. 
+
+\section{$\THH(R;k(2))$}
+
+Let $k(2)$ denote the connective second Morava K-theory. We will follow the analogous proof for $THH(\ell;k(1))$ which can be found in \cite{McClureStaffeldt} and \cite{hopfalgTHH}. 
+
+Recall that 
+\[
+\THH(R;k(2)):= k(2)\wedge_{R\wedge R^\op}R\simeq k(2)\wedge_R\THH(R)
+\]
+
+In the case of $\ku$, one could note that 
+\[
+V(0)\wedge \THH(ku) = V(0)\wedge (\ku\wedge_{\ku\wedge \ku^\op}\ku)\simeq (V(0)\wedge \ku)\wedge_{\ku\wedge\ku^{\op}}\ku = k(1)\wedge_{\ku\wedge\ku^{\op}}\ku
+\]
+% note that this is particular to the prime 2 where ku/2\simeq k(1) at odd primes you need to use \ell and then \ell/p\simeq k(1)
+\[
+V(0)\wedge R\simeq R/2 
+\]
+
+\textcolor{red}{I just want to see if there is unique pattern of differentials.... So let's just assume for now that the only $v_2$-torsion free class in $\THH(R;k(2))$ is 1. Let's see if this uniquely determines the Adams differentials.}
+
+First we need to calculate the mod 2 homology of $\THH(R;k(2))$.
+
+ There is an isomorphism
+\[ H_*(THH(R;k(2))\cong  H_*(THH(R)\wedge_R k(2)) \]
+Since $H_*THH(R)$ is free over $H_*(R)$ the K\"unneth spectral sequence collapses and therefore 
+\[ H_*(THH(R;k(2))\cong H_*(k(2))\otimes E(\lambda_1, \lambda_2, \lambda_3)\otimes P(\mu)\]
+
+We then want to compute the Adams spectral sequence 
+\[ Ext_{A}^{*,*}(H\mathbb{F}_p;H_*(k(2))\otimes E(\lambda_1, \lambda_2, \lambda_3)\otimes P(\mu))\Rightarrow \pi_*(HH(R;k(2))\]
+and the input is isomorphic to 
+\[Ext_{E(Q_2)}(H\mathbb{F}_p; E(\lambda_1, \lambda_2, \lambda_3)\otimes P(\mu)) \]
+by a change of rings isomorphism. Since $E(\lambda_1, \lambda_2, \lambda_3)\otimes P(\mu)$ has trivial $E(Q_2)$-coaction, this in in turn is isomorphic to 
+\[ E(\lambda_1, \lambda_2, \lambda_3)\otimes P(\mu)\otimes P(v_2) \]
+where $v_2$ is in bidegree $(2p-2,1)$. In other words, this spectral sequence has isomorphic $E_2$-page to the Bockstein spectral sequence. 
+
+We then want to compute differentials in this spectral sequence. To do this, it will be useful to consider the $v_2^{-1}$ Adams spectral sequence
+\[ v_2^{-1}Ext_{E(Q_2)}(H\mathbb{F}_p; E(\lambda_1, \lambda_2, \lambda_3)\otimes P(\mu)) \] 
+converging to $v_2^{-1}\pi_*THH(R;k(2))$. 
+
+\textcolor{seagreen}{
+Question: Is $v_2^{-1}\pi_*THH(R;k(2))\cong \pi_*(L_{K(2)}THH(R;k(2)))$? 
+This is definitely not true in general (conjecturally), but I think it is true for $tmf_1(3)$, and $k(2)$ and $THH(tmf_1(3);k(2))$ is a $tmf_1(3)$-module and a $k(2)$-module. }
+
+\textcolor{seagreen}{
+In McClure-Staffeldt, they prove that the unit map $\ell \rightarrow THH(\ell)$ is a $K(1)_*$-equivalence, so $K(1)$-locally all the classes of the form $\sigma x$ must die. Since the telescope conjecture is true at height 1, this implies that all the classes of the form $\sigma x$ are $v_2$-torsion and that forces all the differentials (note we also know in the case of $\ell$ that all powers of $v_1$ itself survive so there can be no differentials on the $\lambda_i$ for $i=0,1$ hitting powers of $v_1$. }
+
+
+
+
+
+\bibliographystyle{plain}
+\bibliography{THHBP2}
+
+\end{document}

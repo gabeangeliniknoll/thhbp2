@@ -1,0 +1,115 @@
+% root file is THHBP2BP1.tex
+
+\section{Topological Hochschild cohomology of $BP\langle 2\rangle$}
+We will write $THC(BP\langle 2\rangle)$ for topological Hochschild cohomology of $BP\langle 2\rangle$, which is defined to be
+\[ THC(BP\langle 2\rangle) := F_{BP\langle 2\rangle^e} (BP\langle 2\rangle,BP\langle 2\rangle) \]
+where $BP\langle 2\rangle^e:=BP\langle 2\rangle\wedge BP\langle 2\rangle^{\op}$. 
+We recall that there is a universal coefficient spectral sequence (UCSS) computing the homotopy groups of $F_{BP\langle 2\rangle^e} (BP\langle 2\rangle,BP\langle 2\rangle)$ 
+\[ Ext_{ \pi_*(BP\langle 2\rangle^e)}^{*,*} (BP\langle 2\rangle_*,BP\langle 2\rangle_*) \Rightarrow THC^*(BP\langle 2\rangle), \]
+but this is usually not computable. With coefficients in $H\mathbb{F}_p$, however, we can compute $THC^*(\B;H\F_p)$ by a different means. First, note that 
+\[ THH_*(\B; H\F_p)\cong E(\lambda_1,\lambda_2,\lambda_3)\otimes P(\mu_3)\]
+ is a finite type graded $\mathbb{F}_p$-algebra and $THH(BP\langle 2\rangle; H\F_p)$ is an $H\F_p$-algebra. By adjunction, there is an equivalence
+\[ F_{H\F_p} (THH(BP\langle 2 \rangle ; H\F_p ) , H\F_p ) \simeq THC(BP\langle 2 \rangle , H\mathbb{F}_p). \] 
+Consequently, the UCSS 
+\[ \Ext_{\F_p}^{*,*}(\pi_*THH(\B;H\F_p),\F_p) \Rightarrow \pi_*THC(\B;H\F_p)\]
+collapses and 
+\begin{equation}\label{THCHFp} THC^*(BP\langle 2 \rangle , H\mathbb{F}_p)\cong Hom_{\mathbb{F}_p}(THH_*(BP\langle 2 \rangle;H\mathbb{F}_p),\mathbb{F}_p) \cong E(x_1,x_2,x_3)\otimes \Gamma(c_1) \end{equation}
+where $|x_i|=2p^i-1$ and $|c_1|=2p^3$. The classes $x_i$ are dual to $\lambda_i$ and the class $c_{i}=\gamma_i(c_1)$ is dual to $\mu_3^i$.  
+
+\subsection{Relative topological Hochschild cohomology of $\B$}
+Recall that 
+\[ H_*MU\cong P(b_k \mid k\ge 1) \]
+and the map 
+\[ H_*MU \to  H_*BP \]
+sends $b_{p^k-1}$ to $\bar{\xi}_k$ for $k\ge 1$. 
+
+\begin{lem}
+There is an isomorphism of rings 
+\[ \pi_*H\F_p\wedge_{MU}\B \cong  E(\tau_3,\tau_4,\ldots )\otimes E(\delta b_i \mid i\not \equiv 0 \pmod{p^k-1}, k\ge 1) \]
+and the map from $H_*\B$ is given by the canonical quotient 
+\[ H_*\B\cong P(\xi_1,\xi_2,\ldots ) \otimes E(\tau_3,\tau_4,\ldots ) \to E(\tau_3,\tau_4,\ldots )  \]
+tensored with the unit map
+\[ \mathbb{F}_p \to E(\delta b_i \mid i\not \equiv 0 \pmod{p^k-1}, k\ge 1).\]
+Here $|\delta b_i|=1+|b_i|$
+\end{lem}
+\begin{proof}
+First note that there is an equivalence of ring spectra
+\[H\F_p\wedge_{MU}\B \simeq H\F_p\wedge_{H\F_p\wedge MU}H\F_p\wedge \B.\]
+The K\"unneth spectral sequence has input 
+\[ 
+\begin{array}{rcl}
+\Tor_*^{H_*MU}(\F_p, H_*\B)&\cong& \Tor_*^{P(\bar{\xi_1},\bar{\xi}_2,\ldots )}(\F_p, H_*\B)\otimes \Tor^{P(  b_i \mid i\not \equiv 0 \pmod{p^k-1}, k\ge 1)}(\F_p,\F_p)\\
+&=& E(\tau_3,\tau_4,\ldots )\otimes E( \delta b_i \mid i\not \equiv 0 \pmod{p^k-1}, k\ge 1). 
+\end{array}
+\]
+The K\"unneth spectral sequence collapses because all the generators are in filtration $0,1$ and the differential shifts filtration by $2$. By factoring the relevant map as  
+\[H_*\B\to  \pi_*H\F_p\wedge_{BP}\B \to \pi_*H\F_p\wedge_{MU}\B  \]
+and computing $\pi_*H\F_p\wedge_{BP}\B\cong E(\tau_3,\tau_4,\ldots )$ by the same argument, we see that the map is the composite of the canonical quotient 
+with the identity tensored with the unit map 
+%\[\F_p\to  E(\sigma b_i \mid i\not \equiv 0 \pmod{p^k-1}, k\ge 1)\] 
+as desired. 
+\end{proof}
+Recall from Lemma 2.4 \cite{AHL} that when $R\to Q$ is a map of $E$-algebras and $M$ is a $Q$-$R$-bimodule, with an $R$-$R$-bimodule structure by pullback, then 
+\[ THC_E(R;M)\simeq F_{Q\wedge_E R^{\text{op}}} (Q,M). \]
+\begin{lem} The following hold:
+\begin{enumerate}
+\item There is an isomorphism of rings 
+\[ THC_{MU}^*(\B;H\F_p)\cong P(\sigma  \tau_i \mid i\ge 3 )\otimes P(\sigma \delta b_i \mid i\not \equiv 0 \pmod{p^k-1}, k\ge 1). \]
+\item Consequently, $THC_{MU}^*(\B)$ is isomorphic to 
+\[ \B_*(\sigma  \tau_i \mid i\ge 3 )\otimes_{\B_*}P_{\B_*}(\sigma \delta b_i \mid i\not \equiv 0 \pmod{p^k-1}, k\ge 1).\]
+\item The map 
+\[ THC_{MU}^*(\B) \to THC_{MU}^*(\B;H\F_p)\]
+is induced by the quotient by $(p,v_1,v_2)$. 
+\item The map 
+\[ THC_{MU}^*(\B;H\F_p) \to THC^*(\B;H\F_p) \]
+sends $\sigma \tau_i$ to $c_{p^{i-3}}$ for $i\ge 3$. 
+\item Consequently, the elements 
+$c_{p^{i-3}}$ pull back to elements in $THC^*(\B)$ and $THC^*(\B;\tBP{1})$.
+\end{enumerate}
+\end{lem}
+\begin{proof}
+The first statement follows by the universal coefficient spectral sequence computing 
+\[ THC_E(R;M)\simeq F_{Q\wedge_E R^{\text{op}}} (Q,M) \]
+where $E=MU$, $R=\B$ and $M=Q=H\F_p$. The UCSS computing 
+\[THC_{MU}^*(\B;H\F_p)\] 
+has input 
+\[ \Ext_{\pi_*H\F_p\wedge_{MU}\B }^* (\F_p, \F_p)\cong P(\sigma  \tau_i \mid i\ge 3 )\otimes P(b_i \mid i\not \equiv 0 \pmod{p^k-1}, k\ge 1) \]
+and since all elements are in even total degree there is no room for differentials. (Note that by Koszul duality $\Tor_*^{P(b)}(\F_p,\F_p)\cong E(\delta b_i)$ and $\Ext^*_{E(\delta b_i)}(\F_p,\F_p)\cong P(b_i)$ for all $i$). Consequently, the spectral sequence  collapses. This proves the first statement. 
+
+There are three Bockstein spectral sequences to go from $THH_{MU}^*(\B;H\F_p)$ to $THH_{MU}^*(\B)$, but in each case all elements are in even columns and the spectral sequences collapse since there is an Adams style differential convention. This proves the the second statement and the third statement. 
+
+Now, by the commutative diagram
+\[
+\xymatrix{
+THC^*_{MU}(\B) \ar[r] \ar[d]& THH^*_{MU}(\B; H\F_p) \ar[d]  \\
+THC^*(\B) \ar[r] & THC^*(\B; H\F_p) }
+\]
+the last statement follows by the statement preceding it. It therefore remains to show that the map 
+\[ THC_{MU}^*(\B;H\F_p) \to THC^*(\B;H\F_p) \]
+sends $\sigma \tau_i$ to $c_{p^{i-3}}$ for $i\ge 3$. Recall the map  $H_*\B\to \pi_*H\F_p\wedge_{MU}\B$ sends $\tau_i$ to $\tau_i$ for $i\ge  3$. Tracing this through the induced map of universal coefficient spectral sequences produces the desired result. 
+\end{proof}
+
+Next we determine whether the elements $c_{p^{i-3}}$ are torsion by computing Hopf-algebra
+\[THC^*(\B;H\Z_{(p)}).\] 
+\begin{lem}
+There is an isomorphism of Hopf algebras 
+\[ THC^*(\B;H\Z_{(p)})\cong E_{\Z_{(p)}}(x_1,x_2)\otimes \Gamma_{\Z_{(p)}}(c_1)/(pc_1)\]
+where $x_1,x_2$ and $c_1$ are primitive. 
+\end{lem}
+\begin{proof}
+In general, if $R$ is a commutative ring spectrum and $H\Z_{(p)}$ is a commutative $R$-algebra, then $THH_*(R,H\Z_{(p)})$ is a $\Z_{(p)}$ Hopf-algebra spectrum whenever $THH_k(R;H\Z_{(p)})$ is a finitely generated $\Z_{(p)}$-algebra for all $k$. By Corollary \ref{BHZ}, $THH_*(\B;H\Z_{(p)})$ is a finitely generated $\Z_{(p)}$-algebra in each degree. Consequently, $THC^*(\B;H\Z_{(p)})$ is the the $\Z_{(p)}$-dual of $THH_*(\B;H\Z_{(p)})$ and it is also finitely generated in each degree and the Bockstein spectral sequence 
+\[ THC^*(\B;H\F_p)[v_0]\Rightarrow THC^*(\B;H\Z_{(p)})_p\]
+converges. Since multiplication by $p$ commutes with the coproduct this is a spectral sequence of Hopf algebras. In order for $THC^*(\B;H\Z_{(p)})$ to be $\Z_{(p)}$-dual to $THH_*(\B;H\Z_{(p)})$ the differentials
+\[ d_{i+1}(c_{p^{i}-1}x_3) \dot{=} v_0^{i+1}c_{p^i}\]
+are forced for $i\ge 0$ where $c_0=1$.
+\end{proof}
+Recall that there is a cap product 
+\[ THC^k(\B;H\Z_{(p)})\wedge THH_m(\B;H\Z_{(p)})\rightarrow THH_{m-k}(\B;H\Z_{(p)}).\]
+
+\begin{cor}
+For $k < n$, the cap product satisfies the following formulae
+\[c_k\cap a_n^{(m)} \dot{=} \binom{n-1}{k} a_{n-k}^{(m)}\]
+\[c_k\cap b_n^{(m)} \dot{=} \binom{n-1}{k} b_{n-k}^{(m)}\]
+for $1\le m \le 2$. 
+\end{cor}
+Since $c_{p^k}$ is $p^{k+1}$ torsion in $THH^*(\B;H\Z_{(p)})$ we see that $p^kc_{p^k}\ne 0$. However, in the Adams spectral sequence for $THH_*(\B;\tBP{1})$ and $THH_*(\B)$ these classes appear to be torsion free. The cap product is also natural and therefore it commutes with Bockstein spectral sequence differentials.

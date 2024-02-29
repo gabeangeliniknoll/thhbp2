@@ -1,0 +1,16 @@
+% root file is THHBP2.tex
+
+\section{Topological Hochschild comology of $BP\langle 2\rangle$ with coefficients}
+
+We will write $THC(BP\langle 2\rangle)$ for topological Hochschild cohomology of $BP\langle 2\rangle$, which may be defined as 
+\[ THC(BP\langle 2\rangle) = F_{BP\langle 2\rangle^e} (BP\langle 2\rangle,BP\langle 2\rangle) \]
+where $BP\langle 2\rangle^e:=BP\langle 2\rangle\wedge BP\langle 2\rangle^{\op}$. 
+We recall that there is a UCT spectral sequence computing $F_{BP\langle 2\rangle^e} (BP\langle 2\rangle,BP\langle 2\rangle)$ with input 
+\[ Ext_{ \pi_*(BP\langle 2\rangle^e)} (\pi_*(BP\langle 2\rangle),\pi_*(BP\langle 2\rangle)) \Rightarrow THC^*(BP\langle 2\rangle), \]
+but this is usually not computable. With coefficients in $H\mathbb{F}_p$, however, it is easily computable in this case. First, note that 
+\[ THH_*(BP\langle 2\rangle; H\mathbb{F}_p)\cong E(\lambda_1,\lambda_2,\lambda_3)\otimes P(\mu_3)\]
+ is a finitely generated $\mathbb{F}_p$-algebra and $THH(BP\langle 2\rangle; H\mathbb{F}_p))$ is an $H\mathbb{F}_p$-algebra. Also, by adjunction
+\[ F_{H\mathbb{F}_p} (THH(BP\langle 2 \rangle ) , H\mathbb{F}_p ) \simeq THC(BP\langle 2 \rangle , H\mathbb{F}_p). \] 
+Consequently, the UCT spectral sequence collapses and 
+\[ THC^*(THH(BP\langle 2 \rangle , H\mathbb{F}_p)\cong Hom_{\mathbb{F}_p}(THH_*(BP\langle 2 \rangle;H\mathbb{F}_p),\mathbb{F}_p) \cong E(x_1,x_2,x_3)\otimes \Gamma(c_1) \]
+where $|x_i|=2p^i-1$ and $|c_1|=2p^3$. The classes $x_i$ are dual to $\lambda_i$ and the class $c_i=\gamma_i(c_1)$ is dual to $\mu_3^i$.  

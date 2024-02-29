@@ -1,0 +1,42 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+\title{Notes on $THH(tmf_1(3);k(2))$ }
+\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item In McClure-Staffeldt and Angeltveit-Rognes, the first step in computation of the Bockstein spectral sequence 
+\[ THH_*(R;H\mathbb{F}_2)[v_n]\Rightarrow THH_*(R;k(n)) \]
+is to show that the unit map 
+\[ R\rightarrow THH(R) \]
+is a $K(n)_*$-equivalence and hence the map
+\[ L_{K(n)}R\rightarrow L_{K(n)}THH(R)\]
+is an equivalence. The first question is then, is this true for $R=tmf_1(3)$ and $n=2$? We have a sketch of a proof that we should write up rigorously (or at least we should write up the sketch before we forget it). [Also note that we may want to be careful about choosing the generators $v_n$ for $tmf_1(3)$ vs. $BP<2>$ and whether that has an effect on the computation]. 
+
+\item The next step is to show that the first item implies that 
+\[ v_n^{-1}V\wedge R \rightarrow v_n^{-1}V\wedge THH(R)\]
+is an en equivalence for some finite type $n$ complex $V$. This is an easy consequence in McClure-Staffeldt, and in Angeltveit-Rognes they are able to do this using the notion of a $\mu$-spectrum, which is weaker than a ring spectrum. The problem in our situation is that there doesn't exist a finite type $n$ complex $V$ such that $tmf_1(3)\wedge V\simeq k(2)$ (as is the case in all the other examples that McClure-Staffeldt and Angeltveit-Rognes consider). 
+
+We are therefore left with the following analogue of the same question: given item (1), is the map 
+\[ K(2)\rightarrow THH(tmf;K(2)) \]
+an equivalence? (Note that for $\ell$ the spectrum $v_1^{-1}S/p\wedge \ell$ is exactly $K(1)$ and 
+\[ THH(\ell;K(1))\simeq THH(\ell)\wedge_{\ell}K(1)\simeq THH(\ell)\wedge_{\ell} \ell \wedge v_1^{-1}S/p \]
+so this is really the same question). 
+
+\item We have a sketch that item (2) forces all the differentials in the Bockstein spectral sequence $THH_*(tmf_1(3);H\mathbb{F}_2)[v_2]\Rightarrow THH_*(tmf_1(3);k(2)).$ Prove that it does and prove the pattern of differentials. 
+
+\item Compute the Bockstein spectral sequence 
+\[ THH_*(tmf_1(3);H\mathbb{F}_2)[2]\rightarrow THH_*(tmf_1(3);H\mathbb{Z}_{2}) \]
+
+\item Another miscellaneous question:  As noted above, there is not a spectrum such that when we smash it with $tmf_1(3)$, we get $H\mathbb{F}_2$, but is there a spectrum (finite or maybe infinite complex) such that $V\wedge tmf_1(3)$ is as small as possible and $V_*THH(tmf_1(3))$ is reasonably computable? If so, then an alternate project that we could work on is computing this and then working on computing homotopy fixed points in order to detect $v_3$-periodic stuff. 
+\end{enumerate}
+(Feel free to add to or edit this list)
+\end{document}  

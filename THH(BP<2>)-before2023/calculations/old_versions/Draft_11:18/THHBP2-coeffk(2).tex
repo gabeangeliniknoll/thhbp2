@@ -1,0 +1,433 @@
+% root file is THHBP2.tex
+
+\section{Computation of $THH(\B;k(2))$}
+The goal of this section is to compute the homotopy groups of $\THH(\B; k(2))$. We achieve this through an analysis of the $v_2$-Bockstein spectral sequence \eqref{v_2BSS}. We first outline our strategy. 
+
+In \cites{McClureStaffeldt}, McClure-Staffeldt compute $\THH_*(\ell, k(1))$ by first arguing that upon inverting $v_1$, there is an isomorphism
+\begin{equation}\label{eqn:THH(ell;K(1))}
+	v_1^{-1}\THH_*(\ell;k(1))\cong K(1)_*
+\end{equation}
+when $p\ge 3$.
+This implies that in the abutment of the $v_1$-Bockstein spectral sequence
+\[
+\THH_*(\ell;\F_p)[v_1]\implies S/p_*\THH_*(\ell)
+\]
+all classes are $v_1$-torsion besides the powers of $v_1$. It turns out that there is only one of pattern of differentials that makes this possible, which gives a complete description of this spectral sequence.
+
+In this section we will use a similar method to compute $THH(\B;k(2))$. In particular, we will prove that in the abutment of the $v_2$-Bockstein spectral sequence 
+\[
+\THH_*(\B;\F_p)[v_2]\implies \THH_*(\B; k(2))
+\]
+all elements in the abutment are $v_2$-torsion except the powers of $v_2$. Generalizing naively, we would replace $S/p$ with $V(1)$, however, at $p=2$ the spectrum $V(1)$ does not exist and at $p=3$ the spectrum $V(1)$ is not a ring spectrum. 
+
+This potential issue can be easily avoided using the fact that 
+\[ S/p_*THH(\ell)\cong THH(\ell;k(1))\]
+and in our case we therefore compute $THH_*(\B;k(2))$. 
+
+Since $k(2)$ has a $v_2$-self map, there is an induced $v_2$-self map of $THH(\B;k(2)$ and we define 
+$v_2^{-1}THH(\B;k(2))$
+to be the colimit of iterations of this self-map. It is therefore clear that 
+\[
+v_2^{-1}\THH(\B;k(2))\simeq \THH(\B;K(2)). 
+\]
+and there is a canonical unit morphism 
+\[
+K(2)\to \THH(\B;K(2)). 
+\]
+We will therefore argue that this unit map is a $K(2)$-equivalence. Since the source and target are both $K(2)$-modules, and hence $K(2)$-local, this will show that the map is in fact an equivalence of spectra.
+
+To establish this, we just need to argue that 
+\[
+K(2)_*\THH(\B;K(2))\cong K(2)_*K(2). 
+\]
+Note that 
+\[ \THH(\B;K(2))\simeq K(2) \wedge_{\B\wedge \B}\B \]
+so their is an Eilenberg-Moore spectral sequence 
+\begin{equation}\label{EMss}
+\Tor^{(K(2)_*\B)^e}_{s,t}(K(2)_*K(2), K(2)_*\B)\implies K(2)_{s+t}(\THH(\B;K(2))).
+\end{equation}
+where 
+\[(K(2)_*\B)^e\cong (K(2)_*\B)\wedge_{K(2)_*}  (K(2)_*\B).\]
+Here we are using the fact that $K(2)_*\B$ is flat over $K(2)_*$, which follows because all $K(2)$-modules are free. 
+\begin{comment}
+First, recall that the Morava $K$-theories possess a K\"unneth isomorphism, which gives us a B\"okstedt spectral sequence 
+\begin{equation}\label{eqn:K(2)Bokstedt}
+\HH_*^{K(2)_*}(K(2)_*\B)\implies K(2)_*\THH(\B).
+\end{equation}
+We will analyze this spectral sequence below to show that $K(2)_*\THH(\B)$ is isomorphic to $K(2)_*\B$. This part of our analysis is a modification of the calculation of $K(1)_*\THH(\ell)$ found in \cite{McClureStaffeldt}. There is also a weak equivalence of spectra
+\[
+\THH(\B;K(2))\simeq K(2)\wedge_{\B}\THH(\B).
+\]
+To compute the $K(2)$-homology of this spectrum, we apply a Eilenberg-Moore spectral sequence (cf. \cite[IV, 6.4]{EKMM}), which takes the form 
+\[
+\Tor^{K(2)_*\B}_{s,t}(K(2)_*K(2), K(2)_*\THH(\B))\implies K(2)_{s+t}(\THH(\B;K(2))).
+\]
+Once we prove the isomorphism $K(2)_*\THH(\B)\cong K(2)_*\B$, the $E_2$-term is concentrated in $s=0$, resulting in the collapsing of this spectral sequence. This will show that 
+\[
+K(2)_*\THH(\B;K(2))\cong K(2)_*K(2)
+\]
+from which we can conclude that every class except those in $P(v_2)\subset \THH(\B;k(2))$ is $v_2$-torsion. From this we will deduce the differentials in the $v_2$-Bockstein spectral sequence. 
+\end{comment}
+\dom{Convergence issues in E-M spectral sequence?}
+ 
+\subsection{The $K(2)$-homology of $\THH(\B;K(2))$}
+
+To begin, we need to compute $K(2)_*\B$. 
+Since the Johnson-Wilson theory $E(2)$ is Landweber exact, one has 
+\[
+E(2)_*\B\cong E(2)_*\otimes_{BP_*}BP_*BP\otimes_{BP_*}\B_*.
+\]
+It is known that 
+\[
+BP_*BP\otimes_{BP_*}\B_*\cong BP_*[t_1, t_2, \ldots]/(\eta_R(v_i)\mid i\geq 3)
+\]
+where $\eta_R:BP_*\to BP_*BP$ denotes the right unit. Thus, 
+\[
+E(2)_*\B  \cong E(2)_*[t_i\mid i\ge 1]/(\eta_R(v_i)\mid i\geq 3).
+\]
+Since $K(2)$ is obtained from $E(2)$ by coning off $p$ and $v_1$, we find that 
+\[
+K(2)_*\B\cong K(2)_*[t_i\mid i\ge 1]/(\eta_R(v_i)\mid i\geq 3).
+\]
+We have the following congruences
+\[
+\eta_R(v_{2+k})\equiv v_2t_k^{p^2}-v_2^{p^{k}}t_k \mod (\eta_R(v_{3}), \ldots , \eta_R(v_{k+1})).
+\]
+in $K(2)_*BP$ for all $k\geq 1$ (cf. formula 6.1.13 of \cite{greenbook}). Thus, the following lemma follows.
+\begin{lem}
+	There is an isomorphism of graded rings
+	\begin{equation}
+	K(2)_*\B\cong K(2)_*[t_1, t_2, \ldots ]/(v_2t_k^{p^2}-v_2^{p^k}t_k\mid k\geq 1)
+	\end{equation}
+\end{lem}
+
+We proceed by analyzing the Eilenberg-Moore spectral sequence \eqref{EMss}. First, we note that the $E^2$-page is
+\[
+E^2_{*,*}\cong \HH_*^{K(2)_*}(K(2)_*\B;K(2)_*K(2)).
+\]
+We compute this $E^2$-page in the following proposition. 
+
+\begin{thm}\label{thm: HH of K(2)R}
+	The unit map induces an isomorphism of $K(2)_*$-modules
+	\[
+	K(2)_*K(2). \cong \HH^{K(2)_*}_*(K(2)_*\B;K(2)_*K(2)).
+	\]
+\end{thm}
+
+\begin{proof}
+First, we note that 
+the input of \eqref{EMss} is isomorphic to 
+\[K(2)_*K(2)\otimes_{K(2)_*}\Tor^{(K(2)_*\B)}(K(2)_*; K(2)_*)\]
+by Cartan-Eilenberg \cite{qx} and the same argument as appears in the proof of \cite{qx}.
+We will now argue that 
+\[ \Tor^{(K(2)_*\B)}(K(2)_*; K(2)_*)\cong K(2)_*.\]
+
+Recall that the topological degree of $t_k$ is $2(p^k-1)$, and that the degree of $v_2$ is $2(p^2-1)$. Thus $|v_2|$ divides $|t_k|$ if and only if $k$ is even. We observe that there is an isomorphism of $K(2)_*$-algebras
+\[
+K(2)_*\B \cong \bigotimes_k K(2)_*[t_k\mid k\ge 1]/(v_2t_k^{p^2}-v_2^{p^k}t_k).
+\] 
+Let $u_k=v_2^{m(k)}t_k$ where 
+\[
+m(k)=-p^{k-2}-p^{k-4} - \dots -p^2-1
+\] 
+when $2\mid k$ and and let $u_k=v_2^{\ell(k)}t_k$ where 
+\[
+\ell(k)=-p^{k-2}-p^{k-4} -\dots -p
+\] 
+when $k$ is odd. Thus
+\[
+|u_k|= 
+\begin{cases}
+	0 & k\equiv 0 \mod 2\\
+	2(p-1) & k\equiv 1 \mod 2
+\end{cases}.
+\]
+Define $A_n$ to be the subalgebra of $K(2)_*\B$ generated by $t_1, \ldots , t_n$, and let $A(t_k)$ denote the subalgebra generated by $t_k$ so that there is an isomorphism of $K(2)_*$-algebras
+\[ A_n\cong \bigotimes_{k=1}^{n}A(t_k).\] 
+Then there is an isomorphism of $K(2)_*$-algebras
+\[
+\Tor_*^{A_n}(K(2)_*;K(2)_*)\cong \bigotimes_{k=1}^n\Tor_*^{A(t_k)}(K(2)_*;K(2)_*)
+\]
+Since the functor $\Tor_*^{(-)}(K(2)_*;K(2)_*)$ commutes with filtered colimits of $K(2)_*$-algebras and $K(2)_*\B=\colim A_n$, it follows that there is an isomorphism of $K(2)_*$-algebras
+\[
+\Tor^{K(2)_*\B}(K(2)_*,K(2)_*)\cong \bigotimes_{k=1}^\infty \Tor^{A(t_k)}(\F_p).
+\]
+Thus, it suffices to compute $\Tor_*^{A(t_k)}(K(2)_*,K(2)_*)$. When $k$ is even, we have 
+\[
+A(t_k)= K(2)_*\otimes \F_p[u_k]/(u_k^{p^2}-u_k),
+\]
+in which case there is an isomorphism of $K(2)_*$-algebras
+\[
+\Tor^{A(t_k)}(K(2)_*,K(2)_*)\cong K(2)_*\otimes \Tor^{\F_p[u_k]/(u_k^{p^2}-u_k)}(\F_p,\F_p)
+\]
+by the base-change formula for $\Tor$. 
+Since the $\F_p$-algebra
+\[
+\F_p[u_k]/(u_k^{p^2}-u_k)
+\]
+is \'etale over $\F_p$, it follows that 
+\[
+\HH^{\F_p}(\F_p[u_k]/(u_k^{p^2}-u_k))\cong \F_p[u_k]/(u_k^{p^2}-u_k)
+\]
+by \cite{qx} and since 
+\[ \HH^{\F_p}(\F_p[u_k]/(u_k^{p^2}-u_k))\cong \F_p[u_k]/(u_k^{p^2}-u_k)\otimes \Tor_*^{\F_p[u_k]/(u_k^{p^2}-u_k)}(\F_p,\F_p)\]
+we see that 
+\[\Tor_*^{\F_p[u_k]/(u_k^{p^2}-u_k)}(\F_p,\F_p)\cong \mathbb{F}_p.\]
+
+When $k$ is odd,  there is again an isomorphism
+\[ \Tor^{\F_p[u_k]/(u_k^{p^2}-u_k)}(\mathbb{F}_p, \mathbb{F}_p)\cong \F_p\] because 
+$\F_p[u_k]/(u_k^{p^2}-u_k)$ is \'etale over $\F_p$.
+
+Consequently, there is an isomorphism of $K(2)_*$-algebras
+\[ \Tor^{K(2)_*\B}(K(2)_*,K(2)_*)\cong K(2)_* \]
+completing the proof.
+\end{proof}
+\begin{comment}
+Now, consider the Eilenberg-Moore spectral sequence 
+\[
+E^2_{s,t}\Tor^{K(2)_*\B}_{s,t}(K(2)_*K(2), K(2)_*\THH(\B))\implies K(2)_{s+t}(\THH(\B;K(2))).
+\]
+By the theorem, the $E^2$-term is isomorphic to 
+\[
+\Tor^{K(2)_*\B}(K(2)_*K(2), K(2)_*\B).
+\]
+Consequently the spectral sequence collapses to the $0$-line and $E_{*,*}^{\infty}\cong K(2)_*K(2)$. This proves the following corollary.
+\end{comment}
+The following corollary is immediate.
+\begin{cor}\label{cor:THH with K(2) coeff}
+	The $K(2)$-homology of $\THH(\B;K(2))$ is isomorphic to $K(2)_*K(2)$. Since $\THH(\B;K(2))$ is a free $K(2)$-module, it follows that the unit morphism
+	\[
+	K(2)\to \THH(\B;K(2))
+	\]
+	is a weak equivalence.
+\end{cor}
+
+\subsection{Differentials in the $v_2$-BSS}
+We now turn to analyzing the $v_2$-BSS \eqref{v_2BSS}. In particular, we will argue that Corollary \ref{cor:THH with K(2) coeff} implies a unique pattern of differentials in the spectral sequence. We adapt the proof of \cite{McClureStaffeldt} to our setting. 
+
+Recall that the $E_2$-term of the $v_2$-BSS is 
+\[
+\THH_*(\B;\F_p)[v_2]\cong P(v_2) \otimes E(\lambda_1,\lambda_2,\lambda_3)\otimes P(\mu_3),
+\]
+where
+$
+|\lambda_i| = (2p^i-1, 0)
+$
+and 
+$
+|\mu_3|=(2p^3,0).
+$
+It will be more convenient to work in the $v_2$-localized Bockstein spectral sequence. Since the $\lambda_i$ are in odd total degree and $1$ is $v_2$-torsion free, they cannot support a differential. If $\mu_3$ were a infinite cycle as well, then by multiplicativity of the Bockstein spectral sequence, it would follow that the spectral sequence collapses at the $E_1$-page. However, this would contradict Corollary \ref{cor:THH with K(2) coeff}. Therefore, $\mu_3$ supports a differential, the only possible differential for bi-degree reasons is 
+\[
+d_p(\mu_3)\dot{=}v_2^p\lambda_1.
+\]
+Thus, 
+\[
+v_2^{-1}E_{p+1}^{*,*}\cong K(2)_*\otimes E(\lambda_2, \lambda_3, \lambda_4)\otimes P(\mu_3^{p}),
+\]
+where $\lambda_4:=\lambda_1\mu_3^{p-1}$. Note that the bidegree of $\lambda_4$ is
+\[
+|\lambda_4| = (2p^4-2p^3+2p-1,0).
+\]
+In particular, its total degree is odd. So this class cannot support a differential which truncates the the $v_2$-tower on $\lambda_2$ or $\lambda_3$. So this class is an infinite cycle. By multiplicativity again, if $\mu_3^p$ were an infinite cycle, then the spectral sequence would collapse at $E_{p+1}$, which would contradict Corollary \ref{cor:THH with K(2) coeff}. So $\mu_3^p$ supports a differential. The only possibility is 
+\[
+d_{p^2}(\mu_3^p) \dot{=} v_2^{p^2}\lambda_2.
+\]  
+Thus, there is an isomorphism
+\[
+v_2^{-1}E_{p^2+1}^{*,*}\cong K(2)_*\otimes E(\lambda_3, \lambda_4, \lambda_5)\otimes P(\mu_3^{p^2})
+\]
+where 
+\[
+\lambda_5:= \lambda_2\mu_3^{p^2-p}.
+\]
+The bidegree of this class is 
+\[
+|\lambda_5| = (2p^5-2p^4+2p^2-1,0).
+\]
+Since $\lambda_3, \lambda_4, \lambda_5$ all have odd total degree, they are necessarily infinite cycles. As before, the class $\mu_3^{p^2}$ must support a differential. The only possibility is 
+\[
+d_{p^3}(\mu_3^{p^2})\dot{=}v_2^{p^3}\lambda_3.
+\]
+This shows that 
+\[
+v_2^{-1}E_{p^3+1}^{*,*}\cong K(2)_*\otimes E(\lambda_4,\lambda_5, \lambda_6)\otimes P(\mu_3^{p^4})
+\]
+where
+\[
+\lambda_6:= \lambda_3\mu_3^{p^2(p-1)} = \lambda_3\mu_3^{p^3-p^2},
+\]
+so that the bidegree of $\lambda_6$ is 
+\[
+|\lambda_6|=(2p^6-2p^5+2p^3-1,0).
+\]
+Consequently, as we saw before, the class $\lambda_6$ cannot support a differential, and hence is an infinite cycle. As before, the class $\mu_3^{p^3}$ must support a differential. An elementary calculation shows the only possibility is 
+\[
+d_{p^4+p}\mu^{p^3}\dot{=} v_2^{p^4+p}\lambda_4
+\]
+
+Recursively define a function $d(n)$ by 
+\[
+d(n):= 
+\begin{dcases*}
+	2p^n-1 & if $1\leq n \leq 3$\\
+	2p^3(p^{n-3}-p^{n-4}) + d(n-3) & if  $n>3$ 
+\end{dcases*}
+\]
+and recursively define classes $\lambda_n$ by 
+\[
+\lambda_n:= \begin{cases}
+	\lambda_n & 1\leq n \leq 3\\
+	\lambda_{n-3}\mu^{p^{n-4}(p-1)} & n>3
+\end{cases}.
+\]
+Then a simple inductive argument shows that the bidegree of $\lambda_n$ is given by
+\begin{equation}
+	|\lambda_n| = (d(n),0). 
+\end{equation}
+Notice that $d(n)$ is always odd, and so $\lambda_n$ is always in odd total degree. A simple induction shows that 
+\[
+d(n)=
+\begin{cases}
+	2p^n-2p^{n-1}+2p^{n-2}-2p^{n-3}+\cdots + 2p-1 & n\equiv 1 \mod 3\\
+	2p^n-2p^{n-1}+2p^{n-2}-2p^{n-3}+\cdots + 2p^2-1 & n\equiv 2 \mod 3\\
+	2p^n-2p^{n-1}+2p^{n-2}-2p^{n-3}+\cdots + 2p^3-1 & n\equiv 0 \mod 3
+\end{cases}.
+\]
+
+\begin{lem}\label{lem:v2divisibility}
+	The integer $2p^{n+2}-d(n)-1$ is divisible by $|v_2|$.
+\end{lem}
+\begin{proof}
+	We proceed by induction. The base case easily holds because $2p^3-2p$ is divisible by $2p^2-2$. Since
+	\[
+	(2p^{n+3}-1)-d(n+1) = (2p^2-2)p^n + (2p^{n}-d(n-2)-1),
+	\]
+	the induction hypothesis implies $(2p^{n+3}-1)-d(n+1)$ is divisible by $2p^2-2$. 
+\end{proof}
+
+
+Now let $r(n)$ be the function given by 
+\[
+r(n):= |v_2|^{-1}(2p^{n+2}-d(n)-1).
+\]
+
+Then we obtain as a corollary to the lemma, 
+\begin{cor}
+The function $r(n)$ is given by 
+\[
+r(n) = \begin{cases}
+	p^n+p^{n-3}+ \cdots +p^4+p & n\equiv 1 \mod 3\\
+	p^n+p^{n-3}+ \cdots + p^5+p^2 & n\equiv 2 \mod 3\\
+	p^n+p^{n-3}+ \cdots +p^6+ p^3 & n\equiv 0 \mod 3
+\end{cases}.
+\]	
+\end{cor}
+
+We are now in a position to determine the differentials in the spectral sequence. 
+
+\begin{thm}\label{key to proof}
+In the $v_2$-BSS, one has 
+\begin{enumerate}
+	\item The only nonzero differentials are in $v_2^{-1}E_{r(n)}$.
+	\item The page $v_2^{-1}E_{r(n)}$ is given by 
+	\[
+	v_2^{-1}E_{r(n)}\cong K(2)_*\otimes E(\lambda_n, \lambda_{n+1}, \lambda_{n+2})\otimes P(\mu_3^{p^{n-1}}). 
+	\]
+	Moreover, $\lambda_n, \lambda_{n+1},\lambda_{n+2}$ are infinite cycles. 
+	
+	\item The differential $d_{r(n)}$ is determined by the multiplicativity of the BSS and 
+	\[
+	d_{r(n)}\mu_3^{p^{n-1}}=v_2^{r(n)}\lambda_n. 
+	\]
+\end{enumerate}	
+\end{thm}
+\begin{proof}
+	We proceed by induction, having already shown the theorem for $n\leq 4$. Assume inductively that 
+	\[
+	v_2^{-1}E_{r(n)}^{*,*}\cong K(2)_*\otimes E(\lambda_n, \lambda_{n+1}, \lambda_{n+2})\otimes P(\mu_3^{p^{n-1}}).
+	\] 
+	By the inductive hypothesis, $\lambda_n, \lambda_{n+1}$ are infinite cycles. Since $\lambda_n, \lambda_{n+1}, \lambda_{n+2}$ all have odd total degree, it follows that a differential on $\lambda_{n+2}$ cannot truncate the $v_2$-towers on $\lambda_n$ or $\lambda_{n+1}$. Therefore, the only possibility is that $\lambda_n$ supports a differential hitting $v_2^j$ for some positive integer $j$. 
+	But that would contradict Corollary \ref{cor:THH with K(2) coeff}. So $\lambda_{n+2}$ must also be a cycle.
+	
+	If the class $\mu_3^{p^{n-1}}$ does not support a differential then by multiplicativity the spectral sequence would collapse at $E_{r(n)}$, and this would contradict Corollary \ref{cor:THH with K(2) coeff}. Thus $\mu_3^{p^{n-1}}$ supports a differential. Lemma \ref{lem:v2divisibility} and a simple modular arithmetic argument shows that the only possibility is 
+	\[
+	d_{r(n)}\dot{=}v_2^{r(n)}\lambda_n.
+	\]
+	Since the differential satisfies the Leibniz rule, this gives
+	\[
+	v_2^{-1}E_{r(n)+1}\cong K(2)_*\otimes E(\lambda_{n+1},\lambda_{n+2}, \lambda_{n+3})\otimes P(\mu_{3}^{p^n}).
+	\]
+	This completes the inductive step, proving the theorem.
+\end{proof}
+
+We now state the main theorem of this section. 
+\begin{thm}\label{mod p v_1}
+For each $n \ge 2$ and each nonnegative integer $m$ with $m \not\equiv p - 1 \mod{p}$ there are elements $y_{n,m}$ and $y^{\prime}_{n,m}$ and $y^{\prime \prime}_{n,m}$ in $THH_*(\B;k(2))$ such that
+\begin{enumerate} 
+\item $y_{n,m}$ projects to $\lambda_n\mu^{mp^{n-1}}$ in $E_{\infty}^{*,0}$
+\item $y_{n,m}^{\prime}$ projects to $\lambda_n\lambda_{n+1}\mu^{mp^{n-1}}$ in $E_{\infty}^{*,0}$
+\item $y_{n,m}^{\prime\prime}$ projects to $\lambda_n\lambda_{n+1}\lambda_{n+2}\mu^{mp^{n-1}}$ in $E_{\infty}^{*,0}$
+\end{enumerate}
+ As a $P(v_2)$-module, $THH_*(\B;k(2))$ is generated by the unit element
+$1$ and the elements $y_{n,m},y_{n,m}^{\prime},y_{n,m}^{\prime \prime}$. The only relations are
+\[v_n^{r(n)}y_{n,m}=v_n^{r(n)}y_{n,m}^{\prime}=v_n^{r(n)}y_{n,m}^{\prime\prime}=0.\]
+\end{thm}
+This theorem will follow from the previous results and two additional lemmas. 
+Let $P(m)$ denote a free rank one $P(v_m)$-module and let $P(m)_i$ denote the $P(v_m)$-module $P(m)/v_m^i$. Let $X$ be a $\tBP{n}$-module such that $H_*X\cong H_*\tBP{n}\otimes H_*(\overline{X})$ as a $H_*X$-module and consider the Adams spectral sequence
+\begin{equation}\label{ASSX} E_2^{*,*}(X)=Ext_{E(Q_m)}^{*,*}(\F_p,H_*(\overline{X}))\Rightarrow \pi_*(X\wedge_{\tBP{n}}k(m))_p\end{equation}
+and the $v_n$-inverted Adams spectral sequence 
+\begin{equation}\label{v2invertASSX} v_m^{-1}E_2^{*,*}(X)=v_m^{-1}Ext_{E(Q_m)}^{*,*}(\F_p,H_*(\overline{X})) \Rightarrow \pi_*(X\wedge_{\tBP{n}}K(m))_p\end{equation}
+There is a map of spectral sequences 
+\[ E_2^{*,*}(X) \longrightarrow v_m^{-1}E_2^{*,*}(X)\]
+induced by the localization map $k(m)\to v_m^{-1}k(m)=K(m).$ 
+
+\begin{lem}\label{mod p v_n}
+Let $r\ge 2$. Suppose the $E_r(X)$-page of the Adams spectral sequence \eqref{ASSX} is generated by elements in filtration $0$ as a $P(k)$-module and $E_r^{*,*}(X)$ is a direct sum of copies of $P(k)$ and $P(k)_i$ with $i\le r$ as a $P(k)$-module. Then
+\begin{enumerate}
+\item{} the map of $E_r$-pages
+\[ E_r^{s,t}(X) \to v_k^{-1}E_r^{s,t}(X) \]
+is a monomorphism when $t\ge r+1\ge 3$. 
+\item{} Also, the differentials in $E_{r+1}^{*,*}$ are the same as their image in $v_k^{-1}E_{r+1}^{*,*}$. 
+\end{enumerate}
+\end{lem}
+\begin{proof}
+Statement (1) is a consequence of our assumptions since elements in filtration $r+1$ are $v_k$-torsion free. 
+To prove statement (2) it suffices to prove the following: if $x\in E_r(X)$ maps to a cycle $\bar{x}\in v_k^{-1}E_r(X)$ ,then $x$ is a cycle. By our assumption, there is an $a\in E_r^{*,0}$ such that $x=v_k^ma$. Statement (1) then implies $d_{r+1}(a)=0$ so since the differentials are $v_k$-linear the result follows. 
+\end{proof}
+\gabe{In MS, they claim that the proof works for $t\ge r-1\ge 1$ and $E_{r}^{*,*}$, but I don't see why they get indices instead of the ones I have here.}
+\begin{rem}
+The Lemma above is a generalization of part (a) and (b) of Lemma qx \cite{qx}. This level of generality of the lemma was certainly known to the McClure-Staffeldt and it is mentioned in Remark \cite{qx}. 
+\end{rem}
+\begin{lem} \label{lem mod p v_1}
+For $r\ge 2$ and $n=2$, the $E_r(THH(\B))$-page of the Adams spectral sequence is generated by elements in filtration $0$ as a $P(2)$-module and $E_{r}^{*,*}$ is a direct sum of copies of $P(2)$ and $P(2)_i$ for $i\le r$. 
+\end{lem}
+\begin{proof}
+We will begin by proving the first statement by induction. Note that \eqref{eqn:HTHH(R;F_p)} implies the base case in the induction when $r=2$. Suppose the statement holds for some $r$. Choose a basis $z_i$ for the $\mathbb{F}_p$-vector space $V_r$ such that $V_r=\{ x \in E_r^{*,0}\mid v_2^{r-1}x=0\}$. Then $d_r(z_i)$ is in filtration $r$ and since the differentials are $v_2$-linear, $v_2^{r-1}d_r(z_i)=0$. However, this contradicts the induction hypothesis because the induction hypothesis implies that all elements in filtration $r$ are $v_2$-torsion-free. Thus, each basis element $z_i$ is a $d_r$-cycle. Next choose a set of elements $\{z^{\prime}_j\}\subset E_r^{*,0}$ such that $\{d_r(z_j^{\prime})\}$ is a basis for $\im(d_r\co E_r^{*,0}\to E_r^{*,r})$. Choose $z^{\prime\prime}_j\in E_r^{*,0}$ such that $v_2^{r}z^{\prime\prime}_j=d_r(z_j^{\prime})$. Then $z^{\prime\prime}_j$ are $d_r$-cycles and $z^{\prime \prime}_j$ and $z_j$ are linearly independent. We can therefore choose $d_r$-cycles $z^{\prime \prime\prime}_j$ such that $\{z_j\}\cup\{z_j^{\prime\prime}\}\cup\{z_j^{\prime\prime\prime}\}$ are a basis for the $d_r$-cycles in $E_{r}^{*,0}$. Then 
+$\{z_j\}\cup\{z_j^{\prime}\}\cup \{z_j^{\prime\prime}\}\cup\{z_j^{\prime\prime\prime}\}$
+are a basis for $E_r^{*,0}$ and the differential is completely determined by the formulas
+\[ \begin{array}{cccc} d_r(z_i)=0 , &d_r(z_j^{\prime})=v_2^{r}z_j^{\prime \prime}, & d_r(z_j^{\prime \prime})=0, \text{ and } & d_r(z_j^{\prime \prime \prime})=0. \end{array}\]
+Thus, $E_r^{*,*}$ is generated as a $P$-module by $z_i,$ $z_i^{\prime \prime}$, and $z_i^{\prime \prime\prime}$ where $v_2^{r-1}z_i=0$ and $v_2^rz_i^{\prime \prime}=0$ and $z_i^{\prime \prime \prime}$ is $v_2$-torsion free. \end{proof}
+\begin{proof}[Proof of Theorem \ref{mod p v_1}]
+For brevity, we will write $\gamma_{n,m}=\lambda_n\mu^{mp^{n-1}}$, $\gamma_{n,m}^{\prime}=\lambda_n\lambda_{n+1}\mu^{mp^{n-1}}$ and $\gamma_{n,m}^{\prime\prime}=\lambda_n\lambda_{n+1}\lambda_{n+2}\mu^{mp^{n-1}}$. 
+By Lemma \ref{lem mod p v_1} and Lemma \ref{mod p v_n} it suffices to prove that the elements $\gamma_{n,m}$, $\gamma_{n,m}^{\prime}$, and $\gamma_{n,m}^{\prime\prime}$ are infinite cycles, that together with $1$ they form a basis for $E_{\infty}^{*,0}$ as an $\mathbb{F}_p$-vector space, and that each of $\gamma_{n,m}$, $\gamma_{n,m}^{\prime}$ and $\gamma_{n,m}^{\prime\prime}$ are killed by $v_2^{r(n)}$. By induction on $n$, we will prove
+\[ E_{r(n)}(THH(\B))\cong M_n\oplus E(\lambda_n,\lambda_{n+1},\lambda_{n+2})\otimes P(\mu^{p^{n-1}})\]
+where $M_n$ is generated by $\{\gamma_{k,m}, \gamma_{k,m}^{\prime}\gamma_{k,m}^{\prime\prime}\mid k<n\}$ modulo the relations 
+\[v_2^{r(k)}\gamma_{k,m}=v_2^{r(k)}\gamma_{k,m}^{\prime}=v_2^{r(k)}\gamma_{k,m}^{\prime\prime}=0. \]
+This statement holds for $n=1$ by \eqref{eqn:HTHH(R;F_p)}. Assume the statement holds for all integers less than or equal to some $N>1$. Lemma \ref{lem mod p v_1}, Lemma \ref{mod p v_n} and Theorem \ref{key to proof} imply that the only nontrivial differentials with source in $E_{r(N)}^{*,0}$ are the differentials
+\[ d_{r(N)}(\mu^{(m+1)r(N)}=(m+1)v_2^{r(N)}\lambda_N\mu^{mp^{N-1}}\dot{=}\gamma_{N,m},\]
+the differentials 
+\[ d_{r(N)}(\lambda_{N+1}\mu^{(m+1)r(N)}=(m+1)v_2^{r(N)}\lambda_n\lambda_{N+1}\mu^{mp^{N-1}}\dot{=}\gamma_{N,m}^{\prime}\]
+and the differentials
+\[ d_{r(N)}(\lambda_{N+2}\lambda_{N+1}\mu^{(m+1)r(N)}=(m+1)v_2^{r(N)}\lambda_N\lambda_{N+1}\lambda_{N+2}\mu^{mp^{N-1}}\dot{=}\gamma_{N,m}^{\prime \prime}\]
+where $m\not \equiv p-1 \mod{p}$. Combining this with Lemma \ref{lem mod p v_1} and Lemma \ref{mod p v_n}, this implies that
+\[ E_{r(N)+1}(\THH(\B))\cong M_n\oplus V_{N+1}\oplus \left ( P(2)\otimes E(\lambda_{N+1},\lambda_{N+2},\lambda_N\mu_3^{(p-1)p^N-1} )\otimes P(\mu^{p^N})\right )\]
+where $V_{N+1}$ has generators $\gamma_{N,m},$ $\gamma_{N,m}^{\prime}$, and $\gamma_{N,m}^{\prime\prime}$ and relations 
+\[ v_2^{r(N)}\gamma_{N,m}=v_2^{r(N)}\gamma_{N,m}^{\prime}=v_2^{r(N)}\gamma_{N,m}^{\prime\prime}=0.\]
+By Lemma \ref{lem mod p v_1}, Lemma \ref{mod p v_n} and Theorem \ref{key to proof} there is an isomorphism
+\[ E_{r(N)+1}(\THH(\B))\cong E_{r(N+1)}(\THH(\B)).\] 
+Also, note that $M_N\oplus V_{N+1}=M_{N+1}$ and $\lambda_N\mu_3^{(p-1)p^N-1}=\lambda_{N+3}$ by definition. This completes the inductive step and consequently the proof.
+\end{proof}
+
+
+

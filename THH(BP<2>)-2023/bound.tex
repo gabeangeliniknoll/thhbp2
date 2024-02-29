@@ -1,0 +1,75 @@
+\section{Bounding Hochschild homology of $\BP\langle n\rangle$}
+The goal of this section is to use the cosimplicial descent spectral sequence from work of \cite{DR18} to produce a useful upper bound on $\THH_{*}(\BP\langle n\rangle)$. 
+\begin{definition}
+Let $C^{\bullet}(A/B)$ denote the cosimplicial cobar complex with $q$-simplices $C^{q}(A/B)=A^{\otimes_{B}q+1}$.
+\end{definition}
+
+First, we need a lemma. 
+
+\begin{lemma}\label{cobar lemma}
+Let $n\ge 1$. There is an isomorphism rings
+\[\rE_{2}^{*,*}\cong \Tor^{\pi_{*}\BP\langle n-1\rangle \wedge \BP\langle n-1\rangle }(\BP \langle n-1\rangle,\BP \langle n-1\rangle)\otimes \Gamma \{ \sigma^{2}v_{n}^{(j)}: 1\le j\le q\}\otimes \Lambda (\sigma v_{1}^{(j)} : 1\le j\le q ) 
+\]
+where 
+\[\rE_{2}^{*,*}=\pi_{*}\left ( \pi_{*}H\pi_{*}\THH(\BP\langle n-1\rangle)^{\wedge_{H\pi_{*}\THH(\BP\langle n\rangle)}q+1} \right )\]
+is the $\rE_{2}$-term of the multiplicative K\"unneth spectral sequence
+\[ \rE_{2}^{*,*}\implies \THH_{*}(\BP\langle n-1\rangle^{\wedge q+1})\,.\]
+\end{lemma}
+\begin{proof}
+When $q=0$, then $\THH(\BP\langle n-1\rangle^{\wedge_{\BP\langle n\rangle}q+1})=\THH(\BP\langle n-1\rangle)$. 
+We first compute 
+$\pi_{*}(\BP\langle n-1\rangle\otimes_{\BP\langle n\rangle}\BP\langle n-1\rangle)$ by a K\"unneth spectral sequence. 
+The $E_{2}$-term is $\BP\langle n-1\rangle_{*}\otimes \Lambda (\sigma v_{n})$ so it is concentrated in K\"unneth filtration $[0,1]$ and therefore the spectral sequence collapses because the targets of all differentials are zero groups. 
+We then use the equivalence 
+\begin{align*}
+A\wedge_{B}A\wedge_{B}A\simeq (A\wedge_{B}A)\wedge_{A}(A\wedge_{B}A)
+\end{align*}
+where $A=\BP\langle n-1\rangle$ and $B=\BP\langle n\rangle$ and the fact that $\pi_{*}(\BP\langle n-1\rangle\wedge_{\BP\langle n\rangle}\BP\langle n-1\rangle)$ is free as a $\BP\langle n-1\rangle_{*}$-module to inductively determine from the K\"unneth spectral sequence that 
+\[ \pi_{*}(\BP \langle n-1\rangle ^{\wedge_{\BP\langle n\rangle}q+1})\cong \BP\langle n-1\rangle_{*}\otimes \Lambda (\sigma v_{n}^{(1)},\dots ,\sigma v_{n}^{(q)})\,.\]
+By obstruction theory, we determine that $\BP \langle n-1\rangle ^{\wedge_{\BP\langle n\rangle}q+1}$ is the smash product of square zero extensions 
+\[ \left ( BP\langle n-1\rangle \vee \Sigma^{2p-1} BP\langle n-1\rangle \right )^{\wedge_{ BP\langle n-1\rangle}q} \,.\]
+Consequently, we determine that 
+\[ \pi_{*}\left ( \BP \langle n-1\rangle ^{\wedge_{\BP\langle n\rangle}q+1} \right )^{\wedge 2}\cong \pi_{*}(\BP \langle n-1\rangle^{\wedge 2})\otimes \Lambda (\sigma v_{n}^{(1)},\dots ,\sigma v_{n}^{(q)})^{\wedge 2} \,.\]
+We then note that the K\"unneth spectral sequence sequence computing 
+\[\THH_{*}(\BP \langle n-1\rangle^{\wedge_{\BP\langle n\rangle} q+1} )\] 
+has $\rE_{2}$-term
+\[ \Tor^{\pi_{*}\BP\langle n-1\rangle \wedge \BP\langle n-1}(\BP \langle n-1\rangle,\BP \langle n-1\rangle)\otimes \Gamma (\sigma^{2} v_{n}^{(1)},\dots ,\sigma^{2}v_{n}^{(q)})\otimes \Lambda (\sigma v_{n}^{(1)},\dots ,\sigma v_{n}^{(q)})\]
+and that is exactly what we describe in the statement of the lemma. 
+\end{proof}
+
+\begin{proposition}\label{induction spectral sequence}
+There is an equivalence 
+\[ 
+	\THH(\BP\langle n \rangle)\simeq \Tot \left ( \THH(C^{\bullet}(\BP\langle n-1\rangle/\BP\langle n\rangle)) \right ).
+\]
+Consequently, there is a spectral sequence 
+\[ 
+	\pi_{t-s}\lim_{\Delta} \Tot H\pi_s\THH(C^{\bullet}(\BP\langle n-1\rangle/\BP\langle n\rangle))\implies \pi_{t-s}\THH(\BP\langle n\rangle)
+\]
+associated to the filtration 
+\begin{equation}\label{Tot-filtration}
+	\lim \Tot \tau_{\ge s}\THH(C^{\bullet}(\BP\langle n-1\rangle/\BP\langle n\rangle))\,.
+\end{equation}
+The $E_2$-term is
+\[ \THH_*(BP\langle n-1\rangle)\otimes_{\mathbb{Z}_{(p)}} \Lambda_{\mathbb{Z}_{(p)}} (\sigma v_n) \,.\]
+Consequently,
+\[ |\THH_{t}(BP\langle n \rangle)|\le |\THH_{t}(BP\langle n-1 \rangle)| + |\THH_{t-2p^{n}+1}(BP\langle n-1 \rangle)|\]
+\end{proposition}
+\begin{proof}
+Since $\mathrm{BP}\langle n\rangle\to \mathrm{BP}\langle n-1\rangle$ is an isomorphism on $\pi_i$ for $i=0,1$ the first statement follows directly from \cite[Theorem 3.7]{DR18}. 
+The second statement follows from \cite[Remark 3.7]{GIKR22} which identifies the filtration \eqref{Tot-filtration} with the d\'ecalage (cf. \cite[pp. 21]{Del71}) of the filtration whose associated graded is the $E_{1}$-term of the Bousfield--Kan spectral sequence. 
+
+It therefore suffices to compute the $E_{2}$-term, which is the cohomology of the Hopf algebroid $(\THH_{*}(\BP\langle n-1\rangle), \THH_{*}(\BP\langle n-1\rangle)\otimes \Gamma \{ \sigma^{2}v_{n} \} )$ by Lemma \ref{cobar lemma}. 
+We note from the proof of Lemma \ref{cobar lemma} that this Hopf algebroid is the tensor product of the Hopf algebroids 
+$(\THH_{*}(\BP\langle n-1\rangle), \THH_{*}(\BP\langle n-1\rangle))$ and $(\mathbb{Z}_{(p)},\Gamma_{\mathbb{Z}_{(p)}} \{ \sigma^{2}v_{n})\} $. 
+Consequently, the cohomology of this Hopf algebroid is $\THH_{*}(\BP\langle n-1\rangle )\otimes \Lambda (\sigma v_{n})$ as desired. 
+\end{proof}
+
+\begin{example}
+We consider the case $n=1$. Then there is a spectral sequence 
+\[ \THH_{*}(H\mathbb{Z})\otimes \Lambda (\sigma v_{2})\implies \THH_{*}(\ell) \,.\]
+
+
+\end{example}
+
+

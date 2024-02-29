@@ -1,0 +1,358 @@
+
+\documentclass[12pt]{amsart}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{lscape,xcolor}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+%\usepackage{mathrools}
+\usepackage{stmaryrd}
+\usepackage{verbatim}
+\usepackage{rotating}
+\usepackage{tikz-cd}
+\usepackage{amsrefs}
+\usepackage{hyperref}
+\usepackage{euscript}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{spectralsequences}
+\usepackage[all,cmtip]{xy}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palatino needs more leading (space between lines)
+\usepackage[T1]{fontenc}
+
+\usepackage[OT2,T1]{fontenc}
+\newcommand\textcyr[1]{{\fontencoding{OT2}\fontfamily{wncyr}\selectfont #1}}
+
+
+%\usepackage{luasseq}
+\usepackage{xcolor}
+\definecolor{seagreen}{RGB}{46,139,87}
+\definecolor{maroon}{RGB}{128,0,0}
+\definecolor{darkviolet}{RGB}{148,0,211}
+\definecolor{twelve}{RGB}{100,100,170}
+\definecolor{thirteen}{RGB}{100,150,50}
+\definecolor{fourteen}{RGB}{200,0,0}
+\definecolor{fifteen}{RGB}{0,200,0}
+\definecolor{sixteen}{RGB}{0,0,200}
+\definecolor{seventeen}{RGB}{200,0,200}
+\definecolor{eighteen}{RGB}{0,200,200}
+
+
+
+\parskip 0.7pc
+\parindent 0pt
+
+\allowdisplaybreaks[1]
+
+%%%%%%%%%%%%%%% Basic commands %%%%%%%%%%%%%%%%%%
+\newcommand{\dotequiv}{\overset{\scriptstyle{\centerdot}}{\equiv}}
+\newcommand{\nd}{\not\!|}
+\newcommand{\mmod}{\! \sslash \!}
+
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\ull}[1]{\underline{#1}}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mr}[1]{\mathrm{#1}}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\mit}[1]{\mathit{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\ms}[1]{\mathscr{#1}}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\bra}[1]{\langle #1 \rangle}
+\newcommand{\br}[1]{\overline{#1}}
+\newcommand{\brr}[1]{\overline{\overline{#1}}}
+\newcommand{\td}[1]{\widetilde{#1}}
+\newcommand{\tdd}[1]{\widetilde{\widetilde{#1}}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\MS}{\mathbb{S}}
+\newcommand{\PP}{\mathbb{P}}
+
+\newcommand{\euscr}[1]{\EuScript{#1}}
+
+%%%%%%%%%%%%%%%%% Spectra %%%%%%%%%%%%%%%
+
+\newcommand{\tBP}[1]{BP\bra{#1}}
+\newcommand{\AF}{\mr{AF}}
+\newcommand{\TAF}{\mathrm{TAF}}
+\newcommand{\TMF}{\mathrm{TMF}}
+\newcommand{\Tmf}{\mathrm{Tmf}}
+\newcommand{\tmf}{\mathrm{tmf}}
+\newcommand{\bo}{\mathrm{bo}}
+\newcommand{\bsp}{\mathrm{bsp}}
+\newcommand{\HZ}{\mr{H}\Z}
+\def \HF2{\mr{H}\F_2}
+\newcommand{\bu}{\mr{bu}}
+\newcommand{\MU}{\mr{MU}}
+\newcommand{\KU}{\mr{KU}}
+\newcommand{\KO}{\mr{KO}}
+\newcommand{\EO}{\mr{EO}}
+\newcommand{\BP}{\mr{BP}}
+\newcommand{\K}{\mr{K}}
+\newcommand{\ku}{\mathrm{ku}}
+
+%%%%%%%%%%%%%%% Operators %%%%%%%%%%%%%%
+
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Sta}{Sta}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator*{\holim}{holim}
+\DeclareMathOperator*{\hocolim}{hocolim}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\Tot}{Tot}
+\DeclareMathOperator{\Spf}{Spf}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+
+\DeclareMathOperator{\THH}{THH}
+
+\DeclareMathOperator{\sq}{Sq}
+\newcommand{\zetab}{{\zeta}}
+\newcommand{\s}{\wedge}
+\newcommand{\Si}{\Sigma}
+\newcommand\floor[1]{\lfloor#1\rfloor}
+
+%%%%%%%%%%%%% Steenrod Algebra & Brown-Gitler Modules %%%%%%%%%%%
+
+\newcommand{\A}{\ms{A}}
+\newcommand{\sE}{\ms{E}}
+\newcommand{\HZu}{\ull{\HZ}}
+\newcommand{\bou}{\ull{\bo}}
+\newcommand{\tmfu}{\ull{\tmf}}
+\newcommand{\tBPu}[1]{\ull{\tBP{#1}}}
+\newcommand{\buu}{\ull{\bu}}
+\def \AA0{\br{A \mmod A(0)}_*}
+\def \AA2{A\mmod A(2)_*}
+\def \AE2{A\mmod E(2)_*}
+\renewcommand{\AE}[1]{A\mmod E(#1)_*}
+\DeclareMathOperator{\wt}{\mathrm{wt}}
+\def \E2E1{(E(2)\mmod E(1))_*}
+
+
+
+%%%%%%%%%%%%%%%% Categories %%%%%%%%%%%%%
+
+\newcommand{\Top}{\mathsf{Top}}
+\newcommand{\Operad}{\mathsf{Operad}}
+\newcommand{\Alg}{\mathsf{Alg}}
+\newcommand{\Monad}{\mathsf{Monad}}
+\newcommand{\Set}{\mathsf{Set}}
+\newcommand{\sSet}{\mathsf{sSet}}
+\newcommand{\Man}{\mathsf{Man}}
+\newcommand{\Presheaf}{\mathsf{Presheaf}}
+\newcommand{\Fun}{\mathsf{Fun}}
+\newcommand{\Grpd}{\mathsf{Grpd}}
+\newcommand{\op}{\mathrm{op}}
+
+
+%%%%%%%%%%%%%%% Homological Algebra %%%%%%%
+
+\newcommand{\cone}[1]{\mathrm{cone}\left(#1\right)}
+
+
+%%%%%%% for numbered theorems %%%%%%%%%
+ \newtheorem{thm}[equation]{Theorem}
+ \newtheorem{cor}[equation]{Corollary}
+ \newtheorem{lem}[equation]{Lemma}
+ \newtheorem{prop}[equation]{Proposition}
+ \newtheorem{obs}[equation]{Observation}
+  \newtheorem{rem}[equation]{Remark}
+ 
+ \newtheorem*{thm*}{Theorem}
+ \newtheorem*{cor*}{Corollary}
+ \newtheorem*{lem*}{Lemma}
+ \newtheorem*{prop*}{Proposition}
+  \newtheorem*{not*}{Notation}
+
+ 
+ \theoremstyle{definition}
+ \newtheorem{defn}[equation]{Definition}
+ \newtheorem{ex}[equation]{Example}
+ \newtheorem{exs}[equation]{Examples}
+ \newtheorem{rmk}[equation]{Remark}
+\newtheorem{claim}[equation]{Claim}
+ \newtheorem{question}[equation]{Question}
+ \newtheorem{conjecture}[equation]{Conjecture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem*{defn*}{Definition}
+\newtheorem*{ex*}{Example}
+\newtheorem*{exs*}{Examples}
+\newtheorem*{rmk*}{Remark}
+\newtheorem*{claim*}{Claim}
+\newtheorem*{conventions}{Conventions}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+
+
+\title{THH of $tmf$}
+\author{ G.~ Angelini-Knoll \"und D.~ Culver}\address{University of Illinois, Urbana-Champaign}\email{dculver@nd.edu}\address{Michigan State University, East Lansing}\email{angelini@math.msu.edu}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We compute $Z_*THH(tmf)$ where $Z$ is one of the spectra in the class of spectra $\mathcal{Z}$ of \cite{BE16} such that $H^*(Z)\cong A(2)//E(Q_2)$. 
+\end{abstract}
+
+\tableofcontents
+\section{Introduction}
+
+\section{Computing the Bockstein spectral sequence}
+Here we give the first step towards the calculation of $\pi_*(THH(tmf))$; i.e., we compute the Bockstein spectral sequence 
+\begin{equation}\label{bock ss}THH_*(tmf;H\mathbb{F}_2)[v_2]\Rightarrow THH_*(tmf;k(2))\end{equation}
+We will use the fact that there are a class of spectra $\mathcal{Z}$, constructed by Bhattacharya-Egger \cite{BE16}, with the property that for $Z\in \mathcal{Z}$, there is a weak equivalence $Z\wedge tmf\simeq k(2)$. 
+
+\begin{lem} 
+There is an isomorphism of spectral sequences between the Bockstein spectral sequence 
+\begin{equation}
+E_2^{*,*}=THH_*(tmf;H\mathbb{F}_2)[v_2]\Rightarrow THH_*(tmf;k(2))\end{equation}
+and the Adams spectral sequence 
+\begin{equation}
+\tilde{E}_2^{*,*}=Ext_{\mathcal{A}_*}^{*,*}(\mathbb{F}_p;H_*THH(tmf;H\mathbb{F}_2)) 
+\end{equation} 
+\end{lem} 
+\begin{proof}
+First, note that the there is no room for $d_1$-differentials so the $E_1^{*,*}$-page is isomorphic to the $E_2^{*,*}$-page of the Bockstein spectral sequence. Due Angeltveit-Rognes \cite{qx}, there is an isomorphism of $\mathcal{A}_*$-comodules and $H_*(tmf)$-Hopf algebras 
+\[H_*(THH(tmf))\cong H_*(tmf)\otimes P(\sigma \zeta_1^8,\sigma \zeta_2^4, \sigma \zeta_3^2)\otimes P(\sigma \zeta_4).\] 
+Recall that $H_*(tmf)\cong \mathcal{A}//A(2)$ and $H_*(Z)\cong A(2)//E(Q_2)$ by definition of $Z$ \cite{BE16}. Therefore, we deduce that $H_*(Z\wedge tmf)\cong \mathcal{A}//E(Q_2)$
+and we see that there is an isomorphism of $A_*$-comodules
+\[ 
+\begin{array}{rcl}
+H_*(Z\wedge THH(tmf))& \cong & H_*(Z\wedge tmf\wedge_{tmf} THH(tmf)) \\
+&\cong & \mathcal{A}//E(Q_2)\otimes P(\sigma \zeta_1^8,\sigma \zeta_2^4, \sigma \zeta_3^2)\otimes P(\sigma \zeta_4)
+\end{array}
+\]
+by the collapse of the K\"unneth spectral sequence. We can therefore apply a change of rings isomorphism to produce the isomorphism 
+\[Ext_{\mathcal{A}_*}^{*,*}(\mathbb{F}_p;H_*THH(tmf;H\mathbb{F}_2)) \cong Ext_{E(Q_2)}^{*,*}(\mathbb{F_2}; P(\sigma \zeta_1^8,\sigma \zeta_2^4, \sigma \zeta_3^2)\otimes P(\sigma \zeta_4)).\]
+However, since $Q_2$ acts trivially on $P(\sigma \zeta_1^8,\sigma \zeta_2^4, \sigma \zeta_3^2)\otimes P(\sigma \zeta_4)$, which can be seen by computing Margolis homology 
+\[ H_*(P(\sigma \zeta_1^8,\sigma \zeta_2^4, \sigma \zeta_3^2)\otimes P(\sigma \zeta_4);Q_2)\cong P(\sigma \zeta_1^8,\sigma \zeta_2^4, \sigma \zeta_3^2)\otimes P(\sigma \zeta_4).\]
+we get an isomorphism
+\[ 
+\begin{array}{rc}
+Ext_{E(Q_2)}^{*,*}(\mathbb{F_2}; P(\sigma \zeta_1^8,\sigma \zeta_2^4, \sigma \zeta_3^2)\otimes P(\sigma \zeta_4))&\cong \\
+Ext_{E(Q_2)}^{*,*}(\mathbb{F_2}; \mathbb{F}_2)\otimes P(\sigma \zeta_1^8,\sigma \zeta_2^4, \sigma \zeta_3^2)\otimes P(\sigma \zeta_4)&\cong \\
+THH_*(tmf;H\mathbb{F}_2)[v_2]. &
+\end{array}
+\]
+\end{proof}
+\begin{rem}
+Note that $Z$ is constructed as a type $2$ spectrum, so we may choose a $v_2$-self map and take the telescope to form $v_2^{-1}Z$. We can also compute $\pi_*(v_2^{-1}Z\wedge THH(tmf))$ using the localized Adams spectral sequence,
+\[ v_2^{-1}\tilde{E}_2^{*,*}=v_2^{-1} Ext_{\mathcal{A}_*}^{*,*}(\mathbb{F}_2,H_*Z\wedge THH(tmf))\Rightarrow \pi_*(v_2^{-1}Z\wedge THH(tmf)) \] 
+and by the same argument as above, this input is isomorphic $THH_*(tmf;H\mathbb{F}_2)[v_2^{\pm 1}].$
+This will allow use to see what elements in $THH_*(tmf;Z)$ are $v_2$-torsion. 
+\end{rem}
+We will first show that $K(2)_*THH(tmf)$ has a nice description. To do this, we first compute $K(2)_*tmf$ using the same technique as McClure-Staffeldt \cite{qx} and Angeltveit-Rognes \cite{qx}. 
+\begin{lem}\label{K(2) of tmf}
+There is an isomorphism of $K(2)_*$-modules 
+\[ K(2)_*tmf\cong K(2)_*\otimes K(2)_0 tmf \]
+and $K_0tmf$ is isomorphic as a $\mathbb{F}_p$-algebra to a colimit of finitely generated semisimple $\mathbb{F}_p$-algebras $\colim B_n$
+\end{lem}
+\begin{proof}
+First, we note that since we can construct $BP\langle2\rangle$ by killing off the regular sequence $(v_3,v_4,\dots)$ in $BP_*$, so 
+\[ K(2)_*BP\langle2\rangle \cong K(2)_*[t_1,t_2,t_3,\dots]/(v_2t_k^2-v_2^kt_k)\]
+using the right unit formula in Ravenel \cite{qx}. We note that $K(2)_*BP\langle2\rangle\cong K(2)_*tmf_1(3)$ up to a change of choice of generators (\textcolor{seagreen}{Is this right Dominic? Does this computation depend on our model for $BP\langle2\rangle$?}). Recall that $tmf\wedge DA(1)\simeq tmf_1(3)$ where $DA(1)$ is the double of $A(1)$ (see Mathew \cite{qx} for this result as well as the definition of $DA(1)$). We therefore see that 
+\[ 
+\begin{array}{rcl} K(2)_*(tmf\wedge DA(1))&\cong& K(2)_*(tmf)\otimes_{K(2)_*}K(2)_*(DA(1))\\
+&\cong&  K(2)_*[t_1,t_2,t_3,\dots]/(v_2t_k^2-v_2^kt_k |k\ge 1)
+\end{array}
+\]
+We claim that 
+\[ K(2)_*(tmf)\cong K(2)_*[t_2,t_3,\dots]/(v_2t_k^2-v_2^kt_k|k\ge 2)\] 
+(\textcolor{seagreen}{This is my guess so far. Still need to prove that it (or some variation of it) is true}). 
+
+We now let $u_i=v_2^{\frac{1-p^i}{p^2-1}}t_i$ for $i\ge 2$, then there is an isomorphism 
+\[ K(2)_*(tmf)\cong K(2)_*\otimes \mathbb{F_p}[u_2,u_3,\dots]/(u_k^2-u_k|k\ge 2)\] 
+where $\mathbb{F}_p[u_2,u_3,\dots]/(u_k^2-u_k|k\ge 2)\cong K_0(tmf)$. This proves the first part of the lemma. 
+
+We then define 
+\[ B_n=\mathbb{F_2}[u_2,u_3,\dots,u_n]/(u_k^2-u_k | n\ge k\ge 2)\] 
+and clearly $K_0tmf \cong \colim B_n$. Note that there is an isomorphism
+\[ B_n\cong \prod_{i=1}^{2^{n-1}} \mathbb{F}_2\]
+of $\mathbb{F}_2$-algebras. This proves the second part of the lemma. 
+\end{proof}
+\begin{cor}
+The $K(2)$-B\"okstedt spectral sequence 
+\begin{equation}\label{Bok ss} HH_*^{K(2)_*}(K(2)_*(tmf))\Rightarrow K(2)_*THH(tmf).\end{equation}
+collapses and the edge homomorphism 
+\[ K(2)_*tmf\rightarrow K(2)_*THH(tmf)\]
+is an isomorphism, where this edge homomorphism is induced by the unit map $tmf\rightarrow THH(tmf)$. In other words, the map 
+\[ tmf \rightarrow THH(tmf)\]
+is a $K(2)$-local equivalence. 
+\end{cor}
+\begin{proof}
+This follows easily from Lemma \ref{K(2) of tmf}, by the following argument: since
+\begin{equation} 
+K(2)_*(tmf)\cong K(2)_*\otimes_{\mathbb{F}_p} K(2)_0(tmf)
+\end{equation}
+where $K_0(tmf)\cong \colim B_i$, where each $B_i$ is isomorphic to $\prod_{i=1}^{2^{i-1}}\mathbb{F}_2$ as $\mathbb{F}_2$-algebras, there are isomorphisms
+\[ 
+\begin{array}{rcl}
+HH_*^{K(2)_*}(K(2)_*tmf)&\cong & Tor^{K(2)_*tmf\otimes_{K(2)_*} K(2)_*tmf}(K(2)_*tmf;K(2)_*tmf) \\
+  &\cong & Tor^{K(2)_*\otimes (K_0(tmf)\otimes K_0(tmf))}(K(2)_*tmf;K(2)_*tmf) \\
+  &\cong & K(2)_*\otimes Tor^{K_0(tmf)\otimes K_0(tmf)}(K_0(tmf); K_0(tmf))\\
+&\cong & K(2)_*\otimes HH_*^{\mathbb{F}_p}(K(2)_0(tmf))\\
+&\cong& K(2)_*\otimes \colim HH_*^{\mathbb{F}_p}(B_i)\\
+&\cong &  K(2)_*\otimes \colim  B_i\\
+&\cong & K(2)_*(tmf)\\
+\end{array}
+\]
+This shows that the B\"okstedt spectral sequence collapses and therefore the unit map 
+\[ K(2)_*tmf\rightarrow K(2)_*THH(tmf) \]
+is an isomorphism. Hence, the map $tmf\rightarrow THH(tmf)$ is a $K(2)$-local equivalence as desired. 
+\end{proof}
+\begin{lem}
+If a map $X\rightarrow Y$ is a $K(2)$-local equivalence, then 
+\[ v_2^{-1}Z\wedge X\rightarrow v_2^{-1}Z\wedge Y\]
+is an equivalence. 
+\end{lem}
+\begin{proof}
+\textcolor{seagreen}{
+I think this is true, roughly, because of the commutative diagram 
+\[ 
+\xymatrix{ 
+X\ar[d] \ar[r] & v_2^{-1}Z\wedge  X \ar[d] \ar[r] & L_{K(2)}(Z\wedge  X)\ar[d] \\
+Y \ar[r] & v_2^{-1}Z\wedge  Y \ar[r] & L_{K(2)}(Z\wedge  Y)
+}
+\]
+and because $Z$ is type $2$, so $L_{K(2)}Z\cong L_{E(2)}(Z)$ and $E(2)$-localization is smashing. We also know that $L_2^f(Z)\cong v_2^{-1}Z$ and $L_2^f$ is smashing. 
+I need to work through the argument of McClure-Staffeldt and Ausoni-Rognes
+}
+\end{proof}
+As a consequence, we have the following corollary. 
+\begin{cor}
+There is an isomorphism
+\[ K(2)_*\cong v_2^{-1}Z_*tmf \cong v_2^{-1}Z_*THH(tmf)\]
+\end{cor}
+This tells us that every element in $Z_*THH(tmf)$ is $v_2$-torsion except for the elements in the subaglebra $P(v_2)$. This also forces certain differentials in the spectral sequence computing $Z_*THH(tmf)$. 
+\begin{prop}
+The differentials in the Bockstein spectral sequence 
+\[ THH_*(tmf;H\mathbb{F}_2)[v_2]\Rightarrow THH_*(tmf;k(2))\]
+are the following... \textcolor{seagreen}{This needs to be finished.}
+\end{prop}
+Therefore, we get the following answer! 
+\begin{thm}
+There is an isomorphism 
+\[ Z_*THH(tmf)\cong ...\]
+\textcolor{seagreen}{This needs to be finished.}
+\end{thm}
+
+\bibliographystyle{plain}
+\bibliography{THHBP2}
+
+\end{document}

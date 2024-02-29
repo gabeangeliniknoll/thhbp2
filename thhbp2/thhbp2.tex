@@ -1,0 +1,195 @@
+\documentclass{amsart} 
+\usepackage{amssymb} % for \ltimes 
+\usepackage[cmtip,all]{xy} 
+\newdir{ >}{{}*!/-5pt/@{>}} % cf xyguide exercise 14
+\usepackage{array} 
+\usepackage{graphicx} % for \includegraphics  
+\usepackage[alphabetic,nobysame]{amsrefs}    
+\usepackage[bbgreekl]{mathbbol}  
+\usepackage{amsfonts} 
+\usepackage{amsrefs}
+\DeclareSymbolFontAlphabet{\mathbb}{AMSb} %to ensure that the meaning of \mathbb does not change
+
+%For the \Prism symbol
+%\DeclareSymbolFontAlphabet{\mathbbl}{bbold} 
+%\newcommand{\Prism}{{\mathlarger{\mathbbl{\Delta}}}}            
+      
+\title[Algebraic $K$-theory of real topological $K$-theory] 
+	{Algebraic $K$-theory \\ of real topological $K$-theory}
+\author[G. Angelini-Knoll, Ch. Ausoni, and J. Rognes]
+	{Gabriel Angelini-Knoll, Christian Ausoni, and John Rognes}
+\address{Universit{\'e} Paris 13, LAGA, CNRS, UMR 7539, F-93430, Villetaneuse, France}
+\email{angelini-knoll@math.univ-paris13.fr}
+\address{Universit{\'e} Paris 13, LAGA, CNRS, UMR 7539, F-93430, Villetaneuse, France}
+\email{ausoni@math.univ-paris13.fr}
+\address{Department of Mathematics, University of Oslo, Norway}
+\email{rognes@math.uio.no}   
+      
+\date{\today}       
+
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{thmx}{Theorem}
+\newtheorem{conjecture}[thmx]{Conjecture} 
+\renewcommand{\thethmx}{\Alph{thmx}}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{warning}[theorem]{Warning}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{notation}[theorem]{Notation}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{question}[theorem]{Question}
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+
+\DeclareMathOperator{\mot}{\textup{mot}}
+\DeclareMathOperator{\trc}{\textup{trc}}
+\DeclareMathOperator{\ev}{\textup{ev}}
+\DeclareMathOperator{\op}{\textup{op}}
+\DeclareMathOperator{\Diff}{\textup{Diff}}
+\DeclareMathOperator{\Ad}{\textup{Ad}}
+\DeclareMathOperator{\Nov}{\textup{Nov}}
+
+\newcommand{\olA}{\overline{A}}
+\newcommand{\olC}{\overline{C}}
+\newcommand{\olV}{\overline{V}}
+
+\newcommand{\wtA}{\widetilde{A}}
+\newcommand{\wtC}{\widetilde{C}}
+\newcommand{\wtV}{\widetilde{V}}
+
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\fil}{fil}
+\DeclareMathOperator{\Fun}{Fun}
+\DeclareMathOperator{\THH}{THH}
+\DeclareMathOperator{\TP}{TP}
+\DeclareMathOperator{\TF}{TF}
+\DeclareMathOperator{\TC}{TC}
+\DeclareMathOperator{\K}{K}
+\DeclareMathOperator{\Wh}{Wh}
+\DeclareMathOperator{\ko}{ko}
+\DeclareMathOperator{\ku}{ku}
+\DeclareMathOperator{\MU}{MU}
+\DeclareMathOperator{\BP}{BP}
+\DeclareMathOperator{\can}{can}
+\DeclareMathOperator{\cok}{cok}
+\DeclareMathOperator{\eq}{eq}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Tot}{Tot}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator*{\Rlim}{Rlim}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bT}{\mathbb{T}}
+\newcommand{\bE}{\mathbb{E}}
+\newcommand{\bZ}{\mathbb{Z}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ff}{\text{\it ff}\,}
+\newcommand{\<}{\langle}
+\newcommand{\longfrom}{\longleftarrow}
+\newcommand{\longto}{\to}
+\newcommand{\wA}{\wtA}
+\newcommand{\wB}{\widetilde{B}}
+\newcommand{\wC}{\wtC}
+\newcommand{\wET}{\widetilde{E\bT}}
+\newcommand{\wS}{\widetilde{S}}
+\renewcommand{\:}{\colon}
+\renewcommand{\>}{\rangle}
+
+%For line numbering
+%\usepackage[mathlines]{lineno}
+
+\usepackage[dvipsnames]{xcolor}
+
+%For acknowledgements line
+\graphicspath{ {./EU-symbol.jpg} }
+
+\usepackage{tikz-cd}
+\tikzset{
+Curved/.style={
+  rounded corners,to path={ -- ([xshift=2ex]\tikztostart.east)
+    |- (#1) [near end]\tikztonodes
+    -| ([xshift=-2ex]\tikztotarget.west)
+    -- (\tikztotarget)
+    }
+  }
+}
+
+%Added for links
+\usepackage{hyperref} 
+\hypersetup{
+    colorlinks=true,
+    citecolor=Green, 
+    linkcolor=BrickRed, 
+    filecolor=Mulberry,      
+    urlcolor=NavyBlue, 
+    pdftitle={Algebraic K-theory of real topological K-theory},
+    pdfpagemode=FullScreen, 
+} 
+
+
+
+\begin{document} 
+%\linenumbers
+\begin{abstract}
+We calculate the $A(1)$-homotopy of the topological cyclic homology of
+the connective real topological $K$-theory spectrum~$\ko$, and show that
+it is a finitely generated and free $\bF_2[v_2^{32}]$-module of even rank
+between~$390$ and~$444$, on explicit generators in stems~$-1 \le *\le 198$.
+This is achieved by using syntomic cohomology of~$\ko$ as introduced by
+Hahn--Raksit--Wilson, extending work of Bhatt--Morrow--Scholze from the
+case of classical rings to~$\bE_{\infty}$ rings.  In our case there are
+nontrivial differentials in the motivic spectral sequence from syntomic
+cohomology to topological cyclic homology, unlike in the case of complex $K$-theory at odd primes that was studied by Hahn--Raksit--Wilson.
+\end{abstract}
+ 
+\subjclass{
+Primary 
+19D50, % Computations of higher $K$-theory of rings
+19D55, % $K$-theory and homology, cyclic homology and cohomology
+55Q51, % $v_n$-periodicity
+55P43, % Spectra with additional structure ($E_\infty$, $A_\infty$, etc.)
+14F30; % $p$-adic cohomology, crystalline cohomology
+Secondary 
+19E20, %Relations of $K$-theory with cohomology theories
+13D03, %(Co)homology of commutative rings and algebras (e.g., Hochschild, André-Quillen, cyclic, dihedral, etc.)
+55N15, %Topological $K$-theory
+55Q10, % Stable homotopy groups
+55T25. % Generalized cohomology and spectral sequences in AT
+}
+
+\maketitle 
+ 
+\tableofcontents
+\section{Introduction}\label{sec:intro} 
+ 
+
+
+
+
+\bibliographystyle{amsrn}
+\bibliography{thhbp2}
+% \bib, bibdiv, biblist are defined by the amsrefs package.
+\begin{bibdiv}
+\begin{biblist}
+\end{biblist}
+\end{bibdiv}
+
+\end{document}

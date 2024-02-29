@@ -1,0 +1,116 @@
+%%
+%%  THH(BP<2>;k(1)) at p=2. I am doing p=2 since then we only have the classes z_{n,2k} and z_{n,2k}'
+%% Note: I have halved the the m-index in $z_{n,m}$.
+
+\documentclass{article}
+\usepackage[landscape, paperheight=80cm, paperwidth = 23cm, margin = 0cm]{geometry}
+\usepackage{spectralsequences}
+\usepackage[urw-garamond]{mathdesign}
+\usepackage[T1]{fontenc}
+
+
+\definecolor{limegreen}{rgb}{0.2, 0.8, 0.2}
+%\definecolor{lavenderrose}{rgb}{0.98, 0.63, 0.89}
+\definecolor{darkmagenta}{rgb}{0.55, 0.0, 0.55}
+%\definecolor{lavenderrose}{rgb}{0.9, 0.56, 0.67}
+\definecolor{lavenderrose}{rgb}{0.91, 0.33, 0.5}
+\definecolor{goldenpoppy}{rgb}{0.99, 0.76, 0.0}
+\definecolor{seagreen}{rgb}{0.11, 0.35, 0.02}
+%\definecolor{seagreen}{RGB}{46,139,87}
+\definecolor{maroon}{RGB}{128,0,0}
+\definecolor{darkviolet}{RGB}{148,0,211}
+\definecolor{twelve}{RGB}{100,100,170}
+\definecolor{thirteen}{RGB}{100,150,50}
+\definecolor{fourteen}{RGB}{200,0,0}
+\definecolor{fifteen}{RGB}{0,200,0}
+\definecolor{sixteen}{RGB}{0,0,200}
+\definecolor{pinkpurple}{RGB}{200,0,200}
+\definecolor{teal}{RGB}{0,200,200}
+
+\let\circledS\undefined % here - PS
+
+\begin{document}
+
+%%%%%%%% spectral sequence groups %%%%%%
+
+\centering
+
+\NewSseqGroup\truncatedvonetower{m}{
+	\class(0,0)
+	\foreach \n in {1, ..., #1}{
+		\class(2*\n, \n)
+		\structline(2*(\n-1), \n-1)(2*\n, \n)
+	}
+}
+
+\DeclareSseqGroup\infvonetower{}{
+	\class(0,0)
+	\DoUntilOutOfBoundsThenNMore{3}{
+	\class(\lastx + 2, \lasty+1)
+	\structline
+	}
+}
+
+\DeclareSseqGroup \tower {} {
+    \class(0,0)
+    \DoUntilOutOfBounds {
+        \class(\lastx,\lasty+1)
+        \structline
+	} 
+}
+
+\begin{sseqdata}[name=THH k(1) coeff, grid=chess, Adams grading, classes = {fill, show name=below},  class labels = { left = 0.3em }, label distance = 0.1cm, x range = {0}{150}, y range = {0}{40}, differentials = {red}]
+% \infvonetower(0,0)
+
+\infvonetower(3,0)
+
+%%% z_{2,m} -family %%%%
+\foreach \i in {0,..., 4}{
+	\truncatedvonetower(2*4-1+32*\i, 0){3}
+	\classoptions["z_{2,\i}"](2*4-1+32*\i, 0)
+	\truncatedvonetower(2*4-1+32*\i + 3, 0){3} %% lambda_1 multiples
+	\classoptions["\lambda_1z_{2,\i}"](2*4-1+32*\i + 3, 0)
+}
+
+%%% z_{2,m}'-family %%%
+
+\foreach \i in {0,...,4}{
+	\truncatedvonetower(22+32*\i, 0){3}
+	\classoptions["z_{2,\i}'"](22+32*\i, 0)
+	\truncatedvonetower(22+32*\i+ 3, 0){3} %% lambda_1 multiples 
+	\classoptions["\lambda_1z_{2,\i}'"](22+32*\i+3, 0)
+}
+
+%%% z_{3,m}-family %%%
+
+\foreach \i in {0,..., 4}{
+	\truncatedvonetower(15+32*\i,0){7}
+	\classoptions["z_{3,\i}"](15+32*\i,0)
+	\truncatedvonetower(15+32*\i + 3,0){7}%%% lambda_! multiples
+	\classoptions["\lambda_1z_{3,\i}"](15+32*\i+3,0)
+}
+
+%%% z_{3,m}'-family %%%%
+
+\foreach \i in {0,..., 4}{
+	\truncatedvonetower(15+32*\i+ 23, 0){7}
+	\classoptions["z_{3,\i}'"](15+32*\i+ 23, 0)
+	\truncatedvonetower(15+32*\i+ 23+3, 0){7}%%%% lambda_! multiples
+	\classoptions["\lambda_1z_{3,\i}'"](15+32*\i+ 23+3, 0)
+}
+
+%%% z_{4,m}-family %%%
+
+\foreach \i in {0,1,2}{
+	\truncatedvonetower(23+64*\i, 0){27}
+	\classoptions["z_{4,\i}"](23+64*\i, 0)
+	\truncatedvonetower(23+64*\i+3, 0){27} %%% lambda_1 multiples
+	\classoptions["\lambda_1z_{4,\i}"](23+64*\i+3, 0)
+}
+ 
+\end{sseqdata}
+
+\printpage[name = THH k(1) coeff, page = 1, axes gap = 0.5cm, xscale = 0.5, yscale = 0.5, x tick step = 2, x range = {0}{150}, y range = {0}{40}]
+
+
+\end{document} 
