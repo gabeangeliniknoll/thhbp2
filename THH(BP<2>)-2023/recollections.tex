@@ -6,8 +6,9 @@ There is an isomorphism of $\pi_{*}L_{H\mathbb{Q}}\BP\langle n\rangle=\mathbb{Q}
 \[ \pi_{*}L_{H\mathbb{Q}}\THH(\BP\langle n\rangle )\cong\mathbb{Q}[v_{1},\dots ,v_{n}]\otimes_{\mathbb{Q}} \Lambda_{\mathbb{Q}} (\sigma v_{1},\dots ,\sigma v_{n}) \,.\]
 \end{proposition}
 \begin{proof}
-The authors computed 
-\[ \pi_{*}\THH(\BP\langle n\rangle;H\mathbb{Q} )=\Lambda_{\mathbb{Q}} (\sigma v_{1},\dots ,\sigma v_{n})\,.\]
+By~\cite[Proposition~3.7]{AKCH24}, we have
+\[ 
+\pi_{*}\THH(\BP\langle n\rangle;H\mathbb{Q} )=\Lambda_{\mathbb{Q}} (\sigma v_{1},\dots ,\sigma v_{n})\,.\]
 We then observe that 
 \[L_{H\mathbb{Q}}\THH(\BP\langle n\rangle )\simeq \THH(\BP\langle n\rangle;L_{H\mathbb{Q}}\BP\langle n\rangle )\]
 because $L_{H\mathbb{Q}}$ is a smashing localization. We then consider the spectral sequence 
@@ -24,12 +25,12 @@ The groups
 \[ 
 \THH_{s}(\BP\langle n\rangle )
 \]
-are finitely generated for all integers $s$. 
-Consequently, we have 
+are finitely generated for all integers $s$. Moreover, for each $1\le j\le n$ we have 
 \[
-|\THH_{s}(\BP\langle n\rangle )|<\infty\]
-for $s\ne 2p^{i}-1 \mod 2p^{j}-2$ for $1\le i,j\le n$. 
+|\THH_{s}(\BP\langle n\rangle )|<\infty
+\]
+for each $s\ne \sum_{a=1}^n(2p^s-1)e_s+\sum_{b=1}^n(2p^b-2)k_b$ for integers $k_i\ge 0$ and integers $e_i\in \{0,1\}$ where $1\le i\le n$. 
 \end{proposition}
 \begin{proof}
-Since $\pi_{a}\mathbb{S}$ and $\pi_{b}\BP\langle n\rangle$ are finitely generated abelian groups for all integers $a,b$, the strongly convergent K\"unneth spectral sequence computing $\pi_{*}(\BP\langle n\rangle\wedge \BP\langle n\rangle)$ is finitely generated in each bidegree and has a vanishing line of postive slope so $\pi_{c}(\BP\langle n\rangle\wedge \BP\langle n\rangle)$ is finitely generated for each integer $c$. The same argument implies that $\THH_{s}(\BP\langle n\rangle)$ is finitely generated for each integer $s$. The second statement then follows from Proposition~\ref{prop:rational} and the classification of finitely generated $\mathbb{Z}_{(p)}$-modules. 
+Since $\pi_{a}\mathbb{S}_{(p)}$ and $\pi_{b}\BP\langle n\rangle_{(p)}$ are finitely generated $\mathbb{Z}_{(p)}$-modules for all integers $a,b$, the strongly convergent K\"unneth spectral sequence computing $\pi_{*}(\BP\langle n\rangle\wedge \BP\langle n\rangle)$ is finitely generated in each bidegree and has a vanishing line of postive slope so $\pi_{c}(\BP\langle n\rangle\wedge \BP\langle n\rangle)$ is finitely generated for each integer $c$. The same argument implies that $\THH_{s}(\BP\langle n\rangle)$ is finitely generated for each integer $s$. The second statement then follows from Proposition~\ref{prop:rational} and the classification of finitely generated $\mathbb{Z}_{(p)}$-modules. 
 \end{proof}
