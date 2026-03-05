@@ -2,22 +2,29 @@
 In this section, we recall the necessery results from~\cite{AKCH24}. 
 
 \begin{proposition}\label{prop:rational}
-There is an isomorphism of $\pi_{*}L_{H\mathbb{Q}}\BP\langle n\rangle=\mathbb{Q}[v_{1},\dots ,v_{n}]$-algebras
-\[ \pi_{*}L_{H\mathbb{Q}}\THH(\BP\langle n\rangle )\cong\mathbb{Q}[v_{1},\dots ,v_{n}]\otimes_{\mathbb{Q}} \Lambda_{\mathbb{Q}} (\sigma v_{1},\dots ,\sigma v_{n}) \,.\]
+There is an isomorphism of $\pi_{*}L_{\bQ}\BP\langle n\rangle=\bQ[v_{1},\dots ,v_{n}]$-algebras
+\[ 
+\pi_{*}L_{\bQ}\THH(\BP\langle n\rangle )\cong\bQ[v_1,\dots ,v_n]\langle \sigma v_1,\dots ,\sigma v_n\rangle \,.
+\]
 \end{proposition}
 \begin{proof}
 By~\cite[Proposition~3.7]{AKCH24}, we have
 \[ 
-\pi_{*}\THH(\BP\langle n\rangle;H\mathbb{Q} )=\Lambda_{\mathbb{Q}} (\sigma v_{1},\dots ,\sigma v_{n})\,.\]
-We then observe that 
-\[L_{H\mathbb{Q}}\THH(\BP\langle n\rangle )\simeq \THH(\BP\langle n\rangle;L_{H\mathbb{Q}}\BP\langle n\rangle )\]
-because $L_{H\mathbb{Q}}$ is a smashing localization. We then consider the spectral sequence 
-\[
-\THH_{*}(\BP\langle n\rangle;\mathbb{Q})\otimes_{\mathbb{Q}} \pi_{*}L_{H\mathbb{Q}}\BP\langle n\rangle\implies \THH_{*}(\BP\langle n\rangle;L_{H\mathbb{Q}}\BP\langle n\rangle)
+    \pi_{*}\THH(\BP\langle n\rangle;\bQ )=\bQ\langle \sigma v_1,\dots ,\sigma v_n\rangle\,.
 \]
-associated to the multiplicative complete filtration $\tau_{\ge \bullet}\THH(\BP\langle n\rangle;\mathbb{Q})$ in $H\mathbb{Q}$-modules. This spectral sequence has input 
-\[ \pi_{*}L_{H\mathbb{Q}}\BP\langle n\rangle\otimes_{\mathbb{Q}} \Lambda_{\mathbb{Q}} (\sigma v_{1},\dots ,\sigma v_{n})\]
-by \cite[Proposition~3.7]{AKCH24}. It collapses because the targets of all differentials whose source is an indecomposable algebra generator land in zero groups. The abutment and the $\mr{E}_{\infty}$-term are a free $\pi_{*}L_{H\mathbb{Q}}\BP\langle n\rangle$-modules and consequently there are no $\pi_{*}L_{H\mathbb{Q}}\BP\langle n\rangle)$-module extensions. There isn't room for algebra extensions. 
+We then observe that 
+\[L_{\bQ}\THH(\BP\langle n\rangle )\simeq \THH(\BP\langle n\rangle;L_{\mathbb{Q}}\BP\langle n\rangle )\]
+because $L_{\mathbb{Q}}$ is a smashing localization. 
+We then consider the Atiyah--Hirzebruch spectral sequence 
+\[
+\THH_{*}(\BP\langle n\rangle;\mathbb{Q})\otimes_{\bQ} \pi_{*}L_{\mathbb{Q}}\BP\langle n\rangle\implies \THH_{*}(\BP\langle n\rangle;L_{\mathbb{Q}}\BP\langle n\rangle)
+\]
+associated to the multiplicative complete filtration $\tau_{\ge \bullet}L_{\mathbb{Q}}BP\langle n\rangle$ in $\mathbb{Q}$-modules~\cite[\S~3.2]{Hon20}. 
+This spectral sequence has input 
+\[ \mathbb{Q} \langle \sigma v_{1},\dots ,\sigma v_{n}\rangle \otimes_{\bQ}\pi_{*}L_{\bQ}\BP\langle n\rangle 
+\]
+by \cite[Proposition~3.7]{AKCH24}. It collapses because the targets of all differentials whose source is an indecomposable algebra generator land in zero groups. The abutment and the $\mr{E}_{\infty}$-term are free $\pi_{*}L_{\mathbb{Q}}\BP\langle n\rangle$-modules and consequently there are no $\pi_*L_{\bQ}\BP\langle n\rangle$-module extensions. 
+There isn't room for algebra extensions. 
 \end{proof}
 
 \begin{proposition}
