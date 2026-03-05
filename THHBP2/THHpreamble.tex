@@ -26,7 +26,7 @@
 %\usepackage{mathabx}
 
 %Gabe added this for the moment. Write same diagram in tikz and then remove
-\usepackage{xypic}
+\usepackage{xy}
 
 
 %\usepackage[sc]{mathpazo}
@@ -202,7 +202,7 @@
 \newcommand{\Fun}{\mathsf{Fun}}
 \newcommand{\Grpd}{\mathsf{Grpd}}
 \newcommand{\op}{\mathrm{op}}
-
+\newcommand{\map}{\mathrm{map}}
 
 
 %%%%%%%%%%%%%%% Homological Algebra %%%%%%%
@@ -224,6 +224,8 @@
 
 %%%%%%% for numbered theorems %%%%%%%%%
  \newtheorem{theorem}[equation]{Theorem}
+ \newtheorem{thmx}{Theorem}
+\renewcommand{\thethmx}{\Alph{thmx}}
  \newtheorem{corollary}[equation]{Corollary}
  \newtheorem{lemma}[equation]{Lemma}
  \newtheorem{proposition}[equation]{Proposition}

@@ -1,76 +1,52 @@
 \section{Bounding Hochschild homology of $\BP\langle n\rangle$}
-The goal of this section is to use the cosimplicial descent spectral sequence from work of \cite{DR18} to produce a useful upper bound on $\THH_{*}(\BP\langle n\rangle)$. 
-\begin{definition}
-Let $C^{\bullet}(A/B)$ denote the cosimplicial cobar complex with $q$-simplices $C^{q}(A/B)=A^{\otimes_{B}q+1}$.
-\end{definition}
-
-First, we need a lemma. 
-
-\begin{lemma}\label{cobar lemma}
-Let $n\ge 1$. There is an isomorphism rings
-\[\rE_{2}^{*,*}\cong \Tor^{\pi_{*}\BP\langle n-1\rangle \wedge \BP\langle n-1\rangle }(\BP \langle n-1\rangle,\BP \langle n-1\rangle)\otimes \Gamma \{ \sigma^{2}v_{n}^{(j)}: 1\le j\le q\}\otimes \Lambda (\sigma v_{1}^{(j)} : 1\le j\le q ) 
-\]
-where 
-\[\rE_{2}^{*,*}=\pi_{*}\left ( \pi_{*}H\pi_{*}\THH(\BP\langle n-1\rangle)^{\wedge_{H\pi_{*}\THH(\BP\langle n\rangle)}q+1} \right )\]
-is the $\rE_{2}$-term of the multiplicative K\"unneth spectral sequence
-\[ \rE_{2}^{*,*}\implies \THH_{*}(\BP\langle n-1\rangle^{\wedge q+1})\,.\]
+We first have the following lemma. 
+\begin{lemma}
+We compute that 
+\[\pi_*\BP\langle n-1\rangle\otimes_{\BP\langle n\rangle}\BP\langle n-1\rangle=\mathbb{Z}_{(p)}[v_1',\cdots ,v_n']\langle \sigma v_{n+1} \rangle \]
 \end{lemma}
 \begin{proof}
-When $q=0$, then $\THH(\BP\langle n-1\rangle^{\wedge_{\BP\langle n\rangle}q+1})=\THH(\BP\langle n-1\rangle)$. 
-We first compute 
-$\pi_{*}(\BP\langle n-1\rangle\otimes_{\BP\langle n\rangle}\BP\langle n-1\rangle)$ by a K\"unneth spectral sequence. 
-The $E_{2}$-term is $\BP\langle n-1\rangle_{*}\otimes \Lambda (\sigma v_{n})$ so it is concentrated in K\"unneth filtration $[0,1]$ and therefore the spectral sequence collapses because the targets of all differentials are zero groups. 
-We then use the equivalence 
-\begin{align*}
-A\wedge_{B}A\wedge_{B}A\simeq (A\wedge_{B}A)\wedge_{A}(A\wedge_{B}A)
-\end{align*}
-where $A=\BP\langle n-1\rangle$ and $B=\BP\langle n\rangle$ and the fact that $\pi_{*}(\BP\langle n-1\rangle\wedge_{\BP\langle n\rangle}\BP\langle n-1\rangle)$ is free as a $\BP\langle n-1\rangle_{*}$-module to inductively determine from the K\"unneth spectral sequence that 
-\[ \pi_{*}(\BP \langle n-1\rangle ^{\wedge_{\BP\langle n\rangle}q+1})\cong \BP\langle n-1\rangle_{*}\otimes \Lambda (\sigma v_{n}^{(1)},\dots ,\sigma v_{n}^{(q)})\,.\]
-By obstruction theory, we determine that $\BP \langle n-1\rangle ^{\wedge_{\BP\langle n\rangle}q+1}$ is the smash product of square zero extensions 
-\[ \left ( BP\langle n-1\rangle \vee \Sigma^{2p-1} BP\langle n-1\rangle \right )^{\wedge_{ BP\langle n-1\rangle}q} \,.\]
-Consequently, we determine that 
-\[ \pi_{*}\left ( \BP \langle n-1\rangle ^{\wedge_{\BP\langle n\rangle}q+1} \right )^{\wedge 2}\cong \pi_{*}(\BP \langle n-1\rangle^{\wedge 2})\otimes \Lambda (\sigma v_{n}^{(1)},\dots ,\sigma v_{n}^{(q)})^{\wedge 2} \,.\]
-We then note that the K\"unneth spectral sequence sequence computing 
-\[\THH_{*}(\BP \langle n-1\rangle^{\wedge_{\BP\langle n\rangle} q+1} )\] 
-has $\rE_{2}$-term
-\[ \Tor^{\pi_{*}\BP\langle n-1\rangle \wedge \BP\langle n-1}(\BP \langle n-1\rangle,\BP \langle n-1\rangle)\otimes \Gamma (\sigma^{2} v_{n}^{(1)},\dots ,\sigma^{2}v_{n}^{(q)})\otimes \Lambda (\sigma v_{n}^{(1)},\dots ,\sigma v_{n}^{(q)})\]
-and that is exactly what we describe in the statement of the lemma. 
+This follows directly from the K\"unneth spectral sequence
+\[ 
+\Tor_*^{\BP\langle n\rangle_*}(\pi_*\BP\langle n-1\rangle,\pi_*\BP\langle n-1\rangle)\Longrightarrow \pi_*\BP\langle n-1\rangle\otimes_{\BP\langle n\rangle}\BP\langle n-1\rangle
+\]
+which collapses at the $\mathrm{E}_2$-page because all differentials on algebra generators land in trivial bidegrees and $\mathbb{Z}_{(p)}[v_1',\cdots ,v_n']$ splits off. 
 \end{proof}
-
-\begin{proposition}\label{induction spectral sequence}
-There is an equivalence 
-\[ 
-	\THH(\BP\langle n \rangle,\BP\langle n-1\rangle)\simeq \Tot \left ( \THH(C^{\bullet}(\BP\langle n-1\rangle/\BP\langle n\rangle,\BP\langle n-1\rangle)) \right ).
+\begin{proposition}
+There is a multiplicative Brun spectral sequence 
+\[
+\THH_*(\BP\langle n-1 \rangle)\langle \sigma v_{n+1}\rangle \implies \THH_*(\BP\langle n\rangle,\BP\langle n-1\rangle)\,.
 \]
-Consequently, there is a spectral sequence 
-\[ 
-	\pi_{t-s}\lim_{\Delta} \Tot H\pi_s\THH(C^{\bullet}(\BP\langle n-1\rangle/\BP\langle n\rangle,\BP\langle n-1\rangle))\implies \pi_{t-s}\THH(\BP\langle n\rangle;\BP\langle n-1\rangle)
-\]
-associated to the filtration 
-\begin{equation}\label{Tot-filtration}
-	\lim \Tot \tau_{\ge s}\THH(C^{\bullet}(\BP\langle n-1\rangle/\BP\langle n\rangle ;\BP\langle n-1\rangle))\,.
-\end{equation}
-The $E_2$-term is
-\[ \THH_*(BP\langle n-1\rangle)\otimes_{\mathbb{Z}_{(p)}} \Lambda_{\mathbb{Z}_{(p)}} (\sigma v_n) \,.\]
-Consequently,
-\[ |\THH_{t}(BP\langle n \rangle;\BP\langle n-1)|\le |\THH_{t}(BP\langle n-1 \rangle)| + |\THH_{t-2p^{n}+1}(BP\langle n-1 \rangle)|\]
+which is a spectral sequence of $(\BP\langle n-1 \rangle\otimes_{\BP\langle n\rangle}\BP\langle n-1 \rangle)_*$-algebras in the sense that the differentials are $(p,v_1',\cdots ,v_n')$-linear and $\sigma v_{n+1}$-linear. 
 \end{proposition}
 \begin{proof}
-Since $\mathrm{BP}\langle n\rangle\to \mathrm{BP}\langle n-1\rangle$ is an isomorphism on $\pi_i$ for $i=0,1$ the first statement follows directly from \cite[Theorem 3.7]{DR18}. 
-The second statement follows from \cite[Remark 3.7]{GIKR22} which identifies the filtration \eqref{Tot-filtration} with the d\'ecalage (cf. \cite[pp. 21]{Del71}) of the filtration whose associated graded is the $E_{1}$-term of the Bousfield--Kan spectral sequence. 
+Let $F$ denote the fiber of the map 
+\[ 
+\BP\langle n-1\rangle\otimes_{\BP\langle n\rangle}\BP\langle n-1\rangle \longrightarrow \BP\langle n-1\rangle \otimes_{\BP\langle n-1\rangle}\BP\langle n-1\rangle =\BP\langle n-1\rangle 
+\]
+of right $\mathrm{BP}\langle n-1\rangle \otimes \mathrm{BP}\langle n-1\rangle^{\op}$-modules and left $\BP\langle n-1\rangle\otimes_{\BP\langle n\rangle}\BP\langle n-1\rangle$-modules. The right $\mathrm{BP}\langle n-1\rangle \otimes \mathrm{BP}\langle n-1\rangle^{\op}$-module structure can also be considered as a $\mathrm{BP}\langle n-1\rangle$-bimodule structure. As a left $\mathrm{BP}\langle n-1\rangle$-module $F\simeq \mathrm{BP}\langle n-1\rangle$. To see this, note that $\mathrm{BP}\langle n-1 \rangle=\mathrm{BP}\langle n\rangle/v_n$ and therefore 
+\[ \mathrm{BP}\langle n-1 \rangle\otimes_{\mathrm{BP}\langle n\rangle} \mathrm{BP}\langle n\rangle/v_n=\mathrm{BP}\langle n-1 \rangle/v_n\]
+but $v_n$ acts trivially on $\mathrm{BP}\langle n-1 \rangle$ so $\mathrm{BP}\langle n-1 \rangle/v_n\simeq \mathrm{BP}\langle n-1 \rangle\vee \Sigma^{2p^{n-1}}\mathrm{BP}\langle n-1 \rangle$ as a left $\mathrm{BP}\langle n-1 \rangle$-module so the fiber can be identified with $\mathrm{BP}\langle n-1 \rangle$ as a left $\mathrm{BP}\langle n-1 \rangle$-module. A similar argument with right 
+$\mathrm{BP}\langle n\rangle$-module structures implies that the fiber is equivalent to $\mathrm{BP}\langle n-1\rangle$ as a right $\mathrm{BP}\langle n-1\rangle$-module and consequently as a $\mathrm{BP}\langle n-1\rangle\otimes \mathrm{BP}\langle n-1\rangle^{\op}$-module. Note that we are not claiming that $\mathrm{BP}\langle n-1\rangle \otimes_{\mathrm{BP}\langle n\rangle}\mathrm{BP}\langle n-1\rangle$ splits as a $\mathrm{BP}\langle n-1\rangle \otimes_{\mathrm{BP}\langle n\rangle}\mathrm{BP}\langle n-1\rangle^{\op}$ bimodule. 
 
-It therefore suffices to compute the $E_{2}$-term, which is the cohomology of the Hopf algebroid $(\THH_{*}(\BP\langle n-1\rangle), \THH_{*}(\BP\langle n-1\rangle)\otimes \Gamma \{ \sigma^{2}v_{n} \} )$ by Lemma \ref{cobar lemma}. 
-We note from the proof of Lemma \ref{cobar lemma} that this Hopf algebroid is the tensor product of the Hopf algebroids 
-$(\THH_{*}(\BP\langle n-1\rangle), \THH_{*}(\BP\langle n-1\rangle))$ and $(\mathbb{Z}_{(p)},\Gamma_{\mathbb{Z}_{(p)}} \{ \sigma^{2}v_{n})\} $. 
-Consequently, the cohomology of this Hopf algebroid is $\THH_{*}(\BP\langle n-1\rangle )\otimes \Lambda (\sigma v_{n})$ as desired. 
+However, we do produce a fiber sequence 
+\[ 
+\Sigma^{2p^{n}-1}\THH(\BP\langle n-1 \rangle)\to  \THH( \mathrm{BP}\langle n \rangle,\mathrm{BP}\langle n-1 \rangle)\longrightarrow \THH(\BP\langle n-1 \rangle)
+\]
+of left $\BP\langle n-1\rangle \otimes_{\BP\langle n \rangle }\BP\langle n-1\rangle $-modules 
+and the long exact sequence associated to this fiber sequence may be regarded as spectral sequence, which we call the Brun spectral sequence following~\cite{Hon20}. In fact, since the map 
+\[ \mathrm{BP}\langle n-1\rangle \to \Sigma^{2p^{n}}\mathrm{BP}\langle n-1\rangle 
+\]
+is a $\mathrm{BP}\langle n-1\rangle \otimes \mathrm{BP}\langle n-1\rangle^{\op}$-module map, it is an element in topological Hochschild cohomology $\mathrm{THC}(\mathrm{BP}\langle n-1\rangle)$ and therefore it is a $\mathbb{E}_1$-derivation so the associated spectral sequence is multiplicative. 
 \end{proof}
+
 
 \begin{example}
 Consider the case $n=0$. Then there is a spectral sequence 
 \[ 
-\THH_{*}(H\mathbb{F}_{p})\otimes \Lambda (\sigma v_{0})\implies \THH_{*}(\mathbb{Z}_{(p};\mathbb{F}_{p}) \,.
+\THH_{*}(H\mathbb{F}_{p})\otimes \Lambda (\sigma v_{0})\implies \THH_{*}(\mathbb{Z}_{(p)};\mathbb{F}_{p}) \,.
 \]
 This spectral sequence has a differential $d_{1}(\mu)=\sigma v_{0}$ and no further differentials except those generated by the Leibniz rule yielding the known answer $\mathbb{F}_p[\mu^p]\langle \sigma v_0 \mu^{p-1}\rangle$. 
+Already, this shows that although $\mathbb{F}_p\otimes_{\mathbb{Z}_{(p)}}\mathbb{F}_p$ splits as an $\mathbb{F}_p$-module it does not split as a $\mathbb{F}_p\otimes \mathbb{F}_p$-module. This is perhaps not surprising because $\pi_*\mathbb{F}_p\otimes_{\mathbb{Z}_{(p)}}\mathbb{F}_p=\Lambda (\sigma v_0)$ and the $k$-invariant $\mathbb{F}_p\to \Sigma^{2}\mathbb{F}_p$ is the non-trivial class in degree $2$ in topological Hochschild cohomology of $\mathbb{F}_p$ which is dual to $\mu$ (up to a unit).
 \end{example}
 
 \begin{example}
@@ -85,22 +61,387 @@ We know $\sigma v_1$ survives because it generates a torsion free class and $\TH
 0 & \text{ otherwise.}
 \end{cases}
 \]
-By comparing to~\cite{AHL}, we determine differentials 
+By comparing to~\cite{AHL10} for example, we can determine differentials 
 \[
-d_1(\lambda_1\mu^{k-1})\dot{=}\nu_p(k-1)\lambda_1\mu^{k}\sigma v_1 
+d_1(\lambda_1\mu^{k})\dot{=}p^{\nu_p(k)}\lambda_1\mu^{k-1}\sigma v_1 
 \]
-for all integers $k$. In particular, when $k=ip$ for some integer $i\ge 0$ then 
+for all integers $k$. 
+In particular, when $k=ip-1$ for some integer $i\ge 0$ then 
 \[ 
-\ker 
-(d_1 :\mathbb{Z}/p^{\nu_p(i)+2}\{\lambda_1\mu_1^{ip-1}\}\to \mathbb{Z}/p) = \mathbb{Z}/p^{\nu_p(i)+1}\{\lambda_1\mu_1^{ip-1}\}
+\ker
+(d_1 :\mathbb{Z}/p^{\nu_p(i)+2}\{\lambda_1\mu_1^{ip-1}\}\to \mathbb{Z}/p\{\lambda_1\mu_1^{ip-2}\sigma v_1) = \mathbb{Z}/p^{\nu_p(i)+1}\{\lambda_1\mu^{ip-1}\} \,.
 \]
-and when $k=ip+1$ for some integer $i\ge 0$ then 
+and when $k=pi$ for some integer $i\ge 0$ then 
 \[ 
 \textup{coker} 
-(d_1 :\mathbb{Z}/p\{\mu_1^{ip}\}\to \mathbb{Z}/p^{\nu_p(i)+2}\{\mu_1^{ip-1}) = \mathbb{Z}/p^{\nu_p(i)+1}\{p\sigma v_1\lambda_1\mu^{ip-1}\} \,.
+(d_1 :\mathbb{Z}/p\{\lambda_1\mu_1^{ip}\}\to \mathbb{Z}/p^{\nu_p(i)+2}\{\lambda_1 \mu_1^{ip-1}\sigma v_1 \}) = \mathbb{Z}/p^{\nu_p(i)+1}\{\sigma v_1\lambda_1\mu_1^{ip-1}\}
 \]
-This accounts for the classes $a_i=\lambda_1\mu_1^{ip-1}$ and $b_i=p\sigma v_1\lambda_1\mu_1^{ip-1}$ respectively. Otherwise the kernel and cokernel are trivial. 
+
+This accounts for the classes $a_i=p\lambda_1\mu_1^{ip-1}$ and $b_i=\sigma v_1\lambda_1\mu_1^{ip-1}$ respectively. Otherwise the kernel and cokernel are trivial. In this case, the $k$-invariant is a map 
+\[ H\mathbb{Z}\to \Sigma^{2p} H\mathbb{Z}\]
+of $ H\mathbb{Z}\otimes H\mathbb{Z}^{\op}$ modules, but since $\THH_*(\mathbb{Z})$ contains torsion and it is trivial in degree $2p$, one must take more care with duality. However, the class $\lambda_1$ is the mod $p$-Bockstein of $\mu$ in $\THH_*(\mathbb{Z},\mathbb{F}_p)$ and therefore there is a class in $\mathrm{THC}^{2p}(\mathbb{Z})$ corresponding to it which gives the desired $k$-invariant. 
 \end{example}
+
+\begin{theorem}
+The differentials in the spectral sequence
+\[ 
+\THH_*(\ell)\langle \sigma v_2\rangle \implies \THH_*(\BP\langle 2\rangle,\ell)
+\]
+are given by $d_1(b_i)\dot{=}p^{\nu_p(i-1)}b_{i-1}\sigma v_2$ and they are $v_1'$-linear.
+
+\maxime{we need to be careful with what we mean by $p^{\nu(i)}b_i$, it cannot be really multiplication by $p$, see for example the extension
+  \begin{equation}
+    b_{15} = v_0b_{15} + v_1^{27} b_9
+  \end{equation}
+  in the figure for $p=3$. In that case the correct formula should be
+  \begin{equation}
+    d_1(b_i) \dot{=} v_0^{\nu_p(i-1)}b_{i-1} \sigma v_2
+  \end{equation}}
+\end{theorem}
+
+\begin{proof}
+First, we consider the rationalization of the fiber sequence 
+\[ 
+\Sigma^{2p^2-1}\THH(\ell)\to \THH(\BP\langle 2\rangle ;\ell)\to \THH(\ell)
+\]
+This produces a spectral sequence 
+\[ 
+\THH_*(\ell)\otimes \mathbb{Q}\langle \sigma v_2\rangle \implies \THH_*(BP\langle 2\rangle,\ell)\otimes \mathbb{Q}
+\]
+which we know collapses because we know the abutment by Proposition~\ref{prop:rational} and it agrees with the $\mathrm{E}_2$-page. The map of spectral sequences 
+\[ 
+\begin{tikzcd}
+\THH_*(\ell)\langle \sigma v_2\rangle \ar[d] \arrow[=>]{r} & \THH_*(BP\langle 2\rangle,\ell)\ar[d] \\
+\THH_*(\ell)\otimes \mathbb{Q}\langle \sigma v_2\rangle \arrow[=>]{r} & \THH_*(BP\langle 2\rangle,\ell)\otimes \mathbb{Q}
+\end{tikzcd}
+\]
+is injective on the torsion free part and therefore the torsion free summands in the top spectral sequence consist of permanent cycles. 
+
+Next, we have a spectral sequence 
+\[ \THH_*(\ell,\mathbb{Z}_p^{\wedge})\langle \sigma v_2\rangle \implies \THH_*(\BP\langle 2\rangle,\mathbb{Z}_p^{\wedge})
+\]
+and by \cite[Theorem~3.18]{AKCH24}, we know that 
+\[
+\THH_*(\ell,\mathbb{Z}_{(p)})=\mathbb{Z}_{(p)}\langle \lambda_1\rangle \otimes (\mathbb{Z}_{(p)}\oplus T_0^1)
+\]
+and 
+\[
+\THH_*(\BP\langle 2\rangle,\mathbb{Z}_{(p)})=\mathbb{Z}_{(p)}\langle \lambda_1,\lambda_2\rangle \otimes (\mathbb{Z}_{(p)}\oplus T_0^2)
+\]
+So we know that there is long exact sequence 
+\[ 
+\to T_0^{2} \to T_0^1\overset{\partial}{\to} \Sigma^{2p^2}T_0^1 \to 
+\]
+Since 
+\[ 
+T_0^1=\bigoplus_{s\ge 1}\mathbb{Z}/p^s[(\mu^{p^2})^{p^s}]\{\lambda_{1+s}(\mu^{p^2})^{jp^{s-1}}: 0\le j\le p-2\}
+\]
+and 
+\[ 
+T_0^2=\bigoplus_{s\ge 1}\mathbb{Z}/p^s[(\mu^{p^3})^{p^s}]\{\lambda_{2+s}(\mu^{p^3})^{jp^{s-1}}: 0\le j\le p-2\}
+\]
+where 
+\[ 
+    \lambda_{s}=\begin{cases} \lambda_s & \text{ if } 1\le s\le n+1 \\ 
+    \lambda_{s-1}(\mu^{p^{n+1}})^{p^{s-(n+2)}(p-1)}
+    \end{cases}
+\]
+
+we know that 
+\[ 
+\partial(\lambda_{1+s}(\mu^{p^2})^{jp^{s-1}}(\mu^{p^2})^{p^s})=(jp^{s-1}+p^s)\lambda_{1+s}(\mu^{p^2})^{jp^{s-1}}(\mu^{p^2})^{p^s-1} 
+\]
+and the differential is $\lambda_1$-linear. \gabe{Should be 
+\[
+\partial(\lambda_2\mu^k)=k\lambda_2\mu^{k-1}
+\]
+}
+\maxime{
+  \begin{equation}
+    \partial(\lambda_2 (\mu^{p^2})^k) = k \lambda_2 (\mu^{p^2})^{k-1}
+  \end{equation}
+  is correct, see the remark below}
+
+\maxime{I don't think the $\lambda_{1+s}$ on the left hand side and right hand side should be equal, since the generator in degree $*$ and $* - 2p^2$ in $\THH_*(\ell; H\Z_{(p)})$ have never the same height for multiplication by $p$. Here is my attempt to write $\partial$.}
+\gabe{I thought that the target would be $\lambda_{1+s}\mu^{?}\mu^{??}$ which we could then rewrite as an appropriate $\lambda_{1+s+k}\mu^{??}$. Is this consistent with what you are thinking here?}
+
+The map $T_0^2 \rightarrow T_0^1$ has image $p \cdot T_0^1$, so that each generator in degree $*$ of $T_0^1$ must have image by $\partial$ the top of the multiplication-by-$p$-tower of the generator in degree $*-2p^2$ in $T_0^1$. Let us consider for $s \geq 1$, $0 \leq j \leq p-2$ and $\alpha \geq 0$ the image by $\partial$ of
+\begin{equation}
+  \left(\mu^{p^{s+2}}\right)^\alpha \lambda_{1+s}\mu^{j p^{s+1}}.
+\end{equation}
+The generator appearing in the formula for the image is in degree
+\begin{equation}
+  2(\alpha p^{s+2} + (j+1)p^{s+1} - p^2) - 1
+  = 2(\alpha p^{s+2} + jp^{s+1} + (p-1)p^s + \dots + (p-1)p^2) - 1
+\end{equation}
+so that
+\begin{itemize}
+\item when $s \geq 2$, it is a generator of a copy of $\Z/p$, and we have
+  \begin{equation}
+    \partial\left(\left(\mu^{p^{s+2}}\right)^\alpha \lambda_{1+s}\mu^{j p^{s+1}}\right) = \left(\mu^{p^2}\right)^{\alpha p^s + j p^{s-1} + (p-1)p^{s-2} + \dots + (p-1)p} \lambda_{1 + 1} \mu^{(p-2)p^2}
+  \end{equation}
+  up to a unit.
+\item when $s=1$ and $j \geq 1$, it is a generator of a copy of $\Z/p$, and we have
+  \begin{equation}
+    \partial\left(\left(\mu^{p^3}\right)^\alpha \lambda_{1+1}\mu^{j p^2}\right) = \left(\mu^{p^3}\right)^\alpha \lambda_{1 + 1} \mu^{(j-1)p^2}
+  \end{equation}
+up to a unit.
+\item when $s=1$ and $j=0$, write $\alpha = \alpha' p^{k+1} + (j' + 1)p^k$ for some $k \geq 0$ and $0 \leq j' \leq p - 2$, so that the target is in degree
+  \begin{equation}
+    2 \alpha p^3 - 1 = 2(\alpha' p^{k+4} + (j' + 1)p^{k+3}) - 1,
+  \end{equation}
+  generate a copy of $\Z/p^{k+2}$, and we have
+  \begin{equation}
+    \partial\left(\left(\mu^{p^3}\right)^\alpha \lambda_{1+1}\right) = p^{k+1} \cdot \left(\mu^{p^{k+4}}\right)^{\alpha'} \lambda_{1 + k + 2} \mu^{j'p^{k+3}}
+  \end{equation}
+  up to a unit.
+\end{itemize}
+
+
+\maxime{end of my attempt}
+
+Finally, we consider the map of Bockstein spectral sequences
+\[ 
+\begin{tikzcd}
+\THH_*(\ell;\mathbb{Z})_p^{\wedge}[v_1] \ar[r,"\partial"] \arrow[Rightarrow,d] & \Sigma^{2p^2}\THH_*(\ell;\mathbb{Z})_p^{\wedge}[v_1]  \arrow[Rightarrow,d]  \\ 
+\THH_*(\ell)_p^{\wedge} \ar[r,"\partial"] & \Sigma^{2p^2}\THH_*(\ell)_p^{\wedge} 
+\end{tikzcd}
+\]
+induced by the boundary map in the cofiber sequence
+\[ 
+\Sigma^{2p^2-1}\ell \to \ell\otimes_{\BP\langle 2\rangle}\ell \to \ell \]
+Then $b_i$ is detected by $\lambda_1\lambda_2(\mu^{p^2})^{i-1}$. The top map is given by 
+\[ 
+\partial(\lambda_1\lambda_{1+s}(\mu^{p^2})^{jp^{s-1}}(\mu^{p^2})^{p^s})=(jp^{s-1}+p^s)\lambda_1\lambda_{1+s}(\mu^{p^2})^{jp^{s-1}}(\mu^{p^2})^{p^s-1} 
+\]
+By construction, the differentials are $v_1'$-linear. 
+\end{proof}
+
+\begin{remark}
+  The differential $\partial$ can be obtained by considering that $\partial$ is an algebra derivation for $\lambda_2$ and $\mu^{p^2}$, even though $\mu^{p^2}$ is not an element in $\THH_*(\ell; H \Z_{(p)})$. We can check that the formula
+  \begin{equation}
+    \partial(\lambda_{2} (\mu^{p^2})^k) = k \lambda_2 (\mu^{p^2})^{k-1}
+  \end{equation}
+  is the same (up to units) as the previous proposition.
+
+  Recall that for $s \geq 1$,
+  \begin{equation}
+    \lambda_{1+s} = \lambda_2 (\mu^{p^2})^{p^{s-1} - 1}
+  \end{equation}
+  so that when $\alpha \geq 0$ and $0 \leq j \leq p-2$, we write
+  \begin{equation}
+    \begin{aligned}
+      \partial\left((\mu^{p^{s+2}})^\alpha \lambda_{1+s} \mu^{j p^{s+1}}\right)
+      & = \partial\left(\lambda_2 (\mu^{p^2})^{\alpha p^s + (j+1)p^{s-1} - 1}\right) \\
+      & = (\alpha p^s + (j+1) p^{s-1} - 1) \lambda_2 (\mu^{p^2})^{\alpha p^s + (j+1)p^{s-1} - 2}.
+    \end{aligned}
+  \end{equation}
+  Now,
+  \begin{itemize}
+  \item if $s \geq 2$, $\alpha p^s + (j+1) p^{s-1} - 1$ is a unit modulo $p$ so is a unit modulo $p^t$ for any $t \geq 1$.
+  \item if $s = 1$ and $j \geq 1$, $\alpha p^s + (j+1) p^{s-1} - 1 = \alpha p + j$ is a unit modulo $p$ so is a unit modulo $p^t$ for any $t \geq 1$.
+  \item if $s = 1$ and $j = 0$, $\alpha p^s + (j+1) p^{s-1} - 1 = \alpha p$. We have
+    \begin{equation}
+      \left| \partial\left((\mu^{p^3})^\alpha \lambda_2\right) \right| = \left| (\mu^{p^3})^\alpha \lambda_2 \right| - 2p^2 = 2 \alpha p^3 - 1
+    \end{equation}
+    which is the degree of a copy of $\Z / p^{\nu(\alpha) +2}$ in $\THH_*(\ell; H\Z_{(p)})$, and the coefficient $\alpha p$ is up to a unit the highest non-zero power of $p$.
+  \end{itemize}
+\end{remark}
+
+\begin{proposition}
+  In the spectral sequence
+  \begin{equation}
+    \THH_*(\ell) \langle \sigma v_2 \rangle \Rightarrow \THH_*(\BP \langle 2 \rangle; \ell)
+  \end{equation}
+  the differential $\partial$ verify
+  \begin{equation}
+    \operatorname{coker} \partial \cap T_0^1\{\sigma v_2 \} = \operatorname{coim}(\times v_1^p : T_0^1\{\sigma v_2 \} \rightarrow T_0^1\{\sigma v_2 \})
+  \end{equation}
+  and
+  \begin{equation}
+    \ker \partial \cap T_0^1\{ 1 \} =  \im (\times v_1^p : T_0^1\{ 1 \} \rightarrow T_0^1\{ 1 \}) \oplus M
+  \end{equation}
+  where $M$ is the $P(v_1)$-submodule of $T_0^1\{ 1 \}$ generated by the $p^{k}b_{p^k}$ for all $k \geq 1$.
+\end{proposition}
+
+\begin{proof}
+  \maxime{I don't know yet if this is easy to write. I a have convinced myself it is true by drawing  $T_0^1$.}
+
+  \maxime{the $\ker \partial = \im (\times v_1^p)$ part is trivial with the correct formula for $\partial$. The $\operatorname{coker} \partial = \operatorname{coim} (\times v_1^p)$ needs a careful check of the extensions $\THH_*(\ell)$.}
+\end{proof}
+
+% \section{Bounding Hochschild homology of $\BP\langle n\rangle$}
+% The goal of this section is to use the cosimplicial descent spectral sequence from work of \cite{DR18} to produce a useful upper bound on $\THH_{*}(\BP\langle n\rangle)$. 
+% \begin{definition}
+% Let $C^{\bullet}(A/B)$ denote the cosimplicial cobar complex with $q$-simplices $C^{q}(A/B)=A^{\otimes_{B}q+1}$.
+% \end{definition}
+
+% First, we need a lemma. 
+
+% \begin{lemma}\label{cobar lemma 0}
+% The spectrum 
+% $\BP\langle n-1\rangle \otimes_{\BP\langle n\rangle} \BP\langle n-1\rangle$ is the fiber of a $\mathbb{E}_2$-ring derivation  $d: \BP\langle n-1\rangle\to \Sigma^{2p^n-1}\BP\langle n-1\rangle$. 
+% \end{lemma}
+
+% \begin{lemma}\label{cobar lemma 1}
+% There is an isomorphism of rings 
+% \[\pi_* C^q(\BP\langle n-1\rangle/\BP\langle n-1\rangle\otimes_{\BP\langle n\rangle}\BP\langle n-1\rangle )\cong  \Gamma_{\pi_*\BP\langle n-1\rangle_*}((\sigma^2v_{n})^1,\cdots ,(\sigma^2v_{n})^q)
+% \]
+% \end{lemma}
+
+% \begin{lemma}\label{cobar lemma}
+% Let $n\ge 1$. There is an isomorphism rings
+% \[\rE_{2}^{*,*}\cong \Tor^{\pi_{*}\BP\langle n-1\rangle \wedge \BP\langle n-1\rangle }(\BP \langle n-1\rangle,\BP \langle n-1\rangle)\otimes \Gamma \{ \sigma^{2}v_{n}^{(j)}: 1\le j\le q\}\otimes \Lambda (\sigma v_{1}^{(j)} : 1\le j\le q ) 
+% \]
+% where 
+% \[\rE_{2}^{*,*}=\pi_{*}\left ( H\pi_{*}\THH(\BP\langle n-1\rangle)^{\wedge_{H\pi_{*}\THH(\BP\langle n\rangle)}q+1} \right )\]
+% \maxime{I think we mean the following?}
+% \[ \rE_2^{*,*} = \Tor_{*,*}^{\pi_*\left(\left(\BP\langle n-1 \rangle^{\wedge_{\BP \langle n \rangle} q+1}\right)^{\wedge 2}\right)}\left(\pi_*(\BP \langle n-1 \rangle), \pi_*(\BP\langle n-1 \rangle^{\wedge_{\BP \langle n \rangle} q+1})\right) \]
+% is the $\rE_{2}$-term of the multiplicative K\"unneth spectral sequence
+% \[ \rE_{2}^{*,*}\implies \THH_{*}(C^{q}(\BP\langle n-1\rangle/\BP\langle n\rangle),\BP\langle n-1\rangle)\,.\]
+% \end{lemma}
+% \begin{proof}
+% When $q=0$, then $\THH(\BP\langle n-1\rangle^{\wedge_{\BP\langle n\rangle}q+1})=\THH(\BP\langle n-1\rangle)$. 
+% We first compute 
+% $\pi_{*}(\BP\langle n-1\rangle\otimes_{\BP\langle n\rangle}\BP\langle n-1\rangle)$ by a K\"unneth spectral sequence. 
+% The $E_{2}$-term is $\BP\langle n-1\rangle_{*}\otimes \Lambda (\sigma v_{n})$ so it is concentrated in K\"unneth filtration $[0,1]$ and therefore the spectral sequence collapses because the targets of all differentials are zero groups. 
+% We then use the equivalence 
+% \begin{align*}
+% A\wedge_{B}A\wedge_{B}A\simeq (A\wedge_{B}A)\wedge_{A}(A\wedge_{B}A)
+% \end{align*}
+% where $A=\BP\langle n-1\rangle$ and $B=\BP\langle n\rangle$ and the fact that $\pi_{*}(\BP\langle n-1\rangle\wedge_{\BP\langle n\rangle}\BP\langle n-1\rangle)$ is free as a $\BP\langle n-1\rangle_{*}$-module to inductively determine from the K\"unneth spectral sequence that 
+% \[ \pi_{*}(\BP \langle n-1\rangle ^{\wedge_{\BP\langle n\rangle}q+1})\cong \BP\langle n-1\rangle_{*}\otimes \Lambda (\sigma v_{n}^{(1)},\dots ,\sigma v_{n}^{(q)}) \]
+% (cf.~\cite{Ang08}). 
+% By obstruction theory, we determine that $\BP \langle n-1\rangle ^{\wedge_{\BP\langle n\rangle}q+1}$ is the smash product of square zero extensions 
+% \[ \left ( BP\langle n-1\rangle \vee \Sigma^{2p-1} BP\langle n-1\rangle \right )^{\wedge_{ BP\langle n-1\rangle}q} \,.\]
+% \gabe{Give more details or remove.}
+% Consequently, we determine that 
+% \[ \pi_{*}\left ( \BP \langle n-1\rangle ^{\wedge_{\BP\langle n\rangle}q+1} \right )^{\wedge 2}\cong \pi_{*}(\BP \langle n-1\rangle^{\wedge 2})\otimes \Lambda (\sigma v_{n}^{(1)},\dots ,\sigma v_{n}^{(q)})^{\wedge 2} \,.\]
+
+% \maxime{Let's try to do the whole computation without the splitting}
+
+% We use the equivalence between
+% \[ \left(\BP\langle n-1 \rangle^{\wedge_{\BP \langle n \rangle} q+1}\right)\wedge\left(\BP\langle n-1 \rangle^{\wedge_{\BP \langle n \rangle} q+1}\right) \]
+% and
+% \[ \left(\BP\langle n-1 \rangle^{\wedge_{\BP \langle n \rangle} q }\right) \wedge_{\BP \langle n \rangle} \left( \BP \langle n-1 \rangle^{\wedge 2} \right) \wedge_{\BP \langle n \rangle} \left(\BP\langle n-1 \rangle^{\wedge_{\BP \langle n \rangle} q }\right).\]
+
+% First, we use the Künneth spectral sequence to compute
+% \[ \pi_*\left( \BP \langle n-1 \rangle^{\wedge 2} \wedge_{\BP \langle n \rangle} \BP \langle n-1 \rangle\right).\]
+
+% The $\BP \langle n \rangle_*$-free resolution
+% \[ 0 \leftarrow \BP \langle n-1 \rangle_* \leftarrow \BP \langle n \rangle_* \otimes \Lambda(\sigma v_n) \]
+% has a differential $d(\sigma v_n) = v_n$ that become zero when tensoring with $(\BP \langle n-1 \rangle^{\wedge 2})_*$ since the $\BP \langle n \rangle_*$-action on $(\BP \langle n-1 \rangle^{\wedge 2})_*$ factors through $\BP \langle n-1 \rangle_*$. Thus, we have
+% \[ \Tor^{\BP \langle n \rangle_*}_{*,*}((\BP \langle n-1 \rangle^{\wedge 2})_*, \BP \langle n-1 \rangle_*) \cong (\BP \langle n-1 \rangle^{\wedge 2})_* \otimes \Lambda(\sigma v_n) \]
+% and the Künneth spectral sequence, concentrated in filtration degree 0 and 1, collapses, yielding
+% \[ \pi_*( (\BP \langle n-1 \rangle^{\wedge 2}) \wedge_{\BP \langle n \rangle} \BP \langle n-1 \rangle) \cong (\BP \langle n-1 \rangle^{\wedge 2})_* \otimes \Lambda(\sigma v_n). \]
+
+% A similar argument, repeated by induction, gives
+% \[ \pi_*((\BP \langle n-1 \rangle^{\wedge_{\BP \langle n \rangle} q+1})^{\wedge 2}) \cong (\BP \langle n-1 \rangle^{\wedge 2})_* \otimes \Lambda(\sigma v_n^{(1)}, \dots, \sigma v_n^{(q)})^{\otimes 2}\]
+
+% \maxime{end of the alternate proof proposition}
+
+% We then note that the K\"unneth spectral sequence sequence computing 
+% \[\THH_{*}(\BP \langle n-1\rangle^{\wedge_{\BP\langle n\rangle} q+1} )\] 
+% has $\rE_{2}$-term
+% \[ \Tor^{\pi_{*}\BP\langle n-1\rangle \wedge \BP\langle n-1}(\BP \langle n-1\rangle,\BP \langle n-1\rangle)\otimes \Gamma (\sigma^{2} v_{n}^{(1)},\dots ,\sigma^{2}v_{n}^{(q)})\otimes \Lambda (\sigma v_{n}^{(1)},\dots ,\sigma v_{n}^{(q)})\]
+% and that is exactly what we describe in the statement of the lemma. 
+% \end{proof}
+
+% \begin{proposition}\label{induction spectral sequence}
+% There is an equivalence 
+% \[ 
+% 	\THH(\BP\langle n \rangle,\BP\langle n-1\rangle)\simeq \Tot \left ( \THH(C^{\bullet}(\BP\langle n-1\rangle/\BP\langle n\rangle,\BP\langle n-1\rangle)) \right ).
+% \]
+% Consequently, there is a spectral sequence 
+% \[ 
+% 	\pi_{t-s}\lim_{\Delta} \Tot H\pi_s\THH(C^{\bullet}(\BP\langle n-1\rangle/\BP\langle n\rangle,\BP\langle n-1\rangle))\implies \pi_{t-s}\THH(\BP\langle n\rangle;\BP\langle n-1\rangle)
+% \]
+% associated to the filtration 
+% \begin{equation}\label{Tot-filtration}
+% 	\lim \Tot \tau_{\ge s}\THH(C^{\bullet}(\BP\langle n-1\rangle/\BP\langle n\rangle ;\BP\langle n-1\rangle))\,.
+% \end{equation}
+% \maxime{this is $\tau_{\geq s}$ in the Beilinson $t$-structure right? I don't think we have a way to describe this with the "pointwise" Whitehead tower}
+% The $E_2$-term is
+% \[ \THH_*(BP\langle n-1\rangle)\otimes_{\mathbb{Z}_{(p)}} \Lambda_{\mathbb{Z}_{(p)}} (\sigma v_n) \,.\]
+% Consequently,
+% \[ |\THH_{t}(BP\langle n \rangle;\BP\langle n-1)|\le |\THH_{t}(BP\langle n-1 \rangle)| + |\THH_{t-2p^{n}+1}(BP\langle n-1 \rangle)|\]
+% \end{proposition}
+% \begin{proof}
+% Since $\mathrm{BP}\langle n\rangle\to \mathrm{BP}\langle n-1\rangle$ is an isomorphism on $\pi_i$ for $i=0,1$ the first statement follows directly from \cite[Theorem 3.7]{DR18}. 
+% The second statement follows from \cite[Remark 3.7]{GIKR22} which identifies the filtration \eqref{Tot-filtration} with the d\'ecalage (cf. \cite[pp. 21]{Del71}) of the filtration whose associated graded is the $E_{1}$-term of the Bousfield--Kan spectral sequence. 
+
+% It therefore suffices to compute the $E_{2}$-term, which is the cohomology of the Hopf algebroid $(\THH_{*}(\BP\langle n-1\rangle), \THH_{*}(\BP\langle n-1\rangle)\otimes \Gamma \{ \sigma^{2}v_{n} \} )$ by Lemma \ref{cobar lemma}. 
+% We note from the proof of Lemma \ref{cobar lemma} that this Hopf algebroid is the tensor product of the Hopf algebroids 
+% $(\THH_{*}(\BP\langle n-1\rangle), \THH_{*}(\BP\langle n-1\rangle))$ and $(\mathbb{Z}_{(p)},\Gamma_{\mathbb{Z}_{(p)}} \{ \sigma^{2}v_{n})\} $. 
+% Consequently, the cohomology of this Hopf algebroid is $\THH_{*}(\BP\langle n-1\rangle )\otimes \Lambda (\sigma v_{n})$ as desired.
+
+% \maxime{I don't quite get how $\THH(C^\bullet(\BP \langle n-1 \rangle, \BP \langle n \rangle), \BP \langle n-1 \rangle)$ is the cobar construction for $\THH(\BP \langle n \rangle, \BP \langle n-1 \rangle)$. The argument for $\THH(\mathbb{S})$ in "Cubical and cosimplicial descent" section 4.7 depends a lot on $\THH(\MU) \simeq \MU \wedge SU^+$}
+% \end{proof}
+
+% \begin{proposition}\label{induction spectral sequence}
+% There is an equivalence 
+% \[ 
+% 	\THH(\BP\langle n \rangle,\BP\langle n-1\rangle)\simeq \lim_{\Delta} \left ( \THH(\BP\langle n-1 \rangle , C^{\bullet}(\BP\langle n-1 \rangle/(\BP\langle n-1 \rangle\otimes_{\BP\langle n \rangle}\BP\langle n-1 \rangle))\right ).
+% \]
+% Consequently, there is a spectral sequence 
+% \[ 
+% 	\pi_{t-s}\lim_{\Delta} \Tot H\pi_s\THH(C^{\bullet}(\BP\langle n-1\rangle/\BP\langle n\rangle,\BP\langle n-1\rangle))\implies \pi_{t-s}\THH(\BP\langle n\rangle;\BP\langle n-1\rangle)
+% \]
+% associated to the filtration 
+% \begin{equation}\label{Tot-filtration}
+% 	\lim \Tot \tau_{\ge s}\THH(C^{\bullet}(\BP\langle n-1\rangle/\BP\langle n\rangle ;\BP\langle n-1\rangle))\,.
+% \end{equation}
+% The $E_2$-term is
+% \[ \THH_*(BP\langle n-1\rangle)\otimes_{\mathbb{Z}_{(p)}} \Lambda_{\mathbb{Z}_{(p)}} (\sigma v_n) \,.\]
+% Consequently,
+% \[ |\THH_{t}(BP\langle n \rangle;\BP\langle n-1)|\le |\THH_{t}(BP\langle n-1 \rangle)| + |\THH_{t-2p^{n}+1}(BP\langle n-1 \rangle)|\]
+% \end{proposition}
+% \begin{proof}
+% Since $\mathrm{BP}\langle n\rangle\to \mathrm{BP}\langle n-1\rangle$ is an isomorphism on $\pi_i$ for $i=0,1$ the first statement follows directly from \cite[Theorem 3.7]{DR18}. 
+% The second statement follows from \cite[Remark 3.7]{GIKR22} which identifies the filtration \eqref{Tot-filtration} with the d\'ecalage (cf. \cite[pp. 21]{Del71}) of the filtration whose associated graded is the $E_{1}$-term of the Bousfield--Kan spectral sequence. 
+
+% It therefore suffices to compute the $E_{2}$-term, which is the cohomology of the Hopf algebroid $(\THH_{*}(\BP\langle n-1\rangle), \THH_{*}(\BP\langle n-1\rangle)\otimes \Gamma \{ \sigma^{2}v_{n} \} )$ by Lemma \ref{cobar lemma}. 
+% We note from the proof of Lemma \ref{cobar lemma} that this Hopf algebroid is the tensor product of the Hopf algebroids 
+% $(\THH_{*}(\BP\langle n-1\rangle), \THH_{*}(\BP\langle n-1\rangle))$ and $(\mathbb{Z}_{(p)},\Gamma_{\mathbb{Z}_{(p)}} \{ \sigma^{2}v_{n})\} $. 
+% Consequently, the cohomology of this Hopf algebroid is $\THH_{*}(\BP\langle n-1\rangle )\otimes \Lambda (\sigma v_{n})$ as desired. 
+% \end{proof}
+
+% \begin{example}
+% Consider the case $n=0$. Then there is a spectral sequence 
+% \[ 
+% \THH_{*}(H\mathbb{F}_{p})\otimes \Lambda (\sigma v_{0})\implies \THH_{*}(\mathbb{Z}_{(p};\mathbb{F}_{p}) \,.
+% \]
+% This spectral sequence has a differential $d_{1}(\mu)=\sigma v_{0}$ and no further differentials except those generated by the Leibniz rule yielding the known answer $\mathbb{F}_p[\mu^p]\langle \sigma v_0 \mu^{p-1}\rangle$. 
+% \end{example}
+
+% \begin{example}
+% Consider the case $n=1$. Then there is a spectral sequence 
+% \[ 
+% \THH_{*}(\mathbb{Z}_{(p)})\otimes \Lambda (\sigma v_{1})\implies \THH_{*}(\ell;\mathbb{Z}_{p}) \,.
+% \]
+% We know $\sigma v_1$ survives because it generates a torsion free class and $\THH_*(\mathbb{Z})$ is torsion above degree zero. Specifically, 
+% \[
+% \THH_*(\mathbb{Z}_{(p)})=\begin{cases} \mathbb{Z}_{(p)} & \text{ if } n=0 \\ 
+% \mathbb{Z}/p^{\nu_p(k)+1}\{\lambda_1\mu_1^{k-1}\} & \text{ if } n=2pk-1>0 \\ 
+% 0 & \text{ otherwise.}
+% \end{cases}
+% \]
+% By comparing to~\cite{AHL}, we determine differentials 
+% \[
+% d_1(\lambda_1\mu^{k-1})\dot{=}\nu_p(k-1)\lambda_1\mu^{k}\sigma v_1 
+% \]
+% for all integers $k$. In particular, when $k=ip$ for some integer $i\ge 0$ then 
+% \[ 
+% \ker 
+% (d_1 :\mathbb{Z}/p^{\nu_p(i)+2}\{\lambda_1\mu_1^{ip-1}\}\to \mathbb{Z}/p) = \mathbb{Z}/p^{\nu_p(i)+1}\{\lambda_1\mu_1^{ip-1}\}
+% \]
+% and when $k=ip+1$ for some integer $i\ge 0$ then 
+% \[ 
+% \textup{coker} 
+% (d_1 :\mathbb{Z}/p\{\mu_1^{ip}\}\to \mathbb{Z}/p^{\nu_p(i)+2}\{\mu_1^{ip-1}) = \mathbb{Z}/p^{\nu_p(i)+1}\{p\sigma v_1\lambda_1\mu^{ip-1}\} \,.
+% \]
+% This accounts for the classes $a_i=\lambda_1\mu_1^{ip-1}$ and $b_i=p\sigma v_1\lambda_1\mu_1^{ip-1}$ respectively. Otherwise the kernel and cokernel are trivial. 
+% \end{example}
 
 
 \subsection{The Bockstein spectral sequences}
@@ -120,7 +461,7 @@ there is a square of Bockstein spectral sequences \[
 \]
 for integer $n\ge 1$. 
 
-The first Bockstein spectral sequence in each composite of spectral sequences above was computed in~\cite{MS}, ~\cite{AR} and~\cite{AHL} for $n=1$ and~\cite{ACH24} for $n=2$. We recall these results below. 
+The first Bockstein spectral sequence in each composite of spectral sequences above was computed in~\cite{MS}, ~\cite{AR} and~\cite{AHL10} for $n=1$ and~\cite{ACH24} for $n=2$. We recall these results below. 
 
 First, let 
 \[ 
@@ -130,7 +471,7 @@ p^{s}+r(s-(n+1),n) \text{ for }s>0\,.
 \end{cases}
 \]
 
-\begin{theorem}[{\cite{MS}},{\cite{AR}}]
+\begin{theorem}[{\cite{MS93}},{\cite{AR05}}]
 The $\mathbb{F}_p[v_1]$-module $\THH_*(\BP\langle 1\rangle; k(1))$ is generated by $1$, $x_{n,m}=\lambda_n\mu^{p^{n-1}m}$, $x'_{n,m}=\lambda_n\lambda_{n+1}\mu^{p^{n-1}m}$ for $n\ge 1$ and $m\ge 0$, $m\ne p-1\mod p$. 
 The relations are generated by 
 \[ 
@@ -138,7 +479,7 @@ v_1^{r(n,1)}x_{n,m}=v_1^{r(n,1)}x'_{n,m}=0.
 \]
 \end{theorem}
 
-\begin{theorem}[{\cite{AHL}}]
+\begin{theorem}[{\cite{AHL10}}]
 The homotopy of $\THH(\BP\langle 1\rangle;\mathbb{Z}_{(p)})$ is a copy of $\mathbb{Z}_{(p)}$ generated by $\lambda_1$ plus torsion. The torsion is generated as a $\mathbb{Z}_{(p)}$-module by the
 elements $a_i$ and $b_i$ where $a_i=\mu_2^{i-1}\lambda_2$ and $b_i=\mu_2^{i-1}\lambda_1\lambda_2$ for $i\ge 1$ and they both have order $p^{k+1}$, where $k= \nu_{p}(i)$, the
 $p$-adic valuation of $i$.

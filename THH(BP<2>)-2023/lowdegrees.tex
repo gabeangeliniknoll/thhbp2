@@ -1,0 +1,186 @@
+
+\section{Low degrees computations}
+
+We recall the structure of $\THH_*(\ell)$.
+
+\begin{theorem}[sections 6.2 and 6.3 of \cite{AHL10}]
+  $\THH_*(\ell)$ is a quotient of the $\Z_{(p)}[v_1]$-module
+  \begin{multline}
+    \Z_{(p)}[v_1]\{1,\,\sigma v_1,\, v_0^n\mu_{p^{n+1}},\,n\geq 0\} \\
+    \oplus \Z_{(p)}[v_1]\{v_0^h\sigma v_1\mu_{ap^n},\, n\geq 2,\, a\geq 1,\, \mbox{$a$ not divisible by $p$},\, h \geq 0\}
+  \end{multline}
+  by the relations in the non-torsion part:
+  \begin{itemize}
+  \item $p\cdot \mu_p = \sigma v_1$,
+  \item $p\cdot v_0^n\mu_{p^{n+1}} = v_1^{p^n}v_0^{n-1}\mu_{p^n}$ for any $n\geq 1$,
+  \end{itemize}
+  and the relations in the torsion part:
+  \begin{itemize}
+  \item $v_0^{h} \sigma v_1 \mu_{ap^n} = 0$ for any $a \geq 1$ and $n \geq 2$, $a$ not divisible by $p$, and $h \geq n -1$,
+  \item $v_1^{p^{n-h-1}+p^{n-h-2}+\dots+p }\cdot v_0^h\sigma v_1 \mu_{ap^n} = 0$ for any $a \geq 1$ and $n \geq 2$, $a$ not divisible by $p$ and  $0 \leq h \leq n - 2$,
+  \item $p\cdot \sigma v_1 \mu_{(bp+p-1)p^n} = v_0\sigma v_1\mu_{(bp+p-1)p^n}+v_1^{p^n+p^{n-1}+\dots+p}v_0^{\nu(b)}\sigma v_1 \mu_{bp^{n+1}}$ for any $b\geq 1$ and $n \geq 2$.
+  \item $p\cdot v_0^h\sigma v_1 \mu_{ap^n} = v_0^{h+1}\sigma v_1 \mu_{ap^n}$ for any $a \geq 1$, $n \geq 2$, $a$ not divisible by $p$, and any $1 \leq h \leq n - 2 $, or $h=0$ not in the previous case.
+  \end{itemize}
+  
+  The degrees are:
+  \begin{equation}
+    \begin{aligned}
+      & |\mu_{kp}| = 2kp - 1 \\
+      & |\sigma v_1| = 2p - 1 \\
+      & |v_0| = 0 \\
+      & |v_1| = 2(p-1)
+    \end{aligned}
+  \end{equation}
+  and $\nu$ is the $p$-adic valuation.
+\end{theorem}
+
+We will focus on the fact that the torsion elements
+\begin{equation}
+  \sigma v_1 \mu_{ap^n},\, v_1 \sigma v_1 \mu_{ap^n},\, v_1^2 \sigma v_1 \mu_{ap^n},\, \dots,\, v_1^{p-1} \sigma v_1 \mu_{ap^n}
+\end{equation}
+generate \emph{at least} a copy of $\Z/p^{n-1}$ in their respective degrees.
+
+Let us write
+\begin{equation}
+  \THH_*(\BP \langle 2 \rangle; H \Z_{(p)}) \cong \Lambda(\mu_p, \mu_{p^2}) \otimes \left(Z_{(p)}\{1\} \oplus \bigoplus_{n \geq 3,\, p \nmid a} \Z / p^{n-2} \{v_0^2 \mu_{ap^n} \}\right)
+\end{equation}
+where $p \cdot \mu_p = \sigma v_1$ and $p \cdot \mu_{p^2} = \sigma v_2$.
+
+
+\begin{conjecture}
+  In the spectral sequence
+  \begin{equation}
+    \THH_*(\ell)\langle \sigma v_2 \rangle \Rightarrow \THH_* (\BP \langle 2 \rangle ; \ell)
+  \end{equation}
+  the differentials are given by the formula
+  \begin{equation}
+    d(v_1^\alpha \sigma v_1 \mu_{(a p^{n-2} + 1)p^2}) = p^{n-2} v_1^\alpha \sigma v_2 \sigma v_1 \mu_{a p^n}
+  \end{equation}
+  for all $0 \leq \alpha < p$, $n \geq 2$ and $a \geq 1$ not divisible by $p$. 
+\end{conjecture}
+
+We will check this conjecture in low degrees. Remark first that in $\THH_*(\BP \langle 2 \rangle; H \Z_{(p)})$, each $Z_{(p)}$-module generator
+\begin{equation}
+  1,\, \mu_p,\, \mu_{p^2},\, \mu_p \mu_{p^2},\, v_0^2 \mu_{ap^n},\, \mu_pv_0^2 \mu_{ap^n},\, \mu_{p^2}v_0^2 \mu_{ap^n},\, \mu_p \mu_{p^2}v_0^2 \mu_{ap^n}
+\end{equation}
+is alone in its degree.
+
+\begin{proposition}
+  In the spectral sequence
+  \begin{equation}
+    \THH_*(\ell)\langle \sigma v_2 \rangle \Rightarrow \THH_* (\BP \langle 2 \rangle ; \ell)
+  \end{equation}
+  there are differentials
+  \begin{equation}
+    d(v_1^\alpha \sigma v_1 \mu_{(a + 1)p^2}) = v_1^\alpha \sigma v_2 \sigma v_1 \mu_{a p^2}
+  \end{equation}
+  for all $0 \leq \alpha < p$ and $1 \leq a \leq p - 2$.
+\end{proposition}
+
+\begin{proof}
+  Each of the $\sigma v_1 \mu_{(a+1)p^2}$ for $1 \leq a \leq p -2$ generate a copy of $\Z/p$ in $\THH_*(\ell)$, but in $\THH_*(\BP \langle 2 \rangle; H \Z_{(p)})$ in their respective degrees the modules are null. These elements must then support differentials in the spectral sequence. The only possible differentials are up to a unit
+  \begin{equation}
+    d(\sigma v_1 \mu_{(a + 1)p^2}) = \sigma v_2 \sigma v_1 \mu_{a p^2}.
+  \end{equation}
+
+  We then work by induction on $\alpha$. If the formula is true for some $0 \leq \alpha < p - 1$, then the element $v_1^{\alpha + 1} \sigma v_1 \mu_{(a+1)p^2}$, if it is a infinite cycle, cannot become divisible by $v_1$ in $\THH_*(\BP \langle 2 \rangle; \ell)$, since in the degree $|v_1^{\alpha + 1} \sigma v_1 \mu_{(a+1)p^2}| - |v_1|$ we already know that the $E^\infty$-page of the spectral sequence is null. Since in that degree $\THH_*(\BP \langle 2 \rangle; H \Z_{(p)})$ is also zero, this element cannot be an infinite cycle. Once again the only possible differential is given by our formula.
+\end{proof}
+
+\begin{proposition}\label{proposition:secondlowdegreecomputation}
+  In the spectral sequence
+  \begin{equation}
+    \THH_*(\ell)\langle \sigma v_2 \rangle \Rightarrow \THH_* (\BP \langle 2 \rangle ; \ell)
+  \end{equation}
+  there are differentials
+  \begin{equation}
+    d(v_1^\alpha \sigma v_1 \mu_{p^3}) = v_1^\alpha \sigma v_2 \sigma v_1 \mu_{(p-1)p^2}
+  \end{equation}
+  for all $0 \leq \alpha < p$.  
+\end{proposition}
+
+\begin{proof}
+  The element $\sigma v_1 \mu_{p^3}$ generate a copy of $\Z /p^2$ in $\THH_*(\ell)$. However in this degree $\THH_*(\BP \langle 2 \rangle; H \Z_{(p)})$ is $\Z/p$, so this element is not an infinite cycle and and the only differential possible is the one we claimed.
+
+  We once again work by induction on $\alpha$. Assume the formula is true for some $0 \leq \alpha < p - 1$. The element $v_1^{\alpha +1 } \sigma v_1 \mu_{p^3}$ generates a copy of $\Z/p^2$ in $\THH_*(\ell)$. In this degree, $\THH_*(\BP \langle 2 \rangle; H \Z_{(p)})$ is null. We also already know that in the $E^\infty$-page of the spectral sequence, in degree $|v_1^\alpha \sigma v_1 \mu_{p^3}|$ there is a copy of $Z/p$ generated by $p v_1^\alpha \sigma v_1 \mu_{p^3}$, so that in degree $|v_1^{\alpha+1} \sigma v_1 \mu_{p^3}|$ we can have at most a $Z/p$ in the $E^\infty$-page, divisible by $v_1$, so that it is the zero module modulo $v_1$. The only possibility is that we have a differential as claimed.
+\end{proof}
+
+\begin{remark}
+  We thus have copies of $\Z/p$ generated by
+  \begin{equation}
+    p\sigma v_1 \mu_{p^3},\, p v_1 \sigma v_1 \mu_{p^3},\, \dots,\, p v_1^{p-1} \sigma v_1 \mu_{p^3},\, v_1^p \sigma v_1 \mu_{p^3}
+  \end{equation}
+  in the $E^\infty$-page. The only degrees which are not null in $\THH_*(\BP \langle 2 \rangle; H \Z_{(p)})$ are $|\mu_p v_0^2 \mu_{p^3}| = |\sigma v_1 v_0 \mu_{p^3}|$ and $|\mu_{p^2} v_0^2 \mu_{p^3}| = |v_1^P \sigma v_1 \mu_{p^3}|$, which is compatible with the $P(v_1)$-module structure on the $E^\infty$-page.
+\end{remark}
+
+Similar arguments work for proving
+\begin{equation}
+  d(v_1^\alpha \sigma v_1 \mu_{k p^2}) = v_1^\alpha \sigma v_2 \sigma v_1 \mu_{(k-1)p^2}
+\end{equation}
+for $0 \leq \alpha < p$ and $p \leq k \leq 2p - 1$. However, one step further, we get the following.
+
+\begin{proposition}
+  There are differentials
+  \begin{equation}
+    d(v_1^\alpha \sigma v_1 \mu_{2 p^3}) = p v_1^\alpha \sigma v_2 \sigma v_1 \mu_{(2p-1)p^2}
+  \end{equation}
+  for $0 \leq \alpha < p$.
+
+  Recall that in $\THH_*(\ell)$ there is a relation
+  \begin{equation}
+    p v_1^\alpha \sigma v_1 \mu_{(2p-1)p^2} = v_1^{\alpha + p^2} \sigma v_1 \mu_{p^3}
+  \end{equation}
+  and that the $v_1^\alpha \sigma v_1 \mu_{(2p-1)p^2}$ generate copies of $\Z/p^2$.
+\end{proposition}
+
+\begin{proof}
+  The argument is similar to the previous ones, the relation in $\THH_*(\ell)$ forcing the new targets for the differentials.
+\end{proof}
+
+\section{Low degree computations in the Bockstein spectral sequence}
+
+\begin{conjecture}
+  In the Bockstein spectral sequence
+  \begin{equation}
+    \THH_*(\BP \langle 2 \rangle; H \Z_{(p)}) \otimes P(v_1) \Rightarrow \THH_*(\BP \langle 2 \rangle; \ell)
+  \end{equation}
+  the differentials are given by
+  \begin{equation}
+    d(\mu_p) = d(\mu_{p^2}) = 0
+  \end{equation}
+  and
+  \begin{equation}
+    d(p^k v_0^2 \mu_{a p^n+3}) = v_1^{p^{k+2} + \dots + p}p^k \mu_p v_0^2 \mu_{(a p^n - p^k) p^3}
+  \end{equation}
+  for all $a \geq 1$ not divisible by $p$, $n \geq 0$ and $0 \leq k \leq n$.
+
+  The extensions are uniquely determined by the differentials.
+\end{conjecture}
+
+
+Step one for a proof should be to have a suitable periodic computation that establishes the structure of the non-torsion part, in particular that $\mu_p$ and $\mu_{p^2}$ are infinite cycles. We assume in the following that we have such a proof.
+
+\begin{proposition}
+  \begin{equation}
+    d(v_0^2 \mu_{2p^3}) = v_1^{p^2 + p} \mu_p v_0^2 \mu_{p^3}
+  \end{equation}
+\end{proposition}
+
+\begin{proof}
+  There is no element in the same degree as $v_0^2 \mu_{2p^3}$ in $\THH_*(\ell) \otimes \Lambda(\sigma v_2)$, so it must be the source of a differential in the Bockstein spectral sequence. The only possible targets are, for degree reasons,
+  \begin{equation}
+    v_1^{p^2 + p} \mu_p v_0^2 \mu_{p^3} \text{ or } v_1^{p^2} \mu_{p^2} v_0^2 \mu_{p^3}.
+  \end{equation}
+
+  For similar reasons, $\mu_{p^2} v_0^2 \mu_{2p^3}$ must be the source of a differential whose target can be
+  \begin{equation}
+    v_1^{p^2 + p} \mu_{p^2}\mu_p v_0^2 \mu_{p^3} \text{ or } v_1^{p+1} v_0^2 \mu_{2p^3}.
+  \end{equation}
+
+  Since $\mu_{2p^3}$ is indecomposable and $\mu_{p^2}$ is an infinite cycle, it is impossible to have $d(\mu_{p^2} v_0^2 \mu_{2p^3}) = v_1^{p+1}v_0^2 \mu_{2p^3}$. Thus we have
+  \begin{equation}
+    d(\mu_{p^2} v_0^2 \mu_{2p^3}) = v_1^{p^2 + p} \mu_{p^2}\mu_p v_0^2 \mu_{p^3}.
+  \end{equation}
+
+  If we had also $d(v_0^2mu_{2p^3}) = v_1^{p^2} \mu_{p^2} v_0^2 \mu_{p^3}$, the resulting size difference of between the $v_1$-tower of $v_0^2 \mu_{p^3}$ and $\mu_{p^2} v_0^2 \mu_{p^3}$ would produce an unsolvable extension problem.
+  \maxime{I need to check that last part carefully}
+\end{proof}
