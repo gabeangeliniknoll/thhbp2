@@ -25,22 +25,22 @@ $\THH_*(\BP\langle 2\rangle ; M)$
 when $M\in \{\BP\langle 2\rangle/(p,v_1),\BP\langle 2\rangle /(p,v_2)\}$~\cite{ACH24}. The next goal in this program is to compute $\THH_*(\BP\langle 2\rangle;\BP\langle 1\rangle)$,
 which we accomplish in this paper. 
 
-\begin{thmx}\label{thm:main}
+\begin{theorem}\label{thm:main}
   Suppose $p=2$ and $\mathrm{BP}\langle 2\rangle$ is a $\mathbb{E}_3$-$\mathrm{MU}$-algebra form of the second truncated Brown--Peterson spectrum or $p=3$ and $\mathrm{BP}\langle 2\rangle=\mathrm{taf}^{D}$. 
   The topological Hochschild homology of $\BP\langle 2\rangle$ is a direct sum
   \[
     \THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle) \cong \Z_{(p)}[v_1] \langle \sigma v_2 \rangle \oplus \mathcal{F} \oplus \Sigma^{2p - 1} (\mathcal{F}_{\geq 2p^2 - 1}) \oplus \mathcal{T} \oplus \Sigma^{2p - 1} \mathcal{T}
   \]
   where $\mathcal{T}$ is the $\Z_{(p)}[v_1]$-submodule of $\THH_*(\BP \langle 1 \rangle)$ containing the torsion elements that are in the image of the multiplication by $v_1^p$ map,  $\mathcal{F}$ denotes the submodule of the torsion free part of $\THH_*(\BP \langle 1 \rangle)$ of elements not of the form $v_1^k \cdot 1$ for some $k \geq 0$, and $\mathcal{F}_{\geq 2p^2 -1}$ is the submodule of $\mathcal{F}$ whose elements are in degree $\geq 2p^2 -1$.
-\end{thmx}
+\end{theorem}
 Our work builds on~\cite[Theorem~3.8]{ACH24}, which somewhat restricts the scope of our results to certain forms of $\BP\langle n\rangle$, see Running Assumption~\ref{runningassumption}. We have stated the version of the theorem that holds unconditionally above. 
 
 As part of this program, we present a new computational tool, which is in some sense an instance of the Brun spectral sequence considered by~\cites{Bru00,Hon20}. This computational tool gives an inductive approach to computing $\THH(\BP\langle n\rangle)$. First one computes $\THH_*(\BP\langle n-1\rangle)$ along with the cap product of a certain class in the topological Hochschild cohomology of $\BP\langle n-1\rangle$. Then one uses the Brun spectral sequence from Proposition~\ref{prop:brunss} to compute $\THH_*(\BP\langle n\rangle;\BP\langle n-1\rangle)$.  Finally, one computes the remaining $v_{n}$-Bockstein spectral sequence to compute $\THH_*(\BP\langle n\rangle)$, which we leave to future work. 
 
 As an application, we show that $\BP\langle n\rangle$ is not a Thom spectrum of a $2$-fold loop map over the sphere spectrum for $n\ge 2$ at the prime $p=2$. When $n=-1,0$ it is known that $\mathrm{BP}\langle n\rangle$ is the Thom spectrum of a $2$-fold loop map at $p=2$ by Mahowald~\cite{Mah79}. When $n=1$, it is known that $\BP\langle 1\rangle$ is not a Thom spectrum by Mahowald~\cite{Mah87} and our argument builds on work of Angeltveit--Hill--Lawson~\cite{AHL09}, which reproved Mahowald's theorem at $n=1$ using topological Hochschild homology. 
-\begin{thmx}\label{thm:main-thom}
+\begin{theorem}\label{thm:main-thom}
 Truncated Brown--Peterson spectra $\BP\langle n\rangle$ are not Thom spectra of $2$-fold loop maps for any $n\ge 2$ at the prime $p=2$. 
-\end{thmx}
+\end{theorem}
 
 \subsection{Outline}
 We first recall the necessary results from~\cite{AHL10}, \cite{AR05}, and \cite{ACH24} that we build on in this paper in Section~\ref{recollections}. In Section~\ref{sec:bounding}, we present a Brun spectral sequence for computing $\mathrm{THH}_*(\BP\langle n\rangle ;\BP\langle n-1\rangle)$. In Section~\ref{THH}, we use this spectral sequence to compute topological Hochschild homology of $\BP\langle 2\rangle$ with coefficients in $\BP\langle 1\rangle$ and we resolve  $\BP\langle 1\rangle_*$-module extensions. Finally, we prove that $\mathbb{E}_3$-$\MU$-algebra forms of the $n$-th truncated Brown--Peterson spectra are not Thom spectra at $p=2$ in Section~\ref{notThom}. 
@@ -82,4 +82,4 @@ where we write $\map_{R\otimes R^{\op}}$ for the mapping spectrum in $R\otimes R
 We write $\dot{=}$ for an equality that holds up to multiplying one side by a unit. 
 
 \subsection{Acknowledgements}
-The first author would like to thank Dominic Leon Culver and Eva H\"oning for their contributions during an previous collaboration. The first author would also like to thank Haldun \"Ozg\"ur Bayindir for helpful conversations related to this project. The authors would also like to thank the organizers of the the IWoAT workshop in 2025 in Hangzhou, China where the authors began this collaboration. 
+The first author would like to thank Dominic Leon Culver and Eva H\"oning for their contributions during a previous collaboration. The first author would also like to thank Haldun \"Ozg\"ur Bayindir for helpful conversations related to this project. The authors would also like to thank the organizers of the the IWoAT workshop in 2025 in Hangzhou, China where the authors began this collaboration. 
