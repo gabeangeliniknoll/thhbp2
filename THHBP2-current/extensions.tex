@@ -2,10 +2,10 @@
 \subsection{Computing the extensions}\label{sec:extensions}
 
 Between the $\mathrm{E}^2= \mathrm{E}^\infty$-page of the one step spectral sequence
-\begin{equation}
+\[
   \THH_*(\BP \langle 1 \rangle)\langle \sigma v_2 \rangle \Rightarrow \THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle)
-\end{equation}
-and the target module $\THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle)$, we have to solve extension problems of the following form: an element $\alpha$ of the $\mathrm{E}^\infty$-page, non divisible by $\sigma v_2$ and such that $p \cdot \alpha = 0$, can lift to an element $\bar{\alpha} \in \THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle)$ such that $p \cdot \bar{\alpha} = \beta$ where $\beta$ is a lift of a multiple of $\sigma v_2$. We will solve these extension problems using what we know of $\THH_*(\BP \langle 2 \rangle ; H\Z_{(p)})$. 
+\]
+and the target module $\THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle)$, we have to solve extension problems of the following form: an element $\alpha$ of the $\mathrm{E}^\infty$-page, non divisible by $\sigma v_2$ and such that $p \cdot \alpha = 0$, can lift to an element $\bar{\alpha} \in \THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle)$ such that $p \cdot \bar{\alpha} = \beta$ where $\beta$ is a lift of a multiple of $\sigma v_2$. We will solve these extension problems using what we know of $\THH_*(\BP \langle 2 \rangle ; \Z_{(p)})$. 
 
 \begin{lemma}\label{lem432}
   There can be no $\mathrm{BP}\langle 1\rangle_*$-module extensions between torsion elements.
@@ -13,12 +13,12 @@ and the target module $\THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle)$, w
 
 \begin{proof}
   The torsion elements are in degrees
-  \begin{equation}
+  \[
     \begin{gathered}
       |v_1^k b_i | = 2k(p-1) + 2i p^2 + 2p - 2 \\
       |v_1^h b_j \sigma v_2| = 2h(p-1) + 2(j+1)p^2 + 2p - 3
     \end{gathered}
-  \end{equation}
+  \]
   respectively for the non mutliple and multiple of $\sigma v_2$. Since the former is even and the latter odd, there can be no $\mathrm{BP}\langle 1\rangle_*$-module extensions.
 \end{proof}
 
@@ -26,13 +26,13 @@ and the target module $\THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle)$, w
 \begin{lemma} \label{lem:onlyextensions}
   The only possible $\mathrm{BP}\langle 1\rangle_*$-module extensions %that would change the presentation of the target module
   are of the form
-  \begin{equation}
+  \[
     p \cdot b_1 = \lambda_1 \sigma v_2
-  \end{equation}
+  \]
   and
-  \begin{equation}
+  \[
     p \cdot v_0^k b_{p^k} = v_1^{p^{k+1} - p}v_0^{k-1} a_{p^{k-1}} \sigma v_2
-  \end{equation}
+  \]
   for $k \geq 1$.
 \end{lemma}
 
@@ -43,38 +43,38 @@ and the target module $\THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle)$, w
   \end{equation}
 
   Remember the spectral sequence \eqref{BrunSS} is a long exact sequence of the form:
-  \begin{equation}
+  \[
     \dots \rightarrow \THH_*(\BP \langle 1 \rangle)\{ \sigma v_2\} \rightarrow \THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle) \rightarrow \THH_*(\BP \langle 1 \rangle)\{1\} \rightarrow \dots
-  \end{equation}
+  \]
   Let $\alpha \in \THH_*(\BP \langle 1 \rangle)\{1\}$ be a torsion element in the $E^\infty$ page, such that $p \cdot \alpha = 0$. Write $m$ for the smallest integer such that $v_1^m \alpha = 0$. Let $\beta \sigma v_2 \in \THH_*(\BP \langle 1 \rangle)\{ \sigma v_2\}$ be of the form (\ref{eq:torsionliftform}), that is of a non torsion element of even degree. Write $\bar{\beta} \sigma v_2$ for its image in $\THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle)$. Suppose that $\beta \sigma v_2$ is divisible by $p$, with $p \cdot \beta' \sigma v_2 = \beta \sigma v_2$, and write $\bar{\beta'} \sigma v_2$ for its images, so that $p \cdot \bar{\beta'} \sigma v_2 = \bar{\beta} \sigma v_2$.
 
   If the extension $p \cdot \bar{\alpha} = \bar{\beta} \sigma v_2$ occurs, in $\THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle)$ we must have
-  \begin{equation}
+  \[
     p v_1^m \bar{\alpha} = v_1^m p \bar{\alpha} = v_1^m \beta \sigma v_2 \neq 0
-  \end{equation}
+  \]
   so that $v_1^m \bar{\alpha} \neq 0$. However, the image of $v_1^m \bar{\alpha}$ in $\THH_*(\BP \langle 1 \rangle)\{1\}$ is $v_1^m \alpha = 0$, so that $v_1^m \bar{\alpha}$ must lift to $\THH_*(\BP \langle 1 \rangle)\{ \sigma v_2\}$. Since the non-torsion generators in even degree in $\THH_*(\BP \langle 1 \rangle)\{ \sigma v_2\}$ are unique up to a unit, the only possible lift is $v_1^m \beta' \sigma v_2$, which implies that in $\THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle)$ we have an equality
-  \begin{equation}
+  \[
     v_1^m \bar{\alpha} = v_1^m \bar{\beta'} \sigma v_2.
-  \end{equation}
+  \]
   Let
-  \begin{equation}
+  \[
     \hat{\alpha} = \bar{\alpha} - \bar{\beta'} \sigma v_2
-  \end{equation}
+  \]
   be a new lift for $\alpha$. We have $p \cdot \hat{\alpha} = 0$ and $v_1^m \hat{\alpha} = 0$, so that we have found a lift that has the same properties as $\alpha \in \mathrm{E}^\infty$.
 
   Thus, the only extensions we need to care about are the ones where $\beta \sigma v_2$ is not already divisible by $p$. However, it must still be the case that $v_1^m \bar{\alpha} \neq 0$, so that $v_1^m \beta \sigma v_2$ must be divisible by $p$ in $\THH_*(\BP \langle 1 \rangle)\{\sigma v_2\}$.
 
   Recall the relations in the non-torsion of $\THH_*(\BP \langle 1 \rangle)$
-  \begin{equation}
+  \[
     \begin{gathered}
       p\cdot a_1 = v_1^p \lambda_1 \\
       p\cdot v_0^n a_{p^n} = v_1^{p^{n+1}}v_0^{n-1} a_{p^{n-1}}
     \end{gathered}
-  \end{equation}
+  \]
   whose degrees in $\THH_*(\BP \langle 1 \rangle)\{ \sigma v_2\}$ are $|v_0^n a_{p^n}\sigma v_2| = 2(p^n + 1)p^2 - 2$. The only suitable $\alpha$ in the $\mathrm{E}^\infty$-page with $v_1^m \alpha$ of the right degree are the element of $M$, that is the $v_0^k b_{p^k}$, since in general we have
-  \begin{equation}
-    |v_1^{p^{\nu_p(i) - h + 1 } + \dots + p} v_0^h b_i| = 2(i + p^{\nu_p(i) - h})p^2 - 2.
-  \end{equation}
+  \[
+    |v_1^{p^{\nu_p(i) - h + 1 } + \dots + p} v_0^h b_i| = 2(i + p^{\nu_p(i) - h})p^2 - 2 \,.
+  \]
 \end{proof}
 
 \begin{proposition}
@@ -83,35 +83,36 @@ and the target module $\THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle)$, w
 
 \begin{proof}
   If these extensions do not occur, we have elements $v_0^k b_{p^k}$ in $\THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle)$ such that
-  \begin{equation}
+  \[
     v_1^p v_0^k b_{p^k} = 0
-  \end{equation}
+  \]
   so that there must be a $v_1$-Bockstein in the spectral sequence
-  \begin{equation}
-    \THH_*(\BP \langle 2 \rangle ; H\Z_{(p)})[v_1] \Rightarrow \THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle)
-  \end{equation}
+  \[
+    \THH_*(\BP \langle 2 \rangle ; \Z_{(p)})[v_1] \Rightarrow \THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle)
+  \]
   that is a differential whose source must be in degree
-  \begin{equation}
+  \[
     |v_1^p v_0^k b_{p^k}| + 1 = 2(p^k + 1)p^2 - 1.
-  \end{equation}
-  However, by Theorem~\ref{thm:BP2-coeff} there is no torsion element in $\THH_*(\BP \langle 2 \rangle; H\Z_{(p)})$ in that degree, since they are in degrees
-  \begin{equation}
-    2ip^3 - 1 ,\, 2ip^3 - 1 + 2p - 1,\, 2ip^3 - 1 + 2p^2 - 1 \text{ and } 2ip^3 - 1 + 2p^2 - 1 + 2p - 1.
-  \end{equation}
+  \]
+  However, by Theorem~\ref{thm:BP2-coeff} there is no torsion element in $\THH_*(\BP \langle 2 \rangle; \Z_{(p)})$ in that degree, since they are in degrees
+  \[
+    2ip^3 - 1 ,\, 2ip^3 - 1 + 2p - 1,\, 2ip^3 - 1 + 2p^2 - 1 \text{ and } 2ip^3 - 1 + 2p^2 - 1 + 2p - 1 \,.
+  \]
 \end{proof}
 
 We are now prepared to prove our main theorem.
 
 
-% \begin{theorem}
-% There is a preferred isomorphism
-%   \begin{equation}
-%     \THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle) \cong \mathcal{T} \oplus \Sigma^{2p - 1} \mathcal{T}
-%   \end{equation}
-%   of $\Z_{(p)}[v_1]$-modules where $\mathcal{T}$ is the $\Z_{(p)}[v_1]$-submodule of $\THH_*(\BP \langle 1 \rangle)$ containing the non-torsion generators and the torsion elements that are in the image of the multiplication by $v_1^p$ map.
-% \end{theorem}
+\begin{theorem}\label{thm:main-v2}
+Suppose $\BP\langle 2\rangle$ satisfies Running Assumption~\ref{runningassumption}. 
+The topological Hochschild homology of $\BP\langle 2\rangle$ is a direct sum
+  \[
+    \THH_*(\BP \langle 2 \rangle ; \BP \langle 1 \rangle) \cong \Z_{(p)}[v_1] \langle \sigma v_2 \rangle \oplus \mathcal{F} \oplus \Sigma^{2p - 1} (\mathcal{F}_{\geq 2p^2 - 1}) \oplus \mathcal{T} \oplus \Sigma^{2p - 1} \mathcal{T}
+  \]
+  where $\mathcal{T}$ is the $\Z_{(p)}[v_1]$-submodule of $\THH_*(\BP \langle 1 \rangle)$ containing the torsion elements that are in the image of the multiplication by $v_1^p$ map,  $\mathcal{F}$ denotes the submodule of the torsion free part of $\THH_*(\BP \langle 1 \rangle)$ of elements not of the form $v_1^k \cdot 1$ for some $k \geq 0$, and $\mathcal{F}_{\geq 2p^2 -1}$ is the submodule of $\mathcal{F}$ whose elements are in degree $\geq 2p^2 -1$.
+\end{theorem}
 
-\begin{proof}[Proof of Theorem~\ref{thm:main}]
+\begin{proof}[Proof of Theorem~\ref{thm:main-v2}]
 Let $\mathcal{T}$ denote the $\Z_{(p)}[v_1]$-submodule of $\THH_*(\BP \langle 1 \rangle)$ containing the torsion elements that are in the image of the multiplication by $v_1^p$ map. Then $\mathcal{T}$ corresponds to the kernel of the differential on the torsion as described in Proposition \ref{prop:specseqtorsion}. In the torsion of $\THH_*(\BP \langle 1 \rangle)$, there is an isomorphism of $\Z_{(p)}[v_1]$-modules
   \begin{center}
     \begin{tikzcd}[row sep=tiny]
@@ -119,27 +120,31 @@ Let $\mathcal{T}$ denote the $\Z_{(p)}[v_1]$-submodule of $\THH_*(\BP \langle 1 
       v_1^p b_i \rar[mapsto] & b_i
     \end{tikzcd}
   \end{center}
-  that lowers the degree by $|v_1^p| = 2p^2 - 2p$. But in the spectral sequence, the second copy $\THH_*(\BP \langle 1 \rangle)\{ \sigma v_2\}$ is in degree $|\sigma v_2| = 2p^2 - 1$ higher, so in the end the shift is by $2p -1$. The torsion from the $\sigma v_2$-copy therefore agrees with the torsion in $\Sigma^{2p-1} \mathcal{T}$.
+  that lowers the degree by $|v_1^p| = 2p^2 - 2p$. But in the spectral sequence, the second copy $\THH_*(\BP \langle 1 \rangle)\{ \sigma v_2\}$ is in degree $|\sigma v_2| = 2p^2 - 1$ higher, so in the end the shift is by $2p -1$. The torsion from the $\sigma v_2$-copy therefore agrees with $\Sigma^{2p-1} \mathcal{T}$.
 
+  The $v_1$-towers above $1$ and $\sigma v_2$ are not touched by extensions, so that we get the $\Z_{(p)}[v_1]\langle \sigma v_2 \rangle$ summand. The description of $\mathcal{F}$ in the statement is equivalent to have
+  \[
+    \text{torsion free part of } \THH_*(\BP \langle 1 \rangle) \cong \Z_{(p)}[v_1] \{1\} \oplus \mathcal{F}
+  \]
+  so the $\mathcal{F}$ in the result comes directly from the torsion free part of the corresponding $\THH_*(\BP \langle 1 \rangle)\{1\}$ copy in the spectral sequence.
 
-  We still have to account for the elements of the submodule $M$ of Proposition \ref{prop:specseqtorsion}. They form extensions with non torsion elements of $\THH_*(\BP \langle 1 \rangle)\{ \sigma v_2\}$. The remaining classes coming from $\THH_*(\BP \langle 1 \rangle)\{ \sigma v_2\}$ and the classes in $M$ form a $\ell_*$-module isomorphic to $\Sigma^{2p^2-1}\mathcal{F}$ where $\mathcal{F}$ is the torsion free summand of $\THH_*(\ell)$ from Theorem~\ref{thm:AHL}. 
+  We still have to account for the elements of the submodule $M$ of Proposition \ref{prop:specseqtorsion}. They form extensions with non torsion elements of $\THH_*(\BP \langle 1 \rangle)\{ \sigma v_2\}$, which are all permanent cycles and not boundaries. The remaining torsion free classes coming from $\THH_*(\BP \langle 1 \rangle)\{ \sigma v_2\}$ and the classes in $M$ form a $\Z_{(p)}[v_1]$-module isomorphic to $\Sigma^{2p-1}(\mathcal{F}_{\geq 2p^2 - 1})$ with the isomorphism given by the map
+  \[
+    v_0^n a_{p^n} \mapsto v_0^n b_{p^n},\, n \geq 0
+  \]
+  where the $v_0^n a_{p^n}$ are the $\Z_{(p)}[v_1]$ generators of $\mathcal{F}_{\geq 2p^2 - 1}$.
 \end{proof}
 
 
 \begin{remark}
-  We can derive an explicit description of $\mathcal{T}$ from $\THH_*(\BP \langle 1 \rangle)$. We write $c_i$ for the lift of the class $v_1^p b_i$ of the spectral sequence.
+  We can derive an explicit description of $\mathcal{T}$  and $\mathcal{F}$ from $\THH_*(\BP \langle 1 \rangle)$. We write $c_i$ for the lift of the class $v_1^p b_i$ of the spectral sequence.
 
   $\mathcal{T}$ is a quotient of the $\Z_{(p)}[v_1]$-module
-  \begin{multline}
-    \Z_{(p)}[v_1]\{1,\, \lambda_1,\, v_0^n a_{p^n},\,n\geq 0\} 
-    \oplus \Z_{(p)}[v_1]\{v_0^h c_{\alpha p^n},\, n\geq 1,\, \alpha\geq 1,\, p\nmid \alpha,\, h \geq 0\}
-  \end{multline}
-  by the relations in the non-torsion part:
-  \begin{itemize}
-  \item $p\cdot a_1 = v_1^p \lambda_1$,
-  \item $p\cdot v_0^n a_{p^n} = v_1^{p^{n+1}}v_0^{n-1} a_{p^{n-1}}$ for any $n\geq 1$,
-  \end{itemize}
-  and the relations in the torsion part:
+  \[
+    \Z_{(p)}[v_1]\{v_0^h c_{\alpha p^n
+    },\, n\geq 1,\, \alpha\geq 1,\, p\nmid \alpha,\, h \geq 0\}
+  \]
+  by the relations:
   \begin{itemize}
   \item $v_0^{h} c_{\alpha p^n} = 0$ for any $\alpha \geq 1$ and $n \geq 1$, $\alpha$ not divisible by $p$, and $h \geq n$,
   \item $v_1^{p^{n-h+1}+p^{n-h}+\dots+p^2 }\cdot v_0^h c_{\alpha p^n} = 0$ for any $\alpha \geq 1$ and $n \geq 1$, $\alpha$ not divisible by $p$ and  $0 \leq h \leq n - 1$,
@@ -147,47 +152,64 @@ Let $\mathcal{T}$ denote the $\Z_{(p)}[v_1]$-submodule of $\THH_*(\BP \langle 1 
   \item $p\cdot v_0^h c_{\alpha p^n} = v_0^{h+1} c_{\alpha p^n}$ for any $\alpha \geq 1$, $n \geq 1$, $\alpha$ not divisible by $p$, and any $1 \leq h \leq n$, or $h=0$ not in the previous case.
   \end{itemize}
 
+  $\mathcal{F}$ is a quotient of the $\Z_{(p)}[v_1]$-module
+  \[
+    \Z_{(p)}[v_1]\{\lambda_1,\, v_0^n a_{p^n},\,n\geq 0\} 
+  \]
+    by the relations:
+  \begin{itemize}
+  \item $p\cdot a_1 = v_1^p \lambda_1$,
+  \item $p\cdot v_0^n a_{p^n} = v_1^{p^{n+1}}v_0^{n-1} a_{p^{n-1}}$ for any $n\geq 1$,
+  \end{itemize}
+  $\mathcal{F}_{\geq 2p^2 -1}$ is obtained from $\mathcal{F}$ by removing the generator $\lambda_1$.
+
   $\nu_p$ is the $p$-adic valuation, and the degrees are
-  \begin{equation}
+  \[
     \begin{gathered}
-      |a_i| = 2ip^2 - 1, \\
-      |c_i| = 2ip^2 - 1 + 2p^2 - 1.
+      |a_i| = 2ip^2 - 1 \,, \\
+      |c_i| = 2ip^2 - 1 + 2p^2 - 1 \,.
     \end{gathered}
-  \end{equation}
+  \]
 \end{remark}
 
 
 \begin{remark}
   We can describe
-  \begin{equation}
-    \THH_*(\BP \langle 1 \rangle; \BP \langle 0 \rangle) \cong \THH_*(\ell; H \Z_{(p)}) \cong \mathcal{T}_1 \oplus \Sigma^{2p - 1} \mathcal{T}_1
-  \end{equation}
-  where $\mathcal{T}_1$ consists of the non torsion elements of $\THH_*(\BP \langle 0 \rangle) \cong \THH_*(H\Z_{(p)})$ and the torsion elements of $\THH_*(\BP \langle 0 \rangle)$ divisible by $p = v_0^1$.
+  \[
+    \THH_*(\BP \langle 1 \rangle; \BP \langle 0 \rangle) \cong \THH_*(\ell; \Z_{(p)}) \cong \Z_{(p)}\langle \sigma v_1 \rangle \oplus \mathcal{T}_1 \oplus \Sigma^{2p - 1} \mathcal{T}_1
+  \]
+  where $\mathcal{T}_1$ consists of the torsion elements of $\THH_*(\BP \langle 0 \rangle)$ divisible by $p = v_0^1$.
 
   We have just described (we add an index here to disambiguate)
-  \begin{equation}
-    \THH_*(\BP \langle 2 \rangle; \BP \langle 1 \rangle)\cong \mathcal{T}_2 \oplus \Sigma^{2p - 1} \mathcal{T}_2
-  \end{equation}
-  where $\mathcal{T}_2$ consists of the non torsion elements of $\THH_*(\BP \langle 1 \rangle)$ and the torsion elements of $\THH_*(\BP \langle 1 \rangle)$ divisible by $v_1^p$.
+  \[
+    \text{torsion of } \THH_*(\BP \langle 2 \rangle; \BP \langle 1 \rangle)\cong  \mathcal{T}_2 \oplus \Sigma^{2p - 1} \mathcal{T}_2
+  \]
+  where $\mathcal{T}_2$ consists the torsion elements of $\THH_*(\BP \langle 1 \rangle)$ divisible by $v_1^p$.
 
   Going down on more height, we can describe
-  \begin{equation}
+  \[
     \THH_*(\BP \langle 0 \rangle; \BP \langle -1 \rangle) \cong \THH_*(H \Z_{(p)}; H\F_p) \cong \mathcal{T}_0 \oplus \Sigma^{2p - 1} \mathcal{T}_0
-  \end{equation}
-  where $\mathcal{T}_0$ is the image of the $p$-th power map.
+  \]
+  where $\mathcal{T}_0$ is the image of the $p$-th power map. Here there is no torsion free part. 
+  
   We speculate that for all $n \geq 1$, we have
-  \begin{equation}
-    \THH_*(\BP \langle n \rangle; \BP \langle n-1 \rangle) \cong \mathcal{T}_n \oplus \Sigma^{2p - 1} \mathcal{T}_n
-  \end{equation}
-  where $\mathcal{T}_n$ is the non torsion of $\THH_*(\BP \langle n -1 \rangle)$ and the torsion elements of $\THH_*(\BP \langle n-1 \rangle)$ divisible by $v_{n-1}^{p^{n-1}}$.
+  \[
+    \text{torsion of } \THH_*(\BP \langle n \rangle; \BP \langle n-1 \rangle) \cong  \mathcal{T}_n \oplus \Sigma^{2p - 1} \mathcal{T}_n
+  \]
+  where $\mathcal{T}_n$ is the torsion elements of $\THH_*(\BP \langle n-1 \rangle)$ divisible by $v_{n-1}^{p^{n-1}}$.
 
-  Moreover, the isomorphism between $\mathcal{T}_1$ and $\Sigma^{2p-1} \mathcal{T}_1$ is obtained by some operation  denoted $v_0^{-1} \sigma v_1$, the isomorphism between $\mathcal{T}_2$ and $\Sigma^{2p-1} \mathcal{T}_2$ is obtained by some operation denoted $v_1^{-p} \sigma v_2$, so that the isomorphism between $\mathcal{T}_n$ and $\Sigma^{2p-1} \mathcal{T}_n$ could be obtained by some operation that write $v_{n-1}^{-p^{n-1}} \sigma v_n$ in the Brun spectral sequence of Proposition~\ref{prop:brunss}.
+  % This is also consistent with~\cite[Theorem~3.5]{AR20}, which we believe can be adapted to $\mathrm{BP}\langle n\rangle[v_{n+1}^{-1}]$ for an arbitrary $\mathbb{E}_3$-$\mathrm{MU}$-algebra form along the lines of~\cite[\S~5.1]{ACH24}.
+
+  % \maxime{i need to check that last claim above}
+  %%%%% It isn't clear for me what kind of conjecture can be formulated for the torsion free part, so that I don't know how it would compare to the E(2) result
+  
+  Moreover, the isomorphism between $\mathcal{T}_1$ and $\Sigma^{2p-1} \mathcal{T}_1$ is obtained by some operation  denoted $v_0^{-1} \sigma v_1$, the isomorphism between $\mathcal{T}_2$ and $\Sigma^{2p-1} \mathcal{T}_2$ is obtained by some operation denoted $v_1^{-p} \sigma v_2$, so that the isomorphism between $\mathcal{T}_n$ and $\Sigma^{2p-1} \mathcal{T}_n$ could be obtained by the operation $v_{n-1}^{-p^{n-1}} \sigma v_n$ in the Brun spectral sequence of Proposition~\ref{prop:brunss}.
 \end{remark}
 
 
-\section{Truncated Brown--Peterson spectra are not Thom spectra}
+\section{Truncated Brown--Peterson spectra are not Thom spectra}\label{notThom}
 
-In this section, we implicitly $2$-localize so that $\ku=\ell=\BP\langle 1\rangle$ and $\BP\langle n\rangle$ denotes an $\mathbb{E}_3$-$\MU$-algebra form of the $n$-th truncated Brown--Peterson spectrum at the prime $p=2$. 
+In this section, we implicitly $2$-localize and write $\ku=\ell=\BP\langle 1\rangle$ and $\BP\langle n\rangle$ denotes an $\mathbb{E}_3$-$\MU$-algebra form of the $n$-th truncated Brown--Peterson spectrum at the prime $p=2$. 
 The goal of this section is to prove Theorem~\ref{thm:main-thom}. 
 
 First we need some notation. Given an $\mathbb{E}_2$-ring $A$ and an $\mathbb{E}_1$-$R$-algebra $B$ , we write 
@@ -195,7 +217,7 @@ First we need some notation. Given an $\mathbb{E}_2$-ring $A$ and an $\mathbb{E}
 $B\to \mathrm{THH}(A;B)$ in $B$-modules. The only input for our proof is the following computational result. 
 
 \begin{proposition}\label{prop-computational-input}
-We compute that $\pi_*\overline{\mathrm{THH}}(\BP\langle n\rangle;\ku)$  is generated as a $ku_*$-module in degrees $\le 8$ by $\lambda_1$, $a_1$ and $\sigma v_2$ in degrees $3$, $7$, $7$ respectively and there is a relation $pa_1=\lambda_1$
+We compute that $\pi_*\overline{\mathrm{THH}}(\BP\langle n\rangle;\ku)$  is generated as a $ku_*$-module in degrees $\le 8$ by $\lambda_1$, $a_1$ and $\sigma v_2$ in degrees $3$, $7$, $7$ respectively and there is a relation $pa_1= v_1^2 \lambda_1$
 \end{proposition}
 
 \begin{proof}
@@ -208,7 +230,7 @@ where $F$ is the fiber of the map
 of $\ku\otimes \ku^{\textup{op}}$-modules. 
 The map $\pi_*\ku\to \pi_*\THH(\ku)$ is an isomorphism in degrees $*\le 2$ by Theorem~\ref{thm:AHL}. Since we also know that  
 \[ 
-\pi_k F = \begin{cases} 0 & \text{ if } k<7,8\\
+\pi_k F = \begin{cases} 0 & \text{ if } k<7\text{ or } k = 8,\\
            \mathbb{Z}_{(p)} &\text{ if } k=7  
 \end{cases}
 \]
@@ -217,28 +239,32 @@ we can conclude that the inclusion of $0$-simplices $F\to \THH(\ku;F)$ is an iso
 
 \begin{proof}[Proof of Theorem~\ref{thm:main-thom}] 
 Suppose $\BP\langle n\rangle$ is the Thom spectrum of a $2$-fold loop map at the prime $2$. Then 
-\[ \THH(\BP\langle n\rangle;\ell)\simeq \ell \otimes X_{+}\simeq \ell\otimes_{\mathrm{ko}}(\mathrm{ko} \otimes X_+)
+\[ \THH(\BP\langle n\rangle;\mathrm{ku})\simeq \mathrm{ku} \otimes X_{+}\simeq \mathrm{ku} \otimes_{\mathrm{ko}}(\mathrm{ko} \otimes X_+)
 \]
-by~\cite[Theorem~2]{BCS10} together with the fact that $\eta$ has trivial image under the Hurewicz map $\mathbb{S}\to \BP\langle n\rangle$, see the proof of~\cite[Theorem~2]{Bea17}. We argue that no such $Y=\mathrm{ko}\otimes X_{+}$ exists by the same argument as~\cite{AHL09}. This relies on Proposition~\ref{prop-computational-input}. We include the details for completeness since the argument needs to be adapted slightly. 
+by~\cite[Theorem~2]{BCS10} together with the fact that $\eta$ has trivial image under the Hurewicz map $\mathbb{S}\to \BP\langle n\rangle$, see the proof of~\cite[Theorem~2]{Bea17}. We argue that no such $Y=\mathrm{ko}\otimes X_{+}$ exists by the same argument as~\cite{AHL09}. This relies on Proposition~\ref{prop-computational-input}. We include the details for completeness since the argument from~\cite{AHL09} needs to be adapted slightly. 
 
 Suppose a cellular $ko$-module $Y$ existed. If it did, it would have cells beginning in degrees $3$, $7$, $7$ and $8$ by Proposition~\ref{prop-computational-input}. Since $\pi_3\mathrm{ku}=0$, we know the first attaching map of $X$ is zero and therefore the first attaching maps of $Y$ is also trivial. We therefore know that $Y$ begins with 
 \[ \Sigma^{3}\mathrm{ko}\vee \Sigma^{7}\mathrm{ko}\vee \Sigma^{7}\mathrm{ko}\to (\Sigma^{3}\mathrm{ko}\vee \Sigma^{7}\mathrm{ko}\vee \Sigma^{7}\mathrm{ko})\cup_{\phi} C\Sigma^{7}\mathrm{ko})\to Y
 \]
 The attaching map $\phi$ is an element in 
-\begin{equation}\label{pi7ko}\pi_{7} (\Sigma^{3}\mathrm{ko}\vee \Sigma^{7}\mathrm{ko}\vee \Sigma^{7}\mathrm{ko})=\mathbb{Z}\oplus \mathbb{Z}\oplus \mathbb{Z} \,.
+\begin{equation}\label{pi7ko}\pi_{7} (\Sigma^{3}\mathrm{ko}\vee \Sigma^{7}\mathrm{ko}\vee \Sigma^{7}\mathrm{ko})=\mathbb{Z}\{v_1^2\}\oplus \mathbb{Z}\{1\}\oplus \mathbb{Z}\{1\} \,.
 \end{equation}
 By the relation $v_1^2\lambda_1=a_1$, the goal would be to consider the class 
 \[
-(v_1^2,1,0) \in \pi_{7} (\Sigma^{3}\mathrm{ko}\vee \Sigma^{7}\mathrm{ko}\vee \Sigma^{7}\mathrm{ko})=\mathbb{Z}\oplus \mathbb{Z}\oplus \mathbb{Z} 
+(v_1^2,1,0) \in \pi_{7} (\Sigma^{3}\mathrm{ko}\vee \Sigma^{7}\mathrm{ko}\vee \Sigma^{7}\mathrm{ko})=\mathbb{Z}\{v_1^2\}\oplus \mathbb{Z}\{1\}\oplus \mathbb{Z}\{1\} 
 \]
 and lift it to \eqref{pi7ko}. However the map 
 \[
 \pi_7(\Sigma^{3}\mathrm{ko}\vee \Sigma^{7}\mathrm{ko}\vee \Sigma^{7}\mathrm{ko})  \to 
 \pi_7(\Sigma^{3}\mathrm{ku}\vee \Sigma^{7}\mathrm{ku}\vee \Sigma^{7}\mathrm{ku}) 
 \]
-is induced by the complexification map $\mathrm{ko}\to \mathrm{ku}$, so it sends $(1,1,1)\mapsto (2,1,1)$ and therefore $(1,1,0)$ is not in the image, leading to a contradiction. 
+is induced by the complexification map $\mathrm{ko}\to \mathrm{ku}$, so it is multiplication by 2 on the $\Sigma^3$ summand and identity on the $\Sigma^7$ summands, and therefore $(v_1^2,1,0)$ is not in the image, leading to a contradiction. 
 \end{proof}
 
 \begin{remark}
-We have proven that $\BP\langle n\rangle$ is not a Thom spectrum of a $2$-fold loop map over the sphere spectrum, however it may still be a Thom spectrum in the category of modules over a different spectrum in the sense of~\cite{ABGHR14}. For example, it has been conjectured that it is the Thom spectrum over certain Ravenel spectra~\cite[Conjecture~1.1.3]{Dev24} and it has been proven that it is the Thom spectrum in the category of modules over a polynomial algebra over complex cobordism in~\cite{Qui25}. 
+As in the case of~\cite{AHL09}, our argument for proving Theorem~\ref{thm:main-thom} requires that we work at the prime $p=2$. 
+\end{remark}
+
+\begin{remark}
+We have proven that $\BP\langle n\rangle$ at $p=2$ is not a Thom spectrum of a $2$-fold loop map over the sphere spectrum, however it may still be a Thom spectrum in the category of modules over a different spectrum in the sense of~\cite{ABGHR14}. For example, it has been conjectured that it is the Thom spectrum over certain Ravenel spectra~\cite[Conjecture~1.1.3]{Dev24} and it has been proven that it is the Thom spectrum in the category of modules over a polynomial algebra over complex cobordism in~\cite{Qui25}. 
 \end{remark}

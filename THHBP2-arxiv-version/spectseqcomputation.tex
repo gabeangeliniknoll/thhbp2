@@ -1,23 +1,30 @@
-\section{Hochschild homology  \texorpdfstring{$\BP\langle 2\rangle$}{BP2} with \texorpdfstring{$\BP\langle 1\rangle$}{BP1} coefficients}
+\section{Hochschild homology  \texorpdfstring{$\BP\langle 2\rangle$}{BP2} with \texorpdfstring{$\BP\langle 1\rangle$}{BP1} coefficients}\label{THH}
 This section is devoted to our computation of topological Hochschild homology of $\BP\langle 2\rangle$ with coefficients in $\BP\langle 1\rangle$. In Section~\ref{sec:SS}, we compute the spectral sequence \eqref{BrunSS} in the case $n=2$. In Section~\ref{sec:extensions}, we resolve extensions in this spectral sequence. 
+
+Since our proof builds on Theorem~\ref{thm:BP2-coeff}, we include the following running assumption throughout the rest of the paper. 
+\begin{runningassumption}\label{runningassumption}
+For the remainder of this paper, we assume $p=2$ or the error term of ~\cite[Equation (3-7)]{ACH24} vanishes.
+\end{runningassumption}
+\begin{remark}
+We expect that Running Assumption~\ref{runningassumption} is not strictly necessary and our results hold in full generality. Note that  Running Assumption~\ref{runningassumption} holds for $\mathbb{E}_\infty$-rings so it holds at $p=3$ when $\BP\langle 2\rangle=\tmf^{D}$ from~\cite{HL10}. 
+\end{remark}
 
 \subsection{Computating the spectral sequence}\label{sec:SS}
 
-We first use the known computation of $\THH_*(\BP\langle 2\rangle;H\mathbb{Z}_{(p)})$ to deduce differentials that will be useful for bootstrapping to the case of $\THH_*(\BP\langle 2\rangle;\BP\langle 1\rangle)$.
+We first use the known computation of $\THH_*(\BP\langle 2\rangle;H\mathbb{Z}_{(p)})$ to deduce differentials that will be useful for bootstrapping to the case of $\THH_*(\BP\langle 2\rangle;\BP\langle 1\rangle)$. 
 
 \begin{proposition}
   There is a spectral sequence
-  \begin{equation}
-    \THH_*(\BP\langle 1\rangle; H \Z_{(p)}) \langle \sigma v_2 \rangle \Rightarrow \THH_*(\BP \langle 2 \rangle; H \Z_{(p)}).
-  \end{equation}
-
-  The differentials in this spectral sequence are given for any $i \geq 1$ by
-  \begin{equation}
+  \[
+    \THH_*(\BP\langle 1\rangle; \Z_{(p)}) \langle \sigma v_2 \rangle \Rightarrow \THH_*(\BP \langle 2 \rangle;\Z_{(p)}) \,.
+  \]
+The differentials in this spectral sequence are given for any $i \geq 1$ by
+  \[
     \begin{gathered}
-      d_1(a_i) \dot{=} p^{\nu_p(i-1)} a_{i-1} \sigma v_2, \\
-      d_1(b_i) \dot{=} p^{\nu_p(i-1)} b_{i-1} \sigma v_2.
+      d_1(a_i) \dot{=} p^{\nu_p(i-1)} a_{i-1} \sigma v_2 \,, \\
+      d_1(b_i) \dot{=} p^{\nu_p(i-1)} b_{i-1} \sigma v_2 \,.
     \end{gathered}
-  \end{equation}
+  \]
 \end{proposition}
 
 \begin{proof}
@@ -26,13 +33,13 @@ We first use the known computation of $\THH_*(\BP\langle 2\rangle;H\mathbb{Z}_{(
     \Sigma^{2p^2-1}\THH(\BP\langle 1\rangle)\to \THH(\BP\langle 2\rangle ;\BP\langle 1\rangle)\to \THH(\BP\langle 1\rangle)
   \]
   is of $\BP\langle 1\rangle \otimes_{\BP \langle 2 \rangle} \BP\langle 1\rangle^\op$-modules, so is compatible with the left $v_1$-multiplication map. This produce a fiber sequence
-  \begin{equation}
-    \Sigma^{2p^2-1}\THH(\BP\langle 1\rangle; H\Z_{(p)})\to \THH(\BP\langle 2\rangle ; H\Z_{(p)})\to \THH(\BP\langle 1\rangle; H\Z_{(p)})
-  \end{equation}
+  \[
+    \Sigma^{2p^2-1}\THH(\BP\langle 1\rangle; \Z_{(p)})\to \THH(\BP\langle 2\rangle ; \Z_{(p)})\to \THH(\BP\langle 1\rangle; \Z_{(p)})
+  \]
   and a spectral sequence
-  \begin{equation}
-    \THH_*(\BP\langle 1\rangle; H \Z_{(p)}) \langle \sigma v_2 \rangle \Rightarrow \THH_*(\BP \langle 2 \rangle; H \Z_{(p)}).
-  \end{equation}
+  \[
+    \THH_*(\BP\langle 1\rangle; \Z_{(p)}) \langle \sigma v_2 \rangle \Rightarrow \THH_*(\BP \langle 2 \rangle; \Z_{(p)}) \,.
+  \]
 
   By \cite{ACH24}*{Theorem~3.18}, we know that 
   \[
@@ -40,7 +47,7 @@ We first use the known computation of $\THH_*(\BP\langle 2\rangle;H\mathbb{Z}_{(
   \]
   and 
   \[
-    \THH_*(\BP\langle 2\rangle,\mathbb{Z}_{(p)})=\mathbb{Z}_{(p)}\langle \lambda_1,\lambda_2\rangle \otimes (\mathbb{Z}_{(p)}\oplus T_0^2)
+    \THH_*(\BP\langle 2\rangle,\mathbb{Z}_{(p)})=\mathbb{Z}_{(p)}\langle \lambda_1,\lambda_2\rangle \otimes (\mathbb{Z}_{(p)}\oplus T_0^2)\,.
   \]
   So we know that there is long exact sequence 
   \[ 
@@ -57,8 +64,8 @@ We first use the known computation of $\THH_*(\BP\langle 2\rangle;H\mathbb{Z}_{(
   \]
   where 
   \[ 
-    \lambda_{s}=\begin{cases} \lambda_s & \text{ if } 1\le s\le n+1 \\ 
-      \lambda_{s-1}(\mu^{p^{n+1}})^{p^{s-(n+2)}(p-1)}
+    \lambda_{s}=\begin{cases} \lambda_s & \text{ if } 1\le s\le n+1  \\ 
+      \lambda_{s-1}(\mu^{p^{n+1}})^{p^{s-(n+2)}(p-1)} & \text{ if } s>n+1 \,.
     \end{cases}
   \]
   
@@ -71,35 +78,35 @@ We first use the known computation of $\THH_*(\BP\langle 2\rangle;H\mathbb{Z}_{(
 
 \begin{proof}
   Since $\THH_{|b_i|}(\BP\langle 1\rangle)$ for some $i\ge 1$ is generated as $\Z_{(p)}$-module by the element $v_1^k v_0^h b_j$ for some $h,\, k \geq 0$ and $j \geq 1$, it is sufficient to consider the case where $\alpha = v_1^k v_0^h b_j$. We consider the degrees:
-  \begin{equation}
+  \[
     \begin{gathered}
       |\alpha| = |b_i| \\
       \iff 2j p^2 - 1 + 2p - 1 + 2k(p-1) = 2i p^2 - 1 + 2p - 1 \\
       \iff (i - j)p^2 = k(p -1)
     \end{gathered}
-  \end{equation}
+  \]
   so that $p^2$ divides $k$; write $k = p^2 k'$. However, the order for multiplication by $v_1$ of $v_0^h b_j$ is given by the relation
-  \begin{equation}
+  \[
     v_1^{p^{\nu_p(j) - h + 1}+ \dots + p} v_0^h b_j = 0
-  \end{equation}
+  \]
   by Theorem~\ref{thm:AHL} so that since $\alpha \neq 0$,
-  \begin{equation}
+  \[
     k = p^2 k' \leq p^{\nu_p(j) - h + 1}+ \dots + p
-  \end{equation}
+  \]
   and thus
-  \begin{equation}
+  \[
     k + p - 1 \leq p^{\nu_p(j) - h + 1}+ \dots + p
-  \end{equation}
+  \]
   which means that $v_1^{p - 1} \alpha \neq 0$.
 
   If moreover $v_1^{p+1} \alpha = 0$, we have 
-  \begin{equation}
+  \[
     |v_1^{p+1} \alpha| = |v_1^{p+1}| + |b_i| = |b_{i+1}| - 2
-  \end{equation}
-  but the $v_1$-Bocksteins are supported by the classes $a_j$ of $\THH_*(\BP\langle 1\rangle; H\Z_{(p)})$ by \cite[Theorem~6.4]{AHL10}, whose degrees are of the form
-  \begin{equation}
-    |a_j| = |b_j| - 2p + 1.
-  \end{equation}
+  \]
+  but the $v_1$-Bocksteins are supported by the classes $a_j$ of $\THH_*(\BP\langle 1\rangle; \Z_{(p)})$ by \cite[Theorem~6.4]{AHL10}, whose degrees are of the form
+  \[
+    |a_j| = |b_j| - 2p + 1
+  \]
   and thus it must be the case that $v_1^p \alpha = 0$.
   
   Finally, this means that the $v_1$-Bocksteins that kill $v_1^p \alpha$ and $v_1^p v_0^{\nu_p(i)} b_i$ are supported by some multiple of $p$ of the same class $a_{i + 1}$, so that $v_0^{\nu_p(i)} b_i$ is at the bottom of a tower of extensions that includes $\alpha$, and we conclude that  $\alpha \in \Z_{(p)}\{ v_0^{\nu_p(i)} b_i \}$. The last statement follows from the relations in Theorem~\ref{thm:AHL}. 
@@ -107,24 +114,24 @@ We first use the known computation of $\THH_*(\BP\langle 2\rangle;H\mathbb{Z}_{(
 
 \begin{lemma} \label{lem:thhell2}
   In $\THH_*(\BP\langle 1\rangle)$, if
-  \begin{equation}
+  \[
     |v_0^hb_j| \leq | b_i| < | v_1^{p^{\nu_p(j) - h + 1} + \dots + p} v_0^hb_j |
-  \end{equation}
+  \]
   for some $ 0 \leq j \leq i$ and $0 \leq h \leq \nu_p(j)$ then
-  \begin{equation}
-    | v_1^{p^{\nu_p(i) + 1} + \dots + p} b_i | \leq | v_1^{p^{\nu_p(j) - h + 1} + \dots + p} v_0^hb_j |.
-  \end{equation}
+  \[
+    | v_1^{p^{\nu_p(i) + 1} + \dots + p} b_i | \leq | v_1^{p^{\nu_p(j) - h + 1} + \dots + p} v_0^hb_j | \,.
+  \]
 \end{lemma}
 
 \begin{proof}
   We have
-  \begin{equation}
+  \[
     \begin{aligned}
       | v_1^{p^{\nu_p(j) - h + 1} + \dots + p} v_0^hb_j |
       & = |b_j| + 2(p^{\nu_p(j) - h + 2} - p) \\
       & = |b_{j + p^{\nu_p(j) - h}} | - 2p
     \end{aligned}
-  \end{equation}
+  \]
   so that the hypothesis implies $j \leq i < j + p^{\nu_p(j) - h}$, and thus $\nu_p(i) < \nu_p(j) - h$. Considering the base-$p$ expansion of $i$ and $j$, we see that $ i + p^{\nu_p(i)} \leq j + p^{\nu_p(j) - h}$ which implies the result.
 \end{proof}
 
@@ -134,16 +141,16 @@ The differentials in the spectral sequence
 \THH_*(\BP\langle 1\rangle)\langle \sigma v_2\rangle \implies \THH_*(\BP\langle 2\rangle,\BP\langle 1\rangle)
 \]
 are given by 
-\begin{equation}
+\[
   d_1(b_i)\dot{=} v_0^{\nu_p(i-1)}b_{i-1} \sigma v_2
-\end{equation}
+\]
 for each $i \geq 2$ and they are $v_1$-linear.
 \end{proposition}
 
 \begin{proof}
   First, we consider the rationalization of the fiber sequence 
   \[ 
-    \Sigma^{2p^2-1}\THH(\BP\langle 1\rangle)\to \THH(\BP\langle 2\rangle ;\BP\langle 1\rangle)\to \THH(\BP\langle 1\rangle)
+    \Sigma^{2p^2-1}\THH(\BP\langle 1\rangle)\to \THH(\BP\langle 2\rangle ;\BP\langle 1\rangle)\to \THH(\BP\langle 1\rangle) \,.
   \]
   This produces a spectral sequence 
   \[ 
@@ -160,18 +167,18 @@ for each $i \geq 2$ and they are $v_1$-linear.
 
   The map of spectral sequences induced by $\BP\langle 1\rangle\to H\mathbb{Z}_{(p)}$
 allows us to determine the differentials modulo $v_1$, so that
-  \begin{equation}
+  \[
     d_1(b_i) \dot{=} (v_0^{\nu_p(i-1)}b_{i-1} + \alpha ) \sigma v_2
-  \end{equation}
+  \]
   where $\alpha$ is a multiple of $v_1$. To prove our claim, it is sufficient to prove that $\alpha \in p \Z_{(p)}\{ v_0^{\nu_p(i-1)}b_{i-1} \}$, so that $v_0^{\nu_p(i-1)}b_{i-1} + \alpha \dot{=} v_0^{\nu_p(i-1)}b_{i-1}$ and thus the claimed formula  is true up to a different unit.
 
   Since
-  \begin{equation}
+  \[
     v_1^{p^{\nu_p(i)} + \dots + p } b_i = 0
-  \end{equation}
+  \]
   it must also be the case that
   \begin{equation} \label{eq:orderalpha}
-    v_1^{p^{\nu_p(i)} + \dots + p } \alpha = 0.
+    v_1^{p^{\nu_p(i)} + \dots + p } \alpha = 0 \,.
   \end{equation}
   Let us write $k$ for the smallest integer such that $v_1^k \alpha = 0$. There are two possibilities:
   \begin{itemize}
@@ -200,37 +207,37 @@ We would now like to give a nice description of the kernel and cokernel of the $
 We are now prepared to give our nicer description of the kernel and cokerel of the $d_1$-differential. 
 \begin{proposition} \label{prop:specseqtorsion}
   In the spectral sequence
-  \begin{equation}
+  \[
     \THH_*(\BP\langle 1\rangle) \langle \sigma v_2 \rangle \Rightarrow \THH_*(\BP \langle 2 \rangle; \BP\langle 1\rangle)
-  \end{equation}
+  \]
   restricted to the torsion elements, the differential $d_1$ satisfies
-  \begin{equation}
+  \[
     \operatorname{coker} d_1 = \operatorname{coim}(\times v_1^p) \subset \THH_*(\BP\langle 1\rangle)\{ \sigma v_2 \}
-  \end{equation}
+  \]
   and
-  \begin{equation}
+  \[
     \ker d_1 =  \im (\times v_1^p) \oplus M \subset \THH_*(\BP\langle 1\rangle)\{ 1 \}
-  \end{equation}
+  \]
   where $\times v_1^p$ is the multiplication by $v_1^p$ map in the proper copy of $\THH_*(\BP\langle 1\rangle)$ and $M$ is the $\BP\langle 1\rangle_*$-submodule of $\THH_*(\BP\langle 1\rangle)$ generated by the $v_0^{k}b_{p^k}$ for all $k \geq 1$.
 \end{proposition}
 
 \begin{proof}
   The formula for the differentials of Proposition~\ref{theorem:differentialellcoeff} implies that $\im d_1 \subset \ker (\times v_1^p)$, since for any $i \geq 2$, $d_1(b_i) \in \Z_{(p)}\{ v_0^{\nu_p(i-1)} b_{i-1} \sigma v_2 \} \subset \ker (\times v_1^p)$. But Lemma~\ref{lem:thhell3} implies that
-  \begin{equation}
+  \[
     d_1(\BP\langle 1\rangle_*\{ b_i \} ) = \BP\langle 1\rangle_* \{ v_0^{\nu_p(i-1)} b_{i-1} \sigma v_2 \}
-  \end{equation}
+  \]
   and the description of $\THH_*(\BP\langle 1\rangle)$ implies that
-  \begin{equation}
+  \[
     \ker (\times v_1^p) = \bigoplus_{i \geq 2} \BP\langle 1\rangle_* \{ v_0^{\nu_p(i-1)} b_{i-1} \}
-  \end{equation}
+  \]
   so that
-  \begin{equation}
+  \[
     \im d_1 = \ker (\times v_1^p).
-  \end{equation}
+  \]
 
   On the other hand, the description of $\THH_*(\BP\langle 1\rangle)$ also implies that a class $\alpha \notin \im (\times v_1^p)$ is a sum of element of the form $v_1^k v_0^h b_i$ with $0 \leq k < p$. 
   But Lemma~\ref{lem:thhell3} implies that these elements, except for those in $M$, are exactly the sources of the non-zero differentials, so that
-  \begin{equation}
+  \[
     \ker d_1 = \im (\times v_1^p) \oplus M.
-  \end{equation}
+  \]
 \end{proof}
